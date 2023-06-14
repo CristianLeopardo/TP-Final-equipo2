@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="loguin.aspx.cs" Inherits="TP_Final_equipo2.loguin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="TP_Final_equipo2.loguin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Este es el loguin</h1>
-    <div class="loguin">
+    <h1>Este es el login</h1>
+    <div class="Login">
         <form>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Usuario</label>

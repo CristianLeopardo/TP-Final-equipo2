@@ -64,16 +64,33 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CargaPaciente.aspx" />
+    <Content Include="CargarMedico.aspx" />
     <Content Include="Css\Estilos.css" />
     <Content Include="DB\DB_TP_FINAL.sql" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="RecuperarClave.aspx" />
     <Content Include="Turnos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CargaPaciente.aspx.cs">
+      <DependentUpon>CargaPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CargaPaciente.aspx.designer.cs">
+      <DependentUpon>CargaPaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CargarMedico.aspx.cs">
+      <DependentUpon>CargarMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CargarMedico.aspx.designer.cs">
+      <DependentUpon>CargarMedico.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -83,6 +100,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

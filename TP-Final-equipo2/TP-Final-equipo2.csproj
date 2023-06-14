@@ -68,9 +68,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Css\Estilos.css" />
+    <Content Include="DB\DB_TP_FINAL.sql" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="loguin.aspx" />
+    <Content Include="RecuperarClave.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +101,13 @@
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecuperarClave.aspx.cs">
+      <DependentUpon>RecuperarClave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecuperarClave.aspx.designer.cs">
+      <DependentUpon>RecuperarClave.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage.Master" />
@@ -113,6 +122,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\TPWeb_equipo-2\Dominio\Dominio.csproj">
+      <Project>{76b73f01-720f-4983-85d5-aca6086318f7}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TPWeb_equipo-2\Negocio\Negocio.csproj">
+      <Project>{becea428-1c40-4b3b-afb0-e7cd1ed872c8}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

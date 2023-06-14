@@ -124,11 +124,11 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\TPWeb_equipo-2\Dominio\Dominio.csproj">
+    <ProjectReference Include="..\Dominio\Dominio.csproj">
       <Project>{76b73f01-720f-4983-85d5-aca6086318f7}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\TPWeb_equipo-2\Negocio\Negocio.csproj">
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
       <Project>{becea428-1c40-4b3b-afb0-e7cd1ed872c8}</Project>
       <Name>Negocio</Name>
     </ProjectReference>

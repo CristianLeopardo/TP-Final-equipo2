@@ -33,3 +33,18 @@ create table Especialidad(
     ID int not null PRIMARY KEY IDENTITY (1,1),
     Nombre VARCHAR(100) not null
 )
+
+insert into Especialidad(Nombre)
+values ('Dentista');
+insert into Especialidad(Nombre)
+values ('Otorrino');
+insert into Especialidad(Nombre)
+values ('Cardiologo');
+insert into Especialidad(Nombre)
+values ('Clinico');
+insert into Pacientes(Nombre, Apellido)
+values ('Jose', 'Gomez')
+insert into Pacientes(Nombre, Apellido)
+values ('Ricardo', 'Gutierrez')
+insert into Pacientes(Nombre, Apellido)
+values ('Juan', 'Perez')

@@ -16,12 +16,12 @@ namespace TP_Final_equipo2
 
         protected void btnnewPaciente_Click(object sender, EventArgs e)
         {
-            Response.Redirect("CargarMedico.aspx",false);
+            Response.Redirect("CargaPaciente.aspx",false);
         }
 
         protected void btnnewMedico_Click(object sender, EventArgs e)
         {
-            Response.Redirect("CargaPaciente.aspx", false);
+            Response.Redirect("CargarMedico.aspx", false);
         }
     }
 }

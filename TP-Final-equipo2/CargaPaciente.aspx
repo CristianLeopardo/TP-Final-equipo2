@@ -14,7 +14,7 @@
                 <input type="password" class="form-control" id="txtnombre">
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">FechaNac</label>
+                <label class="form-label">FechaNac</label>
                 <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
             </div>
             <div class="mb-3">

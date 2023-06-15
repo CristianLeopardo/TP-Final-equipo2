@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,26 @@ namespace TP_Final_equipo2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            EspecialidadesNegocio especialidadesNegocio = new EspecialidadesNegocio();
+            PacientesNegocio pacientesNegocio = new PacientesNegocio();
+            try
+            {
+                if(!IsPostBack)
+                {
+                    ddlEspecialidades.DataSource = especialidadesNegocio.ListarEspecialidades();
+                    ddlEspecialidades.DataTextField = "Nombre";
+                    ddlEspecialidades.DataValueField = "ID";
+                    ddlEspecialidades.DataBind();
+                    ddlPacientes.DataSource  = pacientesNegocio.ListarPacientes();
+                    ddlPacientes.DataTextField = "Nombre";
+                    ddlPacientes.DataValueField = "ID";
+                    ddlPacientes.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex);
+            }
         }
     }
 }

@@ -18,7 +18,7 @@
                 <a href="RecuperarClave.aspx">Olvide mi contraseña</a>
             </div>
             <a href="Default.aspx"  class="btn btn-primary">Volver</a>
-            <button type="submit" class="btn btn-primary" id="btnIngresar">Ingresar</button>  
+            <button type="submit" class="btn btn-primary" id="btnIngresar" >Ingresar</button>  
         </form>
     </div>
 </asp:Content>

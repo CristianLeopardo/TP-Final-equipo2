@@ -9,9 +9,10 @@ namespace Negocio
 {
     public class PacientesNegocio
     {
-        public List<Pacientes> ListarPacientes()
+        public List<Paciente> ListarPacientes()
         {
-            List<Pacientes> lista = new List<Pacientes>();
+
+            List<Paciente> lista = new List<Paciente>();
             Conexion datos = new Conexion();
             try
             {
@@ -19,10 +20,10 @@ namespace Negocio
                 datos.Ejecutarconsulta();
                 while (datos.Lector.Read())
                 {
-                    Pacientes obj = new Pacientes();
+                    Paciente obj = new Paciente();
                     obj.ID = (int)datos.Lector["ID"];
-                    obj.Nombre = (string)datos.Lector["Nombre"];
-                    obj.Apellido = (string)datos.Lector["Apellido"];
+                    obj.nombre.Nombre= (string)datos.Lector["Nombre"];
+                    obj.apellido.Apellido = (string)datos.Lector["Apellido"];
 
                     lista.Add(obj);
                 }

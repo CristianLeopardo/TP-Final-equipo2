@@ -16,7 +16,7 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Especialidades..</label>
-                <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="DropDownList1" CssClass="btn btn-secondary dropdown-toggle" runat="server"></asp:DropDownList>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">dni</label>

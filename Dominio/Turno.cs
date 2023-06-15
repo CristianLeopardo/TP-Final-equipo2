@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Turnos
+    public class Turno
     {
         public int ID { get; set; }
-        public int IDPaciente { get; set; }
-        public int IDMedico { get; set; }
+        public Persona IDPaciente { get; set; }//Podriamos usar el DNI del paciente ya que seria unico
+        public Medico IDMedico { get; set; }//Podriamos usar el Legajo del doc del paciente ya que seria unico
         public int IDEspecialidad { get; set; }
-        public string Fecha { get; set; }
+        public DateTime Fecha { get; set; }
         public int Estado { get; set; }
     }
 }

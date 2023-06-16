@@ -11,7 +11,9 @@ namespace TP_Final_equipo2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ddlGenero.Items.Add("Masculino");
+            ddlGenero.Items.Add("Femenino");
+            ddlGenero.Items.Add("Otro");
         }
     }
 }

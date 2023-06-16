@@ -11,6 +11,9 @@ namespace TP_Final_equipo2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ddlEspecialidades.Items.Add("MMMM");
+            ddlEspecialidades.Items.Add("AAAA");
+            ddlEspecialidades.Items.Add("ADADDA");
 
         }
     }

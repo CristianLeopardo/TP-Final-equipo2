@@ -18,5 +18,9 @@ namespace Dominio
         //public DateTime FechaNacimiento { get; set; }
         //public string Barrio { get; set; } para que sea completo el formulario
         //public string Partido { get; set; }
+        public override string ToString()
+        {
+            return Apellido;
+        }
     }
 }

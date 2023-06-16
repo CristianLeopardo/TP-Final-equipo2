@@ -22,8 +22,13 @@ namespace Negocio
                 {
                     Paciente obj = new Paciente();
                     obj.ID = (int)datos.Lector["ID"];
+
+                    obj.nombre = new Persona();
                     obj.nombre.Nombre= (string)datos.Lector["Nombre"];
+
+                    obj.apellido = new Persona();
                     obj.apellido.Apellido = (string)datos.Lector["Apellido"];
+
 
                     lista.Add(obj);
                 }

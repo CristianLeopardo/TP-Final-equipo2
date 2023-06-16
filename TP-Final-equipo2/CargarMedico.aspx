@@ -4,29 +4,56 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>Cargar... </h2>
-    <div class="Login">
-        <form>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Apellido</label>
-                <input type="text" class="form-control" id="txtapellido">
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label alert-link accordion-button">Apellido</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=".......">
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Nombre</label>
-                <input type="password" class="form-control" id="txtnombre">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label alert-link accordion-button">Nombre</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=".......">
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Especialidades..</label>
-                <asp:DropDownList ID="DropDownList1" CssClass="btn btn-secondary dropdown-toggle" runat="server"></asp:DropDownList>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label alert-link accordion-button">DNI</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=".......">
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">dni</label>
-                <input type="password" class="form-control" id="txtvv">
+        </div>
+    </div>
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label alert-link accordion-button">Telefono</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=".......">
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Tel</label>
-                <input type="password" class="form-control" id="tbxClave">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label alert-link accordion-button">Celular</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=".......">
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary" id="btnIngresar">Ingresar</button>
-        </form>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label alert-link accordion-button">Email</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=".......">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center">
+        <div>
+            <label for="exampleInputPassword1" class="form-label">Especialidades</label>
+        </div>
+        <div>
+            <asp:DropDownList ID="ddlEspecialidades" CssClass="btn btn-secondary dropdown-toggle" runat="server"></asp:DropDownList>
+        </div>
     </div>
 </asp:Content>

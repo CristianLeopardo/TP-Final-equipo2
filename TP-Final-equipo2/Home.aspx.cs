@@ -9,9 +9,19 @@ namespace TP_Final_equipo2
 {
     public partial class Home : System.Web.UI.Page
     {
+
+        //private void EnviarMensajeError(string login, string mensajeError)
+        //{
+        //    Session["MensajeError"] = mensajeError;
+        //    Response.Redirect(login);
+        //}
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //if (Session["usuario"] == null)
+            //{
+            //    string MensajeError = "Debe iniciar sesion para acceder a la pagina";
+            //    EnviarMensajeError("Login.aspx", MensajeError);
+            //}
         }
 
         protected void btnnewPaciente_Click(object sender, EventArgs e)
@@ -22,6 +32,11 @@ namespace TP_Final_equipo2
         protected void btnnewMedico_Click(object sender, EventArgs e)
         {
             Response.Redirect("CargarMedico.aspx", false);
+        }
+
+        protected void btnnewTurno_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Turnos.aspx", false);
         }
     }
 }

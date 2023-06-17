@@ -48,3 +48,13 @@ insert into Pacientes(Nombre, Apellido)
 values ('Ricardo', 'Gutierrez')
 insert into Pacientes(Nombre, Apellido)
 values ('Juan', 'Perez')
+
+
+insert into Usuarios(Usuario, Clave, TipoUsuario)
+values('admin', 'admin', 1)
+insert into Usuarios(Usuario, Clave, TipoUsuario)
+values('recepcion', 'recepcion', 2)
+insert into Usuarios(Usuario, Clave, TipoUsuario)
+values('medico', 'medico', 3)
+insert into Usuarios(Usuario, Clave, TipoUsuario)
+values('cliente', 'cliente', 4)

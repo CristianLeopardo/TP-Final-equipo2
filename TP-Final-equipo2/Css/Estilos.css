@@ -20,4 +20,8 @@
     margin: auto;
 }
 
+.errorMensaje{
+    color: red;
+    font-weight: bold;
+}
     

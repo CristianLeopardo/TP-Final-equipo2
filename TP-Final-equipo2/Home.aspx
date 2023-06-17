@@ -16,7 +16,7 @@
                 <asp:Button runat="server" Cssclass="btn btn-secondary btn-lg" id="btnJornada" Text="Cargar jornada" />
             </div>
             <div class="d-grid gap-2">
-                <asp:Button runat="server" Cssclass="btn btn-secondary btn-lg" id="btTurno" Text="Cargar Turno" />
+                <asp:Button runat="server" Cssclass="btn btn-secondary btn-lg" id="btTurno" OnClick="btnnewTurno_Click" Text="Cargar Turno" />
             </div>
         </div
     </div>

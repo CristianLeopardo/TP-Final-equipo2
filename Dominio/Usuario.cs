@@ -9,16 +9,16 @@ namespace Dominio
 {
     public enum TipoUsuario
     {
-        Cliente = 1,
-        Medico = 2,
-        Recepcion = 3,
-        Admin = 4
+        Cliente = 4,
+        Medico = 3,
+        Recepcion = 2,
+        Admin = 1
     }
 
-    public class Usuarios
+    public class Usuario
     {
         public int Id { get; set; }
-        public string Usuario { get; set; }
+        public string User { get; set; }
         public string Clave { get; set; }
         public TipoUsuario TipoUsuario { get; set; }
     }

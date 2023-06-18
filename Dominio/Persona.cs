@@ -14,10 +14,14 @@ namespace Dominio
         public string Telefono { get; set; }
         public string Celular { get; set; }
         public string Email { get; set; }
-        //public string Sexo { get; set; }
-        //public DateTime FechaNacimiento { get; set; }
-        //public string Barrio { get; set; } para que sea completo el formulario
-        //public string Partido { get; set; }
+
+
+        public string Sexo { get; set; }
+        public DateTime FechaNacimiento { get; set; }
+
+        public string domicilio { get; set; }
+        public string Localidad { get; set; } 
+        public string Provincia { get; set; }
         public override string ToString()
         {
             return Apellido;

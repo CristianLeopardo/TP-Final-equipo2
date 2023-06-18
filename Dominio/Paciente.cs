@@ -16,6 +16,8 @@ namespace Dominio
         public Persona telefono { get; set; }
         public Persona celular { get; set; }
         public Persona email { get; set; }
+
+        public Persona domicilio { get; set; }
         //public Persona fechanacimiento { get; set; }
         //public Persona Barrio { get; set; }
         //public Persona Partido { get; set; }

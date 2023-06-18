@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Dominio;
+using Negocio;
 
 namespace TP_Final_equipo2
 {
@@ -16,15 +18,22 @@ namespace TP_Final_equipo2
         //}
         protected void Page_Load(object sender, EventArgs e)
         {
-            ddlGenero.Items.Add("Masculino");
-            ddlGenero.Items.Add("Femenino");
-            ddlGenero.Items.Add("Otro");
-
             //if (Session["usuario"] == null)
             //{
             //    string MensajeError = "Debe iniciar sesion para acceder a la pagina";
             //    EnviarMensajeError("Login.aspx", MensajeError);
             //}
+
+
+            if (!IsPostBack)
+            {
+                ddlSexo.Items.Add("Masculino");
+                ddlSexo.Items.Add("Femenino");
+                ddlSexo.Items.Add("Otro");
+            }
+            
+
+            
         }
     }
 }

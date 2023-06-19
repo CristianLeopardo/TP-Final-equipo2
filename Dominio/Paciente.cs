@@ -10,16 +10,18 @@ namespace Dominio
     public class Paciente
     {
         public int ID { get; set; }
-        public Persona apellido { get; set; }
-        public Persona nombre { get; set; }
-        public Persona dni { get; set; }
-        public Persona telefono { get; set; }
-        public Persona celular { get; set; }
-        public Persona email { get; set; }
+        public string Apellido { get; set; }
+        public string Nombre { get; set; }
+        public int Dni { get; set; }
 
-        public Persona domicilio { get; set; }
-        //public Persona fechanacimiento { get; set; }
-        //public Persona Barrio { get; set; }
-        //public Persona Partido { get; set; }
+        public string Sexo { get; set; }
+        public int Telefono { get; set; }
+        public int Celular { get; set; }
+        public string Email { get; set; }
+
+        public string Domicilio { get; set; }
+        public DateTime fechanacimiento { get; set; }
+        public string Localidad { get; set; }
+        public string Provincia { get; set; }
     }
 }

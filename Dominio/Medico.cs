@@ -15,6 +15,6 @@ namespace Dominio
         public Persona nombre { get; set; }
         public Persona dni { get; set; }
 
-        public List<Especialidades> Especialidades { get; set; }
+        public List<Especialidad> Especialidades { get; set; }
     }
 }

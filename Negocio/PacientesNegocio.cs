@@ -23,11 +23,11 @@ namespace Negocio
                     Paciente obj = new Paciente();
                     obj.ID = (int)datos.Lector["ID"];
 
-                    obj.nombre = new Persona();
-                    obj.nombre.Nombre= (string)datos.Lector["Nombre"];
+                    //obj.nombre = new Persona();
+                    //obj.nombre.Nombre= (string)datos.Lector["Nombre"];
 
-                    obj.apellido = new Persona();
-                    obj.apellido.Apellido = (string)datos.Lector["Apellido"];
+                    //obj.apellido = new Persona();
+                    //obj.apellido.Apellido = (string)datos.Lector["Apellido"];
 
 
                     lista.Add(obj);
@@ -36,6 +36,38 @@ namespace Negocio
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
+
+        public void Agregar(Paciente nuevo)
+        {
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("insert into Pacientes (Apellido, Nombre, DNI, Sexo, Telefono, Celular, Email, Domicilio, Localidad, Provincia, FechaNacimiento) values (@Apellido, @Nombre, @DNI, @Sexo, @Telefono, @Celular, @Email, @Domicilio, @Localidad, @Provincia, @FechaNacimiento)");
+                datos.setearParametro("@Apellido", nuevo.Apellido);
+                datos.setearParametro("@Nombre", nuevo.Nombre);
+                datos.setearParametro("@DNI", nuevo.Dni);
+                datos.setearParametro("@Sexo", nuevo.Sexo);
+                datos.setearParametro("@Telefono", nuevo.Telefono);
+                datos.setearParametro("@Celular", nuevo.Celular);
+                datos.setearParametro("@Email", nuevo.Email);
+                datos.setearParametro("@Domicilio", nuevo.Domicilio);
+                datos.setearParametro("@Localidad", nuevo.Localidad);
+                datos.setearParametro("@Provincia", nuevo.Provincia);
+                datos.setearParametro("@FechaNacimiento", nuevo.fechanacimiento);
+                datos.ejecutarAccion();
+                datos.Cerraconexion();
+
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
             finally

@@ -94,8 +94,11 @@
             <div class="col">
                 <div class="mb-3">
                     <div>
-                        <asp:Button ID="btnAceptar" runat="server" CssClass="btn-toolbar" Text="Aceptar" />
+                        <asp:Button ID="btnAceptar" runat="server" CssClass="btn-toolbar" Text="Aceptar" OnClick="btnAceptar_Click"/>
                         <asp:Button ID="btnVolver" runat="server" CssClass="btn-toolbar" Text="Volver" />
+                    </div>
+                    <div>
+                        <asp:Label ID="lblMensaje" runat="server" Text="" Visible="false"></asp:Label>
                     </div>
                 </div>
             </div>

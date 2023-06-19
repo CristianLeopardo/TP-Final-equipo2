@@ -3,25 +3,38 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2>Cargar... </h2>
+    <div class="container text-center">
+        <h2>Carga de Medico...</h2>
+    </div>
+    
     <div class="container text-center">
         <div class="row align-items-start">
             <div class="col">
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label alert-link accordion-button">Apellido</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=".......">
+                    <asp:Label ID="lblApellido" CssClass="form-label alert-link accordion-button" runat="server" Text="Apellido"></asp:Label>
+                    <asp:TextBox ID="tbxApellido" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label alert-link accordion-button">Nombre</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=".......">
+                    <asp:Label ID="lblNombre" CssClass="form-label alert-link accordion-button" runat="server" Text="Nombre"></asp:Label>
+                    <asp:TextBox ID="tbxNombre" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label alert-link accordion-button">DNI</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=".......">
+                    <asp:Label ID="lblDni" CssClass="form-label alert-link accordion-button" runat="server" Text="DNI"></asp:Label>
+                    <asp:TextBox ID="tbxDni" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col-5">
+                <div class="mb-3">
+                    <asp:Label ID="lblSexo" CssClass="form-label alert-link accordion-button" runat="server" Text="Sexo"></asp:Label>
+                    <asp:DropDownList ID="ddlSexo" CssClass="list-group-item-action bg-dark-subtle " runat="server"></asp:DropDownList>
                 </div>
             </div>
         </div>
@@ -30,20 +43,20 @@
         <div class="row align-items-start">
             <div class="col">
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label alert-link accordion-button">Telefono</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=".......">
+                    <asp:Label ID="lblTelefono" CssClass="form-label alert-link accordion-button" runat="server" Text="Telefono"></asp:Label>
+                    <asp:TextBox ID="tbxTelefono" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label alert-link accordion-button">Celular</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=".......">
+                    <asp:Label ID="lblCelular" CssClass="form-label alert-link accordion-button" runat="server" Text="Celular"></asp:Label>
+                    <asp:TextBox ID="tbxCelular" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label alert-link accordion-button">Email</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=".......">
+                    <asp:Label ID="lblEmail" CssClass="form-label alert-link accordion-button" runat="server" Text="Email"></asp:Label>
+                    <asp:TextBox ID="tbxEmail" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
         </div>

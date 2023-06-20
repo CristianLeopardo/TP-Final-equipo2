@@ -9,9 +9,9 @@ namespace Negocio
 {
     public class EspecialidadesNegocio
     {
-        public List<Especialidades> ListarEspecialidades()
+        public List<Especialidad> ListarEspecialidades()
         {
-            List<Especialidades> lista = new List<Especialidades>();
+            List<Especialidad> lista = new List<Especialidad>();
             Conexion datos = new Conexion();
             try
             {
@@ -19,7 +19,7 @@ namespace Negocio
                 datos.Ejecutarconsulta();
                 while (datos.Lector.Read())
                 {
-                    Especialidades obj = new Especialidades();
+                    Especialidad obj = new Especialidad();
                     obj.ID = (int)datos.Lector["ID"];
                     obj.Nombre= (string)datos.Lector["Nombre"];
 

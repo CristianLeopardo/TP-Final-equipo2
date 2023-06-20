@@ -45,7 +45,7 @@ namespace TP_Final_equipo2
                 nuevo.Apellido = tbxApellido.Text;
                 nuevo.Nombre = tbxNombre.Text;
                 nuevo.Dni = int.Parse(tbxDni.Text);
-                nuevo.Sexo = ddlSexo.SelectedIndex.ToString();
+                nuevo.Sexo = ddlSexo.SelectedValue.ToString();
                 nuevo.Telefono = int.Parse(tbxTelefono.Text);
                 nuevo.Celular = int.Parse(tbxCelular.Text);
                 nuevo.Email = tbxEmail.Text;

@@ -18,7 +18,8 @@ create table Medicos(
     Celular int,
     Email VARCHAR(50) not null,
     FechaIngreso DATETIME not null,
-    FechaNacimiento DATETIME not null
+    FechaNacimiento DATETIME not null,
+    Estado bit not null default 1
 )
 GO
 create table Pacientes(
@@ -33,7 +34,8 @@ create table Pacientes(
     Domicilio VARCHAR(100) not null,
     Localidad VARCHAR(100) not null,
     Provincia VARCHAR(100) not null,
-    FechaNacimiento DATETIME not null
+    FechaNacimiento DATETIME not null,
+    Estado bit not null default 1
 )
 GO
 create table Turnos(

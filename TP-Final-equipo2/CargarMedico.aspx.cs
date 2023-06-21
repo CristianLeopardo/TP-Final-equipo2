@@ -71,6 +71,7 @@ namespace TP_Final_equipo2
             lblEspecialidad.Visible = true;
             lblEspecialidad.Text = "Se agrego especialidad";
             btnaceptar.Visible = true;
+
         }
 
         protected void btnaceptar_Click(object sender, EventArgs e)

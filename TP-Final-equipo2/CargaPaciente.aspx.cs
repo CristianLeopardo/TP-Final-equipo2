@@ -64,5 +64,10 @@ namespace TP_Final_equipo2
                 throw ex;
             }
         }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx", false);
+        }
     }
 }

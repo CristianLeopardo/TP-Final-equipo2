@@ -61,12 +61,37 @@
             </div>
         </div>
     </div>
+   <div class="container text-center">
+                <div class="mb-3">
+                    <asp:Label ID="lblFechaNacimiento" CssClass="form-label alert-link accordion-button" runat="server" Text="Fecha de nacimiento"></asp:Label>
+                    <asp:Calendar ID="calFechaNacimiento" runat="server"></asp:Calendar>
+                    <asp:Label ID="lvlFechaIngreso" CssClass="form-label alert-link accordion-button" runat="server" Text="Fecha de ingreso"></asp:Label>
+                    <asp:Calendar ID="calFechaIngreso" runat="server"></asp:Calendar>
+                </div>
+    </div>
+
+
     <div class="container text-center">
         <div>
             <label for="exampleInputPassword1" class="form-label">Especialidades</label>
         </div>
         <div>
             <asp:DropDownList ID="ddlEspecialidades" CssClass="btn btn-secondary dropdown-toggle" runat="server"></asp:DropDownList>
+        </div>
+    </div>
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="mb-3">
+                    <div>
+                        <asp:Button ID="btnAceptar" runat="server" CssClass="btn btn-primary" Text="Aceptar" OnClick="btnAceptar_Click"/>
+                        <asp:Button ID="btnVolver" runat="server" CssClass="btn btn-primary" OnClick="btnVolver_Click" Text="Volver" />
+                    </div>
+                    <div>
+                        <asp:Label ID="lblMensaje" runat="server" Text="" Visible="false"></asp:Label>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </asp:Content>

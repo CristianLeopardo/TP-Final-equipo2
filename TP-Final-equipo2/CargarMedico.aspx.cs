@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Negocio;
+using Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,7 +27,37 @@ namespace TP_Final_equipo2
             //    string MensajeError = "Debe iniciar sesion para acceder a la pagina";
             //    EnviarMensajeError("Login.aspx", MensajeError);
             //}
+            if (!IsPostBack)
+            {
+                ddlSexo.Items.Add("Masculino");
+                ddlSexo.Items.Add("Femenino");
+                ddlSexo.Items.Add("Otro");
+            }
 
+
+        }
+
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+            MedicoNegocio medicoNegocio = new MedicoNegocio();
+            Medico nuevo = new Medico();
+            nuevo.Apellido = tbxApellido.Text;
+            nuevo.Nombre = tbxNombre.Text;
+            nuevo.Dni = int.Parse(tbxDni.Text);
+            nuevo.Celular = int.Parse(tbxCelular.Text);
+            nuevo.Telefono = int.Parse(tbxTelefono.Text);
+            nuevo.Email = tbxEmail.Text;
+            nuevo.Sexo = ddlSexo.SelectedValue.ToString();
+            nuevo.fechaingreso = calFechaIngreso.SelectedDate;
+            nuevo.fechanacimiento = calFechaNacimiento.SelectedDate;
+            medicoNegocio.Agregar(nuevo);
+            lblMensaje.Visible = true;
+            lblMensaje.Text = "Medico cargado exitosamente...";
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx", false);
         }
     }
 }

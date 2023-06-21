@@ -12,13 +12,28 @@ create table Medicos(
     ID int not null PRIMARY KEY IDENTITY (1,1),
     Nombre VARCHAR(100) not null,
     Apellido VARCHAR(100) not null,
-    IDEspecialidad int not null
+    Sexo VARCHAR(20) not null,
+    DNI int not null,
+    Telefono int,
+    Celular int,
+    Email VARCHAR(50) not null,
+    FechaIngreso DATETIME not null,
+    FechaNacimiento DATETIME not null
 )
 GO
 create table Pacientes(
     ID int not null PRIMARY KEY IDENTITY (1,1),
     Nombre VARCHAR(100) not null,
-    Apellido VARCHAR(100) not null
+    Apellido VARCHAR(100) not null,
+    Sexo VARCHAR(20) not null,
+    DNI int not null,
+    Telefono int,
+    Celular int,
+    Email VARCHAR(50) not null,
+    Domicilio VARCHAR(100) not null,
+    Localidad VARCHAR(100) not null,
+    Provincia VARCHAR(100) not null,
+    FechaNacimiento DATETIME not null
 )
 GO
 create table Turnos(
@@ -48,6 +63,10 @@ insert into Pacientes(Nombre, Apellido)
 values ('Ricardo', 'Gutierrez')
 insert into Pacientes(Nombre, Apellido)
 values ('Juan', 'Perez')
+
+
+drop table Pacientes
+drop table Medicos
 
 
 insert into Usuarios(Usuario, Clave, TipoUsuario)

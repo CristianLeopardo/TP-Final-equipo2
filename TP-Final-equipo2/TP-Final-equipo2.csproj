@@ -76,6 +76,7 @@
     <Content Include="RecuperarClave.aspx" />
     <Content Include="Turnos.aspx" />
     <Content Include="Web.config" />
+    <Content Include="ModificarPaciente.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CargaPaciente.aspx.cs">
@@ -144,6 +145,13 @@
     </Compile>
     <Compile Include="Turnos.aspx.designer.cs">
       <DependentUpon>Turnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarPaciente.aspx.cs">
+      <DependentUpon>ModificarPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarPaciente.aspx.designer.cs">
+      <DependentUpon>ModificarPaciente.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -11,6 +11,9 @@ namespace TP_Final_equipo2
 {
     public partial class CargarMedico : System.Web.UI.Page
     {
+        public int IdMedico { get; set; }
+
+
         //private void EnviarMensajeError(string login, string mensajeError)
         //{
         //    Session["MensajeError"] = mensajeError;
@@ -18,9 +21,6 @@ namespace TP_Final_equipo2
         //}
         protected void Page_Load(object sender, EventArgs e)
         {
-            ddlEspecialidades.Items.Add("MMMM");
-            ddlEspecialidades.Items.Add("AAAA");
-            ddlEspecialidades.Items.Add("ADADDA");
 
             //if (Session["usuario"] == null)
             //{
@@ -33,11 +33,12 @@ namespace TP_Final_equipo2
                 ddlSexo.Items.Add("Femenino");
                 ddlSexo.Items.Add("Otro");
             }
-
+            EspecialidadesNegocio negocio = new EspecialidadesNegocio();
+            gvsespcialidades.DataSource = negocio.ListarEspecialidades();
+            gvsespcialidades.DataBind();
 
         }
-
-        protected void btnAceptar_Click(object sender, EventArgs e)
+        protected void btcontinuar_Click(object sender, EventArgs e)
         {
             MedicoNegocio medicoNegocio = new MedicoNegocio();
             Medico nuevo = new Medico();
@@ -51,11 +52,28 @@ namespace TP_Final_equipo2
             nuevo.fechaingreso = calFechaIngreso.SelectedDate;
             nuevo.fechanacimiento = calFechaNacimiento.SelectedDate;
             medicoNegocio.Agregar(nuevo);
-            lblMensaje.Visible = true;
-            lblMensaje.Text = "Medico cargado exitosamente...";
+            lblmensaje.Visible = true;
+            lblmensaje.Text = "Medico cargado exitosamente...";
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx", false);
+        }
+
+        protected void gvsespcialidades_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var algo = gvsespcialidades.SelectedRow.Cells[0].Text;
+            var id = gvsespcialidades.SelectedDataKey.Value.ToString();
+            MedicoNegocio Negmedico = new MedicoNegocio();
+            EspecialidadesNegocio negocio = new EspecialidadesNegocio();
+            negocio.cargarEspecialidades(Negmedico.UltimoIngreso(),id);
+            lblEspecialidad.Visible = true;
+            lblEspecialidad.Text = "Se agrego especialidad";
+            btnaceptar.Visible = true;
+        }
+
+        protected void btnaceptar_Click(object sender, EventArgs e)
         {
             Response.Redirect("Home.aspx", false);
         }

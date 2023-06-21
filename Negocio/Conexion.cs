@@ -20,7 +20,7 @@ namespace Negocio
 
         public Conexion()
         {
-            conexion = new SqlConnection("Server=.\\SQL2; database=TP_FINAL; integrated security=true");
+            conexion = new SqlConnection("Server=.\\SQLEXPRESS; database=TP_FINAL; integrated security=true");
             comando = new SqlCommand();
         }
 
@@ -67,6 +67,21 @@ namespace Negocio
                 throw ex;
             }
         }
+
+        public int ejecutarAccionScalar()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                return int.Parse(comando.ExecuteScalar().ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void Cerraconexion()
         {
             if (lector != null)

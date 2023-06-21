@@ -25,8 +25,25 @@ namespace Negocio
                 datos.setearParametro("@FechaNacimiento", nuevo.fechanacimiento);
                 datos.setearParametro("@FechaIngreso", nuevo.fechaingreso);
                 datos.ejecutarAccion();
-                datos.Cerraconexion();
 
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
+        public int UltimoIngreso()
+        {
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("SELECT top 1 ID FROM Medicos ORDER BY ID DESC");
+                return datos.ejecutarAccionScalar();
             }
             catch (Exception ex)
             {

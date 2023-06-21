@@ -49,6 +49,11 @@ create table Especialidad(
     Nombre VARCHAR(100) not null
 )
 
+CREATE TABLE Medico_x_Especialidad(
+    IdMedico int,
+    IDEspecialidad INT
+)
+
 insert into Especialidad(Nombre)
 values ('Dentista');
 insert into Especialidad(Nombre)

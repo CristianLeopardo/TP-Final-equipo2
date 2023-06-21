@@ -38,5 +38,10 @@ namespace TP_Final_equipo2
         {
             Response.Redirect("Turnos.aspx", false);
         }
+
+        protected void btnModificarMedico_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ModificarMedico.aspx", false);
+        }
     }
 }

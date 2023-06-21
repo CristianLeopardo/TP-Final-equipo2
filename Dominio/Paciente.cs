@@ -23,5 +23,7 @@ namespace Dominio
         public DateTime fechanacimiento { get; set; }
         public string Localidad { get; set; }
         public string Provincia { get; set; }
+
+        public bool Estado { get; set; }
     }
 }

@@ -19,6 +19,7 @@ namespace Dominio
         public string Email { get; set; }
         public DateTime fechanacimiento { get; set; }
         public DateTime fechaingreso { get; set; }
+        public bool Estado { get; set; }
 
         public List<Especialidad> Especialidades { get; set; }
     }

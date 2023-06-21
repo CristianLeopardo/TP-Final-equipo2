@@ -18,6 +18,9 @@
             <div class="d-grid gap-2">
                 <asp:Button runat="server" Cssclass="btn btn-secondary btn-lg" id="btTurno" OnClick="btnnewTurno_Click" Text="Cargar Turno" />
             </div>
+            <div class="d-grid gap-2">
+                <asp:Button runat="server" Cssclass="btn btn-secondary btn-lg" id="btnModificarMedico" OnClick="btnModificarMedico_Click" Text="Modificar Medicos" />
+            </div>
         </div
     </div>
 </asp:Content>

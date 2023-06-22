@@ -29,9 +29,10 @@ namespace TP_Final_equipo2
             //}
             if (!IsPostBack)
             {
+                ddlSexo.Items.Add("Otro");
                 ddlSexo.Items.Add("Masculino");
                 ddlSexo.Items.Add("Femenino");
-                ddlSexo.Items.Add("Otro");
+                
             }
             EspecialidadesNegocio negocio = new EspecialidadesNegocio();
             gvsespcialidades.DataSource = negocio.ListarEspecialidades();

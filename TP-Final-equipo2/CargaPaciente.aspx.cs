@@ -69,5 +69,10 @@ namespace TP_Final_equipo2
         {
             Response.Redirect("Home.aspx", false);
         }
+
+        protected void calFechaNacimiento_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

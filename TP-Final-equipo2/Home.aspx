@@ -1,29 +1,67 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="TP_Final_equipo2.Home" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .welcome {
+            text-align: center;
+            font-size: 42px;
+            color: #333;
+        }
+
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(1, 2fr);
+            grid-gap: 10px;
+            margin-top: 20px;
+        }
+
+            .button-container .btn {
+                width: 100%;
+                padding: 12px;
+                font-size: 18px;
+                background-color: #333;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+                .button-container .btn:hover {
+                    background-color: #555;
+                }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Bienvenido al HOME...</h1>
+    <div class="container">
+        <h1 class="welcome">Bienvenido al HOME...</h1>
 
-    <div class="Home">
-        <div class="d-grid gap-2 col-6 mx-auto" style="max-block-size:20px">
-            <div class="d-grid gap-2">
-                <asp:Button runat="server" Cssclass="btn btn-secondary btn-lg" id="btnnewPaciente" OnClick="btnnewPaciente_Click" Text="Cargar nuevo paciente"/>
-            </div>
-            <div class="d-grid gap-2">
-                <asp:Button runat="server" Cssclass="btn btn-secondary btn-lg" id="btnnewMedico" OnClick="btnnewMedico_Click" Text="Cargar nuevo medico" />
-            </div>
-            <div class="d-grid gap-2">
-                <asp:Button runat="server" Cssclass="btn btn-secondary btn-lg" id="btnJornada" Text="Cargar jornada" />
-            </div>
-            <div class="d-grid gap-2">
-                <asp:Button runat="server" Cssclass="btn btn-secondary btn-lg" id="btTurno" OnClick="btnnewTurno_Click" Text="Cargar Turno" />
-            </div>
-            <div class="d-grid gap-2">
-                <asp:Button runat="server" Cssclass="btn btn-secondary btn-lg" id="btnModificarMedico" OnClick="btnModificarMedico_Click" Text="Modificar Medicos" />
-            </div>
-            <div class="d-grid gap-2">
-                <asp:Button runat="server" Cssclass="btn btn-secondary btn-lg" id="btnModificarPaciente" OnClick="btnModificarPaciente_Click" Text="Modificar Pacientes" />
-            </div>
-        </div
+        <div class="button-container">
+            <asp:Button runat="server" CssClass="btn" ID="btnnewPaciente" OnClick="btnnewPaciente_Click" Text="Cargar nuevo paciente" />
+            <asp:Button runat="server" CssClass="btn" ID="btnModificarPaciente" OnClick="btnModificarPaciente_Click" Text="Modificar Pacientes" />
+            <asp:Button runat="server" CssClass="btn" ID="btnnewMedico" OnClick="btnnewMedico_Click" Text="Cargar nuevo medico" />
+            <asp:Button runat="server" CssClass="btn" ID="btnModificarMedico" OnClick="btnModificarMedico_Click" Text="Modificar Medicos" />
+            <hr />
+            <asp:Button runat="server" CssClass="btn" ID="btnJornada" Text="Cargar jornada" />
+            <asp:Button runat="server" CssClass="btn" ID="btnTurno" OnClick="btnnewTurno_Click" Text="Cargar Turno" />
+        </div>
     </div>
 </asp:Content>
+
+
+
+
+
+

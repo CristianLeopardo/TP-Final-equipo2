@@ -24,6 +24,15 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.Button btnnewPaciente;
 
         /// <summary>
+        /// btnModificarPaciente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModificarPaciente;
+
+        /// <summary>
         /// btnnewMedico control.
         /// </summary>
         /// <remarks>
@@ -31,24 +40,6 @@ namespace TP_Final_equipo2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnnewMedico;
-
-        /// <summary>
-        /// btnJornada control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnJornada;
-
-        /// <summary>
-        /// btTurno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btTurno;
 
         /// <summary>
         /// btnModificarMedico control.
@@ -60,12 +51,21 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.Button btnModificarMedico;
 
         /// <summary>
-        /// btnModificarPaciente control.
+        /// btnJornada control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModificarPaciente;
+        protected global::System.Web.UI.WebControls.Button btnJornada;
+
+        /// <summary>
+        /// btnTurno control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnTurno;
     }
 }

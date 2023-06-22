@@ -4,6 +4,7 @@
 
 <html>
 <head runat="server">
+    
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Tp Final</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -13,22 +14,26 @@
     <link rel="stylesheet" href="Css/Estilos.css">
 </head>
 <body>
+    <style type="text/css">
+        body{
+            background-color: lightslategray;
+        }
+    </style>
     <form id="form1" runat="server">
         <div>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="Home.aspx">Menu</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <a class="navbar-brand" href="Home.aspx"><span class="text-primary">Tecno</span>Clinica</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarS" aria-controls="navbarS" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
+                    
+                    <div class="collapse navbar-collapse" id="navbarS">
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="Default.aspx">Inicio</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="login.aspx">Ingresar</a>
-                            </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="Turnos.aspx">Turnos</a>
                             </li>
@@ -36,6 +41,14 @@
                                 <a class="nav-link" href="Home.aspx">Home</a>
                             </li>
                         </ul>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarS">
+                        <ul  class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="login.aspx">Ingresar</a>
+                            </li>
+                        </ul>
+
                     </div>
                 </div>
             </nav>

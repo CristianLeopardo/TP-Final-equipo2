@@ -141,24 +141,6 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.TextBox tbxEmail;
 
         /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-
-        /// <summary>
-        /// UpdatePanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-
-        /// <summary>
         /// lblFechaNacimiento control.
         /// </summary>
         /// <remarks>
@@ -168,13 +150,13 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.Label lblFechaNacimiento;
 
         /// <summary>
-        /// calFechaNacimiento control.
+        /// FechaNacimiento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar calFechaNacimiento;
+        protected global::System.Web.UI.WebControls.TextBox FechaNacimiento;
 
         /// <summary>
         /// lvlFechaIngreso control.
@@ -186,13 +168,13 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.Label lvlFechaIngreso;
 
         /// <summary>
-        /// calFechaIngreso control.
+        /// FechaIngreso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar calFechaIngreso;
+        protected global::System.Web.UI.WebControls.TextBox FechaIngreso;
 
         /// <summary>
         /// btcontinuar control.

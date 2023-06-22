@@ -50,8 +50,9 @@ namespace TP_Final_equipo2
             nuevo.Telefono = int.Parse(tbxTelefono.Text);
             nuevo.Email = tbxEmail.Text;
             nuevo.Sexo = ddlSexo.SelectedValue.ToString();
-            nuevo.fechaingreso = calFechaIngreso.SelectedDate;
-            nuevo.fechanacimiento = calFechaNacimiento.SelectedDate;
+            nuevo.fechaingreso = DateTime.Parse(FechaIngreso.Text);
+            nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
+
             medicoNegocio.Agregar(nuevo);
             lblmensaje.Visible = true;
             lblmensaje.Text = "Medico cargado exitosamente...";

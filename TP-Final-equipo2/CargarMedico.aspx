@@ -118,27 +118,27 @@
             </div>
         </div>
     </div>
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <%--<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
-        <ContentTemplate>
+        <ContentTemplate>--%>
             <div class="container text-center">
                 <div class="row align-items-start">
                     <div class="col">
                         <div class="mb-3">
                             <asp:Label ID="lblFechaNacimiento" CssClass="form-label alert-link accordion-button" runat="server" Text="Fecha de nacimiento"></asp:Label>
-                            <asp:Calendar ID="calFechaNacimiento" runat="server" BackColor="#999999"></asp:Calendar>
+                            <asp:TextBox ID="FechaNacimiento" CssClass="form-control" type="date" placeholder="Fecha de Nacimiento" runat="server" />
                         </div>
                     </div>
                     <div class="col">
                         <div class="mb-3">
                             <asp:Label ID="lvlFechaIngreso" CssClass="form-label alert-link accordion-button" runat="server" Text="Fecha de ingreso"></asp:Label>
-                            <asp:Calendar ID="calFechaIngreso" runat="server" BackColor="#999999"></asp:Calendar>
+                            <asp:TextBox ID="FechaIngreso" CssClass="form-control" type="date" placeholder="Fecha de Ingreso" runat="server" />
                         </div>
                     </div>
                 </div>
             </div>
-        </ContentTemplate>
-    </asp:UpdatePanel>
+        <%--</ContentTemplate>
+    </asp:UpdatePanel>--%>
 
 
     <div class="container text-center">

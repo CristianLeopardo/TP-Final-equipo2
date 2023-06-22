@@ -52,7 +52,7 @@ namespace TP_Final_equipo2
                 nuevo.Domicilio = tbxDomicilio.Text;
                 nuevo.Localidad = tbxLocalidad.Text;
                 nuevo.Provincia = tbxProvincia.Text;
-                nuevo.fechanacimiento = calFechaNacimiento.SelectedDate;
+                nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
 
                 negocio.Agregar(nuevo);
                 lblMensaje.Visible = true;

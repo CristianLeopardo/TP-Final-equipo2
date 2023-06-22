@@ -20,7 +20,7 @@ namespace Negocio
 
         public Conexion()
         {
-            conexion = new SqlConnection("Server=.\\SQL2; database=TP_FINAL; integrated security=true");
+            conexion = new SqlConnection("Server=.\\LABO3; database=TP_FINAL; integrated security=true");
             comando = new SqlCommand();
         }
 

@@ -57,5 +57,72 @@ namespace Negocio
                 datos.Cerraconexion();
             }
         }
+
+        public void AgregarEspecialidad(string nombre)
+
+
+        {
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("insert into Especialidad (Nombre) VALUES (@Nombre)");
+                datos.setearParametro("@Nombre", nombre);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
+
+        public void EliminarEspecialidad(int id)
+
+
+
+        {
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("delete from Especialidad where ID=@ID");
+                datos.setearParametro("@ID", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
+        
+        public void ModificarEspecialidad(int id, string nombre) 
+        {
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("update Especialidad set Nombre = @Nombre where ID = @ID");
+                datos.setearParametro("@Nombre", nombre);
+                datos.setearParametro("@ID", id);
+                
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
     }
 }

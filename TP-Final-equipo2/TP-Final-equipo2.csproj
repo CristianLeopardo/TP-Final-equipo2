@@ -72,6 +72,7 @@
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="MenuEspecialidades.aspx" />
     <Content Include="ModificarMedico.aspx" />
     <Content Include="RecuperarClave.aspx" />
     <Content Include="Turnos.aspx" />
@@ -123,6 +124,13 @@
     </Compile>
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MenuEspecialidades.aspx.cs">
+      <DependentUpon>MenuEspecialidades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuEspecialidades.aspx.designer.cs">
+      <DependentUpon>MenuEspecialidades.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModificarMedico.aspx.cs">
       <DependentUpon>ModificarMedico.aspx</DependentUpon>

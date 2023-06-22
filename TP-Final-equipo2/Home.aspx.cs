@@ -48,5 +48,10 @@ namespace TP_Final_equipo2
         {
             Response.Redirect("ModificarPaciente.aspx", false);
         }
+
+        protected void btnEspecialidades_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MenuEspecialidades.aspx", false);
+        }
     }
 }

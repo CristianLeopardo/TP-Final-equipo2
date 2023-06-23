@@ -37,6 +37,7 @@ namespace TP_Final_equipo2
                     ddlPacientes.DataTextField = "Nombre";
                     ddlPacientes.DataValueField = "ID";
                     ddlPacientes.DataBind();
+                    
                 }
             }
             catch (Exception ex)
@@ -45,6 +46,22 @@ namespace TP_Final_equipo2
             }
 
 
+        }
+
+        protected void btnBuscarMedico_Click(object sender, EventArgs e)
+        {
+            EspecialidadesNegocio especialidadesNegocio = new EspecialidadesNegocio();
+            try
+            {
+                ddlMedicos.DataSource = especialidadesNegocio.ListarMedicos(int.Parse(ddlEspecialidades.SelectedValue));
+                ddlMedicos.DataTextField = "NombreMedico";
+                ddlMedicos.DataValueField = "IDMedico";
+                ddlMedicos.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex);
+            }
         }
     }
 }

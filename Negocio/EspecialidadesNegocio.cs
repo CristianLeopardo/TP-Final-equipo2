@@ -37,6 +37,64 @@ namespace Negocio
             }
 
         }
+        public List<EspecialidadMedico> ListarMedicos(int IDespecialidad)
+        {
+            List<EspecialidadMedico> lista = new List<EspecialidadMedico>();
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("select E.IdMedico, E.IDEspecialidad, M.Apellido from Medico_x_Especialidad E inner join Medicos M on E.IdMedico = M.ID where E.IDEspecialidad =" + IDespecialidad);
+                datos.Ejecutarconsulta();
+                while (datos.Lector.Read())
+                {
+                    EspecialidadMedico obj = new EspecialidadMedico();
+                    obj.IDEspecialdiad = (int)datos.Lector["IDEspecialidad"];
+                    obj.IDMedico = (int)datos.Lector["IdMedico"];
+                    obj.NombreMedico = (string)datos.Lector["Apellido"];
+
+                    lista.Add(obj);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+
+        }
+        public List<EspecialidadMedico> ListarEspecialidadesMedico(int IDmedico)
+        {
+            List<EspecialidadMedico> lista = new List<EspecialidadMedico>();
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("select M.IdMedico, M.IDEspecialidad, E.Nombre from Medico_x_Especialidad M inner join Especialidad E on M.IDEspecialidad = E.ID where M.IdMedico =" + IDmedico);
+                datos.Ejecutarconsulta();
+                while (datos.Lector.Read())
+                {
+                    EspecialidadMedico obj = new EspecialidadMedico();
+                    obj.IDEspecialdiad = (int)datos.Lector["IDEspecialidad"];
+                    obj.IDMedico = (int)datos.Lector["IdMedico"];
+                    obj.NombreEspecialidad = (string)datos.Lector["Nombre"];
+
+                    lista.Add(obj);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+
+        }
         public void cargarEspecialidades(int Idmedico, string Idespecialidad)
         {
             Conexion datos = new Conexion();

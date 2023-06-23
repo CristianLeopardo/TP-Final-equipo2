@@ -41,6 +41,7 @@ namespace TP_Final_equipo2
 
         private void CargarFormulario(int id)
         {
+            EspecialidadesNegocio especialidadesNegocio = new EspecialidadesNegocio();
             MedicoNegocio busqueda = new MedicoNegocio();
             List<Medico> lista = busqueda.BuscarMedico(id);
             tbxApellido.Text = lista[0].Apellido;
@@ -53,6 +54,17 @@ namespace TP_Final_equipo2
             ddlSexo.SelectedValue = lista[0].Sexo;
             calFechaIngreso.SelectedDate = lista[0].fechaingreso;
             calFechaNacimiento.SelectedDate = lista[0].fechanacimiento;
+            try
+            {
+                ddlEspecialidades.DataSource = especialidadesNegocio.ListarEspecialidadesMedico(id);
+                ddlEspecialidades.DataTextField = "NombreEspecialidad";
+                ddlEspecialidades.DataValueField = "IDEspecialdiad";
+                ddlEspecialidades.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex);
+            }
             if (lista[0].Estado == true)
             {
                 lblActivo.Visible = true;

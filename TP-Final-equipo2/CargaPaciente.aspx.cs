@@ -54,7 +54,7 @@ namespace TP_Final_equipo2
                 nuevo.Provincia = tbxProvincia.Text;
                 nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
 
-                //negocio.Agregar(nuevo);
+                negocio.Agregar(nuevo);
             }
             catch (Exception ex)
             {

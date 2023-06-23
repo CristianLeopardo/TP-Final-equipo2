@@ -53,7 +53,7 @@ namespace TP_Final_equipo2
             nuevo.fechaingreso = DateTime.Parse(FechaIngreso.Text);
             nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
 
-            //medicoNegocio.Agregar(nuevo);
+            medicoNegocio.Agregar(nuevo);
            
         }
 

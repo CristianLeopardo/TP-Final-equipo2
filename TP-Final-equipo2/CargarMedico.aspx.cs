@@ -52,8 +52,8 @@ namespace TP_Final_equipo2
             nuevo.Sexo = ddlSexo.SelectedValue.ToString();
             nuevo.fechaingreso = DateTime.Parse(FechaIngreso.Text);
             nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
-
             medicoNegocio.Agregar(nuevo);
+            lblmensaje.Visible = true;
            
         }
 

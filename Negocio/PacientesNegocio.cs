@@ -165,5 +165,26 @@ namespace Negocio
                 datos.Cerraconexion();
             }
         }
+        public int BuscarID(int dni)
+        {
+            Conexion datos = new Conexion();
+            
+            try
+            {
+                datos.SetearConsulta("SELECT id FROM Pacientes WHERE dni= @dni");
+                datos.setearParametro("@dni",dni);
+
+                return datos.ejecutarAccionScalar();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
     }
 }

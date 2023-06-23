@@ -14,16 +14,14 @@ namespace TP_Final_equipo2
         protected void Page_Load(object sender, EventArgs e)
         {
             PacientesNegocio pacientesNegocio = new PacientesNegocio();
-            if (!IsPostBack)
-            {
-                ddlSexo.Items.Add("Masculino");
-                ddlSexo.Items.Add("Femenino");
-                ddlSexo.Items.Add("Otro");
-            }
             try
             {
                 if(!IsPostBack)
                 {
+                    ddlSexo.Items.Add("Masculino");
+                    ddlSexo.Items.Add("Femenino");
+                    ddlSexo.Items.Add("Otro");
+
                     ddlPacientes.DataSource = pacientesNegocio.ListarPacientes();
                     ddlPacientes.DataTextField = "DNI";
                     ddlPacientes.DataValueField = "ID";
@@ -66,7 +64,9 @@ namespace TP_Final_equipo2
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            CargarFormulario(int.Parse(ddlPacientes.SelectedValue));
+            PacientesNegocio negocio = new PacientesNegocio();
+            int id= negocio.BuscarID(int.Parse(tbxDNI.Text));
+            CargarFormulario(id);
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)

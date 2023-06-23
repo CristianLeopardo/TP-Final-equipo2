@@ -144,31 +144,48 @@
     <%--<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
         <ContentTemplate>--%>
-            <div class="container">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <div class="mb-3">
-                            <asp:Label ID="lblFechaNacimiento" CssClass="form-label alert-link accordion-button" runat="server" Text="Fecha de nacimiento"></asp:Label>
-                            <asp:TextBox ID="FechaNacimiento" CssClass="form-control" type="date" placeholder="Fecha de Nacimiento" runat="server" />
-                        </div>
-                    </div>
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="mb-3">
+                    <asp:Label ID="lblFechaNacimiento" CssClass="form-label alert-link accordion-button" runat="server" Text="Fecha de nacimiento"></asp:Label>
+                    <asp:TextBox ID="FechaNacimiento" CssClass="form-control" type="date" placeholder="Fecha de Nacimiento" runat="server" />
                 </div>
             </div>
-       <%-- </ContentTemplate>
+        </div>
+    </div>
+    <%-- </ContentTemplate>
     </asp:UpdatePanel>--%>
-    
+
     <div class="container text-center">
         <hr />
         <div class="row align-items-start">
             <div class="col">
                 <div class="mb-3">
-                    
+
                     <div>
-                        <asp:Button ID="btnAceptar" runat="server" CssClass="btn btn-primary" Text="Aceptar" OnClick="btnAceptar_Click" />
+                        <%-- MODAL --%>
+                        <button id="btnAceptar" type="button" class="btn btn-primary" data-bs-toggle="modal" OnClick="btnAceptar_Click" text="Aceptar" data-bs-target="#staticBackdrop">
+                            Aceptar
+                        </button>
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h2 class="modal-title" id="staticBackdropLabel">Confirmacion de alta</h2>
+                                        <asp:Button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" runat="server" />
+                                    </div>
+                                    <div class="modal-body">
+                                        <asp:Label ID="lblMensaje1" runat="server" Text="Paciente cargado exitosamente..."></asp:Label>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <asp:Button ID="btnAceptar2" type="button" class="btn btn-secondary" Text="Ir a Home" data-bs-dismiss="modal" runat="server" OnClick="btnAceptar2_Click" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%--<asp:Button ID="btnAceptar" runat="server" CssClass="btn btn-primary" Text="Aceptar" OnClick="btnAceptar_Click" />--%>
                         <asp:Button ID="btnVolver" runat="server" CssClass="btn btn-primary" OnClick="btnVolver_Click" Text="Volver" />
-                    </div>
-                    <div>
-                        <asp:Label ID="lblMensaje" runat="server" Text="" Visible="false"></asp:Label>
                     </div>
                 </div>
             </div>

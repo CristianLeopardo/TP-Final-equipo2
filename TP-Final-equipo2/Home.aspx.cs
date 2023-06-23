@@ -22,6 +22,12 @@ namespace TP_Final_equipo2
             //    string MensajeError = "Debe iniciar sesion para acceder a la pagina";
             //    EnviarMensajeError("Login.aspx", MensajeError);
             //}
+            if (Session["msj"] != null)
+            {
+                msj.Visible = true;
+                msj.Text = Session["msj"].ToString();
+
+            }
         }
 
         protected void btnnewPaciente_Click(object sender, EventArgs e)

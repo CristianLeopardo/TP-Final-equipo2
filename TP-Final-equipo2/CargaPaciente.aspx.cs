@@ -54,9 +54,7 @@ namespace TP_Final_equipo2
                 nuevo.Provincia = tbxProvincia.Text;
                 nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
 
-                negocio.Agregar(nuevo);
-                lblMensaje.Visible = true;
-                lblMensaje.Text = "Paciente cargado exitosamente...";
+                //negocio.Agregar(nuevo);
             }
             catch (Exception ex)
             {
@@ -73,6 +71,11 @@ namespace TP_Final_equipo2
         protected void calFechaNacimiento_SelectionChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnAceptar2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx", false);
         }
     }
 }

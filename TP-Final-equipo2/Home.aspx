@@ -47,7 +47,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <h1 class="welcome">Bienvenido al HOME...</h1>
-
+        <asp:Label ID="msj" runat="server" Text="" Visible="false"></asp:Label>
         <div class="button-container">
             <asp:Button runat="server" CssClass="btn" ID="btnnewPaciente" OnClick="btnnewPaciente_Click" Text="Cargar nuevo paciente" />
             <asp:Button runat="server" CssClass="btn" ID="btnModificarPaciente" OnClick="btnModificarPaciente_Click" Text="Modificar Pacientes" />

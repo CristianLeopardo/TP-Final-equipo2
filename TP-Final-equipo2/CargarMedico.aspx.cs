@@ -53,9 +53,8 @@ namespace TP_Final_equipo2
             nuevo.fechaingreso = DateTime.Parse(FechaIngreso.Text);
             nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
 
-            medicoNegocio.Agregar(nuevo);
-            lblmensaje.Visible = true;
-            lblmensaje.Text = "Medico cargado exitosamente...";
+            //medicoNegocio.Agregar(nuevo);
+           
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
@@ -72,7 +71,6 @@ namespace TP_Final_equipo2
             negocio.cargarEspecialidades(Negmedico.UltimoIngreso(),id);
             lblEspecialidad.Visible = true;
             lblEspecialidad.Text = "Se agrego especialidad";
-            btnaceptar.Visible = true;
 
         }
 

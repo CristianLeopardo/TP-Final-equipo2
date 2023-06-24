@@ -196,7 +196,7 @@
                                         <asp:Label ID="lblMensaje1" runat="server" Text="Medico cargado exitosamente..."></asp:Label>
                                     </div>
                                     <div class="modal-footer">
-                                        <asp:Button ID="btnAceptar2" type="button" class="btn btn-secondary" Text="Ir a Home" data-bs-dismiss="modal" OnClick="btnaceptar_Click" runat="server" />
+                                        <asp:Button ID="btnAceptar2" type="button" class="btn btn-secondary" Text="Ir a Home" OnClick="btnaceptar_Click" data-bs-dismiss="modal" runat="server" />
                                     </div>
                                 </div>
                             </div>

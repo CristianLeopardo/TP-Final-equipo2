@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Asigne las especialidades al médico correspondiente</h1>
     <div class="row align-items-start">
-        <div class="container">
+        <div class="container text-center">
             <asp:RadioButtonList ID="rbtEleccion"  OnSelectedIndexChanged="rbtEleccion_SelectedIndexChanged" runat="server">
                 <asp:ListItem Text="Agregar" Value="1"></asp:ListItem>
                 <asp:ListItem Text="Eliminar" Value="2"></asp:ListItem>

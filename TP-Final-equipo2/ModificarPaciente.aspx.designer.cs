@@ -258,13 +258,22 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.TextBox FechaNacimiento;
 
         /// <summary>
-        /// btnAceptar control.
+        /// lblMensaje1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAceptar;
+        protected global::System.Web.UI.WebControls.Label lblMensaje1;
+
+        /// <summary>
+        /// btnHome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnHome;
 
         /// <summary>
         /// btnVolver control.
@@ -276,13 +285,22 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.Button btnVolver;
 
         /// <summary>
-        /// btnEliminar control.
+        /// lblMensaje2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEliminar;
+        protected global::System.Web.UI.WebControls.Label lblMensaje2;
+
+        /// <summary>
+        /// btnHome1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnHome1;
 
         /// <summary>
         /// lblMensaje control.

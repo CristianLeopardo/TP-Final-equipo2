@@ -108,5 +108,15 @@ namespace TP_Final_equipo2
             PacientesNegocio eliminar = new PacientesNegocio();
             eliminar.Eliminar(int.Parse(ddlPacientes.SelectedValue));
         }
+
+        protected void btnHome1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx", false);
+        }
+
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx", false);
+        }
     }
 }

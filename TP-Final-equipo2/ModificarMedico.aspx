@@ -108,9 +108,47 @@
             <div class="col">
                 <div class="mb-3">
                     <div>
-                        <asp:Button ID="btnAceptar" runat="server" CssClass="btn btn-primary" Text="Aceptar" OnClick="btnAceptar_Click" />
+                        <%-- MODAL ACEPTAR --%>
+                        <button id="btnAceptar" type="button" class="btn btn-primary" OnClick="btnAceptar_Click" data-bs-toggle="modal" text="Modificar" data-bs-target="#staticBackdrop">
+                            Modificar
+                        </button>
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h2 class="modal-title" id="staticBackdropLabel">Confirmación de modificación</h2>
+                                        <asp:Button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" runat="server" />
+                                    </div>
+                                    <div class="modal-body">
+                                        <asp:Label ID="lblMensaje1" runat="server" Text="Medico modificado exitosamente..."></asp:Label>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <asp:Button ID="btnHome" type="button" class="btn btn-secondary" Text="Ir a Home" OnClick="btnHome_Click" data-bs-dismiss="modal" runat="server" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <asp:Button ID="btnVovler" runat="server" CssClass="btn btn-primary" OnClick="btnVovler_Click" Text="Volver" />
-                        <asp:Button ID="btnEliminar" runat="server" CssClass="btn btn-primary" OnClick="btnEliminar_Click" Text="Eliminar" />
+                        <%-- MODAL ELIMINAR --%>
+                        <button id="btnEliminar" type="button" class="btn btn-primary" OnClick="btnEliminar_Click" data-bs-toggle="modal" text="Eliminar" data-bs-target="#staticBackdrop1">
+                            Eliminar
+                        </button>
+                        <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h2 class="modal-title" id="staticBackdropLabel1">Confirmación de modificación</h2>
+                                        <asp:Button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" runat="server" />
+                                    </div>
+                                    <div class="modal-body">
+                                        <asp:Label ID="lblMensaje2" runat="server" Text="Medico eliminado exitosamente..."></asp:Label>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <asp:Button ID="btnHome1" type="button" class="btn btn-secondary" Text="Ir a Home" OnClick="btnHome1_Click" data-bs-dismiss="modal" runat="server" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div>
                         <asp:Label ID="lblMensaje" runat="server" Text="" Visible="false"></asp:Label>

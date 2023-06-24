@@ -110,5 +110,15 @@ namespace TP_Final_equipo2
             MedicoNegocio eliminar = new MedicoNegocio();
             eliminar.Eliminar(int.Parse(ddlMedicos.SelectedValue));
         }
+
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx", false);
+        }
+
+        protected void btnHome1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx", false);
+        }
     }
 }

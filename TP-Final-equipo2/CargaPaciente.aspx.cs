@@ -92,7 +92,7 @@ namespace TP_Final_equipo2
                 nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
 
                 negocio.Agregar(nuevo);
-                Response.Redirect("Home.aspx", false);
+                //Response.Redirect("Home.aspx", false);
             }
             catch (Exception ex)
             {

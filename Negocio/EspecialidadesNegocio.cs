@@ -116,9 +116,49 @@ namespace Negocio
             }
         }
 
+        public void AsignarEspecialidad(int Idmedico, int Idespecialidad)
+        {
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("insert into Medico_x_Especialidad(IdMedico, IDEspecialidad) VALUES (@IdMedico, @IDEspecialidad)");
+                datos.setearParametro("@IdMedico", Idmedico); 
+                datos.setearParametro("@IDEspecialidad", Idespecialidad);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
+
+        public void DesasignarEspecialidad(int Idmedico, int Idespecialidad)
+        {
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("delete from Medico_x_Especialidad where IdMedico = @IdMedico and IDEspecialidad = @IDEspecialidad");
+                datos.setearParametro("@IdMedico", Idmedico);
+                datos.setearParametro("@IDEspecialidad", Idespecialidad);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
+
         public void AgregarEspecialidad(string nombre)
-
-
         {
             Conexion datos = new Conexion();
             try
@@ -139,9 +179,6 @@ namespace Negocio
         }
 
         public void EliminarEspecialidad(int id)
-
-
-
         {
             Conexion datos = new Conexion();
             try

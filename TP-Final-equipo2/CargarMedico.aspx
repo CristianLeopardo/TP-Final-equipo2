@@ -156,6 +156,8 @@
             </div>
         </div>
     </div>
+    
+
     <%if (lblmensaje.Visible == true)
         {%>
     <div class="container text-center">

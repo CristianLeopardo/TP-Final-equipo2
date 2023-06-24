@@ -65,7 +65,16 @@ namespace TP_Final_equipo2
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             PacientesNegocio negocio = new PacientesNegocio();
-            int id= negocio.BuscarID(int.Parse(tbxDNI.Text));
+            int id;
+            if  (tbxDNI.Text != "")
+            {
+                 id = negocio.BuscarID(int.Parse(tbxDNI.Text));
+            }
+            else
+            {
+                id = int.Parse(ddlPacientes.SelectedValue);
+            }
+            
             CargarFormulario(id);
         }
 

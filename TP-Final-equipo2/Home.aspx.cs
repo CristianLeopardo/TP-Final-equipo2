@@ -59,5 +59,10 @@ namespace TP_Final_equipo2
         {
             Response.Redirect("MenuEspecialidades.aspx", false);
         }
+
+        protected void btnAsignar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AsignacionEspecialidades.aspx", false);
+        }
     }
 }

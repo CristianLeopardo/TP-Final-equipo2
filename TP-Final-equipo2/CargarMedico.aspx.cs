@@ -37,7 +37,6 @@ namespace TP_Final_equipo2
             EspecialidadesNegocio negocio = new EspecialidadesNegocio();
             gvsespcialidades.DataSource = negocio.ListarEspecialidades();
             gvsespcialidades.DataBind();
-
         }
         protected void btcontinuar_Click(object sender, EventArgs e)
         {
@@ -53,8 +52,8 @@ namespace TP_Final_equipo2
             nuevo.fechaingreso = DateTime.Parse(FechaIngreso.Text);
             nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
             medicoNegocio.Agregar(nuevo);
+
             lblmensaje.Visible = true;
-           
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)

@@ -64,6 +64,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AsignacionEspecialidades.aspx" />
     <Content Include="CargaPaciente.aspx" />
     <Content Include="CargarMedico.aspx" />
     <Content Include="Css\Estilos.css" />
@@ -80,6 +81,13 @@
     <Content Include="ModificarPaciente.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsignacionEspecialidades.aspx.cs">
+      <DependentUpon>AsignacionEspecialidades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AsignacionEspecialidades.aspx.designer.cs">
+      <DependentUpon>AsignacionEspecialidades.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CargaPaciente.aspx.cs">
       <DependentUpon>CargaPaciente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

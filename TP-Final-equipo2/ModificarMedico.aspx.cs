@@ -52,8 +52,8 @@ namespace TP_Final_equipo2
             tbxTelefono.Text = lista[0].Telefono.ToString();
             tbxEmail.Text = lista[0].Email;
             ddlSexo.SelectedValue = lista[0].Sexo;
-            calFechaIngreso.SelectedDate = lista[0].fechaingreso;
-            calFechaNacimiento.SelectedDate = lista[0].fechanacimiento;
+            FechaIngreso.Text = lista[0].fechaingreso.ToString();
+            FechaNacimiento.Text = lista[0].fechanacimiento.ToString();
             try
             {
                 ddlEspecialidades.DataSource = especialidadesNegocio.ListarEspecialidadesMedico(id);
@@ -98,8 +98,8 @@ namespace TP_Final_equipo2
             modificado.Telefono = int.Parse(tbxTelefono.Text);
             modificado.Email = tbxEmail.Text;
             modificado.Sexo = ddlSexo.SelectedValue;
-            modificado.fechaingreso = calFechaIngreso.SelectedDate;
-            modificado.fechanacimiento = calFechaNacimiento.SelectedDate;
+            modificado.fechaingreso = DateTime.Parse(FechaIngreso.Text);
+            modificado.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
             modificado.Estado = true;
             modificado.ID = int.Parse(ddlMedicos.SelectedValue);
             nuevo.Modificar(modificado);

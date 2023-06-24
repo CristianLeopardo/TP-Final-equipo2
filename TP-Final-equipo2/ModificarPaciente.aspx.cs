@@ -48,7 +48,7 @@ namespace TP_Final_equipo2
             tbxDomicilio.Text = lista[0].Domicilio;
             tbxLocalidad.Text = lista[0].Localidad;
             tbxProvincia.Text = lista[0].Provincia;
-            calFechaNacimiento.SelectedDate = lista[0].fechanacimiento;
+            FechaNacimiento.Text = lista[0].fechanacimiento.ToString();
             if (lista[0].Estado == true)
             {
                 lblActivo.Visible = true;
@@ -92,7 +92,7 @@ namespace TP_Final_equipo2
             modificado.Domicilio = tbxDomicilio.Text;
             modificado.Localidad = tbxLocalidad.Text;
             modificado.Provincia = tbxProvincia.Text;
-            modificado.fechanacimiento = calFechaNacimiento.SelectedDate;
+            modificado.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
             modificado.Estado = true;
             modificado.ID = int.Parse(ddlPacientes.SelectedValue);
             nuevo.Modificar(modificado);

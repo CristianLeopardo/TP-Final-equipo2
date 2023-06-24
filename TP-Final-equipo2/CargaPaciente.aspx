@@ -141,9 +141,6 @@
             </div>
         </div>
     </div>
-    <%--<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
-        <ContentTemplate>--%>
     <div class="container">
         <div class="row align-items-start">
             <div class="col">
@@ -154,8 +151,6 @@
             </div>
         </div>
     </div>
-    <%-- </ContentTemplate>
-    </asp:UpdatePanel>--%>
 
     <div class="container text-center">
         <hr />

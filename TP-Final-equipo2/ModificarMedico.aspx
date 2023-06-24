@@ -78,11 +78,19 @@
         <asp:Label ID="lblInactivo" CssClass="form-label alert-link accordion-button" runat="server" Text="Medico Inactivo" Visible="false"></asp:Label>
     </div>
     <div class="container text-center">
-        <div class="mb-3">
-            <asp:Label ID="lblFechaNacimiento" CssClass="form-label alert-link accordion-button" runat="server" Text="Fecha de nacimiento"></asp:Label>
-            <asp:Calendar ID="calFechaNacimiento" runat="server"></asp:Calendar>
-            <asp:Label ID="lvlFechaIngreso" CssClass="form-label alert-link accordion-button" runat="server" Text="Fecha de ingreso"></asp:Label>
-            <asp:Calendar ID="calFechaIngreso" runat="server"></asp:Calendar>
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="mb-3">
+                    <asp:Label ID="lblFechaNacimiento" CssClass="form-label alert-link accordion-button" runat="server" Text="Fecha de nacimiento"></asp:Label>
+                    <asp:TextBox ID="FechaNacimiento" CssClass="form-control" type="date" placeholder="Fecha de Nacimiento" runat="server" />
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <asp:Label ID="lvlFechaIngreso" CssClass="form-label alert-link accordion-button" runat="server" Text="Fecha de ingreso"></asp:Label>
+                    <asp:TextBox ID="FechaIngreso" CssClass="form-control" type="date" placeholder="Fecha de Ingreso" runat="server" />
+                </div>
+            </div>
         </div>
     </div>
 

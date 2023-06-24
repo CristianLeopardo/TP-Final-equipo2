@@ -103,7 +103,7 @@
             <div class="col">
                 <div class="mb-3">
                     <asp:Label ID="lblFechaNacimiento" CssClass="form-label alert-link accordion-button" runat="server" Text="Fecha de nacimiento"></asp:Label>
-                    <asp:Calendar ID="calFechaNacimiento" runat="server"></asp:Calendar>
+                    <asp:TextBox ID="FechaNacimiento" CssClass="form-control" type="date" placeholder="Fecha de Nacimiento" runat="server" />
                 </div>
             </div>
         </div>

@@ -118,9 +118,6 @@
             </div>
         </div>
     </div>
-    <%--<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
-        <ContentTemplate>--%>
     <div class="container text-center">
         <div class="row align-items-start">
             <div class="col">
@@ -137,8 +134,6 @@
             </div>
         </div>
     </div>
-    <%--</ContentTemplate>
-    </asp:UpdatePanel>--%>
 
 
     <div class="container text-center">
@@ -156,7 +151,7 @@
             </div>
         </div>
     </div>
-    
+
 
     <%if (lblmensaje.Visible == true)
         {%>
@@ -187,7 +182,7 @@
                         <%--<asp:Button ID="btnaceptar" runat="server" CssClass="btn btn-primary" Text="Aceptar" OnClick="btnaceptar_Click" Visible="false" />--%>
 
                         <%-- MODAL --%>
-                        <button ID="btnAceptar" type="button" class="btn btn-primary" data-bs-toggle="modal" Text="Aceptar" data-bs-target="#staticBackdrop">
+                        <button id="btnAceptar" type="button" class="btn btn-primary" data-bs-toggle="modal" text="Aceptar" data-bs-target="#staticBackdrop">
                             Aceptar
                         </button>
                         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -195,13 +190,13 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h2 class="modal-title" id="staticBackdropLabel">Confirmacion de alta</h2>
-                                        <asp:button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" runat="server"/>
+                                        <asp:Button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" runat="server" />
                                     </div>
                                     <div class="modal-body">
                                         <asp:Label ID="lblMensaje1" runat="server" Text="Medico cargado exitosamente..."></asp:Label>
                                     </div>
                                     <div class="modal-footer">
-                                        <asp:button ID="btnAceptar2" type="button" class="btn btn-secondary" Text="Ir a Home" data-bs-dismiss="modal" OnClick="btnaceptar_Click" runat="server"/>
+                                        <asp:Button ID="btnAceptar2" type="button" class="btn btn-secondary" Text="Ir a Home" data-bs-dismiss="modal" OnClick="btnaceptar_Click" runat="server" />
                                     </div>
                                 </div>
                             </div>

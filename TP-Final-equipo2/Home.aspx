@@ -22,7 +22,11 @@
         .welcome {
             text-align: center;
             font-size: 42px;
-            color: #333;
+            color: mediumturquoise;
+            width: 450px;
+            margin: auto;
+            font-style: italic;
+            background-color: seashell;
         }
 
         .button-container {
@@ -30,21 +34,23 @@
             grid-template-columns: repeat(1, 2fr);
             grid-gap: 10px;
             margin-top: 20px;
+            font-family: cursive;
         }
 
             .button-container .btn {
                 width: 100%;
                 padding: 12px;
                 font-size: 18px;
-                background-color: #333;
-                color: #fff;
-                border: none;
+                background-color: cadetblue;
+                color: ghostwhite;
+                border: ridge;
                 cursor: pointer;
-                transition: background-color 0.3s ease;
+                transition: background-color 0.5s ease-out;
             }
 
                 .button-container .btn:hover {
-                    background-color: #555;
+                    background-color: teal;
+                    border: double;
                 }
     </style>
 </asp:Content>

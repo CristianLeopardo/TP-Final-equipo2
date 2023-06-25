@@ -13,6 +13,10 @@
             max-width: 400px;
             margin: 0 auto;
             padding: 20px;
+            height: 80vh;
+            background-image: url("https://necochea.gov.ar/wp-content/uploads/2023/05/31-05-FOTO-ILUSTRATIVA-Medicina-General.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         .welcome {

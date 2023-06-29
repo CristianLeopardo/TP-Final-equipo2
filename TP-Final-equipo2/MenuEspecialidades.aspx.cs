@@ -12,7 +12,7 @@ namespace TP_Final_equipo2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            EspecialidadesNegocio especialidadesNegocio = new EspecialidadesNegocio();
+            EspecialidadNegocio especialidadesNegocio = new EspecialidadNegocio();
             ddlEspecialidades.DataSource = especialidadesNegocio.ListarEspecialidades();
             ddlEspecialidades.DataTextField = "Nombre";
             ddlEspecialidades.DataValueField = "ID";
@@ -55,7 +55,7 @@ namespace TP_Final_equipo2
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            EspecialidadesNegocio nuevo = new EspecialidadesNegocio();
+            EspecialidadNegocio nuevo = new EspecialidadNegocio();
             try
             {
                 nuevo.EliminarEspecialidad(int.Parse(ddlEspecialidades.SelectedValue));
@@ -70,7 +70,7 @@ namespace TP_Final_equipo2
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            EspecialidadesNegocio nuevo = new EspecialidadesNegocio();
+            EspecialidadNegocio nuevo = new EspecialidadNegocio();
             try
             {
                 nuevo.AgregarEspecialidad(tbxEspecialidad.Text);
@@ -86,7 +86,7 @@ namespace TP_Final_equipo2
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
-            EspecialidadesNegocio nuevo = new EspecialidadesNegocio();
+            EspecialidadNegocio nuevo = new EspecialidadNegocio();
             try
             {
                 nuevo.ModificarEspecialidad(int.Parse(ddlEspecialidades.SelectedValue), tbxEspecialidad.Text);

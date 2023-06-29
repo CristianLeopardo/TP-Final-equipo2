@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Negocio
 {
-    public class EspecialidadesNegocio
+    public class EspecialidadNegocio
     {
         public List<Especialidad> ListarEspecialidades()
         {

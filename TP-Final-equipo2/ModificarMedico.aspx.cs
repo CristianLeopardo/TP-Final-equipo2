@@ -41,7 +41,7 @@ namespace TP_Final_equipo2
 
         private void CargarFormulario(int id)
         {
-            EspecialidadesNegocio especialidadesNegocio = new EspecialidadesNegocio();
+            EspecialidadNegocio especialidadesNegocio = new EspecialidadNegocio();
             MedicoNegocio busqueda = new MedicoNegocio();
             List<Medico> lista = busqueda.BuscarMedico(id);
             tbxApellido.Text = lista[0].Apellido;

@@ -56,5 +56,10 @@ namespace TP_Final_equipo2
                 Session.Add("error", ex.ToString());
             }
         }
+
+        protected void btnRegistrarse_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Registrarse.aspx", false);
+        }
     }
 }

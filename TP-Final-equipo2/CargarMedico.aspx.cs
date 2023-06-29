@@ -34,7 +34,7 @@ namespace TP_Final_equipo2
                 ddlSexo.Items.Add("Femenino");
                 
             }
-            EspecialidadesNegocio negocio = new EspecialidadesNegocio();
+            EspecialidadNegocio negocio = new EspecialidadNegocio();
             gvsespcialidades.DataSource = negocio.ListarEspecialidades();
             gvsespcialidades.DataBind();
         }
@@ -66,7 +66,7 @@ namespace TP_Final_equipo2
             var algo = gvsespcialidades.SelectedRow.Cells[0].Text;
             var id = gvsespcialidades.SelectedDataKey.Value.ToString();
             MedicoNegocio Negmedico = new MedicoNegocio();
-            EspecialidadesNegocio negocio = new EspecialidadesNegocio();
+            EspecialidadNegocio negocio = new EspecialidadNegocio();
             negocio.cargarEspecialidades(Negmedico.UltimoIngreso(),id);
             lblEspecialidad.Visible = true;
             lblEspecialidad.Text = "Se agrego especialidad";

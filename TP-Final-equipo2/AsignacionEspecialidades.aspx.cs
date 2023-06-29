@@ -28,20 +28,20 @@ namespace TP_Final_equipo2
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            EspecialidadesNegocio especialidadesNegocio = new EspecialidadesNegocio();
+            EspecialidadNegocio especialidadesNegocio = new EspecialidadNegocio();
             especialidadesNegocio.DesasignarEspecialidad(int.Parse(ddlMedicos.SelectedValue), int.Parse(ddlEspecialidades.SelectedValue));
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            EspecialidadesNegocio especialidadesNegocio = new EspecialidadesNegocio();
+            EspecialidadNegocio especialidadesNegocio = new EspecialidadNegocio();
             especialidadesNegocio.AsignarEspecialidad(int.Parse(ddlMedicos.SelectedValue),int.Parse(ddlEspecialidades.SelectedValue) );
         }
 
 
         protected void rbtEleccion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            EspecialidadesNegocio especialidadesNegocio = new EspecialidadesNegocio();
+            EspecialidadNegocio especialidadesNegocio = new EspecialidadNegocio();
 
             if (int.Parse(rbtEleccion.SelectedValue) == 1)
             {
@@ -68,7 +68,7 @@ namespace TP_Final_equipo2
 
         protected void ddlMedicos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            EspecialidadesNegocio especialidadesNegocio = new EspecialidadesNegocio();
+            EspecialidadNegocio especialidadesNegocio = new EspecialidadNegocio();
             ddlEspecialidades.DataSource = especialidadesNegocio.ListarEspecialidadesMedico(int.Parse(ddlMedicos.SelectedValue));
             ddlEspecialidades.DataTextField = "NombreEspecialidad";
             ddlEspecialidades.DataValueField = "IDEspecialdiad";

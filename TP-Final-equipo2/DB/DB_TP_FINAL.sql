@@ -5,6 +5,7 @@ create table Usuarios(
     ID int not null PRIMARY KEY IDENTITY (1,1),
     Usuario VARCHAR(50) not null,
     Clave varchar(50) not null,
+    Email VARCHAR(50)  not null,
     TipoUsuario int not null
 )
 go

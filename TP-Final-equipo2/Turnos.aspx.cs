@@ -23,7 +23,7 @@ namespace TP_Final_equipo2
             //    EnviarMensajeError("Login.aspx", MensajeError);
             //}
 
-            EspecialidadesNegocio especialidadesNegocio = new EspecialidadesNegocio();
+            EspecialidadNegocio especialidadesNegocio = new EspecialidadNegocio();
             PacientesNegocio pacientesNegocio = new PacientesNegocio();
             try
             {
@@ -50,7 +50,7 @@ namespace TP_Final_equipo2
 
         protected void btnBuscarMedico_Click(object sender, EventArgs e)
         {
-            EspecialidadesNegocio especialidadesNegocio = new EspecialidadesNegocio();
+            EspecialidadNegocio especialidadesNegocio = new EspecialidadNegocio();
             try
             {
                 ddlMedicos.DataSource = especialidadesNegocio.ListarMedicos(int.Parse(ddlEspecialidades.SelectedValue));

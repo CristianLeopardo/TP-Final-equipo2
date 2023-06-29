@@ -98,8 +98,8 @@ namespace TP_Final_equipo2
                 //    {
                 //    return;
                 //    }
-                //negocio.Agregar(nuevo);
-                //Response.Redirect("Home.aspx", false);
+                negocio.Agregar(nuevo);
+                Response.Redirect("Home.aspx", false);
             }
             catch (Exception ex)
             {

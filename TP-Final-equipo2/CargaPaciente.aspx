@@ -70,9 +70,8 @@
                 alert("Por favor, complete todos los campos.");
                 return false;
             }
-
-
             return true;
+            
         }
     </script>
 

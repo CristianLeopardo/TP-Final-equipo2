@@ -35,7 +35,7 @@ namespace Negocio
                             usuario.TipoUsuario = Dominio.TipoUsuario.Medico;
                             break;
                         case 4:
-                            usuario.TipoUsuario = Dominio.TipoUsuario.Cliente;
+                            usuario.TipoUsuario = Dominio.TipoUsuario.Paciente;
                             break;
                         default:
                             break;
@@ -48,6 +48,32 @@ namespace Negocio
             {
 
                 throw ex;
+            }
+            finally
+            {
+                conexion.Cerraconexion();
+            }
+        }
+        public void Agregar(Usuario usuario)
+        {
+            Conexion conexion = new Conexion();
+            try
+            {
+                conexion.SetearConsulta("insert into Usuarios (Usuario, Clave, Email, TipoUsuario) VALUES (@Usuario, @Clave, @Email, @TipoUsuario)");
+                conexion.setearParametro("@Usuario", usuario.User);
+                conexion.setearParametro("@Clave", usuario.Clave);
+                conexion.setearParametro("@Email", usuario.Email);
+                conexion.setearParametro("@TipoUsuario", usuario.TipoUsuario);
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                conexion.Cerraconexion();
             }
         }
     }

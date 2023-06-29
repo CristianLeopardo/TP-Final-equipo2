@@ -62,8 +62,8 @@
         <div class="row align-items-start">
             <div class="col">
                 <div class="mb-3">
-                    <asp:Button ID="btnAceptar" CssClass="btn btn-primary"  runat="server" Text="Aceptar"  OnClick="btnAceptar_Click" />
-                    <asp:Button ID="btnVolver" CssClass="btn btn-primary" runat="server" Text="Volver"  OnClick="btnVolver_Click" />
+                    <asp:Button ID="btnAceptar" CssClass="btn btn-primary"  runat="server" Text="Registrarse"  OnClick="btnAceptar_Click" />
+                    <asp:Button ID="btnVolver" CssClass="btn btn-primary" runat="server" Text="Cancelar"  OnClick="btnVolver_Click" />
                 </div>
             </div>    
         </div>

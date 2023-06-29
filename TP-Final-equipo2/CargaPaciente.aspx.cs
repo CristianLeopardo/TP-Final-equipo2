@@ -57,6 +57,11 @@ namespace TP_Final_equipo2
                 nuevo.Provincia = tbxProvincia.Text;
                 nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
 
+
+                if (!int.TryParse(tbxDni.Text, out int dni))
+                {
+                    return;
+                }
                 negocio.Agregar(nuevo);
             }
             catch (Exception ex)
@@ -78,34 +83,7 @@ namespace TP_Final_equipo2
 
         protected void btnAceptar2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                PacientesNegocio negocio = new PacientesNegocio();
-                Paciente nuevo = new Paciente();
-                nuevo.Apellido = tbxApellido.Text;
-                nuevo.Nombre = tbxNombre.Text;
-                nuevo.Dni = int.Parse(tbxDni.Text);
-                nuevo.Sexo = ddlSexo.SelectedValue.ToString();
-                nuevo.Telefono = int.Parse(tbxTelefono.Text);
-                nuevo.Celular = int.Parse(tbxCelular.Text);
-                nuevo.Email = tbxEmail.Text;
-                nuevo.Domicilio = tbxDomicilio.Text;
-                nuevo.Localidad = tbxLocalidad.Text;
-                nuevo.Provincia = tbxProvincia.Text;
-                nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
-
-                //if (!int.TryParse(tbxDni.Text, out int dni))
-                //    {
-                //    return;
-                //    }
-                negocio.Agregar(nuevo);
                 Response.Redirect("Home.aspx", false);
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
         }
     }
 }

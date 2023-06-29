@@ -81,7 +81,7 @@
             <div class="col">
                 <div class="mb-3">
                     <asp:Label ID="lblDni" CssClass="form-label alert-link accordion-button" runat="server" Text="DNI"></asp:Label>
-                    <asp:TextBox ID="tbxDni" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbxDni" TextMode="Number" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
         </div>
@@ -101,19 +101,19 @@
             <div class="col">
                 <div class="mb-3">
                     <asp:Label ID="lblTelefono" CssClass="form-label alert-link accordion-button" runat="server" Text="Telefono"></asp:Label>
-                    <asp:TextBox ID="tbxTelefono" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbxTelefono" TextMode="Phone" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3">
                     <asp:Label ID="lblCelular" CssClass="form-label alert-link accordion-button" runat="server" Text="Celular"></asp:Label>
-                    <asp:TextBox ID="tbxCelular" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbxCelular" TextMode="Phone" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3">
                     <asp:Label ID="lblEmail" CssClass="form-label alert-link accordion-button" runat="server" Text="Email"></asp:Label>
-                    <asp:TextBox ID="tbxEmail" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbxEmail" TextMode="Email" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
         </div>
@@ -123,7 +123,7 @@
             <div class="col">
                 <div class="mb-3">
                     <asp:Label ID="lblFechaNacimiento" CssClass="form-label alert-link accordion-button" runat="server" Text="Fecha de nacimiento"></asp:Label>
-                    <asp:TextBox ID="FechaNacimiento" CssClass="form-control" type="date" placeholder="Fecha de Nacimiento" runat="server" />
+                    <asp:TextBox ID="FechaNacimiento" type="date" CssClass="form-control" placeholder="Fecha de Nacimiento" runat="server" />
                 </div>
             </div>
             <div class="col">

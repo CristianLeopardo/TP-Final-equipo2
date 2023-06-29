@@ -99,7 +99,7 @@
                 <div class="col">
                     <div class="mb-3">
                         <asp:Label ID="lblDni" CssClass="form-label alert-link accordion-button" runat="server" Text="DNI"></asp:Label>
-                        <asp:TextBox ID="tbxDni" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="tbxDni" TextMode="Number" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                 </div>
             </div>
@@ -119,19 +119,19 @@
             <div class="col">
                 <div class="mb-3">
                     <asp:Label ID="lblTelefono" CssClass="form-label alert-link accordion-button" runat="server" Text="Teléfono"></asp:Label>
-                    <asp:TextBox ID="tbxTelefono" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbxTelefono" TextMode="Phone" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3">
                     <asp:Label ID="lblCelular" CssClass="form-label alert-link accordion-button" runat="server" Text="Celular"></asp:Label>
-                    <asp:TextBox ID="tbxCelular" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbxCelular" TextMode="Phone" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3">
                     <asp:Label ID="lblEmail" CssClass="form-label alert-link accordion-button" runat="server" Text="Email"></asp:Label>
-                    <asp:TextBox ID="tbxEmail" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbxEmail" TextMode="Email" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
         </div>
@@ -176,7 +176,7 @@
 
                     <div>
                         <%-- MODAL --%>
-                        <asp:Button id="btnAceptar" type="button" class="btn btn-primary" data-bs-toggle="modal" autopostback="false" OnClientClick="return validar()" onclick="btnAceptar_Click" text="Aceptar" data-bs-target="#staticBackdrop" runat="server">
+                        <asp:Button id="btnAceptar" type="button" class="btn btn-primary" data-bs-toggle="modal" OnClientClick="return validar()" onclick="btnAceptar_Click" text="Aceptar" data-bs-target="#staticBackdrop" runat="server">
                         </asp:Button>
                         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-xl">

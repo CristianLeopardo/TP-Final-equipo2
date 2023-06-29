@@ -9,19 +9,19 @@
             <div class="col">
                 <div class="mb-3">
                     <asp:Label ID="lblUsuario" CssClass="form-label alert-link accordion-button" runat="server" Text="Ingrese el Usuario:"></asp:Label>
-                    <asp:TextBox ID="tbxUsuario" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbxUsuario" placeholder="Usuario" CssClass="form-control" TextMode="SingleLine" runat="server"></asp:TextBox>
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3">
                     <asp:Label ID="lblClave" CssClass="form-label alert-link accordion-button" runat="server" Text="Ingrese la contraseña:"></asp:Label>
-                    <asp:TextBox ID="tbxClave" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbxClave" placeholder="Contraseña" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3">
                     <asp:Label ID="lblClave2" CssClass="form-label alert-link accordion-button" runat="server" Text="Repita la contraseña:"></asp:Label>
-                    <asp:TextBox ID="tbxClave2" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbxClave2" placeholder="Contraseña" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
                 </div>
             </div>
         </div>
@@ -31,19 +31,19 @@
             <div class="col">
                 <div class="mb-3">
                     <asp:Label ID="lblEmail" CssClass="form-label alert-link accordion-button" runat="server" Text="Ingrese el Email:"></asp:Label>
-                    <asp:TextBox ID="tbxEmail" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbxEmail" CssClass="form-control" placeholder="Email" TextMode="Email" runat="server"></asp:TextBox>
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3">
                     <asp:Label ID="lblEmail2" CssClass="form-label alert-link accordion-button" runat="server" Text="Repita el Email:"></asp:Label>
-                    <asp:TextBox ID="tbxEmail2" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbxEmail2" CssClass="form-control" placeholder="Email" TextMode="Email" runat="server"></asp:TextBox>
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3">
                     <asp:Label ID="lblDNI" CssClass="form-label alert-link accordion-button" runat="server" Text="Ingrese el DNI:"></asp:Label>
-                    <asp:TextBox ID="tbxDNI" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbxDNI" CssClass="form-control" placeholder="DNI" TextMode="Number" runat="server"></asp:TextBox>
                 </div>
             </div>
         </div>

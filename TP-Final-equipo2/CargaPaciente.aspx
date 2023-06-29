@@ -65,8 +65,15 @@
             var apellido = document.getElementById("<% = tbxApellido.ClientID %>").value;
             var nombre = document.getElementById("<% = tbxNombre.ClientID %>").value;
             var dni = document.getElementById("<% = tbxDni.ClientID %>").value;
+            var tefelono = document.getElementById("<% = tbxTelefono.ClientID %>").value;
+            var celular = document.getElementById("<% = tbxCelular.ClientID %>").value;
+            var email = document.getElementById("<% = tbxEmail.ClientID %>").value;
+            var domicilio = document.getElementById("<% = tbxDomicilio.ClientID %>").value;
+            var localidad = document.getElementById("<% = tbxLocalidad.ClientID %>").value;
+            var provincia = document.getElementById("<% = tbxProvincia.ClientID %>").value;
+            var fechanacimiento = document.getElementById("<% = FechaNacimiento.ClientID %>").value;
 
-            if (apellido === "" || nombre === "" || dni === "") {
+            if (apellido === "" || nombre === "" || dni === "" || telefono === "" || celular === "" || email === "" || domicilio === "" || localidad === "" || provincia === "" || fechanacimiento === "") {
                 alert("Por favor, complete todos los campos.");
                 return false;
             }

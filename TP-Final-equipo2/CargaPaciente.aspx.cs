@@ -58,10 +58,10 @@ namespace TP_Final_equipo2
                 nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
 
 
-                if (!int.TryParse(tbxDni.Text, out int dni))
-                {
-                    return;
-                }
+                //if (!int.TryParse(tbxDni.Text, out int dni))
+                //{
+                //    return;
+                //}
                 negocio.Agregar(nuevo);
             }
             catch (Exception ex)

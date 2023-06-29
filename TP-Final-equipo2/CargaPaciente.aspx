@@ -178,7 +178,7 @@
                         <%-- MODAL --%>
                         <asp:Button id="btnAceptar" type="button" class="btn btn-primary" data-bs-toggle="modal" OnClientClick="return validar()" onclick="btnAceptar_Click" text="Aceptar" data-bs-target="#staticBackdrop" runat="server">
                         </asp:Button>
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel">
                             <div class="modal-dialog modal-xl">
                                 <div class="modal-content">
                                     <div class="modal-header">

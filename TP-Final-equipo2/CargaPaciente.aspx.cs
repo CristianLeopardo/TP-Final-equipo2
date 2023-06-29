@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Web;
+using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 using Dominio;
 using Negocio;
 
@@ -91,7 +94,11 @@ namespace TP_Final_equipo2
                 nuevo.Provincia = tbxProvincia.Text;
                 nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
 
-                negocio.Agregar(nuevo);
+                //if (!int.TryParse(tbxDni.Text, out int dni))
+                //    {
+                //    return;
+                //    }
+                //negocio.Agregar(nuevo);
                 //Response.Redirect("Home.aspx", false);
             }
             catch (Exception ex)

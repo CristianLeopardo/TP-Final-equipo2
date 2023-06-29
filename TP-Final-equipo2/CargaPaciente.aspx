@@ -59,33 +59,51 @@
                 background-color: #0056b3;
             }
     </style>
+    <script>
+        function validar() {
+
+            var apellido = document.getElementById("<% = tbxApellido.ClientID %>").value;
+            var nombre = document.getElementById("<% = tbxNombre.ClientID %>").value;
+            var dni = document.getElementById("<% = tbxDni.ClientID %>").value;
+
+            if (apellido === "" || nombre === "" || dni === "") {
+                alert("Por favor, complete todos los campos.");
+                return false;
+            }
+
+
+            return true;
+        }
+    </script>
+
+
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <div class="container text-center">
         <h1 class="welcome">Carga del nuevo paciente...</h1>
         <hr />
-        <div class="row align-items-start">
-            <div class="col">
-                <div class="mb-3">
-                    <asp:Label ID="lblApellido" CssClass="form-label alert-link accordion-button" runat="server" Text="Apellido"></asp:Label>
-                    <asp:TextBox ID="tbxApellido" CssClass="form-control" runat="server"></asp:TextBox>
+        
+            <div class="row align-items-start">
+                <div class="col">
+                    <div class="mb-3">
+                        <asp:Label ID="lblApellido" CssClass="form-label alert-link accordion-button" runat="server" Text="Apellido"></asp:Label>
+                        <asp:TextBox ID="tbxApellido" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="mb-3">
+                        <asp:Label ID="lblNombre" CssClass="form-label alert-link accordion-button" runat="server" Text="Nombre"></asp:Label>
+                        <asp:TextBox ID="tbxNombre" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="mb-3">
+                        <asp:Label ID="lblDni" CssClass="form-label alert-link accordion-button" runat="server" Text="DNI"></asp:Label>
+                        <asp:TextBox ID="tbxDni" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="mb-3">
-                    <asp:Label ID="lblNombre" CssClass="form-label alert-link accordion-button" runat="server" Text="Nombre"></asp:Label>
-                    <asp:TextBox ID="tbxNombre" CssClass="form-control" runat="server"></asp:TextBox>
-                </div>
-            </div>
-            <div class="col">
-                <div class="mb-3">
-                    <asp:Label ID="lblDni" CssClass="form-label alert-link accordion-button" runat="server" Text="DNI"></asp:Label>
-                    <asp:TextBox ID="tbxDni" CssClass="form-control" runat="server"></asp:TextBox>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="container text-center">
         <div class="row align-items-start">
@@ -151,7 +169,6 @@
             </div>
         </div>
     </div>
-
     <div class="container text-center">
         <hr />
         <div class="row align-items-start">
@@ -160,9 +177,8 @@
 
                     <div>
                         <%-- MODAL --%>
-                        <button id="btnAceptar" type="button" class="btn btn-primary" data-bs-toggle="modal" OnClick="btnAceptar_Click" text="Aceptar" data-bs-target="#staticBackdrop">
-                            Aceptar
-                        </button>
+                        <asp:Button id="btnAceptar" type="button" class="btn btn-primary" data-bs-toggle="modal" autopostback="false" OnClientClick="return validar()" onclick="btnAceptar_Click" text="Aceptar" data-bs-target="#staticBackdrop" runat="server">
+                        </asp:Button>
                         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-xl">
                                 <div class="modal-content">
@@ -186,4 +202,6 @@
             </div>
         </div>
     </div>
+
+    
 </asp:Content>

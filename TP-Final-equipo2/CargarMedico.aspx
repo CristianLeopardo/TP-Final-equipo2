@@ -59,6 +59,27 @@
                 background-color: #0056b3;
             }
     </style>
+    <script>
+        
+            function validar() {
+
+            var apellido = document.getElementById("<% = tbxApellido.ClientID %>").value;
+            var nombre = document.getElementById("<% = tbxNombre.ClientID %>").value;
+            var dni = document.getElementById("<% = tbxDni.ClientID %>").value;
+            var tefelono = document.getElementById("<% = tbxTelefono.ClientID %>").value;
+            var celular = document.getElementById("<% = tbxCelular.ClientID %>").value;
+            var email = document.getElementById("<% = tbxEmail.ClientID %>").value;
+            var fechaingreso = document.getElementById("<% = FechaIngreso.ClientID %>").value;
+            var fechanacimiento = document.getElementById("<% = FechaNacimiento.ClientID %>").value;
+
+            if (apellido === "" || nombre === "" || dni === "" || telefono === "" || celular === "" || email === "" || fechaingreso === "" || fechanacimiento === "") {
+                alert("Por favor, complete todos los campos.");
+            return false;
+            }
+            return true;
+            
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 

@@ -33,10 +33,12 @@ namespace TP_Final_equipo2
                 ddlSexo.Items.Add("Masculino");
                 ddlSexo.Items.Add("Femenino");
                 ddlSexo.Items.Add("Otro");
+                
+
             }
             
 
-            
+
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
@@ -63,6 +65,18 @@ namespace TP_Final_equipo2
                 //    return;
                 //}
                 negocio.Agregar(nuevo);
+                Session["AlertaMensaje"] = "Paciente cargado";
+                tbxApellido.Text = "";
+                tbxNombre.Text = "";
+                tbxDni.Text = "";
+                ddlSexo.SelectedIndex = 0;
+                tbxTelefono.Text = "";
+                tbxCelular.Text = "";
+                tbxEmail.Text = "";
+                tbxDomicilio.Text = "";
+                tbxLocalidad.Text = "";
+                tbxProvincia.Text = "";
+                FechaNacimiento.Text = "";
             }
             catch (Exception ex)
             {

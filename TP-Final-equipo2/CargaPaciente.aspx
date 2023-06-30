@@ -78,8 +78,28 @@
                 return false;
             }
             return true;
-            
+
         }
+
+        //const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+        //const appendAlert = (message, type) => {
+        //    const wrapper = document.createElement('div')
+        //    wrapper.innerHTML = [
+        //        `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+        //        `   <div>${message}</div>`,
+        //        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+        //        '</div>'
+        //    ].join('')
+
+        //    alertPlaceholder.append(wrapper)
+        //}
+
+        //const alertTrigger = document.getElementById('liveAlertBtn')
+        //if (alertTrigger) {
+        //    alertTrigger.addEventListener('click', () => {
+        //        appendAlert('Nice, you triggered this alert message!', 'success')
+        //    })
+        //}
     </script>
 
 
@@ -88,28 +108,38 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container text-center">
         <h1 class="welcome">Carga del nuevo paciente...</h1>
+        <%if (Session["AlertaMensaje"] != null)
+            {%>
+        <div class="alert alert-success alert-dismissible fade show">
+            <button class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Perfecto !</strong> Paciente cargado exitosamente...
+        </div>
+        <%  }
+            Session["AlertaMensaje"] = null;
+            %>
+
         <hr />
-        
-            <div class="row align-items-start">
-                <div class="col">
-                    <div class="mb-3">
-                        <asp:Label ID="lblApellido" CssClass="form-label alert-link accordion-button" runat="server" Text="Apellido"></asp:Label>
-                        <asp:TextBox ID="tbxApellido" CssClass="form-control" runat="server"></asp:TextBox>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="mb-3">
-                        <asp:Label ID="lblNombre" CssClass="form-label alert-link accordion-button" runat="server" Text="Nombre"></asp:Label>
-                        <asp:TextBox ID="tbxNombre" CssClass="form-control" runat="server"></asp:TextBox>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="mb-3">
-                        <asp:Label ID="lblDni" CssClass="form-label alert-link accordion-button" runat="server" Text="DNI"></asp:Label>
-                        <asp:TextBox ID="tbxDni" TextMode="Number" CssClass="form-control" runat="server"></asp:TextBox>
-                    </div>
+
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="mb-3">
+                    <asp:Label ID="lblApellido" CssClass="form-label alert-link accordion-button" runat="server" Text="Apellido"></asp:Label>
+                    <asp:TextBox ID="tbxApellido" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
+            <div class="col">
+                <div class="mb-3">
+                    <asp:Label ID="lblNombre" CssClass="form-label alert-link accordion-button" runat="server" Text="Nombre"></asp:Label>
+                    <asp:TextBox ID="tbxNombre" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <asp:Label ID="lblDni" CssClass="form-label alert-link accordion-button" runat="server" Text="DNI"></asp:Label>
+                    <asp:TextBox ID="tbxDni" TextMode="Number" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="container text-center">
         <div class="row align-items-start">
@@ -183,9 +213,11 @@
 
                     <div>
                         <%-- MODAL --%>
-                        <asp:Button id="btnAceptar" type="button" class="btn btn-primary" data-bs-toggle="modal" OnClientClick="return validar()" onclick="btnAceptar_Click" text="Aceptar" data-bs-target="#staticBackdrop" runat="server">
-                        </asp:Button>
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel">
+                        <%--<asp:Button ID="btnAceptar" type="button" class="btn btn-primary" data-bs-toggle="modal" autopostback="false" OnClientClick="return validar()" OnClick="btnAceptar_Click" Text="Aceptar" data-bs-target="#staticBackdrop" runat="server"></asp:Button>--%>
+
+                        <asp:Button type="button" class="btn btn-primary" ID="btnAceptar" Text="Aceptar" autopostback="false" OnClientClick="return validar()" OnClick="btnAceptar_Click" runat="server"></asp:Button>
+
+                        <%--<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel">
                             <div class="modal-dialog modal-xl">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -200,14 +232,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <%--<asp:Button ID="btnAceptar" runat="server" CssClass="btn btn-primary" Text="Aceptar" OnClick="btnAceptar_Click" />--%>
+                        </div>--%>
                         <asp:Button ID="btnVolver" runat="server" CssClass="btn btn-primary" OnClick="btnVolver_Click" Text="Volver" />
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    
 </asp:Content>

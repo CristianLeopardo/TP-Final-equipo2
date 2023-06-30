@@ -85,6 +85,15 @@
 
     <div class="container text-center">
         <h1 class="welcome">Carga de nuevo medico...</h1>
+        <%if (Session["AlertaMensaje"] != null)
+            {%>
+        <div class="alert alert-success alert-dismissible fade show">
+            <button class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Perfecto !</strong> Medico cargado exitosamente...
+        </div>
+        <%  }
+            Session["AlertaMensaje"] = null;
+            %>
         <hr />
         <div class="row align-items-start">
             <div class="col">
@@ -206,7 +215,8 @@
                         <button id="btnAceptar" type="button" class="btn btn-primary" data-bs-toggle="modal" text="Aceptar" data-bs-target="#staticBackdrop">
                             Aceptar
                         </button>
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <% %>
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel">
                             <div class="modal-dialog modal-xl">
                                 <div class="modal-content">
                                     <div class="modal-header">

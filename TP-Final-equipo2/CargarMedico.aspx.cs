@@ -52,6 +52,16 @@ namespace TP_Final_equipo2
             nuevo.fechaingreso = DateTime.Parse(FechaIngreso.Text);
             nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
             medicoNegocio.Agregar(nuevo);
+            Session["AlertaMensaje"] = "Medico cargado";
+            tbxApellido.Text = "";
+            tbxNombre.Text = "";
+            tbxDni.Text = "";
+            ddlSexo.SelectedIndex = 0;
+            tbxTelefono.Text = "";
+            tbxCelular.Text = "";
+            tbxEmail.Text = "";
+            FechaIngreso.Text = "";
+            FechaNacimiento.Text = "";
 
             lblmensaje.Visible = true;
         }

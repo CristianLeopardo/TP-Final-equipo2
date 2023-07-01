@@ -82,13 +82,14 @@ namespace Negocio
             }
         }
 
-        public List<Medico> BuscarMedicoxApellido(string seleccionar)
+        public List<Medico> BuscarMedicoxApellido(string campo, string dato)
         {
             List<Medico> lista = new List<Medico>();
             Conexion datos = new Conexion();
+
             try
             {
-                datos.SetearConsulta("Select ID, Nombre, Apellido, Sexo, DNI, Telefono, Celular, Email, FechaIngreso, FechaNacimiento, Estado from Medicos where Apellido like '"+seleccionar+"%'");
+                datos.SetearConsulta("Select ID, Nombre, Apellido, Sexo, DNI, Telefono, Celular, Email, FechaIngreso, FechaNacimiento, Estado from Medicos where "+ campo +" like '"+ dato +"%'");
                 datos.Ejecutarconsulta();
                 while (datos.Lector.Read())
                 {

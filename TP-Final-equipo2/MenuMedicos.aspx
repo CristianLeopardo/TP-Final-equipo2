@@ -3,16 +3,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
-        <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
-                <div class="d-flex" role="search">
-                    <asp:TextBox ID="txtfiltro" runat="server"></asp:TextBox>
-                    <asp:Button ID="btnbuscar" runat="server" OnClick="btnbuscar_Click" Text="Buscar" />
-                </div>
-            </div>
-        </nav>
-    </div>
-    <div>
         <div class="container text-center">
             <div class="row justify-content-start">
                 <div class="col">
@@ -20,15 +10,14 @@
                 </div>
                 <div class="col">
                     <asp:Label ID="lblcampo" runat="server" Text="Buscar por: "></asp:Label>
-                    <asp:DropDownList ID="ddlcampos" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlcampos" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlcampos_SelectedIndexChanged"></asp:DropDownList>
                 </div>
                 <div class="col">
-                    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblcriterio" runat="server" Text=""></asp:Label>
+                    <asp:TextBox ID="txtcriterio" runat="server"></asp:TextBox>
                 </div>
                 <div class="col">
-                    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
-                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                    <asp:Button ID="btnfiltrar" runat="server" OnClick="btnfiltrar_Click" Text="Buscar" />
                 </div>
             </div>
         </div>

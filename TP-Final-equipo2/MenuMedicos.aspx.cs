@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Dominio;
 
 namespace TP_Final_equipo2
 {
@@ -16,6 +17,9 @@ namespace TP_Final_equipo2
             {
                 int activos = 0;
                 Session.Add("Activos", activos);
+                ddlcampos.Items.Add("Especialidad");
+                ddlcampos.Items.Add("DNI");
+                ddlcampos.Items.Add("Nombre");
             }
 			MedicoNegocio medicoNegocio = new MedicoNegocio();
 			dgvMedicos.DataSource = medicoNegocio.ListarMedicosActivos();
@@ -61,6 +65,31 @@ namespace TP_Final_equipo2
                 btnActivos.Text = "Mostrar Inactivos";
             }
             
+        }
+
+        protected void btnbuscar_Click(object sender, EventArgs e)
+        {
+            string seleccionar = txtfiltro.Text;
+            MedicoNegocio negocio = new MedicoNegocio();
+            List<Medico> listafiltrada = new List<Medico>();
+            try
+            {
+                if(seleccionar != null || seleccionar != "")
+                {
+                    listafiltrada = negocio.BuscarMedicoxApellido(seleccionar);
+                }
+                else
+                {
+                    listafiltrada = negocio.ListarMedicosActivos();
+                }
+                    dgvMedicos.DataSource = listafiltrada;
+                    dgvMedicos.DataBind();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

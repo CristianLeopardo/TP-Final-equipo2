@@ -34,6 +34,7 @@ namespace TP_Final_equipo2
                 ddlSexo.Items.Add("Femenino");
                 
             }
+
             EspecialidadNegocio negocio = new EspecialidadNegocio();
             gvsespcialidades.DataSource = negocio.ListarEspecialidades();
             gvsespcialidades.DataBind();

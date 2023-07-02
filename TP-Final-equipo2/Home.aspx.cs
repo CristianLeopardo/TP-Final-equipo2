@@ -37,17 +37,12 @@ namespace TP_Final_equipo2
 
         protected void btnnewMedico_Click(object sender, EventArgs e)
         {
-            Response.Redirect("CargarMedico.aspx", false);
+            Response.Redirect("MenuMedicos.aspx", false);
         }
 
         protected void btnnewTurno_Click(object sender, EventArgs e)
         {
             Response.Redirect("Turnos.aspx", false);
-        }
-
-        protected void btnModificarMedico_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ModificarMedico.aspx", false);
         }
 
         protected void btnModificarPaciente_Click(object sender, EventArgs e)

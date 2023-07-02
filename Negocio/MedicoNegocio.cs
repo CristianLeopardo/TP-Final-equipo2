@@ -32,7 +32,6 @@ namespace Negocio
                     obj.fechanacimiento = (DateTime)datos.Lector["FechaNacimiento"];
                     obj.Estado = (bool)datos.Lector["Estado"];
                     lista.Add(obj);
-
                 }
                 return lista;
             }
@@ -68,7 +67,6 @@ namespace Negocio
                     obj.fechanacimiento = (DateTime)datos.Lector["FechaNacimiento"];
                     obj.Estado = (bool)datos.Lector["Estado"];
                     lista.Add(obj);
-
                 }
                 return lista;
             }
@@ -86,7 +84,6 @@ namespace Negocio
         {
             List<Medico> lista = new List<Medico>();
             Conexion datos = new Conexion();
-
             try
             {
                 datos.SetearConsulta("Select ID, Nombre, Apellido, Sexo, DNI, Telefono, Celular, Email, FechaIngreso, FechaNacimiento, Estado from Medicos where "+ campo +" like '"+ dato +"%'");
@@ -106,7 +103,6 @@ namespace Negocio
                     obj.fechanacimiento = (DateTime)datos.Lector["FechaNacimiento"];
                     obj.Estado = (bool)datos.Lector["Estado"];
                     lista.Add(obj);
-
                 }
                 return lista;
             }
@@ -208,7 +204,7 @@ namespace Negocio
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("update Medicos set Nombre = @Nombre, Apellido = @Apellido, Sexo = @Sexo, DNI = @DNI, Telefono = @Telefono, Celular = @Celular, Email = @Email, FechaIngreso = @FechaIngreso, FechaNacimiento = @FechaNacimiento, Estado = 1 where ID = @ID");
+                datos.SetearConsulta("update Medicos set Nombre = @Nombre, Apellido = @Apellido, Sexo = @Sexo, DNI = @DNI, Telefono = @Telefono, Celular = @Celular, Email = @Email, FechaIngreso = @FechaIngreso, FechaNacimiento = @FechaNacimiento, Estado = @Estado where ID = @ID");
                 datos.setearParametro("@Nombre", nuevo.Nombre);
                 datos.setearParametro("@Apellido", nuevo.Apellido);
                 datos.setearParametro("@Sexo", nuevo.Sexo);
@@ -219,8 +215,8 @@ namespace Negocio
                 datos.setearParametro("@FechaIngreso", nuevo.fechaingreso);
                 datos.setearParametro("@FechaNacimiento", nuevo.fechanacimiento);
                 datos.setearParametro("@ID", nuevo.ID);
+                datos.setearParametro("@Estado", nuevo.Estado);
                 datos.ejecutarAccion();
-
             }
             catch (Exception ex)
             {

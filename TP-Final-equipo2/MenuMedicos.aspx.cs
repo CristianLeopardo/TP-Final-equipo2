@@ -17,24 +17,23 @@ namespace TP_Final_equipo2
             {
                 int activos = 0;
                 Session.Add("Activos", activos);
+                ddlcampos.Items.Add("Nombre");
                 ddlcampos.Items.Add("Apellido");
                 ddlcampos.Items.Add("DNI");
-                ddlcampos.Items.Add("Nombre");
-            }
-            MedicoNegocio medicoNegocio = new MedicoNegocio();
-            dgvMedicos.DataSource = medicoNegocio.ListarMedicosActivos();
-            dgvMedicos.DataBind();
+                MedicoNegocio medicoNegocio = new MedicoNegocio();
+                Session.Add("ListaMedicos", medicoNegocio.ListarMedicos());
+                dgvMedicos.DataSource = Session["ListaMedicos"];
+                dgvMedicos.DataBind();
+            }           
         }
 
         protected void dgvMedicos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
         }
 
         protected void dgvMedicos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int id = int.Parse(dgvMedicos.SelectedRow.Cells[0].Text);
-            lblPrueba.Text = id.ToString();
+            int id = int.Parse(dgvMedicos.SelectedDataKey.Value.ToString());
             Response.Redirect("CargarMedico.aspx?ID=" + id, false);
         }
 
@@ -48,25 +47,24 @@ namespace TP_Final_equipo2
             int activos = Convert.ToInt32(Session["Activos"]);
             if (activos == 0)
             {
-                MedicoNegocio medicoNegocio = new MedicoNegocio();
-                dgvMedicos.DataSource = medicoNegocio.ListarMedicos();
+                List<Medico> lista = (List<Medico>)Session["ListaMedicos"];
+                List<Medico> listafiltrada = lista.FindAll(x => x.Estado == true);
+                dgvMedicos.DataSource= listafiltrada;
                 dgvMedicos.DataBind();
                 activos = 1;
                 Session.Add("Activos", activos);
-                btnActivos.Text = "Mostrar Activos";
+                btnActivos.Text = "Mostrar todos";
             }
             else
             {
-                MedicoNegocio medicoNegocio = new MedicoNegocio();
-                dgvMedicos.DataSource = medicoNegocio.ListarMedicosActivos();
+                List<Medico> lista = (List<Medico>)Session["ListaMedicos"];
+                dgvMedicos.DataSource = lista;
                 dgvMedicos.DataBind();
                 activos = 0;
                 Session.Add("Activos", activos);
-                btnActivos.Text = "Mostrar Inactivos";
+                btnActivos.Text = "Mostrar Activos";
             }
-
         }
-
 
         protected void ddlcampos_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -103,6 +101,11 @@ namespace TP_Final_equipo2
             string dato = txtcriterio.Text.ToString();
             dgvMedicos.DataSource = negocio.BuscarMedicoxApellido(campo, dato);
             dgvMedicos.DataBind();
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx", false);
         }
     }
 }

@@ -84,7 +84,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="container text-center">
-        <h1 class="welcome">Carga de nuevo medico...</h1>
+        <asp:Label ID="lblTitulo" class="welcome" runat="server" Text="Carga de nuevo Médico..."></asp:Label>
         <%if (Session["AlertaMensaje"] != null)
             {%>
         <div class="alert alert-success alert-dismissible fade show">
@@ -124,6 +124,12 @@
                     <asp:DropDownList ID="ddlSexo" CssClass="form-control" runat="server"></asp:DropDownList>
                 </div>
             </div>
+            <div class="col-5">
+                <div class="mb-3">
+                    <asp:Label ID="lblEstado" CssClass="form-label alert-link accordion-button" runat="server" Text="Estado:"></asp:Label>
+                    <asp:DropDownList ID="ddlEstado" CssClass="form-control" runat="server" ></asp:DropDownList>
+                    </div>
+                </div>
         </div>
     </div>
     <div class="container text-center">
@@ -190,10 +196,22 @@
             <label for="exampleInputPassword1" class="form-label">Especialidades</label>
         </div>
         <div class="table">
-            <asp:GridView ID="gvsespcialidades" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" OnSelectedIndexChanged="gvsespcialidades_SelectedIndexChanged">
+            <asp:GridView ID="dgvEspcialidades" runat="server" AutoGenerateColumns="false" DataKeyNames="ID"  OnSelectedIndexChanged="dgvEspcialidades_SelectedIndexChanged">
                 <Columns>
+                    <asp:BoundField HeaderText="ID" DataField="ID" />
                     <asp:BoundField HeaderText="Especialidad" DataField="Nombre" />
+                    <asp:TemplateField>
+                        <HeaderTemplate>
+                            <asp:Label ID="lblSeleccionar" runat="server" Text="Seleccionar"></asp:Label>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <asp:CheckBox ID="Checked" runat="server"  AutoPostBack="false" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <%--  
+                    <asp:CheckBoxField HeaderText="Seleccionar" Visible="true" />
                     <asp:CommandField ShowSelectButton="true" SelectText="✅" HeaderText="Cargar" />
+                    --%>
                 </Columns>
             </asp:GridView>
         </div>

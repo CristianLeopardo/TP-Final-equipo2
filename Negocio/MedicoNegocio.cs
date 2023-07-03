@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -235,6 +236,35 @@ namespace Negocio
             {
                 datos.SetearConsulta("update Medicos set Estado = 0 where ID =" + id);
                 datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
+
+        public List<Medico> BuscarMedicoxDNI(int DNI)
+        {
+            List<Medico> lista = new List<Medico>();
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("select ID, Nombre, Apellido from Medicos where dni = " + DNI);
+                datos.Ejecutarconsulta();
+                while (datos.Lector.Read())
+                {
+                    Medico obj = new Medico();
+                    obj.ID = (int)datos.Lector["ID"];
+                    obj.Nombre = (string)datos.Lector["Nombre"];
+                    obj.Apellido = (string)datos.Lector["Apellido"];
+                    lista.Add(obj);
+
+                }
+                return lista;
             }
             catch (Exception ex)
             {

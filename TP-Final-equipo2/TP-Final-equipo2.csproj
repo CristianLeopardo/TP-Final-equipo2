@@ -72,6 +72,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
+    <Content Include="Jornada.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MenuEspecialidades.aspx" />
     <Content Include="MenuMedicos.aspx" />
@@ -119,6 +120,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Jornada.aspx.cs">
+      <DependentUpon>Jornada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Jornada.aspx.designer.cs">
+      <DependentUpon>Jornada.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

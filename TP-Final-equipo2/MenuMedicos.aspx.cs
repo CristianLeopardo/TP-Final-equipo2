@@ -20,6 +20,11 @@ namespace TP_Final_equipo2
                 ddlcampos.Items.Add("Nombre");
                 ddlcampos.Items.Add("Apellido");
                 ddlcampos.Items.Add("DNI");
+                EspecialidadNegocio negocio = new EspecialidadNegocio();
+                ddlespecialidades.DataSource = negocio.ListarEspecialidades();
+                ddlespecialidades.DataValueField = "ID";
+                ddlespecialidades.DataTextField = "Nombre";
+                ddlespecialidades.DataBind();
                 MedicoNegocio medicoNegocio = new MedicoNegocio();
                 Session.Add("ListaMedicos", medicoNegocio.ListarMedicos());
                 dgvMedicos.DataSource = Session["ListaMedicos"];
@@ -106,6 +111,14 @@ namespace TP_Final_equipo2
         protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("Home.aspx", false);
+        }
+
+        protected void ddlespecialidades_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            EspecialidadNegocio negocio = new EspecialidadNegocio();
+            int selecionado = int.Parse(ddlespecialidades.SelectedItem.Value);
+            dgvMedicos.DataSource = negocio.ListaFiltradaEspecialidades(selecionado);
+            dgvMedicos.DataBind();
         }
     }
 }

@@ -95,6 +95,42 @@ namespace Negocio
             }
 
         }
+
+        public List<Medico> ListaFiltradaEspecialidades(int idEspecialdad)
+        {
+            List<Medico> listafiltrada = new List<Medico>();
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("SELECT m.ID ,m.Apellido, m.Nombre, m.sexo, m.DNI, m.Telefono, m.Celular, m.Email, m.FechaIngreso, m.FechaNacimiento, m.Estado from Medicos m INNER JOIN Medico_x_Especialidad me on m.ID=me.IdMedico WHERE me.IDEspecialidad=" + idEspecialdad);
+                datos.Ejecutarconsulta();
+                while (datos.Lector.Read())
+                {
+                    Medico obj = new Medico();
+                    obj.ID = (int)datos.Lector["ID"];
+                    obj.Nombre = (string)datos.Lector["Nombre"];
+                    obj.Apellido = (string)datos.Lector["Apellido"];
+                    obj.Sexo = (string)datos.Lector["Sexo"];
+                    obj.Dni = (int)datos.Lector["DNI"];
+                    obj.Telefono = (int)datos.Lector["Telefono"];
+                    obj.Celular = (int)datos.Lector["Celular"];
+                    obj.Email = (string)datos.Lector["Email"];
+                    obj.fechaingreso = (DateTime)datos.Lector["FechaIngreso"];
+                    obj.fechanacimiento = (DateTime)datos.Lector["FechaNacimiento"];
+                    obj.Estado = (bool)datos.Lector["Estado"];
+                    listafiltrada.Add(obj);
+                }
+                return listafiltrada;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
         public void cargarEspecialidades(int Idmedico, string Idespecialidad)
         {
             Conexion datos = new Conexion();

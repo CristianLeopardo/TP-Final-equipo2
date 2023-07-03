@@ -57,6 +57,64 @@ CREATE TABLE Medico_x_Especialidad(
     IDEspecialidad INT
 )
 
+create table Horarios(
+    IDHorario int IDENTITY(1,1) NOT NULL,
+	IDMedico int NOT NULL,
+	IDHoraInicio int NOT NULL,
+	Fecha Datetime NOT NULL,
+	Estado bit NOT NULL default 1
+)
+
+create table Hora(
+    IDHora int not null PRIMARY KEY identity (1,1),
+    Hora varchar(5) not null,
+)
+
+insert into Hora(Hora)
+  values ('09:00')
+insert into Hora(Hora)
+  values ('09:30')
+insert into Hora(Hora)
+  values ('10:00')
+insert into Hora(Hora)
+  values ('10:30')
+insert into Hora(Hora)
+  values ('11:00')
+    insert into Hora(Hora)
+  values ('11:30')
+  insert into Hora(Hora)
+  values ('12:00')
+    insert into Hora(Hora)
+  values ('12:30')
+    insert into Hora(Hora)
+  values ('13:00')
+    insert into Hora(Hora)
+  values ('13:30')
+    insert into Hora(Hora)
+  values ('14:00')
+    insert into Hora(Hora)
+  values ('14:30')
+    insert into Hora(Hora)
+  values ('15:00')
+    insert into Hora(Hora)
+  values ('15:30')
+    insert into Hora(Hora)
+  values ('16:00')
+    insert into Hora(Hora)
+  values ('16:30')
+    insert into Hora(Hora)
+  values ('17:00')
+    insert into Hora(Hora)
+  values ('17:30')
+    insert into Hora(Hora)
+  values ('18:00')
+    insert into Hora(Hora)
+  values ('18:30')
+    insert into Hora(Hora)
+  values ('19:00')
+    insert into Hora(Hora)
+  values ('19:30')
+
 insert into Especialidad(Nombre)
 values ('Dentista');
 insert into Especialidad(Nombre)

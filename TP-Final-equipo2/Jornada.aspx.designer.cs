@@ -60,6 +60,51 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.Label lblApellido;
 
         /// <summary>
+        /// lblEspecialidad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEspecialidad;
+
+        /// <summary>
+        /// ddlEspecialidad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlEspecialidad;
+
+        /// <summary>
+        /// lblTurno control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTurno;
+
+        /// <summary>
+        /// ddlTurno control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTurno;
+
+        /// <summary>
+        /// btnBuscarMedico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscarMedico;
+
+        /// <summary>
         /// tbxFecha control.
         /// </summary>
         /// <remarks>
@@ -105,12 +150,12 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.Button btnGuardarHorario;
 
         /// <summary>
-        /// dgvHorarios control.
+        /// dgvTurnos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvHorarios;
+        protected global::System.Web.UI.WebControls.GridView dgvTurnos;
     }
 }

@@ -29,6 +29,9 @@ namespace TP_Final_equipo2
                 ddlSexo.Items.Add("Masculino");
                 ddlSexo.Items.Add("Femenino");
                 ddlSexo.Items.Add("Otro");
+                ddlJornada.Items.Add("Mañana");
+                ddlJornada.Items.Add("Tarde");
+                ddlJornada.Items.Add("Noche");
                 ListItem Activo = new ListItem("Activo", "1");
                 ddlEstado.Items.Add(Activo);
                 ListItem Inactivo = new ListItem("Inactivo", "0");
@@ -82,6 +85,7 @@ namespace TP_Final_equipo2
             nuevo.Sexo = ddlSexo.SelectedValue.ToString();
             nuevo.fechaingreso = DateTime.Parse(FechaIngreso.Text);
             nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
+            nuevo.JornadaLaboral = ddlJornada.SelectedValue.ToString();
             if (int.Parse(ddlEstado.SelectedValue) == 1)
             {
                 nuevo.Estado = true;

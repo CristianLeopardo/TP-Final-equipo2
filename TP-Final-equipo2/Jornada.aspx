@@ -4,13 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section>
-        <h1 style="text-align: center">CARGA DE HORARIO LABORAL</h1>
+        <h1 style="text-align: center">CARGA DEL TURNO</h1>
     </section>
     <div class="content">
         <div class="row">
             <div class="col-md-4">
                 <div>
-                    <h3>Datos del médico</h3>
+                    <h3>Indique el <strong>PACIENTE</strong></h3>
                     <div>
                         <label>Nro. de Documento</label>
                         <div class="input-group">
@@ -31,6 +31,17 @@
                         <strong>Apellido: </strong>
                         <asp:Label ID="lblApellido" runat="server" Text="" />
                     </div>
+                </div>
+                <div>
+                    <asp:Label Text="Especialidad: " runat="server" ID="lblEspecialidad" />
+                    <asp:DropDownList ID="ddlEspecialidad" AutoPostBack="true" runat="server"></asp:DropDownList>
+                </div>
+                <div>
+                    <asp:Label Text="Turno: " ID="lblTurno" runat="server" />
+                    <asp:DropDownList ID="ddlTurno" AutoPostBack="true" runat="server"></asp:DropDownList>
+                </div>
+                <div>
+                    <asp:Button Text="Buscar Médico" ID="btnBuscarMedico" OnClick="btnBuscarMedico_Click" CssClass="btn btn-primary" runat="server" />
                 </div>
             </div>
             <div class="col-md-8">
@@ -68,12 +79,10 @@
                     <asp:Button ID="btnGuardarHorario" Text="Guardar Horario" CssClass="btn btn-success" runat="server" />
                 </div>
                 <div>
-                    <asp:GridView ID="dgvHorarios" AutoGenerateColumns="false" runat="server">
+                    <asp:GridView ID="dgvTurnos" AutoGenerateColumns="false" runat="server">
                         <Columns>
                             <asp:BoundField HeaderText="Fecha de atencion" DataField="Fecha" DataFormatString="{0:d}" />
                             <asp:BoundField HeaderText="Hora de atencion" DataField="Hora" DataFormatString="{0:t}" />
-                            <asp:CommandField ShowSelectButton="true" SelectText="Editar" HeaderText="Edición"/>
-                            <asp:CommandField ShowSelectButton="true" SelectText="Eliminar" HeaderText="Eliminación"/>
                         </Columns>
                     </asp:GridView>
                 </div>

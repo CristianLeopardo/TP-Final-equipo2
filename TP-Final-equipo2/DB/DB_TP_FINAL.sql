@@ -20,6 +20,7 @@ create table Medicos(
     Email VARCHAR(50) not null,
     FechaIngreso DATETIME not null,
     FechaNacimiento DATETIME not null,
+    Jornada varchar(20) not null,
     Estado bit not null default 1
 )
 GO

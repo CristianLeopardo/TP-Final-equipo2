@@ -114,6 +114,24 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
 
         /// <summary>
+        /// lblJornada control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblJornada;
+
+        /// <summary>
+        /// ddlJornada control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlJornada;
+
+        /// <summary>
         /// lblTelefono control.
         /// </summary>
         /// <remarks>

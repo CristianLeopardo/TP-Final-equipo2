@@ -186,5 +186,33 @@ namespace Negocio
                 datos.Cerraconexion();
             }
         }
+        public List<Paciente> BuscarPacientexDNI(int DNI)
+        {
+            List<Paciente> lista = new List<Paciente>();
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("select ID, Nombre, Apellido from Pacientes where dni = " + DNI);
+                datos.Ejecutarconsulta();
+                while (datos.Lector.Read())
+                {
+                    Paciente obj = new Paciente();
+                    obj.ID = (int)datos.Lector["ID"];
+                    obj.Nombre = (string)datos.Lector["Nombre"];
+                    obj.Apellido = (string)datos.Lector["Apellido"];
+                    lista.Add(obj);
+
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
     }
 }

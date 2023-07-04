@@ -16,7 +16,7 @@ namespace Negocio
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("Select ID, Nombre, Apellido, Sexo, DNI, Telefono, Celular, Email, FechaIngreso, FechaNacimiento, Estado from Medicos");
+                datos.SetearConsulta("Select ID, Nombre, Apellido, Sexo, DNI, Telefono, Celular, Email, FechaIngreso, FechaNacimiento, Jornada, Estado from Medicos");
                 datos.Ejecutarconsulta();
                 while (datos.Lector.Read())
                 {
@@ -51,7 +51,7 @@ namespace Negocio
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("Select ID, Nombre, Apellido, Sexo, DNI, Telefono, Celular, Email, FechaIngreso, FechaNacimiento, Estado from Medicos where Estado = 1");
+                datos.SetearConsulta("Select ID, Nombre, Apellido, Sexo, DNI, Telefono, Celular, Email, FechaIngreso, FechaNacimiento, Jornada, Estado from Medicos where Estado = 1");
                 datos.Ejecutarconsulta();
                 while (datos.Lector.Read())
                 {
@@ -87,7 +87,7 @@ namespace Negocio
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("Select ID, Nombre, Apellido, Sexo, DNI, Telefono, Celular, Email, FechaIngreso, FechaNacimiento, Estado from Medicos where "+ campo +" like '"+ dato +"%'");
+                datos.SetearConsulta("Select ID, Nombre, Apellido, Sexo, DNI, Telefono, Celular, Email, FechaIngreso, FechaNacimiento, Jornada, Estado from Medicos where "+ campo +" like '"+ dato +"%'");
                 datos.Ejecutarconsulta();
                 while (datos.Lector.Read())
                 {
@@ -123,7 +123,7 @@ namespace Negocio
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("Select ID, Nombre, Apellido, Sexo, DNI, Telefono, Celular, Email, FechaIngreso, FechaNacimiento, Estado from Medicos where ID = " + id);
+                datos.SetearConsulta("Select ID, Nombre, Apellido, Sexo, DNI, Telefono, Celular, Email, FechaIngreso, FechaNacimiento, Jornada, Estado from Medicos where ID = " + id);
                 datos.Ejecutarconsulta();
                 while (datos.Lector.Read())
                 {
@@ -159,7 +159,7 @@ namespace Negocio
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("insert into Medicos (Apellido, Nombre, DNI, Sexo, Telefono, Celular, Email, FechaIngreso, FechaNacimiento) values (@Apellido, @Nombre, @DNI, @Sexo, @Telefono, @Celular, @Email, @FechaIngreso, @FechaNacimiento)");
+                datos.SetearConsulta("insert into Medicos (Apellido, Nombre, DNI, Sexo, Telefono, Celular, Email, FechaIngreso, FechaNacimiento, Jornada) values (@Apellido, @Nombre, @DNI, @Sexo, @Telefono, @Celular, @Email, @FechaIngreso, @FechaNacimiento, @Jornada)");
                 datos.setearParametro("@Apellido", nuevo.Apellido);
                 datos.setearParametro("@Nombre", nuevo.Nombre);
                 datos.setearParametro("@DNI", nuevo.Dni);
@@ -169,6 +169,7 @@ namespace Negocio
                 datos.setearParametro("@Email", nuevo.Email);
                 datos.setearParametro("@FechaNacimiento", nuevo.fechanacimiento);
                 datos.setearParametro("@FechaIngreso", nuevo.fechaingreso);
+                datos.setearParametro("@Jornada", nuevo.JornadaLaboral);
                 datos.ejecutarAccion();
 
             }
@@ -259,6 +260,34 @@ namespace Negocio
                 {
                     Medico obj = new Medico();
                     obj.ID = (int)datos.Lector["ID"];
+                    obj.Nombre = (string)datos.Lector["Nombre"];
+                    obj.Apellido = (string)datos.Lector["Apellido"];
+                    lista.Add(obj);
+
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
+
+        public List<Medico> BuscarxEspecialidadyTurno(int DNI)
+        {
+            List<Medico> lista = new List<Medico>();
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("select Nombre, Apellido Jornada from Medicos where dni = " + DNI);
+                datos.Ejecutarconsulta();
+                while (datos.Lector.Read())
+                {
+                    Medico obj = new Medico();
                     obj.Nombre = (string)datos.Lector["Nombre"];
                     obj.Apellido = (string)datos.Lector["Apellido"];
                     lista.Add(obj);

@@ -118,7 +118,7 @@
     </div>
     <div class="container text-center">
         <div class="row align-items-start">
-            <div class="col-5">
+            <div class="col-3">
                 <div class="mb-3">
                     <asp:Label ID="lblSexo" CssClass="form-label alert-link accordion-button" runat="server" Text="Sexo"></asp:Label>
                     <asp:DropDownList ID="ddlSexo" CssClass="form-control" runat="server"></asp:DropDownList>
@@ -130,6 +130,12 @@
                     <asp:DropDownList ID="ddlEstado" CssClass="form-control" runat="server" ></asp:DropDownList>
                     </div>
                 </div>
+            <div class="col-3">
+                <div class="mb-3">
+                    <asp:Label ID="lblJornada" CssClass="form-label alert-link accordion-button" runat="server" Text="Jornada:"></asp:Label>
+                    <asp:DropDownList ID="ddlJornada" CssClass="form-control" runat="server" ></asp:DropDownList>
+                </div>
+            </div>
         </div>
     </div>
     <div class="container text-center">

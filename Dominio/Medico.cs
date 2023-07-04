@@ -8,6 +8,7 @@ namespace Dominio
 {
     public class Medico
     {
+        
         public int ID { get; set; }
         public string Apellido { get; set; }
         public string Nombre { get; set; }
@@ -19,6 +20,8 @@ namespace Dominio
         public string Email { get; set; }
         public DateTime fechanacimiento { get; set; }
         public DateTime fechaingreso { get; set; }
+
+        public string JornadaLaboral { get; set; }
         public bool Estado { get; set; }
 
         public List<Especialidad> Especialidades { get; set; }

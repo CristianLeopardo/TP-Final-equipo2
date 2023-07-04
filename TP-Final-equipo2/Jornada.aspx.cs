@@ -13,7 +13,21 @@ namespace TP_Final_equipo2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {               
+                EspecialidadNegocio negocio = new EspecialidadNegocio();
+                ddlEspecialidad.DataSource = negocio.ListarEspecialidades();
+                ddlEspecialidad.DataValueField = "ID";
+                ddlEspecialidad.DataTextField = "Nombre";
+                ddlEspecialidad.DataBind();
+                ddlTurno.Items.Add("Mañana");
+                ddlTurno.Items.Add("Tarde");
+                ddlTurno.Items.Add("Noche");
+                //MedicoNegocio medicoNegocio = new MedicoNegocio();
+                //Session.Add("ListaMedicos", medicoNegocio.ListarMedicos());
+                //dgvMedicos.DataSource = Session["ListaMedicos"];
+                //dgvMedicos.DataBind();
+            }
         }
 
         protected void btnAgregarHora_Click(object sender, EventArgs e)
@@ -54,23 +68,36 @@ namespace TP_Final_equipo2
         {
             int dni = int.Parse(tbxDNI.Text);
 
-            MedicoNegocio Negocio = new MedicoNegocio();
-            List<Medico> listaMedicos = Negocio.BuscarMedicoxDNI(dni);
+            PacientesNegocio Negocio = new PacientesNegocio();
+            List<Paciente> listaPaciente = Negocio.BuscarPacientexDNI(dni);
 
-            if (listaMedicos.Count > 0)
+            if (listaPaciente.Count > 0)
             {
-                lblNombre.Text = listaMedicos[0].Nombre;
-                lblApellido.Text = listaMedicos[0].Apellido;
+                lblNombre.Text = listaPaciente[0].Nombre;
+                lblApellido.Text = listaPaciente[0].Apellido;
                 lblError.Visible = false;
             }
             else
             {
-                lblError.Text = "Médico no encontrado";
+                lblError.Text = "Paciente no encontrado";
                 lblError.Visible = true;
                 lblNombre.Text = "";
                 lblApellido.Text = "";
 
             }
+        }
+
+        protected void btnBuscarMedico_Click(object sender, EventArgs e)
+        {
+            MedicoNegocio negocio = new MedicoNegocio();
+            string especialidad = ddlEspecialidad.SelectedItem.Text;
+            string turno = ddlTurno.SelectedValue.ToString();
+            dgvTurnos.DataSource = negocio.BuscarMedicoxApellido(campo, dato);
+            dgvTurnos.DataBind();
+
+
+
+
         }
     }
 }

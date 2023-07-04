@@ -277,18 +277,20 @@ namespace Negocio
             }
         }
 
-        public List<Medico> BuscarxEspecialidadyTurno(int DNI)
+        public List<Medico> BuscarxEspecialidadyTurno(string jornada, string especialidad)
         {
             List<Medico> lista = new List<Medico>();
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("select Nombre, Apellido Jornada from Medicos where dni = " + DNI);
+                datos.SetearConsulta("select m.Nombre, m.Apellido, m.Jornada, e.Nombre from Medicos M inner join Medico_x_Especialidad MxE on mxe.IdMedico = m.ID inner join Especialidad e on e.ID = mxe.IDEspecialidad where e.Nombre = " + especialidad + " and M.Jornada = " + jornada);
                 datos.Ejecutarconsulta();
                 while (datos.Lector.Read())
                 {
                     Medico obj = new Medico();
                     obj.Nombre = (string)datos.Lector["Nombre"];
+                    obj.Apellido = (string)datos.Lector["Apellido"];
+                    obj.Apellido = (string)datos.Lector["Apellido"];
                     obj.Apellido = (string)datos.Lector["Apellido"];
                     lista.Add(obj);
 

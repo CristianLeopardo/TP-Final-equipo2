@@ -283,15 +283,15 @@ namespace Negocio
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("select m.Nombre, m.Apellido, m.Jornada, e.Nombre from Medicos M inner join Medico_x_Especialidad MxE on mxe.IdMedico = m.ID inner join Especialidad e on e.ID = mxe.IDEspecialidad where e.Nombre = " + especialidad + " and M.Jornada = " + jornada);
+                datos.SetearConsulta("select m.Nombre, m.Apellido, m.Jornada, e.Nombre as Especialidad from Medicos M inner join Medico_x_Especialidad MxE on mxe.IdMedico = m.ID inner join Especialidad e on e.ID = mxe.IDEspecialidad where e.Nombre = " + especialidad + " and M.Jornada = " + jornada);
                 datos.Ejecutarconsulta();
                 while (datos.Lector.Read())
                 {
                     Medico obj = new Medico();
                     obj.Nombre = (string)datos.Lector["Nombre"];
                     obj.Apellido = (string)datos.Lector["Apellido"];
-                    obj.Apellido = (string)datos.Lector["Apellido"];
-                    obj.Apellido = (string)datos.Lector["Apellido"];
+                    obj.Apellido = (string)datos.Lector["Jornada"];
+                    obj.Apellido = (string)datos.Lector["Especialidad"];
                     lista.Add(obj);
 
                 }

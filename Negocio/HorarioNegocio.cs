@@ -62,5 +62,34 @@ namespace Negocio
                 datos.Cerraconexion();
             }
         }
+        public List<Horario> listaparaturno(int idmedico)
+        {
+            Conexion datos = new Conexion();
+            List<Horario> listafiltrada = new List<Horario>();
+            try
+            {
+                datos.SetearConsulta("SELECT hs.Fecha as Fecha, h.Hora as Hora FROM Horarios hs INNER JOIN Hora h on hs.IDHorario=h.IDHora WHERE hs.IDMedico = " + idmedico);
+                datos.Ejecutarconsulta();
+
+                while (datos.Lector.Read())
+                {
+                    Horario obj = new Horario();
+                    obj.Fecha = (DateTime)datos.Lector["Fecha"];
+                    obj.Hora.Horario = ((Hora)datos.Lector["Hora"]).ToString();
+
+                    listafiltrada.Add(obj);
+                }
+                return listafiltrada;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
     }
 }

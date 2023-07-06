@@ -174,12 +174,16 @@ namespace Negocio
                 datos.SetearConsulta("SELECT id FROM Pacientes WHERE dni= @dni");
                 datos.setearParametro("@dni",dni);
 
-                return datos.ejecutarAccionScalar();
+                int valor = datos.ejecutarAccionScalar();
+                if(valor != 0)
+                {
+                    return valor;
+                }
+                return -1;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw ex;
             }
             finally
             {

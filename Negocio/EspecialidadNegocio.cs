@@ -96,13 +96,16 @@ namespace Negocio
 
         }
 
-        public List<Medico> ListaFiltradaEspecialidades(int idEspecialdad)
+        public List<Medico> ListaFiltradaEspecialidades(int idEspecialdad, string jornada = null)
         {
             List<Medico> listafiltrada = new List<Medico>();
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("SELECT m.ID ,m.Apellido, m.Nombre, m.sexo, m.DNI, m.Telefono, m.Celular, m.Email, m.FechaIngreso, m.FechaNacimiento, m.Estado from Medicos m INNER JOIN Medico_x_Especialidad me on m.ID=me.IdMedico WHERE me.IDEspecialidad=" + idEspecialdad);
+                string continuacion = " ";
+                if (jornada!=null)
+                    continuacion = " AND m.Jornada='" + jornada + "'";
+                datos.SetearConsulta("SELECT m.ID ,m.Apellido, m.Nombre, m.sexo, m.DNI, m.Telefono, m.Celular, m.Email, m.FechaIngreso, m.FechaNacimiento, m.Jornada, m.Estado from Medicos m INNER JOIN Medico_x_Especialidad me on m.ID=me.IdMedico WHERE me.IDEspecialidad=" + idEspecialdad + continuacion);
                 datos.Ejecutarconsulta();
                 while (datos.Lector.Read())
                 {
@@ -117,6 +120,7 @@ namespace Negocio
                     obj.Email = (string)datos.Lector["Email"];
                     obj.fechaingreso = (DateTime)datos.Lector["FechaIngreso"];
                     obj.fechanacimiento = (DateTime)datos.Lector["FechaNacimiento"];
+                    obj.JornadaLaboral = datos.Lector["Jornada"].ToString();
                     obj.Estado = (bool)datos.Lector["Estado"];
                     listafiltrada.Add(obj);
                 }

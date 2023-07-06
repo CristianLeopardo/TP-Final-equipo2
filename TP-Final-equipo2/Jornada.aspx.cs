@@ -14,7 +14,7 @@ namespace TP_Final_equipo2
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {               
+            {
                 EspecialidadNegocio negocio = new EspecialidadNegocio();
                 ddlEspecialidad.DataSource = negocio.ListarEspecialidades();
                 ddlEspecialidad.DataValueField = "ID";
@@ -89,15 +89,11 @@ namespace TP_Final_equipo2
 
         protected void btnBuscarMedico_Click(object sender, EventArgs e)
         {
-            MedicoNegocio negocio = new MedicoNegocio();
-            string especialidad = ddlEspecialidad.SelectedItem.Text;
-            string turno = ddlTurno.SelectedValue.ToString();
-            dgvTurnos.DataSource = negocio.BuscarMedicoxApellido(campo, dato);
+            EspecialidadNegocio negocio = new EspecialidadNegocio();
+            int especialidad = int.Parse(ddlEspecialidad.SelectedItem.Value);
+            string turno = ddlTurno.SelectedItem.Text;
+            dgvTurnos.DataSource = negocio.ListaFiltradaEspecialidades(especialidad, turno); ///bUSCA UN DOC CON LA ESPECIALIDAD Y JORNADA
             dgvTurnos.DataBind();
-
-
-
-
         }
     }
 }

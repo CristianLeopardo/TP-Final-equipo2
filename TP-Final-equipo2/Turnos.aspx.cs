@@ -5,11 +5,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Dominio;
 
 namespace TP_Final_equipo2
 {
     public partial class Turnos : System.Web.UI.Page
     {
+        public int IdPaciente { get; set; }
+        public int IDmedico { get; set; }
+        public int IDespecialidad { get; set; }
+
         //private void EnviarMensajeError(string login, string mensajeError)
         //{
         //    Session["MensajeError"] = mensajeError;
@@ -22,46 +27,44 @@ namespace TP_Final_equipo2
             //    string MensajeError = "Debe iniciar sesion para acceder a la pagina";
             //    EnviarMensajeError("Login.aspx", MensajeError);
             //}
-
-            EspecialidadNegocio especialidadesNegocio = new EspecialidadNegocio();
-            PacientesNegocio pacientesNegocio = new PacientesNegocio();
-            try
+            if (!IsPostBack)
             {
-                if(!IsPostBack)
-                {
-                    ddlEspecialidades.DataSource = especialidadesNegocio.ListarEspecialidades();
-                    ddlEspecialidades.DataTextField = "Nombre";
-                    ddlEspecialidades.DataValueField = "ID";
-                    ddlEspecialidades.DataBind();
-                    ddlPacientes.DataSource  = pacientesNegocio.ListarPacientes();
-                    ddlPacientes.DataTextField = "Nombre";
-                    ddlPacientes.DataValueField = "ID";
-                    ddlPacientes.DataBind();
-                    
-                }
+                EspecialidadNegocio negocio = new EspecialidadNegocio();
+                ddlEspecialidad.DataSource = negocio.ListarEspecialidades();
+                ddlEspecialidad.DataValueField = "ID";
+                ddlEspecialidad.DataTextField = "Nombre";
+                ddlEspecialidad.DataBind();
             }
-            catch (Exception ex)
-            {
-                Session.Add("Error", ex);
-            }
-
-
         }
 
-        protected void btnBuscarMedico_Click(object sender, EventArgs e)
+        protected void btnbuscardni_Click(object sender, EventArgs e)
         {
-            EspecialidadNegocio especialidadesNegocio = new EspecialidadNegocio();
-            try
+            PacientesNegocio negocio = new PacientesNegocio();
+            int dni = int.Parse(txtDNIpaciente.Text);
+            IdPaciente = negocio.BuscarID(dni);
+            if( IdPaciente < 0)
             {
-                ddlMedicos.DataSource = especialidadesNegocio.ListarMedicos(int.Parse(ddlEspecialidades.SelectedValue));
-                ddlMedicos.DataTextField = "NombreMedico";
-                ddlMedicos.DataValueField = "IDMedico";
-                ddlMedicos.DataBind();
+                lblincorrecto.Text = "Cliente no encontrado";
+                lblincorrecto.Visible = true;
             }
-            catch (Exception ex)
-            {
-                Session.Add("Error", ex);
-            }
+        }
+
+        protected void ddlEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IDespecialidad = int.Parse(ddlEspecialidad.SelectedValue);
+            EspecialidadNegocio negocio = new EspecialidadNegocio();
+            ddldoctores.DataSource = negocio.ListaFiltradaEspecialidades(IDespecialidad);
+            ddldoctores.DataValueField = "ID";
+            ddldoctores.DataTextField = "Apellido";
+            ddldoctores.DataBind();
+        }
+
+        protected void ddldoctores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HorarioNegocio negocio = new HorarioNegocio();
+            IDmedico = int.Parse(ddldoctores.SelectedValue);
+            dgvHorarios.DataSource = negocio.listaparaturno(IDmedico);
+            dgvHorarios.DataBind();
         }
     }
 }

@@ -4,29 +4,28 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 class="text-center">Turnos!</h1>
-    <div class="Login">
-        <div class="mb-3">
-            <label class="form-label">Seleccione el paciente:</label>
-            <asp:DropDownList CssClass="btn btn-secondary dropdown-toggle" ID="ddlPacientes" runat="server">
-            </asp:DropDownList>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Seleccione la especialidad:</label>
-            <asp:DropDownList CssClass="btn btn-secondary dropdown-toggle" ID="ddlEspecialidades" runat="server">
-            </asp:DropDownList>
-            <div class="mb-3">
-                <asp:Button ID="btnBuscarMedico" runat="server"  OnClick="btnBuscarMedico_Click" Text="BuscarMedico" />
+    <div class="container text-center">
+        <div class="row align-items-center">
+            <div class="col">
+                DNI del paciente
+                <asp:TextBox ID="txtDNIpaciente" runat="server"></asp:TextBox>
+                <asp:Button ID="btnbuscardni" runat="server" OnClick="btnbuscardni_Click" Text="Buscar" />
+                <asp:Label ID="lblincorrecto" runat="server" Text="" Visible="false"></asp:Label>
             </div>
-
-            <div class="mb-3">
-                <label class="form-label">Seleccione el médico:</label>
-                <asp:DropDownList CssClass="btn btn-secondary dropdown-toggle" ID="ddlMedicos" runat="server">
-                </asp:DropDownList>
+            <div class="col">
+                Selecionar especialidad
+                <asp:DropDownList ID="ddlEspecialidad" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlEspecialidad_SelectedIndexChanged"></asp:DropDownList>
             </div>
-            
-            <div class="mb-3">
-                <label class="form-label">Seleccione la fecha para el turno</label>
-                <asp:Calendar ID="calFechaTurno" runat="server"></asp:Calendar>
+            <div class="col">
+                Seleccionar doctor
+                <asp:DropDownList ID="ddldoctores" runat="server" OnSelectedIndexChanged="ddldoctores_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
             </div>
         </div>
+    </div>
+    <asp:GridView ID="dgvHorarios" runat="server" AutoGenerateColumns="false">
+        <Columns>
+            <asp:BoundField HeaderText="Fecha" DataField="Fecha"/>
+            <asp:BoundField HeaderText="Horario" DataField="Hora"/>
+        </Columns>
+    </asp:GridView>
 </asp:Content>

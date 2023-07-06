@@ -159,7 +159,7 @@ namespace Negocio
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("insert into Medicos (Apellido, Nombre, DNI, Sexo, Telefono, Celular, Email, FechaIngreso, FechaNacimiento, Jornada) values (@Apellido, @Nombre, @DNI, @Sexo, @Telefono, @Celular, @Email, @FechaIngreso, @FechaNacimiento, @Jornada)");
+                datos.SetearConsulta("insert into Medicos (Apellido, Nombre, DNI, Sexo, Telefono, Celular, Email, FechaIngreso, FechaNacimiento, Jornada, Estado ) values (@Apellido, @Nombre, @DNI, @Sexo, @Telefono, @Celular, @Email, @FechaIngreso, @FechaNacimiento, @Jornada , @Estado)");
                 datos.setearParametro("@Apellido", nuevo.Apellido);
                 datos.setearParametro("@Nombre", nuevo.Nombre);
                 datos.setearParametro("@DNI", nuevo.Dni);
@@ -170,6 +170,7 @@ namespace Negocio
                 datos.setearParametro("@FechaNacimiento", nuevo.fechanacimiento);
                 datos.setearParametro("@FechaIngreso", nuevo.fechaingreso);
                 datos.setearParametro("@Jornada", nuevo.JornadaLaboral);
+                datos.setearParametro("@Estado", nuevo.Estado);
                 datos.ejecutarAccion();
 
             }

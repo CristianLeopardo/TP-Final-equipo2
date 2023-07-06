@@ -76,5 +76,34 @@ namespace Negocio
                 conexion.Cerraconexion();
             }
         }
+
+        public string BuscarCorreo(string email)
+        {
+            Conexion conexion = new Conexion();
+            try
+            {
+                conexion.SetearConsulta("select Email, Clave from Usuarios where Email = @Email");
+                conexion.setearParametro("@Email", email);
+                conexion.Ejecutarconsulta();
+                while (conexion.Lector.Read())
+                {
+                    string aux = (string)conexion.Lector["Email"];
+                    if (aux == email)
+                    {
+                        return (string)conexion.Lector["Clave"];
+                    }
+                }
+                return "";
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                conexion.Cerraconexion();
+            }
+        }
     }
 }

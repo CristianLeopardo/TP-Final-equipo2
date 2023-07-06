@@ -55,5 +55,10 @@ namespace TP_Final_equipo2
         {
             Response.Redirect("AsignacionEspecialidades.aspx", false);
         }
+
+        protected void btnJornada_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Jornada.aspx", false);
+        }
     }
 }

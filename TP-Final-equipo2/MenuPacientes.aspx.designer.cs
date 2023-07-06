@@ -11,70 +11,88 @@ namespace TP_Final_equipo2
 {
 
 
-    public partial class Home
+    public partial class MenuPacientes
     {
 
         /// <summary>
-        /// msj control.
+        /// lblcampo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label msj;
+        protected global::System.Web.UI.WebControls.Label lblcampo;
 
         /// <summary>
-        /// btnnewPaciente control.
+        /// ddlcampos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnnewPaciente;
+        protected global::System.Web.UI.WebControls.DropDownList ddlcampos;
 
         /// <summary>
-        /// btnnewMedico control.
+        /// lblcriterio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnnewMedico;
+        protected global::System.Web.UI.WebControls.Label lblcriterio;
 
         /// <summary>
-        /// btnEspecialidades control.
+        /// txtcriterio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEspecialidades;
+        protected global::System.Web.UI.WebControls.TextBox txtcriterio;
 
         /// <summary>
-        /// btnAsignar control.
+        /// btnfiltrar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAsignar;
+        protected global::System.Web.UI.WebControls.Button btnfiltrar;
 
         /// <summary>
-        /// btnJornada control.
+        /// dgvPacientes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnJornada;
+        protected global::System.Web.UI.WebControls.GridView dgvPacientes;
 
         /// <summary>
-        /// btnTurno control.
+        /// btnAgregar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnTurno;
+        protected global::System.Web.UI.WebControls.Button btnAgregar;
+
+        /// <summary>
+        /// btnActivos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnActivos;
+
+        /// <summary>
+        /// btnVolver control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVolver;
     }
 }

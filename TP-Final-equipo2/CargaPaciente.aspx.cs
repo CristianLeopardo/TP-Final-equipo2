@@ -33,12 +33,45 @@ namespace TP_Final_equipo2
                 ddlSexo.Items.Add("Masculino");
                 ddlSexo.Items.Add("Femenino");
                 ddlSexo.Items.Add("Otro");
-                
+                ListItem Activo = new ListItem("Activo", "1");
+                ddlEstado.Items.Add(Activo);
+                ListItem Inactivo = new ListItem("Inactivo", "0");
+                ddlEstado.Items.Add(Inactivo);
+                if (Request.QueryString["ID"] != null)
+                {
+                    ModificarPaciente(int.Parse(Request.QueryString["ID"]));
+                    lblTitulo.Text = "Modificando Médico";
+                }
 
             }
             
 
 
+        }
+        public void ModificarPaciente(int id)
+        {
+            PacientesNegocio Negocio = new PacientesNegocio();
+            List<Paciente> paciente = new List<Paciente>();
+            paciente = Negocio.BuscarPaciente(id);
+            tbxApellido.Text = paciente[0].Apellido;
+            tbxNombre.Text = paciente[0].Nombre;
+            tbxDni.Text = paciente[0].Dni.ToString();
+            tbxCelular.Text = paciente[0].Celular.ToString();
+            tbxTelefono.Text = paciente[0].Telefono.ToString();
+            tbxEmail.Text = paciente[0].Email;
+            FechaNacimiento.Text = paciente[0].fechanacimiento.ToString("yyyy-MM-dd");
+            tbxDomicilio.Text = paciente[0].Domicilio;
+            tbxLocalidad.Text = paciente[0].Localidad;
+            tbxProvincia.Text = paciente[0].Provincia;
+            ddlSexo.SelectedValue = paciente[0].Sexo;
+            if (paciente[0].Estado == true)
+            {
+                ddlEstado.SelectedIndex = 0;
+            }
+            else
+            {
+                ddlEstado.SelectedIndex = 1;
+            }
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
@@ -58,13 +91,29 @@ namespace TP_Final_equipo2
                 nuevo.Localidad = tbxLocalidad.Text;
                 nuevo.Provincia = tbxProvincia.Text;
                 nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
+                if (int.Parse(ddlEstado.SelectedValue) == 1)
+                {
+                    nuevo.Estado = true;
+                }
+                else
+                {
+                    nuevo.Estado = false;
+                }
+                if (Request.QueryString["ID"] != null)
+                {
+                    nuevo.ID = int.Parse(Request.QueryString["ID"]);
+                    negocio.Modificar(nuevo);
+                }
+                else
+                {
+                    negocio.Agregar(nuevo);
+                }
 
 
                 //if (!int.TryParse(tbxDni.Text, out int dni))
                 //{
                 //    return;
                 //}
-                negocio.Agregar(nuevo);
                 Session["AlertaMensaje"] = "Paciente cargado";
                 tbxApellido.Text = "";
                 tbxNombre.Text = "";

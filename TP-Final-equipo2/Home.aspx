@@ -59,8 +59,7 @@
         <h1 class="welcome">Bienvenido al HOME...</h1>
         <asp:Label ID="msj" runat="server" Text="" Visible="false"></asp:Label>
         <div class="button-container">
-            <asp:Button runat="server" CssClass="btn" ID="btnnewPaciente" OnClick="btnnewPaciente_Click" Text="Cargar nuevo paciente" />
-            <asp:Button runat="server" CssClass="btn" ID="btnModificarPaciente" OnClick="btnModificarPaciente_Click" Text="Modificar Pacientes" />
+            <asp:Button runat="server" CssClass="btn" ID="btnnewPaciente" OnClick="btnnewPaciente_Click" Text="Administrar Pacientes" />
             <asp:Button runat="server" CssClass="btn" ID="btnnewMedico" OnClick="btnnewMedico_Click" Text="Administrar Médicos" />
             <asp:Button runat="server" CssClass="btn" ID="btnEspecialidades" OnClick="btnEspecialidades_Click" Text="Modificar Especialidades" />
             <asp:Button runat="server" CssClass="btn" ID="btnAsignar" OnClick="btnAsignar_Click" Text="Asignar Especialidades" />

@@ -107,7 +107,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container text-center">
-        <h1 class="welcome">Carga del nuevo paciente...</h1>
+        <asp:Label ID="lblTitulo" class="welcome" runat="server" Text="Carga de nuevo Paciente..."></asp:Label>
         <%if (Session["AlertaMensaje"] != null)
             {%>
         <div class="alert alert-success alert-dismissible fade show">
@@ -149,6 +149,12 @@
                     <asp:DropDownList ID="ddlSexo" CssClass="form-control" runat="server"></asp:DropDownList>
                 </div>
             </div>
+            <div class="col-5">
+                <div class="mb-3">
+                    <asp:Label ID="lblEstado" CssClass="form-label alert-link accordion-button" runat="server" Text="Estado:"></asp:Label>
+                    <asp:DropDownList ID="ddlEstado" CssClass="form-control" runat="server" ></asp:DropDownList>
+                    </div>
+                </div>
         </div>
     </div>
     <div class="container text-center">

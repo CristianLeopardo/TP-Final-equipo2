@@ -32,7 +32,7 @@ namespace TP_Final_equipo2
 
         protected void btnnewPaciente_Click(object sender, EventArgs e)
         {
-            Response.Redirect("CargaPaciente.aspx",false);
+            Response.Redirect("MenuPacientes.aspx",false);
         }
 
         protected void btnnewMedico_Click(object sender, EventArgs e)
@@ -45,10 +45,6 @@ namespace TP_Final_equipo2
             Response.Redirect("Turnos.aspx", false);
         }
 
-        protected void btnModificarPaciente_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ModificarPaciente.aspx", false);
-        }
 
         protected void btnEspecialidades_Click(object sender, EventArgs e)
         {

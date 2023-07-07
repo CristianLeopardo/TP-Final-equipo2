@@ -12,69 +12,63 @@ namespace TP_Final_equipo2
     public partial class AsignacionEspecialidades : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {          
             if (!IsPostBack)
             {
-                MedicoNegocio medicoNegocio = new MedicoNegocio();
-                ddlMedicos.DataSource = medicoNegocio.ListarMedicos();
-                ddlMedicos.DataValueField = "ID";
-                ddlMedicos.DataTextField = "Dni";
-                ddlMedicos.DataBind();
-            }
-
-
-
-        }
-
-        protected void btnEliminar_Click(object sender, EventArgs e)
-        {
-            EspecialidadNegocio especialidadesNegocio = new EspecialidadNegocio();
-            especialidadesNegocio.DesasignarEspecialidad(int.Parse(ddlMedicos.SelectedValue), int.Parse(ddlEspecialidades.SelectedValue));
+                EspecialidadNegocio especialidadNegocio = new EspecialidadNegocio();
+                dgvEspecialidadesMedico.DataSource = especialidadNegocio.ListarEspecialidadesMedico(int.Parse(Request.QueryString["ID"]));
+                dgvEspecialidadesMedico.DataBind();
+                ddlEspecialidades.DataSource = especialidadNegocio.ListarEspecialidades();
+                ddlEspecialidades.DataTextField = "Nombre";
+                ddlEspecialidades.DataValueField = "ID";
+                ddlEspecialidades.DataBind();
+                List<Especialidad> especialidad = new List<Especialidad>();
+                List<Especialidad> aux = new List<Especialidad>();
+                especialidad = especialidadNegocio.ListarEspecialidades();
+            } 
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            EspecialidadNegocio especialidadesNegocio = new EspecialidadNegocio();
-            especialidadesNegocio.AsignarEspecialidad(int.Parse(ddlMedicos.SelectedValue),int.Parse(ddlEspecialidades.SelectedValue) );
-        }
-
-
-        protected void rbtEleccion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            EspecialidadNegocio especialidadesNegocio = new EspecialidadNegocio();
-
-            if (int.Parse(rbtEleccion.SelectedValue) == 1)
+            bool existe = false;
+            foreach (GridViewRow row in dgvEspecialidadesMedico.Rows)
             {
-                ddlEspecialidades.DataSource = especialidadesNegocio.ListarEspecialidades();
-                ddlEspecialidades.DataValueField = "ID";
-                ddlEspecialidades.DataTextField = "Nombre";
-                ddlEspecialidades.DataBind();
-                btnAgregar.Visible = true;
-                btnEliminar.Visible = false;
-
+                if (row.Cells[0].Text == ddlEspecialidades.SelectedItem.Text)
+                {
+                    existe = true;
+                }
+            }
+            if (existe)
+            {
+                lblMensaje.Text = "Ya existe esta especialidad para este médico";
+                lblMensaje.Visible = true;
             }
             else
             {
-                ddlEspecialidades.DataSource = especialidadesNegocio.ListarEspecialidadesMedico(int.Parse(ddlMedicos.SelectedValue));
-                ddlEspecialidades.DataTextField = "NombreEspecialidad";
-                ddlEspecialidades.DataValueField = "IDEspecialdiad";
-                ddlEspecialidades.DataBind();
-                btnAgregar.Visible = false;
-                btnEliminar.Visible = true;
+                EspecialidadNegocio Neg = new EspecialidadNegocio();
+                Neg.AsignarEspecialidad(int.Parse(Request.QueryString["ID"]), int.Parse(ddlEspecialidades.SelectedValue));
+                lblMensaje.Text = "Especialidad asignada correctamente";
+                lblMensaje.Visible = true;
+                //Response.Redirect("CargarMedico.aspx?ID=" + int.Parse(Request.QueryString["ID"]), false);
             }
-
-
         }
 
         protected void ddlMedicos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            EspecialidadNegocio especialidadesNegocio = new EspecialidadNegocio();
-            ddlEspecialidades.DataSource = especialidadesNegocio.ListarEspecialidadesMedico(int.Parse(ddlMedicos.SelectedValue));
-            ddlEspecialidades.DataTextField = "NombreEspecialidad";
-            ddlEspecialidades.DataValueField = "IDEspecialdiad";
-            ddlEspecialidades.DataBind();
+        }
 
+        protected void dgvEspecialidadesMedico_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int id = int.Parse(dgvEspecialidadesMedico.SelectedDataKey.Value.ToString());
+            EspecialidadNegocio especialidadNegocio = new EspecialidadNegocio();
+            especialidadNegocio.DesasignarEspecialidad(int.Parse(Request.QueryString["ID"]), id);
+            lblMensaje.Text = "Especialidad eliminada correctamente";
+            lblMensaje.Visible = true;
+        }
 
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MenuMedicos.aspx", false);
         }
     }
 }

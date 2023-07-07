@@ -39,7 +39,8 @@ namespace TP_Final_equipo2
                 if (Request.QueryString["ID"] != null)
                 {
                     ModificarMedico(int.Parse(Request.QueryString["ID"]));
-                    lblTitulo.Text = "Modificando Médico";                
+                    lblTitulo.Text = "Modificando Médico";
+                    btnEspecialidades.Visible = true;
                 }
                 EspecialidadNegocio negocio = new EspecialidadNegocio();
                 dgvEspcialidades.DataSource = negocio.ListarEspecialidades();
@@ -169,6 +170,11 @@ namespace TP_Final_equipo2
             lblEspecialidad.Visible = true;
             lblEspecialidad.Text = "Se agrego especialidad";
             */
+        }
+
+        protected void btnEspecialidades_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AsignacionEspecialidades.aspx?ID=" + Request.QueryString["ID"], false);
         }
     }
 }

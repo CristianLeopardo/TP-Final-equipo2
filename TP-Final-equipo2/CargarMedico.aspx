@@ -187,6 +187,9 @@
                         <asp:Button ID="btcontinuar" runat="server" CssClass="btn btn-primary" Text="Continuar" OnClick="btcontinuar_Click" />
                     </div>
                     <div>
+                        <asp:Button ID="btnEspecialidades" runat="server" CssClass="btn btn-primary" Text="Ver Especialidades" OnClick="btnEspecialidades_Click" Visible="false" />
+                    </div>
+                    <div>
                         <asp:Label ID="lblmensaje" runat="server" Text="" Visible="false"></asp:Label>
                     </div>
                 </div>
@@ -195,7 +198,7 @@
     </div>
 
 
-    <%if (lblmensaje.Visible == true)
+    <%if (lblmensaje.Visible == true && lblTitulo.Text != "Modificando Médico")
         {%>
     <div class="container text-center">
         <div>

@@ -93,7 +93,6 @@ namespace Negocio
             {
                 datos.Cerraconexion();
             }
-
         }
 
         public List<Medico> ListaFiltradaEspecialidades(int idEspecialdad, string jornada = null)
@@ -259,5 +258,6 @@ namespace Negocio
                 datos.Cerraconexion();
             }
         }
+       
     }
 }

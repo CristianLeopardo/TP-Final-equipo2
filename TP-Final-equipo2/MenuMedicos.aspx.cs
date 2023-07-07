@@ -20,6 +20,7 @@ namespace TP_Final_equipo2
                 ddlcampos.Items.Add("Nombre");
                 ddlcampos.Items.Add("Apellido");
                 ddlcampos.Items.Add("DNI");
+                lblcriterio.Text = "Nombre: ";
                 EspecialidadNegocio negocio = new EspecialidadNegocio();
                 ddlespecialidades.DataSource = negocio.ListarEspecialidades();
                 ddlespecialidades.DataValueField = "ID";
@@ -76,15 +77,15 @@ namespace TP_Final_equipo2
             try
             {
                 string campo = ddlcampos.SelectedItem.Text;
-                if (campo == "Apellido")
+                if (campo != "Apellido")
                 {
-                    if (campo != "DNI")
+                    if (campo == "DNI")
                     {
-                        lblcriterio.Text = "Nombre: ";
+                        lblcriterio.Text = "DNI: ";
                     }
                     else
                     {
-                        lblcriterio.Text = "DNI: ";
+                        lblcriterio.Text = "Nombre: ";
                     }
                 }
                 else

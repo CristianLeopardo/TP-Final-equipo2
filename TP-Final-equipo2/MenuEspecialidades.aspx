@@ -6,12 +6,11 @@
     <div class="row align-items-start">
         <h1>Menu Especialidades</h1>
         <div class="container">
-            <asp:RadioButtonList ID="rbtEleccion" runat="server" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged">
+            <asp:RadioButtonList ID="rbtEleccion" runat="server" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged" AutoPostBack="true">
                 <asp:ListItem Text="Agregar" Value="1"></asp:ListItem>
                 <asp:ListItem Text="Modificar" Value="2"></asp:ListItem>
                 <asp:ListItem Text="Eliminar" Value="3"></asp:ListItem>
             </asp:RadioButtonList>
-            <asp:Button ID="btnSeleccionar" CssClass="btn btn-primary" runat="server" Text="Seleccionar" />
         </div>
         <div class="col">
             <div class="mb-3">

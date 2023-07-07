@@ -40,7 +40,7 @@ namespace TP_Final_equipo2
                 if (Request.QueryString["ID"] != null)
                 {
                     ModificarPaciente(int.Parse(Request.QueryString["ID"]));
-                    lblTitulo.Text = "Modificando Médico";
+                    lblTitulo.Text = "Modificando paciente";
                 }
 
             }

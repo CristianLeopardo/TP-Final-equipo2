@@ -24,6 +24,7 @@ namespace TP_Final_equipo2
                 Session.Add("ListaPacientes", pacienteNegocio.ListarPacientes());
                 dgvPacientes.DataSource = Session["ListaPacientes"];
                 dgvPacientes.DataBind();
+                lblcriterio.Text = "Nombre: ";
             }
         }
 
@@ -86,15 +87,15 @@ namespace TP_Final_equipo2
             try
             {
                 string campo = ddlcampos.SelectedItem.Text;
-                if (campo == "Apellido")
+                if (campo != "Apellido")
                 {
-                    if (campo != "DNI")
+                    if (campo == "DNI")
                     {
-                        lblcriterio.Text = "Nombre: ";
+                        lblcriterio.Text = "DNI: ";
                     }
                     else
                     {
-                        lblcriterio.Text = "DNI: ";
+                        lblcriterio.Text = "Nombre: ";
                     }
                 }
                 else

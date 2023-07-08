@@ -64,13 +64,13 @@
         function validar() {
 
             var apellido = document.getElementById("<% = tbxApellido.ClientID %>").value;
-                var nombre = document.getElementById("<% = tbxNombre.ClientID %>").value;
-                var dni = document.getElementById("<% = tbxDni.ClientID %>").value;
-                var tefelono = document.getElementById("<% = tbxTelefono.ClientID %>").value;
-                var celular = document.getElementById("<% = tbxCelular.ClientID %>").value;
-                var email = document.getElementById("<% = tbxEmail.ClientID %>").value;
-                var fechaingreso = document.getElementById("<% = FechaIngreso.ClientID %>").value;
-                var fechanacimiento = document.getElementById("<% = FechaNacimiento.ClientID %>").value;
+            var nombre = document.getElementById("<% = tbxNombre.ClientID %>").value;
+            var dni = document.getElementById("<% = tbxDni.ClientID %>").value;
+            var tefelono = document.getElementById("<% = tbxTelefono.ClientID %>").value;
+            var celular = document.getElementById("<% = tbxCelular.ClientID %>").value;
+            var email = document.getElementById("<% = tbxEmail.ClientID %>").value;
+            var fechaingreso = document.getElementById("<% = FechaIngreso.ClientID %>").value;
+            var fechanacimiento = document.getElementById("<% = FechaNacimiento.ClientID %>").value;
 
             if (apellido === "" || nombre === "" || dni === "" || telefono === "" || celular === "" || email === "" || fechaingreso === "" || fechanacimiento === "") {
                 alert("Por favor, complete todos los campos.");
@@ -99,62 +99,62 @@
                 %>
                 <hr />
                 <div class="row align-items-start">
-                        <div class="col-4 mb-3">
-                            <asp:Label ID="lblApellido" CssClass="form-label alert-link accordion-button" runat="server" Text="Apellido"></asp:Label>
-                            <asp:TextBox ID="tbxApellido" CssClass="form-control bg-light" runat="server"></asp:TextBox>
-                        </div>
-                        <div class="col-4 mb-3">
-                            <asp:Label ID="lblNombre" CssClass="form-label alert-link accordion-button" runat="server" Text="Nombre"></asp:Label>
-                            <asp:TextBox ID="tbxNombre" CssClass="form-control bg-light" runat="server"></asp:TextBox>
-                        </div>
-                        <div class="col-4 mb-3">
-                            <asp:Label ID="lblDni" CssClass="form-label alert-link accordion-button" runat="server" Text="DNI"></asp:Label>
-                            <asp:TextBox ID="tbxDni" TextMode="Number" CssClass="form-control bg-light" runat="server"></asp:TextBox>
-                        </div>
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblApellido" CssClass="form-label alert-link accordion-button" runat="server" Text="Apellido"></asp:Label>
+                        <asp:TextBox ID="tbxApellido" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblNombre" CssClass="form-label alert-link accordion-button" runat="server" Text="Nombre"></asp:Label>
+                        <asp:TextBox ID="tbxNombre" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblDni" CssClass="form-label alert-link accordion-button" runat="server" Text="DNI"></asp:Label>
+                        <asp:TextBox ID="tbxDni" TextMode="Number" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                    </div>
                 </div>
             </div>
             <div class="container text-center">
                 <div class="row align-items-start">
-                        <div class="col-4 mb-3">
-                            <asp:Label ID="lblSexo" CssClass="form-label alert-link accordion-button" runat="server" Text="Sexo"></asp:Label>
-                            <asp:DropDownList ID="ddlSexo" CssClass="form-control bg-light" runat="server"></asp:DropDownList>
-                        </div>
-                        <div class="col-4 mb-3">
-                            <asp:Label ID="lblEstado" CssClass="form-label alert-link accordion-button" runat="server" Text="Estado:"></asp:Label>
-                            <asp:DropDownList ID="ddlEstado" CssClass="form-control bg-light" runat="server"></asp:DropDownList>
-                        </div>
-                        <div class="col-4 mb-3">
-                            <asp:Label ID="lblJornada" CssClass="form-label alert-link accordion-button" runat="server" Text="Jornada:"></asp:Label>
-                            <asp:DropDownList ID="ddlJornada" CssClass="form-control bg-light" runat="server"></asp:DropDownList>
-                        </div>
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblSexo" CssClass="form-label alert-link accordion-button" runat="server" Text="Sexo"></asp:Label>
+                        <asp:DropDownList ID="ddlSexo" CssClass="form-control bg-light" runat="server"></asp:DropDownList>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblEstado" CssClass="form-label alert-link accordion-button" runat="server" Text="Estado:"></asp:Label>
+                        <asp:DropDownList ID="ddlEstado" CssClass="form-control bg-light" runat="server"></asp:DropDownList>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblJornada" CssClass="form-label alert-link accordion-button" runat="server" Text="Jornada:"></asp:Label>
+                        <asp:DropDownList ID="ddlJornada" CssClass="form-control bg-light" runat="server"></asp:DropDownList>
+                    </div>
                 </div>
             </div>
             <div class="container text-center">
                 <div class="row align-items-start">
-                        <div class="col-4 mb-3">
-                            <asp:Label ID="lblTelefono" CssClass="form-label alert-link accordion-button" runat="server" Text="Telefono"></asp:Label>
-                            <asp:TextBox ID="tbxTelefono" TextMode="Phone" CssClass="form-control bg-light" runat="server"></asp:TextBox>
-                        </div>
-                        <div class="col-4 mb-3">
-                            <asp:Label ID="lblCelular" CssClass="form-label alert-link accordion-button" runat="server" Text="Celular"></asp:Label>
-                            <asp:TextBox ID="tbxCelular" TextMode="Phone" CssClass="form-control bg-light" runat="server"></asp:TextBox>
-                        </div>
-                        <div class="col-4 mb-3">
-                            <asp:Label ID="lblEmail" CssClass="form-label alert-link accordion-button" runat="server" Text="Email"></asp:Label>
-                            <asp:TextBox ID="tbxEmail" TextMode="Email" CssClass="form-control bg-light" runat="server"></asp:TextBox>
-                        </div>
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblTelefono" CssClass="form-label alert-link accordion-button" runat="server" Text="Telefono"></asp:Label>
+                        <asp:TextBox ID="tbxTelefono" TextMode="Phone" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblCelular" CssClass="form-label alert-link accordion-button" runat="server" Text="Celular"></asp:Label>
+                        <asp:TextBox ID="tbxCelular" TextMode="Phone" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblEmail" CssClass="form-label alert-link accordion-button" runat="server" Text="Email"></asp:Label>
+                        <asp:TextBox ID="tbxEmail" TextMode="Email" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                    </div>
                 </div>
             </div>
             <div class="container text-center">
                 <div class="row align-items-start">
-                        <div class="col-6 mb-3">
-                            <asp:Label ID="lblFechaNacimiento" CssClass="form-label alert-link accordion-button" runat="server" Text="Fecha de nacimiento"></asp:Label>
-                            <asp:TextBox ID="FechaNacimiento" type="date" CssClass="form-control bg-light" placeholder="Fecha de Nacimiento" runat="server" />
-                        </div>
-                        <div class="col-6 mb-3">
-                            <asp:Label ID="lvlFechaIngreso" CssClass="form-label alert-link accordion-button" runat="server" Text="Fecha de ingreso"></asp:Label>
-                            <asp:TextBox ID="FechaIngreso" CssClass="form-control bg-light" type="date" placeholder="Fecha de Ingreso" runat="server" />
-                        </div>
+                    <div class="col-6 mb-3">
+                        <asp:Label ID="lblFechaNacimiento" CssClass="form-label alert-link accordion-button" runat="server" Text="Fecha de nacimiento"></asp:Label>
+                        <asp:TextBox ID="FechaNacimiento" type="date" CssClass="form-control bg-light" placeholder="Fecha de Nacimiento" runat="server" />
+                    </div>
+                    <div class="col-6 mb-3">
+                        <asp:Label ID="lvlFechaIngreso" CssClass="form-label alert-link accordion-button" runat="server" Text="Fecha de ingreso"></asp:Label>
+                        <asp:TextBox ID="FechaIngreso" CssClass="form-control bg-light" type="date" placeholder="Fecha de Ingreso" runat="server" />
+                    </div>
                 </div>
                 <hr />
             </div>

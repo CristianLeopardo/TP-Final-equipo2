@@ -24,6 +24,7 @@ namespace TP_Final_equipo2
             //    string MensajeError = "Debe iniciar sesion para acceder a la pagina";
             //    EnviarMensajeError("Login.aspx", MensajeError);
             //}
+            
             if (!IsPostBack)
             {
                 ddlSexo.Items.Add("Masculino");
@@ -45,6 +46,7 @@ namespace TP_Final_equipo2
                 EspecialidadNegocio negocio = new EspecialidadNegocio();
                 dgvEspcialidades.DataSource = negocio.ListarEspecialidades();
                 dgvEspcialidades.DataBind();
+                Session["AlertaMensaje"] = null;
             }
             
         }
@@ -98,24 +100,14 @@ namespace TP_Final_equipo2
             if (Request.QueryString["ID"] != null)
             {
                 nuevo.ID = int.Parse(Request.QueryString["ID"]);
-                medicoNegocio.Modificar(nuevo);
+                //medicoNegocio.Modificar(nuevo);
             }
             else
             {
                 medicoNegocio.Agregar(nuevo);
             }
-            Session["AlertaMensaje"] = "Medico cargado";
-            tbxApellido.Text = "";
-            tbxNombre.Text = "";
-            tbxDni.Text = "";
-            ddlSexo.SelectedIndex = 0;
-            tbxTelefono.Text = "";
-            tbxCelular.Text = "";
-            tbxEmail.Text = "";
-            FechaIngreso.Text = "";
-            FechaNacimiento.Text = "";
-
             lblmensaje.Visible = true;
+
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
@@ -129,7 +121,7 @@ namespace TP_Final_equipo2
         }
 
 
-        protected void btnaceptar_Click(object sender, EventArgs e)
+        protected void btnAceptar_Click(object sender, EventArgs e)
         {
             int id;
             int idEspecialdiad;
@@ -153,7 +145,18 @@ namespace TP_Final_equipo2
                     negocio.AsignarEspecialidad(id, idEspecialdiad);
                 }
             }
-            Response.Redirect("Home.aspx", false);
+            Session["AlertaMensaje"] = "Medico cargado";
+            tbxApellido.Text = "";
+            tbxNombre.Text = "";
+            tbxDni.Text = "";
+            ddlSexo.SelectedIndex = 0;
+            tbxTelefono.Text = "";
+            tbxCelular.Text = "";
+            tbxEmail.Text = "";
+            FechaIngreso.Text = "";
+            FechaNacimiento.Text = "";
+
+            
         }
 
         protected void dgvEspcialidades_SelectedIndexChanged(object sender, EventArgs e)

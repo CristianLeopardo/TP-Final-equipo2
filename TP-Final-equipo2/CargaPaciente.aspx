@@ -106,124 +106,98 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container text-center">
-        <asp:Label ID="lblTitulo" class="welcome" runat="server" Text="Carga de nuevo Paciente..."></asp:Label>
-        <%if (Session["AlertaMensaje"] != null)
-            {%>
-        <div class="alert alert-success alert-dismissible fade show">
-            <button class="btn-close" data-bs-dismiss="alert"></button>
-            <strong>Perfecto !</strong> Paciente cargado exitosamente...
-        </div>
-        <%  }
-            Session["AlertaMensaje"] = null;
-            %>
+    <div class="d-flex justify-content-center align-items-center vh-80" style="margin: 20px">
+        <div class="bg-white p-3 rounded-5 text-secondary shadow w-100">
+            <div class="container text-center">
+                <asp:Label ID="lblTitulo" class="welcome" runat="server" Text="Carga del nuevo Paciente..."></asp:Label>
+                <%if (Session["AlertaMensaje"] != null)
+                    {%>
+                <div class="alert alert-success alert-dismissible fade show">
+                    <button class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>Perfecto !</strong> Paciente cargado exitosamente...
+                </div>
+                <%  }
+                    Session["AlertaMensaje"] = null;
+                %>
 
-        <hr />
+                <hr />
 
-        <div class="row align-items-start">
-            <div class="col">
-                <div class="mb-3">
-                    <asp:Label ID="lblApellido" CssClass="form-label alert-link accordion-button" runat="server" Text="Apellido"></asp:Label>
-                    <asp:TextBox ID="tbxApellido" CssClass="form-control" runat="server"></asp:TextBox>
-                </div>
-            </div>
-            <div class="col">
-                <div class="mb-3">
-                    <asp:Label ID="lblNombre" CssClass="form-label alert-link accordion-button" runat="server" Text="Nombre"></asp:Label>
-                    <asp:TextBox ID="tbxNombre" CssClass="form-control" runat="server"></asp:TextBox>
-                </div>
-            </div>
-            <div class="col">
-                <div class="mb-3">
-                    <asp:Label ID="lblDni" CssClass="form-label alert-link accordion-button" runat="server" Text="DNI"></asp:Label>
-                    <asp:TextBox ID="tbxDni" TextMode="Number" CssClass="form-control" runat="server"></asp:TextBox>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container text-center">
-        <div class="row align-items-start">
-            <div class="col-5">
-                <div class="mb-3">
-                    <asp:Label ID="lblSexo" CssClass="form-label alert-link accordion-button" runat="server" Text="Sexo"></asp:Label>
-                    <asp:DropDownList ID="ddlSexo" CssClass="form-control" runat="server"></asp:DropDownList>
-                </div>
-            </div>
-            <div class="col-5">
-                <div class="mb-3">
-                    <asp:Label ID="lblEstado" CssClass="form-label alert-link accordion-button" runat="server" Text="Estado:"></asp:Label>
-                    <asp:DropDownList ID="ddlEstado" CssClass="form-control" runat="server" ></asp:DropDownList>
+                <div class="row align-items-start">
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblApellido" CssClass="form-label alert-link accordion-button" runat="server" Text="Apellido"></asp:Label>
+                        <asp:TextBox ID="tbxApellido" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblNombre" CssClass="form-label alert-link accordion-button" runat="server" Text="Nombre"></asp:Label>
+                        <asp:TextBox ID="tbxNombre" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblDni" CssClass="form-label alert-link accordion-button" runat="server" Text="DNI"></asp:Label>
+                        <asp:TextBox ID="tbxDni" TextMode="Number" CssClass="form-control bg-light" runat="server"></asp:TextBox>
                     </div>
                 </div>
-        </div>
-    </div>
-    <div class="container text-center">
-        <div class="row align-items-start">
-            <div class="col">
-                <div class="mb-3">
-                    <asp:Label ID="lblTelefono" CssClass="form-label alert-link accordion-button" runat="server" Text="Teléfono"></asp:Label>
-                    <asp:TextBox ID="tbxTelefono" TextMode="Phone" CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+            <div class="container text-center">
+                <div class="row align-items-start">
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblSexo" CssClass="form-label alert-link accordion-button" runat="server" Text="Sexo"></asp:Label>
+                        <asp:DropDownList ID="ddlSexo" CssClass="form-control bg-light" runat="server"></asp:DropDownList>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblEstado" CssClass="form-label alert-link accordion-button" runat="server" Text="Estado:"></asp:Label>
+                        <asp:DropDownList ID="ddlEstado" CssClass="form-control bg-light" runat="server"></asp:DropDownList>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblFechaNacimiento" CssClass="form-label alert-link accordion-button" runat="server" Text="Fecha de nacimiento"></asp:Label>
+                        <asp:TextBox ID="FechaNacimiento" CssClass="form-control bg-light" type="date" placeholder="Fecha de Nacimiento" runat="server" />
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="mb-3">
-                    <asp:Label ID="lblCelular" CssClass="form-label alert-link accordion-button" runat="server" Text="Celular"></asp:Label>
-                    <asp:TextBox ID="tbxCelular" TextMode="Phone" CssClass="form-control" runat="server"></asp:TextBox>
+            <div class="container text-center">
+                <div class="row align-items-start">
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblTelefono" CssClass="form-label alert-link accordion-button" runat="server" Text="Teléfono"></asp:Label>
+                        <asp:TextBox ID="tbxTelefono" TextMode="Phone" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblCelular" CssClass="form-label alert-link accordion-button" runat="server" Text="Celular"></asp:Label>
+                        <asp:TextBox ID="tbxCelular" TextMode="Phone" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblEmail" CssClass="form-label alert-link accordion-button" runat="server" Text="Email"></asp:Label>
+                        <asp:TextBox ID="tbxEmail" TextMode="Email" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="mb-3">
-                    <asp:Label ID="lblEmail" CssClass="form-label alert-link accordion-button" runat="server" Text="Email"></asp:Label>
-                    <asp:TextBox ID="tbxEmail" TextMode="Email" CssClass="form-control" runat="server"></asp:TextBox>
+            <div class="container text-center">
+                <div class="row align-items-start">
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblDomicilio" CssClass="form-label alert-link accordion-button" runat="server" Text="Domicilio"></asp:Label>
+                        <asp:TextBox ID="tbxDomicilio" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblLocalidad" CssClass="form-label alert-link accordion-button" runat="server" Text="Localidad"></asp:Label>
+                        <asp:TextBox ID="tbxLocalidad" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <asp:Label ID="lblProvincia" CssClass="form-label alert-link accordion-button" runat="server" Text="Provincia"></asp:Label>
+                        <asp:TextBox ID="tbxProvincia" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="container text-center">
-        <div class="row align-items-start">
-            <div class="col">
-                <div class="mb-3">
-                    <asp:Label ID="lblDomicilio" CssClass="form-label alert-link accordion-button" runat="server" Text="Domicilio"></asp:Label>
-                    <asp:TextBox ID="tbxDomicilio" CssClass="form-control" runat="server"></asp:TextBox>
-                </div>
-            </div>
-            <div class="col">
-                <div class="mb-3">
-                    <asp:Label ID="lblLocalidad" CssClass="form-label alert-link accordion-button" runat="server" Text="Localidad"></asp:Label>
-                    <asp:TextBox ID="tbxLocalidad" CssClass="form-control" runat="server"></asp:TextBox>
-                </div>
-            </div>
-            <div class="col">
-                <div class="mb-3">
-                    <asp:Label ID="lblProvincia" CssClass="form-label alert-link accordion-button" runat="server" Text="Provincia"></asp:Label>
-                    <asp:TextBox ID="tbxProvincia" CssClass="form-control" runat="server"></asp:TextBox>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row align-items-start">
-            <div class="col">
-                <div class="mb-3">
-                    <asp:Label ID="lblFechaNacimiento" CssClass="form-label alert-link accordion-button" runat="server" Text="Fecha de nacimiento"></asp:Label>
-                    <asp:TextBox ID="FechaNacimiento" CssClass="form-control" type="date" placeholder="Fecha de Nacimiento" runat="server" />
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container text-center">
-        <hr />
-        <div class="row align-items-start">
-            <div class="col">
-                <div class="mb-3">
+            <hr />
+            <div class="container text-center">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <div class="mb-3">
 
-                    <div>
-                        <%-- MODAL --%>
-                        <%--<asp:Button ID="btnAceptar" type="button" class="btn btn-primary" data-bs-toggle="modal" autopostback="false" OnClientClick="return validar()" OnClick="btnAceptar_Click" Text="Aceptar" data-bs-target="#staticBackdrop" runat="server"></asp:Button>--%>
+                            <div>
+                                <%-- MODAL --%>
+                                <%--<asp:Button ID="btnAceptar" type="button" class="btn btn-primary" data-bs-toggle="modal" autopostback="false" OnClientClick="return validar()" OnClick="btnAceptar_Click" Text="Aceptar" data-bs-target="#staticBackdrop" runat="server"></asp:Button>--%>
 
-                        <asp:Button type="button" class="btn btn-primary" ID="btnAceptar" Text="Aceptar" autopostback="false" OnClientClick="return validar()" OnClick="btnAceptar_Click" runat="server"></asp:Button>
+                                <asp:Button type="button" class="btn btn-info text-white w-20 fw-semibold shadow-sm" ID="btnAceptar" Text="Cargar" autopostback="false" OnClientClick="return validar()" OnClick="btnAceptar_Click" runat="server"></asp:Button>
 
-                        <%--<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel">
+                                <%--<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel">
                             <div class="modal-dialog modal-xl">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -239,7 +213,9 @@
                                 </div>
                             </div>
                         </div>--%>
-                        <asp:Button ID="btnVolver" runat="server" CssClass="btn btn-primary" OnClick="btnVolver_Click" Text="Volver" />
+                                <asp:Button ID="btnVolver" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" OnClick="btnVolver_Click" Text="Volver" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

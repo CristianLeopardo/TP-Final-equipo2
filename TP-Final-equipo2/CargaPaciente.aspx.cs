@@ -136,7 +136,7 @@ namespace TP_Final_equipo2
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Home.aspx", false);
+            Response.Redirect("MenuPacientes.aspx", false);
         }
 
         protected void calFechaNacimiento_SelectionChanged(object sender, EventArgs e)

@@ -60,5 +60,6 @@
         <asp:Button ID="btnActivos" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Mostrar Activos" OnClick="btnActivos_Click" />
         <asp:Button ID="btnVolver" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" OnClick="btnVolver_Click" Text="Volver" />
     </div>
+    <br />
 
 </asp:Content>

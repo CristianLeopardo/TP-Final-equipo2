@@ -161,18 +161,6 @@ namespace TP_Final_equipo2
 
         protected void dgvEspcialidades_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-            var algo = dgvEspcialidades.SelectedRow.Cells[0].Text;
-            var id = dgvEspcialidades.SelectedDataKey.Value.ToString();
-            if (!IsPostBack)
-            {
-                MedicoNegocio Negmedico = new MedicoNegocio();
-                EspecialidadNegocio negocio = new EspecialidadNegocio();
-                negocio.cargarEspecialidades(Negmedico.UltimoIngreso(), id);
-            }
-            lblEspecialidad.Visible = true;
-            lblEspecialidad.Text = "Se agrego especialidad";
-            */
         }
 
         protected void btnEspecialidades_Click(object sender, EventArgs e)

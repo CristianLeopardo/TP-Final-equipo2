@@ -35,6 +35,24 @@ namespace TP_Final_equipo2
 
         protected void dgvMedicos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            if (e.CommandName == "EliminarMedico")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                int id = Convert.ToInt32(dgvMedicos.DataKeys[index].Value);
+
+                MedicoNegocio medicoNegocio = new MedicoNegocio();
+                medicoNegocio.Eliminar(id);
+
+                // Actualizar el GridView después de la eliminación
+                List<Medico> listaMedicos = (List<Medico>)Session["ListaMedicos"];
+                listaMedicos.RemoveAll(m => m.ID == id);
+                dgvMedicos.DataSource = listaMedicos;
+                dgvMedicos.DataBind();
+
+                
+                Session["AlertaMensaje"] = "Medico eliminado";
+                Response.Redirect(Request.RawUrl); // Redireccionar para que se muestre la alerta actualizada
+            }
         }
 
         protected void dgvMedicos_SelectedIndexChanged(object sender, EventArgs e)

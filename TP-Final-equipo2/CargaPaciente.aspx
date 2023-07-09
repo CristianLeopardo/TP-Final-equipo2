@@ -80,26 +80,6 @@
             return true;
 
         }
-
-        //const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-        //const appendAlert = (message, type) => {
-        //    const wrapper = document.createElement('div')
-        //    wrapper.innerHTML = [
-        //        `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-        //        `   <div>${message}</div>`,
-        //        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-        //        '</div>'
-        //    ].join('')
-
-        //    alertPlaceholder.append(wrapper)
-        //}
-
-        //const alertTrigger = document.getElementById('liveAlertBtn')
-        //if (alertTrigger) {
-        //    alertTrigger.addEventListener('click', () => {
-        //        appendAlert('Nice, you triggered this alert message!', 'success')
-        //    })
-        //}
     </script>
 
 
@@ -190,29 +170,8 @@
                 <div class="row align-items-start">
                     <div class="col">
                         <div class="mb-3">
-
                             <div>
-                                <%-- MODAL --%>
-                                <%--<asp:Button ID="btnAceptar" type="button" class="btn btn-primary" data-bs-toggle="modal" autopostback="false" OnClientClick="return validar()" OnClick="btnAceptar_Click" Text="Aceptar" data-bs-target="#staticBackdrop" runat="server"></asp:Button>--%>
-
                                 <asp:Button type="button" class="btn btn-info text-white w-20 fw-semibold shadow-sm" ID="btnAceptar" Text="Cargar" autopostback="false" OnClientClick="return validar()" OnClick="btnAceptar_Click" runat="server"></asp:Button>
-
-                                <%--<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel">
-                            <div class="modal-dialog modal-xl">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h2 class="modal-title" id="staticBackdropLabel">Confirmacion de alta</h2>
-                                        <asp:Button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" runat="server" />
-                                    </div>
-                                    <div class="modal-body">
-                                        <asp:Label ID="lblMensaje1" runat="server" Text="Paciente cargado exitosamente..."></asp:Label>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <asp:Button ID="btnAceptar2" type="button" class="btn btn-secondary" Text="Ir a Home" data-bs-dismiss="modal" runat="server" OnClick="btnAceptar2_Click" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>--%>
                                 <asp:Button ID="btnVolver" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" OnClick="btnVolver_Click" Text="Volver" />
                             </div>
                         </div>

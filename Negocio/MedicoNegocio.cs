@@ -236,7 +236,7 @@ namespace Negocio
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("update Medicos set Estado = 0 where ID =" + id);
+                datos.SetearConsulta("update Medicos set Estado = 0 where ID = " + id);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

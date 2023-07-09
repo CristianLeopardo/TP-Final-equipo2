@@ -33,7 +33,6 @@ namespace TP_Final_equipo2
             {
                 nuevo.AgregarEspecialidad(tbxEspecialidad.Text);
                 Session["AlertaMensaje"] = "Especialidad cargada";
-                //Response.Redirect("Home.aspx", false);
                 CargarEspecialidades();
                 tbxEspecialidad.Text = "";
             }

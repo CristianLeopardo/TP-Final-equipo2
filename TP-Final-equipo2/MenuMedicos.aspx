@@ -37,10 +37,19 @@
             </div>
         </div>
     </div>
+    <div class="container text-center w-50">
+        <%if (Session["AlertaMensaje"] != null && Session["AlertaMensaje"].ToString() == "Medico eliminado")
+            {%>
+        <div class="alert alert-danger alert-dismissible fade show">
+            <button class="btn-close" data-bs-dismiss="alert"></button>
+            Médico <strong>dado de baja </strong>exitosamente...
+        </div>
+        <%}
+            Session["AlertaMensaje"] = null;%>
+    </div>
 
 
-
-    <asp:GridView ID="dgvMedicos" runat="server" DataKeyNames="ID" AutoGenerateColumns="false" OnSelectedIndexChanged="dgvMedicos_SelectedIndexChanged" OnRowCommand="dgvMedicos_RowCommand" CssClass="container table table-info table-striped-columns text-center">
+    <asp:GridView ID="dgvMedicos" runat="server" DataKeyNames="ID" AutoGenerateColumns="false" OnSelectedIndexChanged="dgvMedicos_SelectedIndexChanged" OnRowCommand="dgvMedicos_RowCommand" CssClass="container table table-info table-striped-columns text-center text-truncate">
         <Columns>
             <asp:BoundField HeaderText="Apellido" DataField="Apellido" />
             <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
@@ -52,7 +61,12 @@
             <asp:BoundField HeaderText="FechaIngreso" DataField="FechaIngreso" DataFormatString="{0:dd/MM/yyyy}" />
             <asp:BoundField HeaderText="FechaNacimiento" DataField="FechaNacimiento" DataFormatString="{0:dd/MM/yyyy}" />
             <asp:BoundField HeaderText="Estado" DataField="Estado" />
-            <asp:CommandField ShowSelectButton="true" SelectText="Seleccionar" HeaderText="Accion" />
+            <asp:CommandField ShowSelectButton="true" ControlStyle-CssClass="text-decoration-none text-success" SelectText="Modificar" HeaderText="Modificar" />
+            <asp:TemplateField HeaderText="Eliminar">
+                <ItemTemplate>
+                    <asp:Button ID="btnEliminar" runat="server" Text="❌ ELIMINAR ❌" CommandName="EliminarMedico" CommandArgument='<%# Container.DataItemIndex %>' CssClass="text-danger text-decoration-none" />
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
     </asp:GridView>
     <div class="container text-center">

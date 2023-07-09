@@ -64,6 +64,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AgregarTurno.aspx" />
     <Content Include="AsignacionEspecialidades.aspx" />
     <Content Include="CargaPaciente.aspx" />
     <Content Include="CargarMedico.aspx" />
@@ -88,6 +89,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarTurno.aspx.cs">
+      <DependentUpon>AgregarTurno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarTurno.aspx.designer.cs">
+      <DependentUpon>AgregarTurno.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AsignacionEspecialidades.aspx.cs">
       <DependentUpon>AsignacionEspecialidades.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

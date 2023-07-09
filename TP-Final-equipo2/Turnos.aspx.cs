@@ -34,6 +34,9 @@ namespace TP_Final_equipo2
                 ddlEspecialidad.DataValueField = "ID";
                 ddlEspecialidad.DataTextField = "Nombre";
                 ddlEspecialidad.DataBind();
+                TurnoNegocio turnoNegocio = new TurnoNegocio();
+                dgvTurnos.DataSource = turnoNegocio.ListarTurnos();
+                dgvTurnos.DataBind();
             }
         }
 
@@ -63,8 +66,18 @@ namespace TP_Final_equipo2
         {
             HorarioNegocio negocio = new HorarioNegocio();
             IDmedico = int.Parse(ddldoctores.SelectedValue);
-            dgvHorarios.DataSource = negocio.listaparaturno(IDmedico);
-            dgvHorarios.DataBind();
+            //dgvHorarios.DataSource = negocio.listaparaturno(IDmedico);
+            //dgvHorarios.DataBind();
+        }
+
+        protected void btnNuevo_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AgregarTurno.aspx", false);
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx", false);
         }
     }
 }

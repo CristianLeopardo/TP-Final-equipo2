@@ -58,6 +58,7 @@
             <asp:BoundField HeaderText="Telefono" DataField="Telefono" />
             <asp:BoundField HeaderText="Celular" DataField="Celular" />
             <asp:BoundField HeaderText="Email" DataField="Email" />
+            <asp:BoundField HeaderText="Jornada" DataField="JornadaLaboral" />
             <asp:BoundField HeaderText="FechaIngreso" DataField="FechaIngreso" DataFormatString="{0:dd/MM/yyyy}" />
             <asp:BoundField HeaderText="FechaNacimiento" DataField="FechaNacimiento" DataFormatString="{0:dd/MM/yyyy}" />
             <asp:BoundField HeaderText="Estado" DataField="Estado" />

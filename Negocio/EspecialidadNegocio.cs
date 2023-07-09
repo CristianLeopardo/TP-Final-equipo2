@@ -35,7 +35,6 @@ namespace Negocio
             {
                 datos.Cerraconexion();
             }
-
         }
         public List<EspecialidadMedico> ListarMedicos(int IDespecialidad)
         {
@@ -43,14 +42,14 @@ namespace Negocio
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("select E.IdMedico, E.IDEspecialidad, M.Apellido from Medico_x_Especialidad E inner join Medicos M on E.IdMedico = M.ID where E.IDEspecialidad =" + IDespecialidad);
+                datos.SetearConsulta("select E.IdMedico, E.IDEspecialidad,M.Nombre, M.Apellido from Medico_x_Especialidad E inner join Medicos M on E.IdMedico = M.ID where E.IDEspecialidad =" + IDespecialidad);
                 datos.Ejecutarconsulta();
                 while (datos.Lector.Read())
                 {
                     EspecialidadMedico obj = new EspecialidadMedico();
                     obj.IDEspecialdiad = (int)datos.Lector["IDEspecialidad"];
                     obj.IDMedico = (int)datos.Lector["IdMedico"];
-                    obj.NombreMedico = (string)datos.Lector["Apellido"];
+                    obj.NombreMedico = (string)datos.Lector["Nombre"] + " " +(string)datos.Lector["Apellido"];
 
                     lista.Add(obj);
                 }
@@ -65,6 +64,36 @@ namespace Negocio
                 datos.Cerraconexion();
             }
 
+        }
+        public List<EspecialidadMedico> ListarMedicosTurno(int IDespecialidad, string jornada)
+        {
+            List<EspecialidadMedico> lista = new List<EspecialidadMedico>();
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("select E.IdMedico, E.IDEspecialidad,M.Nombre, M.Apellido, M.Jornada from Medico_x_Especialidad E inner join Medicos M on E.IdMedico = M.ID where E.IDEspecialidad = @IDespecialidad and M.Jornada = @jornada");
+                datos.setearParametro("@jornada", jornada);
+                datos.setearParametro("@IDespecialidad", IDespecialidad);
+                datos.Ejecutarconsulta();
+                while (datos.Lector.Read())
+                {
+                    EspecialidadMedico obj = new EspecialidadMedico();
+                    obj.IDEspecialdiad = (int)datos.Lector["IDEspecialidad"];
+                    obj.IDMedico = (int)datos.Lector["IdMedico"];
+                    obj.NombreMedico = (string)datos.Lector["Nombre"] + " " + (string)datos.Lector["Apellido"];
+
+                    lista.Add(obj);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
         }
         public List<EspecialidadMedico> ListarEspecialidadesMedico(int IDmedico)
         {

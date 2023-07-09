@@ -32,6 +32,7 @@ namespace Negocio
                     obj.fechaingreso = (DateTime)datos.Lector["FechaIngreso"];
                     obj.fechanacimiento = (DateTime)datos.Lector["FechaNacimiento"];
                     obj.Estado = (bool)datos.Lector["Estado"];
+                    obj.JornadaLaboral = (string)datos.Lector["Jornada"];
                     lista.Add(obj);
                 }
                 return lista;

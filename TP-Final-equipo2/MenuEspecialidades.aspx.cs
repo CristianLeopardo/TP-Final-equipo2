@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using Dominio;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +11,18 @@ namespace TP_Final_equipo2
 {
     public partial class MenuEspecialidades : System.Web.UI.Page
     {
+        protected void CargarEspecialidades()
+        {
+            EspecialidadNegocio especialidadesNegocio = new EspecialidadNegocio();
+            dgvEspecialidades.DataSource = especialidadesNegocio.ListarEspecialidades();
+            dgvEspecialidades.DataBind();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
             {
-                EspecialidadNegocio especialidadesNegocio = new EspecialidadNegocio();
-                dgvEspecialidades.DataSource = especialidadesNegocio.ListarEspecialidades();
-                dgvEspecialidades.DataBind();
+                CargarEspecialidades();
             }           
         }
 
@@ -26,9 +32,10 @@ namespace TP_Final_equipo2
             try
             {
                 nuevo.AgregarEspecialidad(tbxEspecialidad.Text);
-                lblMensaje.Visible = true;
-                lblMensaje.Text = "Especialidad cargada exitosamente...";
+                Session["AlertaMensaje"] = "Especialidad cargada";
                 //Response.Redirect("Home.aspx", false);
+                CargarEspecialidades();
+                tbxEspecialidad.Text = "";
             }
             catch (Exception ex) 
             {
@@ -42,8 +49,8 @@ namespace TP_Final_equipo2
             int id = int.Parse(dgvEspecialidades.SelectedDataKey.Value.ToString());
             EspecialidadNegocio especialidadNegocio = new EspecialidadNegocio();
             especialidadNegocio.EliminarEspecialidad(id);
-            lblMensaje.Text = "Especialidad eliminada correctamente";
-            lblMensaje.Visible = true;
+            Session["AlertaMensaje"] = "Especialidad eliminada";
+            CargarEspecialidades();
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)

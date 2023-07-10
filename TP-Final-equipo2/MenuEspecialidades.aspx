@@ -26,7 +26,7 @@
           Session["AlertaMensaje"] = null;%>
     </div>
     <div class="container">
-        <asp:GridView ID="dgvEspecialidades" DataKeyNames="ID" class="container table table-info w-50 table-striped-columns text-center" AutoGenerateColumns="false" OnSelectedIndexChanged="dgvEspecialidades_SelectedIndexChanged" runat="server">
+        <asp:GridView ID="dgvEspecialidades" DataKeyNames="ID" CssClass="container table table-info w-50 table-striped-columns text-center" AutoGenerateColumns="false" OnSelectedIndexChanged="dgvEspecialidades_SelectedIndexChanged" runat="server">
             <Columns>
                 <asp:BoundField HeaderText="Especialidad" DataField="Nombre" />
                 <asp:CommandField ShowSelectButton="true" ControlStyle-CssClass="text-danger text-decoration-none" SelectText="❌ ELIMINAR ❌" HeaderText="Accion" />

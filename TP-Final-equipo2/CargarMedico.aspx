@@ -185,8 +185,8 @@
                 <div>
                     <h2>Especialidades</h2>
                 </div>
-                <div class="table">
-                    <asp:GridView ID="dgvEspcialidades" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" OnSelectedIndexChanged="dgvEspcialidades_SelectedIndexChanged">
+                <div>
+                    <asp:GridView ID="dgvEspcialidades" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" CssClass="container table table-info w-50 table-striped-columns text-center" OnSelectedIndexChanged="dgvEspcialidades_SelectedIndexChanged">
                         <Columns>
                             <asp:BoundField HeaderText="ID" DataField="ID" />
                             <asp:BoundField HeaderText="Especialidad" DataField="Nombre" />

@@ -104,7 +104,7 @@ namespace TP_Final_equipo2
             }
             else
             {
-                medicoNegocio.Agregar(nuevo);
+                //medicoNegocio.Agregar(nuevo);
             }
             lblmensaje.Visible = true;
 

@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Asigne las especialidades al médico correspondiente</h1>
-    <asp:GridView ID="dgvEspecialidadesMedico" OnSelectedIndexChanged="dgvEspecialidadesMedico_SelectedIndexChanged" DataKeyNames="IDEspecialdiad" class="table table-dark table-striped-columns" AutoGenerateColumns="false" runat="server">
+    <asp:GridView ID="dgvEspecialidadesMedico" OnSelectedIndexChanged="dgvEspecialidadesMedico_SelectedIndexChanged" DataKeyNames="IDEspecialdiad" class="container table table-info w-50 table-striped-columns text-center" AutoGenerateColumns="false" runat="server">
                 <Columns>
                     <asp:BoundField HeaderText="Especialidad" DataField="NombreEspecialidad" />
                     <asp:CommandField ShowSelectButton="true" SelectText="Eliminar" HeaderText="Accion" />

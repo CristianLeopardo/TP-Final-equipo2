@@ -84,5 +84,75 @@ namespace TP_Final_equipo2
             ddlMedicos.DataBind();
             ddlMedicos.Visible = true;
         }
+        protected void ddlMedicos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            calDia.Visible = true;
+        }
+
+        protected void calDia_SelectionChanged(object sender, EventArgs e)
+        {
+            int horaInicial;
+            ddlHorarios.Visible = true;
+            string fecha = calDia.SelectedDate.ToString("yyyy-MM-dd");
+            List<Hora> lista = new List<Hora>();
+            Hora hora = new Hora();
+            TurnoNegocio turnoNeg = new TurnoNegocio();
+            List<Turno> turnos = new List<Turno>();
+            turnos = turnoNeg.BuscarHorario(int.Parse(ddlMedicos.SelectedValue), int.Parse(ddlEspecialidades.SelectedValue), fecha);
+            if (ddlJornada.SelectedValue == "Mañana")
+            {
+                horaInicial = 8;
+            }
+            else if (ddlJornada.SelectedValue == "Tarde")
+            {
+                horaInicial = 16;
+            }
+            else
+            {
+                horaInicial = 24;
+            }
+            bool encontre = false;
+            for (int i = 0; i <= 8; i++)
+            {
+                foreach (var v in turnos)
+                {
+                    if (int.Parse(v.Fecha.ToString("HH")) == horaInicial)
+                    {
+                        encontre = true;
+                    }
+                }
+                if (encontre == false)
+                {
+                    Hora hora2 = new Hora();
+                    hora2.Horario = horaInicial.ToString() + ":00";
+                    lista.Add(hora2);
+                }
+                horaInicial++;
+                encontre = false;
+            }
+            ddlHorarios.DataSource = lista;
+            ddlHorarios.DataTextField = "Horario";
+            ddlHorarios.DataBind();
+        }
+
+        protected void ddlMedicos_Load(object sender, EventArgs e)
+        {
+            calDia.Visible = true;
+        }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            string asd;
+            Turno turno = new Turno();
+            turno.IDPaciente = (int)Session["IDPaciente"];
+            turno.IDMedico = int.Parse(ddlMedicos.SelectedValue);
+            turno.Estado = 1;
+            //lblLeyenda.Text = calDia.SelectedDate.ToString("yyyy-MM-dd") + " " + ddlHorarios.SelectedValue.ToString() + ":00";
+            asd = calDia.SelectedDate.ToString("yyyy-MM-dd") + " " + ddlHorarios.SelectedValue.ToString() + ":00";
+            turno.Fecha = DateTime.Parse(asd);
+            turno.IDEspecialidad = int.Parse(ddlEspecialidades.SelectedValue);
+            TurnoNegocio turnoNegocio = new TurnoNegocio();
+            turnoNegocio.AgregarTurno(turno);
+        }
     }
 }

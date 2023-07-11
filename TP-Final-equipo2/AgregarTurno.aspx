@@ -18,11 +18,16 @@
     <div>
         <asp:DropDownList ID="ddlJornada" Visible="false" AutoPostBack="true"  OnSelectedIndexChanged="ddlJornada_SelectedIndexChanged" runat="server"></asp:DropDownList>
     </div>
-    <asp:DropDownList ID="ddlMedicos" Visible="false" runat="server"></asp:DropDownList>
+    <asp:DropDownList ID="ddlMedicos" Visible="false" AutoPostBack="true" OnLoad="ddlMedicos_Load" OnSelectedIndexChanged="ddlMedicos_SelectedIndexChanged" runat="server"></asp:DropDownList>
     <div>
+        <asp:Calendar ID="calDia" Visible="false" OnSelectionChanged="calDia_SelectionChanged" runat="server"></asp:Calendar>
+    </div>  
+    <div>
+        <asp:DropDownList ID="ddlHorarios" Visible="false" runat="server"></asp:DropDownList>
     </div>
     <div>
         <asp:Button ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click" />
+        <asp:Button ID="btnAgregar" runat="server" Text="Tomar Turno" OnClick="btnAgregar_Click" />
     </div>
 
 </asp:Content>

@@ -86,6 +86,8 @@
     <Content Include="RecuperarClave.aspx" />
     <Content Include="Registrarse.aspx" />
     <Content Include="Turnos.aspx" />
+    <Content Include="TurnoSeleccionado.aspx" />
+    <Content Include="TurnosxMedicos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -197,6 +199,20 @@
     </Compile>
     <Compile Include="Turnos.aspx.designer.cs">
       <DependentUpon>Turnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TurnoSeleccionado.aspx.cs">
+      <DependentUpon>TurnoSeleccionado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TurnoSeleccionado.aspx.designer.cs">
+      <DependentUpon>TurnoSeleccionado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TurnosxMedicos.aspx.cs">
+      <DependentUpon>TurnosxMedicos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TurnosxMedicos.aspx.designer.cs">
+      <DependentUpon>TurnosxMedicos.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

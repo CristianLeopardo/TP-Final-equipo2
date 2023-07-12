@@ -66,6 +66,7 @@
             <asp:TemplateField HeaderText="Eliminar">
                 <ItemTemplate>
                     <asp:Button ID="btnEliminar" runat="server" Text="❌ ELIMINAR ❌" CommandName="EliminarMedico" CommandArgument='<%# Container.DataItemIndex %>' CssClass="text-danger text-decoration-none" />
+                    <asp:Button ID="Button1" runat="server" Text="❌ eliminando ❌" CommandName="EliminarMedico" CommandArgument='<%# Container.DataItemIndex %>' CssClass="text-danger text-decoration-none" />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

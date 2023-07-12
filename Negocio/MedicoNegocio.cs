@@ -88,7 +88,7 @@ namespace Negocio
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("Select ID, Nombre, Apellido, Sexo, DNI, Telefono, Celular, Email, FechaIngreso, FechaNacimiento, Jornada, Estado from Medicos where "+ campo +" like '"+ dato +"%'");
+                datos.SetearConsulta("Select ID, Nombre, Apellido, Sexo, DNI, Telefono, Celular, Email, FechaIngreso, FechaNacimiento, Jornada, Estado from Medicos where Estado=1 And "+ campo +" like '"+ dato +"%'");
                 datos.Ejecutarconsulta();
                 while (datos.Lector.Read())
                 {

@@ -11,97 +11,79 @@ namespace TP_Final_equipo2
 {
 
 
-    public partial class MenuMedicos
+    public partial class ListaMedicos
     {
 
         /// <summary>
-        /// Control lblcampo.
+        /// Control lblEspecialidades.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblcampo;
+        protected global::System.Web.UI.WebControls.Label lblEspecialidades;
 
         /// <summary>
-        /// Control ddlcampos.
+        /// Control ddlEspecialidades.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlcampos;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEspecialidades;
 
         /// <summary>
-        /// Control lblcriterio.
+        /// Control lbldni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblcriterio;
+        protected global::System.Web.UI.WebControls.Label lbldni;
 
         /// <summary>
-        /// Control txtcriterio.
+        /// Control txtdni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtcriterio;
+        protected global::System.Web.UI.WebControls.TextBox txtdni;
 
         /// <summary>
-        /// Control btnfiltrar.
+        /// Control lblapellido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnfiltrar;
+        protected global::System.Web.UI.WebControls.Label lblapellido;
 
         /// <summary>
-        /// Control ddlespecialidades.
+        /// Control txtApellido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlespecialidades;
+        protected global::System.Web.UI.WebControls.TextBox txtApellido;
 
         /// <summary>
-        /// Control dgvMedicos.
+        /// Control btnbuscar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvMedicos;
+        protected global::System.Web.UI.WebControls.Button btnbuscar;
 
         /// <summary>
-        /// Control btnAgregar.
+        /// Control gvListaMedicos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregar;
-
-        /// <summary>
-        /// Control btnActivos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnActivos;
-
-        /// <summary>
-        /// Control btnVolver.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVolver;
+        protected global::System.Web.UI.WebControls.GridView gvListaMedicos;
     }
 }

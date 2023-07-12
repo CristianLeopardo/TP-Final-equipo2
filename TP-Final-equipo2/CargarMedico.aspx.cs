@@ -100,11 +100,11 @@ namespace TP_Final_equipo2
             if (Request.QueryString["ID"] != null)
             {
                 nuevo.ID = int.Parse(Request.QueryString["ID"]);
-                //medicoNegocio.Modificar(nuevo);
+                medicoNegocio.Modificar(nuevo);
             }
             else
             {
-                //medicoNegocio.Agregar(nuevo);
+                medicoNegocio.Agregar(nuevo);
             }
             lblmensaje.Visible = true;
 
@@ -155,8 +155,6 @@ namespace TP_Final_equipo2
             tbxEmail.Text = "";
             FechaIngreso.Text = "";
             FechaNacimiento.Text = "";
-
-            
         }
 
         protected void dgvEspcialidades_SelectedIndexChanged(object sender, EventArgs e)

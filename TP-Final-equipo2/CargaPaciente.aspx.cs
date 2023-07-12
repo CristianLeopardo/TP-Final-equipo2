@@ -42,11 +42,7 @@ namespace TP_Final_equipo2
                     ModificarPaciente(int.Parse(Request.QueryString["ID"]));
                     lblTitulo.Text = "Modificando paciente";
                 }
-
-            }
-            
-
-
+            }           
         }
         public void ModificarPaciente(int id)
         {
@@ -80,41 +76,54 @@ namespace TP_Final_equipo2
             {
                 PacientesNegocio negocio = new PacientesNegocio();
                 Paciente nuevo = new Paciente();
-                nuevo.Apellido = tbxApellido.Text;
-                nuevo.Nombre = tbxNombre.Text;
-                nuevo.Dni = int.Parse(tbxDni.Text);
-                nuevo.Sexo = ddlSexo.SelectedValue.ToString();
-                nuevo.Telefono = int.Parse(tbxTelefono.Text);
-                nuevo.Celular = int.Parse(tbxCelular.Text);
-                nuevo.Email = tbxEmail.Text;
-                nuevo.Domicilio = tbxDomicilio.Text;
-                nuevo.Localidad = tbxLocalidad.Text;
-                nuevo.Provincia = tbxProvincia.Text;
-                nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
-                if (int.Parse(ddlEstado.SelectedValue) == 1)
+                if (ValidarVacio() == true)
                 {
-                    nuevo.Estado = true;
+                    nuevo.Apellido = tbxApellido.Text;
+                    nuevo.Nombre = tbxNombre.Text;
+                    nuevo.Dni = int.Parse(tbxDni.Text);
+                    nuevo.Sexo = ddlSexo.SelectedValue.ToString();
+                    nuevo.Telefono = int.Parse(tbxTelefono.Text);
+                    nuevo.Celular = int.Parse(tbxCelular.Text);
+                    nuevo.Email = tbxEmail.Text;
+                    nuevo.Domicilio = tbxDomicilio.Text;
+                    nuevo.Localidad = tbxLocalidad.Text;
+                    nuevo.Provincia = tbxProvincia.Text;
+                    nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
+                    if (int.Parse(ddlEstado.SelectedValue) == 1)
+                    {
+                        nuevo.Estado = true;
+                    }
+                    else
+                    {
+                        nuevo.Estado = false;
+                    }
+                    if (Request.QueryString["ID"] != null)
+                    {
+                        nuevo.ID = int.Parse(Request.QueryString["ID"]);
+                        negocio.Modificar(nuevo);
+                    }
+                    else
+                    {
+                        if (ValidarDNI(int.Parse(tbxDni.Text)) == true && ValidarEmail(tbxEmail.Text) == true)
+                        {
+                            negocio.Agregar(nuevo);
+                        }
+                        
+                    }
+                    Session["AlertaMensaje"] = "Paciente cargado";
                 }
                 else
                 {
-                    nuevo.Estado = false;
+                    // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
+                    Session["AlertaMensaje"] = "Complete todos los campos";
+                    //lblmensaje.Visible = true;
+                    //lblmensaje.Text = "Complete todos los campos";
                 }
-                if (Request.QueryString["ID"] != null)
-                {
-                    nuevo.ID = int.Parse(Request.QueryString["ID"]);
-                    negocio.Modificar(nuevo);
-                }
-                else
-                {
-                    negocio.Agregar(nuevo);
-                }
-
-
                 //if (!int.TryParse(tbxDni.Text, out int dni))
                 //{
                 //    return;
                 //}
-                Session["AlertaMensaje"] = "Paciente cargado";
+
                 tbxApellido.Text = "";
                 tbxNombre.Text = "";
                 tbxDni.Text = "";
@@ -131,6 +140,47 @@ namespace TP_Final_equipo2
             {
 
                 throw ex;
+            }
+        }
+        protected bool ValidarEmail(string email)
+        {
+            PacientesNegocio PacienteNegocio = new PacientesNegocio();
+            if (PacienteNegocio.ValidarEmail(email) == true)
+            {
+                // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
+                Session["AlertaMensaje"] = "EMAIL EXISTENTE";
+                lblmensaje.Visible = true;
+                lblmensaje.Text = "EMAIL EXISTENTE";
+                return false;
+            }
+            else
+            { return true; }
+        }
+
+        protected bool ValidarDNI(int dni)
+        {
+            PacientesNegocio PacienteNegocio = new PacientesNegocio();
+            if (PacienteNegocio.ValidarDNI(dni) == true)
+            {
+                // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
+                Session["AlertaMensaje"] = "DNI EXISTENTE";
+                lblmensaje.Visible = true;
+                lblmensaje.Text = "DNI EXISTENTE";
+                return false;
+            }
+            else
+            { return true; }
+        }
+
+        protected bool ValidarVacio()
+        {
+            if (tbxApellido.Text == "" || tbxLocalidad.Text == "" || tbxProvincia.Text == "" || tbxNombre.Text == "" || tbxDni.Text == "" || tbxCelular.Text == "" || tbxTelefono.Text == "" || tbxEmail.Text == "" || tbxDomicilio.Text == "" || FechaNacimiento.Text == "")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
 

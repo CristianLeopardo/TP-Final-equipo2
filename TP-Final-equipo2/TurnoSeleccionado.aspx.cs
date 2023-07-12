@@ -16,6 +16,7 @@ namespace TP_Final_equipo2
             if (Request.QueryString["ID"] != null)
             {
                 int id = int.Parse(Request.QueryString["ID"].ToString());
+<<<<<<< HEAD
                 TurnoNegocio negocio = new TurnoNegocio();
                 List<Turno> temporal = negocio.ListarTurnos();
                 Turno elegido = temporal.Find(x => x.ID == id);
@@ -91,6 +92,11 @@ namespace TP_Final_equipo2
             catch (Exception ex)
             {
                 throw ex;
+=======
+                List<Turnos> temporal =(List<Turnos>)Session["Turno"];
+                //Turnos seleccionado = temporal.Find(x => x.ID = id);
+                
+>>>>>>> f56cc01436f38e4f83da89d7c41dbaf035e9bd1a
             }
         }
     }

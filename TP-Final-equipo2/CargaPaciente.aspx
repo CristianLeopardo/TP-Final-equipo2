@@ -173,6 +173,7 @@
                             <div>
                                 <asp:Button type="button" class="btn btn-info text-white w-20 fw-semibold shadow-sm" ID="btnAceptar" Text="Cargar" autopostback="false" OnClientClick="return validar()" OnClick="btnAceptar_Click" runat="server"></asp:Button>
                                 <asp:Button ID="btnVolver" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" OnClick="btnVolver_Click" Text="Volver" />
+                                <asp:Label ID="lblmensaje" Visible="false" runat="server" Text="Label"></asp:Label>
                             </div>
                         </div>
                     </div>

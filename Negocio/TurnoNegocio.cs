@@ -134,16 +134,17 @@ namespace Negocio
                 datos.Cerraconexion();
             }
         }
-        public List<Turno> BuscarHorario(int IDMedico, int IDEspecialidad, string Fecha)
+        public List<Turno> BuscarHorario(int IDMedico, int IDEspecialidad, int IDPaciente, string Fecha)
         {
             List<Turno> lista = new List<Turno>();
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("select ID,Fecha from Turnos where convert(date, Fecha) = '" + Fecha + "' and  IDMedico = @IDMedico and IDEspecialidad = @IDEspecialidad");
+                datos.SetearConsulta("select ID,Fecha from Turnos where convert(date, Fecha) = '" + Fecha + "' and  IDMedico = @IDMedico and IDEspecialidad = @IDEspecialidad or (convert(date, Fecha) = '" + Fecha + "' and IDPaciente = @IDPaciente)");
                 datos.setearParametro("@Fecha", Fecha);
                 datos.setearParametro("@IDEspecialidad", IDEspecialidad);
                 datos.setearParametro("@IDMedico", IDMedico);
+                datos.setearParametro("@IDPaciente", IDPaciente);
                 datos.Ejecutarconsulta();
                 while (datos.Lector.Read())
                 {
@@ -162,6 +163,7 @@ namespace Negocio
                 datos.Cerraconexion();
             }
         }
+       
 
         public void AgregarTurno(Turno nuevo)
         {

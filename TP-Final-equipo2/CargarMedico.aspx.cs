@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net;
 
 namespace TP_Final_equipo2
 {
@@ -79,35 +80,90 @@ namespace TP_Final_equipo2
         {
             MedicoNegocio medicoNegocio = new MedicoNegocio();
             Medico nuevo = new Medico();
-            nuevo.Apellido = tbxApellido.Text;
-            nuevo.Nombre = tbxNombre.Text;
-            nuevo.Dni = int.Parse(tbxDni.Text);
-            nuevo.Celular = int.Parse(tbxCelular.Text);
-            nuevo.Telefono = int.Parse(tbxTelefono.Text);
-            nuevo.Email = tbxEmail.Text;
-            nuevo.Sexo = ddlSexo.SelectedValue.ToString();
-            nuevo.fechaingreso = DateTime.Parse(FechaIngreso.Text);
-            nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
-            nuevo.JornadaLaboral = ddlJornada.SelectedValue.ToString();
-            if (int.Parse(ddlEstado.SelectedValue) == 1)
+            if (ValidarVacio() == true)
             {
-                nuevo.Estado = true;
+                nuevo.Apellido = tbxApellido.Text;
+                nuevo.Nombre = tbxNombre.Text;
+                nuevo.Dni = int.Parse(tbxDni.Text);
+                nuevo.Celular = int.Parse(tbxCelular.Text);
+                nuevo.Telefono = int.Parse(tbxTelefono.Text);
+                nuevo.Email = tbxEmail.Text;
+                nuevo.Sexo = ddlSexo.SelectedValue.ToString();
+                nuevo.fechaingreso = DateTime.Parse(FechaIngreso.Text);
+                nuevo.fechanacimiento = DateTime.Parse(FechaNacimiento.Text);
+                nuevo.JornadaLaboral = ddlJornada.SelectedValue.ToString();
+                if (int.Parse(ddlEstado.SelectedValue) == 1)
+                {
+                    nuevo.Estado = true;
+                }
+                else
+                {
+                    nuevo.Estado = false;
+                }
+                if (Request.QueryString["ID"] != null)
+                {
+                    nuevo.ID = int.Parse(Request.QueryString["ID"]);
+                    medicoNegocio.Modificar(nuevo);
+                }
+                else
+                {
+                    if (ValidarDNI(int.Parse(tbxDni.Text)) == true && ValidarEmail(tbxEmail.Text) == true)
+                    {
+                        medicoNegocio.Agregar(nuevo);
+                    }
+                    
+                }
+                lblmensaje.Visible = true;
             }
             else
             {
-                nuevo.Estado = false;
-            }    
-            if (Request.QueryString["ID"] != null)
-            {
-                nuevo.ID = int.Parse(Request.QueryString["ID"]);
-                medicoNegocio.Modificar(nuevo);
+                // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
+                Session["AlertaMensaje"] = "Complete todos los campos";
+                //lblmensaje.Visible = true;
+                //lblmensaje.Text = "Complete todos los campos";
             }
-            else
-            {
-                medicoNegocio.Agregar(nuevo);
-            }
-            lblmensaje.Visible = true;
+        }
 
+        protected bool ValidarEmail(string email)
+        {
+            MedicoNegocio medicoNegocio = new MedicoNegocio();
+            if (medicoNegocio.ValidarEmail(email) == true)
+            {
+                // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
+                Session["AlertaMensaje"] = "EMAIL EXISTENTE";
+                lblmensaje.Visible = true;
+                lblmensaje.Text = "EMAIL EXISTENTE";
+                return false;
+            }
+            else
+            { return true; }
+        }
+
+        protected bool ValidarDNI(int dni)
+        {
+            MedicoNegocio medicoNegocio = new MedicoNegocio();
+            if(medicoNegocio.ValidarDNI(dni) == true)
+            {
+                // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
+                Session["AlertaMensaje"] = "DNI EXISTENTE";
+                lblmensaje.Visible = true;
+                lblmensaje.Text = "DNI EXISTENTE";
+                return false;
+            }
+            else
+            { return true; }
+        }
+
+        protected bool ValidarVacio()
+        {
+            if (tbxApellido.Text  == "" || tbxNombre.Text == "" || tbxDni.Text == "" || tbxCelular.Text == "" || tbxTelefono.Text == ""  ||  tbxEmail.Text == "" || FechaIngreso.Text ==  "" || FechaNacimiento.Text =="")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)

@@ -50,7 +50,7 @@ namespace TP_Final_equipo2
                 paciente = negocio.BuscarPacientexDNI2(int.Parse(tbxDNI.Text));
                 if (paciente.Nombre == null)
                 {
-                    lblResultado.Text = "Cliente no encontrado";
+                    lblResultado.Text = "Paciente no encontrado";
                     lblResultado.Visible = true;
                 }
                 else
@@ -98,41 +98,48 @@ namespace TP_Final_equipo2
             Hora hora = new Hora();
             TurnoNegocio turnoNeg = new TurnoNegocio();
             List<Turno> turnos = new List<Turno>();
-            turnos = turnoNeg.BuscarHorario(int.Parse(ddlMedicos.SelectedValue), int.Parse(ddlEspecialidades.SelectedValue), fecha);
-            if (ddlJornada.SelectedValue == "Mañana")
+            if (ddlMedicos.SelectedValue != ""  && ddlEspecialidades.SelectedValue !="")
             {
-                horaInicial = 8;
-            }
-            else if (ddlJornada.SelectedValue == "Tarde")
-            {
-                horaInicial = 16;
+                turnos = turnoNeg.BuscarHorario(int.Parse(ddlMedicos.SelectedValue), int.Parse(ddlEspecialidades.SelectedValue), (int)Session["IDPaciente"], fecha);
+                if (ddlJornada.SelectedValue == "Mañana")
+                {
+                    horaInicial = 8;
+                }
+                else if (ddlJornada.SelectedValue == "Tarde")
+                {
+                    horaInicial = 16;
+                }
+                else
+                {
+                    horaInicial = 24;
+                }
+                bool encontre = false;
+                for (int i = 0; i <= 8; i++)
+                {
+                    foreach (var v in turnos)
+                    {
+                        if (int.Parse(v.Fecha.ToString("HH")) == horaInicial)
+                        {
+                            encontre = true;
+                        }
+                    }
+                    if (encontre == false)
+                    {
+                        Hora hora2 = new Hora();
+                        hora2.Horario = horaInicial.ToString() + ":00";
+                        lista.Add(hora2);
+                    }
+                    horaInicial++;
+                    encontre = false;
+                }
+                ddlHorarios.DataSource = lista;
+                ddlHorarios.DataTextField = "Horario";
+                ddlHorarios.DataBind();
             }
             else
             {
-                horaInicial = 24;
+                // MENSAJE DE ERROR POR NO  SELECCIONAR  ESPECIALDIADS NI MEDICOS
             }
-            bool encontre = false;
-            for (int i = 0; i <= 8; i++)
-            {
-                foreach (var v in turnos)
-                {
-                    if (int.Parse(v.Fecha.ToString("HH")) == horaInicial)
-                    {
-                        encontre = true;
-                    }
-                }
-                if (encontre == false)
-                {
-                    Hora hora2 = new Hora();
-                    hora2.Horario = horaInicial.ToString() + ":00";
-                    lista.Add(hora2);
-                }
-                horaInicial++;
-                encontre = false;
-            }
-            ddlHorarios.DataSource = lista;
-            ddlHorarios.DataTextField = "Horario";
-            ddlHorarios.DataBind();
         }
 
         protected void ddlMedicos_Load(object sender, EventArgs e)
@@ -145,14 +152,23 @@ namespace TP_Final_equipo2
             string asd;
             Turno turno = new Turno();
             turno.IDPaciente = (int)Session["IDPaciente"];
-            turno.IDMedico = int.Parse(ddlMedicos.SelectedValue);
-            turno.Estado = 1;
-            //lblLeyenda.Text = calDia.SelectedDate.ToString("yyyy-MM-dd") + " " + ddlHorarios.SelectedValue.ToString() + ":00";
-            asd = calDia.SelectedDate.ToString("yyyy-MM-dd") + " " + ddlHorarios.SelectedValue.ToString() + ":00";
-            turno.Fecha = DateTime.Parse(asd);
-            turno.IDEspecialidad = int.Parse(ddlEspecialidades.SelectedValue);
-            TurnoNegocio turnoNegocio = new TurnoNegocio();
-            turnoNegocio.AgregarTurno(turno);
+            if (ddlMedicos.SelectedValue != "")
+            {
+                turno.IDMedico = int.Parse(ddlMedicos.SelectedValue);
+                turno.Estado = 1;
+                //lblLeyenda.Text = calDia.SelectedDate.ToString("yyyy-MM-dd") + " " + ddlHorarios.SelectedValue.ToString() + ":00";
+                asd = calDia.SelectedDate.ToString("yyyy-MM-dd") + " " + ddlHorarios.SelectedValue.ToString() + ":00";
+                turno.Fecha = DateTime.Parse(asd);
+                turno.IDEspecialidad = int.Parse(ddlEspecialidades.SelectedValue);
+                TurnoNegocio turnoNegocio = new TurnoNegocio();
+                turnoNegocio.AgregarTurno(turno);
+            }
+            else 
+            {
+                //MENSAJE DE ERROR POR NO SELECCIONAR FECHA NI HORARIO
+            }
+
+            
         }
     }
 }

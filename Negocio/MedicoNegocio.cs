@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Reflection;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -268,6 +270,65 @@ namespace Negocio
 
                 }
                 return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
+        public bool ValidarEmail(string Email)
+        {
+            List<Medico> lista = new List<Medico>();
+            Conexion datos = new Conexion();
+            bool encontre = false;
+            try
+            {
+                datos.SetearConsulta("select ID, Nombre, Email from Medicos where Email =  @Email");
+                datos.setearParametro("@Email", Email);
+                datos.Ejecutarconsulta();
+                while (datos.Lector.Read())
+                {
+                    encontre = true;
+                }
+                if (encontre == true)
+                {
+                    return true;
+                }
+                else { return false; }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
+
+
+        public bool ValidarDNI(int DNI)
+        {
+            List<Medico> lista = new List<Medico>();
+            Conexion datos = new Conexion();
+            bool encontre = false;
+            try
+            {
+                datos.SetearConsulta("select ID, Nombre, Apellido from Medicos where dni = " + DNI);
+                datos.Ejecutarconsulta();
+                while (datos.Lector.Read())
+                {
+                    encontre = true;
+                }
+                if (encontre == true)
+                {
+                    return true;
+                }
+                else { return false; }          
             }
             catch (Exception ex)
             {

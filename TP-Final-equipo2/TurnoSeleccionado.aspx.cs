@@ -17,7 +17,7 @@ namespace TP_Final_equipo2
             {
                 int id = int.Parse(Request.QueryString["ID"].ToString());
                 List<Turnos> temporal =(List<Turnos>)Session["Turno"];
-                Turnos seleccionado = temporal.Find(x => x.ID == id);
+                //Turnos seleccionado = temporal.Find(x => x.ID = id);
                 
             }
         }

@@ -46,6 +46,7 @@
     <Compile Include="Hora.cs" />
     <Compile Include="Horario.cs" />
     <Compile Include="Medico.cs" />
+    <Compile Include="Observaciones.cs" />
     <Compile Include="Paciente.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Turno.cs" />

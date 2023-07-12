@@ -62,6 +62,7 @@
             <asp:Button runat="server" CssClass="btn" ID="btnnewPaciente" OnClick="btnnewPaciente_Click" Text="Administrar Pacientes" />
             <asp:Button runat="server" CssClass="btn" ID="btnnewMedico" OnClick="btnnewMedico_Click" Text="Administrar Médicos" />
             <asp:Button runat="server" CssClass="btn" ID="btnEspecialidades" OnClick="btnEspecialidades_Click" Text="Administrar Especialidades" />
+            <asp:Button runat="server" CssClass="btn" ID="btnTurnosxmedicos" OnClick="btnTurnosxmedicos_Click"  Text="Turnos asignados"/>
             <hr />
             <asp:Button runat="server" CssClass="btn" ID="btnTurno" OnClick="btnnewTurno_Click" Text="Cargar Turno" />
         </div>

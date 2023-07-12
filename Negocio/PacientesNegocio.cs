@@ -47,7 +47,6 @@ namespace Negocio
 
         public List<Paciente> BuscarPaciente(int id)
 
-
         {
             List<Paciente> lista = new List<Paciente>();
             Conexion datos = new Conexion();

@@ -71,6 +71,13 @@ create table Hora(
     Hora varchar(5) not null,
 )
 
+CREATE TABLE Observaciones(
+    ID int PRIMARY KEY IDENTITY(1,1) not null,
+    IDTurno int not NULL,
+    Observaciones VARCHAR(800) not NULL
+    FOREIGN KEY (IDTurno) REFERENCES Turnos (ID)
+)
+
 insert into Hora(Hora)
   values ('09:00')
 insert into Hora(Hora)

@@ -70,7 +70,7 @@ namespace TP_Final_equipo2
         {
             var a = dgvturnos.SelectedRow.Cells[0].Text;
             var ID = dgvturnos.SelectedDataKey.Value.ToString();
-            Response.Redirect("TurnosSeleccion.aspx?ID="+ID);
+            Response.Redirect("TurnoSeleccionado.aspx?ID="+ID);
         }
     }
 }

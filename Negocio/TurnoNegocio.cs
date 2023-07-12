@@ -72,6 +72,7 @@ namespace Negocio
 
         }
 
+
         public List<Turno> BuscarTurnosHoy(string dia, string mes, string anio, int idmedico)
         {
             Conexion datos = new Conexion();
@@ -206,6 +207,19 @@ namespace Negocio
                     lista.Add(obj);
                 }
                 return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void Modificarturno(int iD, int estado=0)
+        {
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("UPDATE Turnos set Estado="+ estado +" where ID="+iD);
+                datos.Ejecutarconsulta();
             }
             catch (Exception ex)
             {

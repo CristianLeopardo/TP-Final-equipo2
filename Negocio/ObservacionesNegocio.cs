@@ -32,6 +32,10 @@ namespace Negocio
             {
                 throw;
             }
+            finally
+            {
+                datos.Cerraconexion();
+            }
         }
         public void insertarObservacion(int idturno, String obs)
         {
@@ -44,6 +48,10 @@ namespace Negocio
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
             }
         }
     }

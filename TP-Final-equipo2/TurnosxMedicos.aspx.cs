@@ -14,12 +14,15 @@ namespace TP_Final_equipo2
         public int Medicoactual { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            MedicoNegocio neg = new MedicoNegocio();
+            Usuario actuall = (Usuario)Session["Usuario"];
+
+            Medicoactual = neg.BuscarProfesional(actuall.Email);
             if (!IsPostBack)
             {
                 ddlcampo.Items.Add("Apellido");
                 ddlcampo.Items.Add("DNI");
                 TurnoNegocio negocio = new TurnoNegocio();
-                Medicoactual = 19;
                 dgvturnos.DataSource = negocio.listadgv(Medicoactual);
                 dgvturnos.DataBind();
             }
@@ -36,7 +39,6 @@ namespace TP_Final_equipo2
             string dia = fechaactual.ToString("dd");
             string mes = fechaactual.ToString("MM");
             string anio = fechaactual.ToString("yyyy");
-            Medicoactual = 19;
             TurnoNegocio negocio = new TurnoNegocio();
             dgvturnos.DataSource = negocio.BuscarTurnosHoy(dia,mes,anio, Medicoactual);
             dgvturnos.DataBind();
@@ -52,7 +54,6 @@ namespace TP_Final_equipo2
             string campo = ddlcampo.SelectedValue;
             string criterio = txtcriterio.Text;
             TurnoNegocio negocio = new TurnoNegocio();
-            Medicoactual = 19;
             dgvturnos.DataSource =negocio.buscarporCriterio(campo,criterio, Medicoactual);
             dgvturnos.DataBind();
         }
@@ -62,7 +63,6 @@ namespace TP_Final_equipo2
             string campo = ddlcampo.SelectedValue;
             string criterio = txtcriterio.Text;
             TurnoNegocio negocio = new TurnoNegocio();
-            Medicoactual = 19;
             dgvturnos.DataSource = negocio.buscarporCriterio(campo, criterio, Medicoactual);
             dgvturnos.DataBind();
         }

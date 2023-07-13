@@ -120,6 +120,42 @@ namespace Negocio
             }
         }
 
+        public int BuscarProfesional(string email)
+        {
+            List<Medico> lista = new List<Medico>();
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("Select ID from Medicos where Estado=1 And Email='"+email+"'");
+                datos.Ejecutarconsulta();
+                while (datos.Lector.Read())
+                {
+                    Medico obj = new Medico();
+                    obj.ID = (int)datos.Lector["ID"];
+                    obj.Nombre = (string)datos.Lector["Nombre"];
+                    obj.Apellido = (string)datos.Lector["Apellido"];
+                    obj.Sexo = (string)datos.Lector["Sexo"];
+                    obj.Dni = (int)datos.Lector["DNI"];
+                    obj.Telefono = (int)datos.Lector["Telefono"];
+                    obj.Celular = (int)datos.Lector["Celular"];
+                    obj.Email = (string)datos.Lector["Email"];
+                    obj.fechaingreso = (DateTime)datos.Lector["FechaIngreso"];
+                    obj.fechanacimiento = (DateTime)datos.Lector["FechaNacimiento"];
+                    obj.Estado = (bool)datos.Lector["Estado"];
+                    return obj.ID;
+                }
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
+
         public List<Medico> BuscarMedico(int id)
         {
             List<Medico> lista = new List<Medico>();

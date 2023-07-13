@@ -133,7 +133,7 @@ namespace Negocio
                 string continuacion = " ";
                 if (jornada!=null)
                     continuacion = " AND m.Jornada='" + jornada + "'";
-                datos.SetearConsulta("SELECT m.ID ,m.Apellido, m.Nombre, m.sexo, m.DNI, m.Telefono, m.Celular, m.Email, m.FechaIngreso, m.FechaNacimiento, m.Jornada, m.Estado from Medicos m INNER JOIN Medico_x_Especialidad me on m.ID=me.IdMedico WHERE me.IDEspecialidad=" + idEspecialdad + continuacion);
+                datos.SetearConsulta("SELECT distinct m.ID ,m.Apellido, m.Nombre, m.sexo, m.DNI, m.Telefono, m.Celular, m.Email, m.FechaIngreso, m.FechaNacimiento, m.Jornada, m.Estado from Medicos m INNER JOIN Medico_x_Especialidad me on m.ID=me.IdMedico WHERE me.IDEspecialidad=" + idEspecialdad + continuacion);
                 datos.Ejecutarconsulta();
                 while (datos.Lector.Read())
                 {

@@ -18,7 +18,7 @@
                         </div>
                         <div class="col-md-auto">
                             <asp:Label ID="lblcriterio" CssClass="form-label alert-link" runat="server" Text=""></asp:Label>
-                            <asp:TextBox ID="txtcriterio" CssClass="bg-light bg-success-subtle" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtcriterio" CssClass="bg-light bg-success-subtle" AutoPostBack="true" OnTextChanged="txtcriterio_TextChanged" runat="server"></asp:TextBox>
                         </div>
                         <div class="col col-lg-2">
                             <asp:Button ID="btnfiltrar" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" OnClick="btnfiltrar_Click" Text="Buscar" />

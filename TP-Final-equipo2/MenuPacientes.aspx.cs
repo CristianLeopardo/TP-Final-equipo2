@@ -109,5 +109,14 @@ namespace TP_Final_equipo2
                 throw ex;
             }
         }
+
+        protected void txtcriterio_TextChanged(object sender, EventArgs e)
+        {
+            PacientesNegocio negocio = new PacientesNegocio();
+            string campo = ddlcampos.SelectedItem.Text;
+            string dato = txtcriterio.Text.ToString();
+            dgvPacientes.DataSource = negocio.BuscarPacienteCriterio(campo, dato);
+            dgvPacientes.DataBind();
+        }
     }
 }

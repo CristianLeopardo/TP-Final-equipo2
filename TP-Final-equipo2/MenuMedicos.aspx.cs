@@ -139,5 +139,14 @@ namespace TP_Final_equipo2
             dgvMedicos.DataSource = negocio.ListaFiltradaEspecialidades(selecionado);
             dgvMedicos.DataBind();
         }
+
+        protected void txtcriterio_TextChanged(object sender, EventArgs e)
+        {
+            MedicoNegocio negocio = new MedicoNegocio();
+            string campo = ddlcampos.SelectedItem.Text;
+            string dato = txtcriterio.Text.ToString();
+            dgvMedicos.DataSource = negocio.BuscarMedicoxApellido(campo, dato);
+            dgvMedicos.DataBind();
+        }
     }
 }

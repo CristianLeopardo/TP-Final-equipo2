@@ -49,7 +49,7 @@ namespace Negocio
             List<Turno> listafiltrada = new List<Turno>();
             try
             {
-                datos.SetearConsulta("Select t.ID, t.Estado, t.Fecha, e.Nombre as Especialidad from Turnos t INNER JOIN Pacientes p on t.IDPaciente=p.ID INNER JOIN Especialidad e on e.ID=t.IDEspecialidad WHERE  p." + campo+" LIKE '"+criterio+"%' and t.IDMedico="+idmedico);
+                datos.SetearConsulta("Select t.ID, t.Estado, t.Fecha, e.Nombre as Especialidad, p.Apellido, p.Nombre from Turnos t INNER JOIN Pacientes p on t.IDPaciente=p.ID INNER JOIN Especialidad e on e.ID=t.IDEspecialidad WHERE  p." + campo+" LIKE '"+criterio+"%' and t.IDMedico="+idmedico);
                 datos.Ejecutarconsulta();
 
                 while (datos.Lector.Read())
@@ -59,6 +59,7 @@ namespace Negocio
                     obj.Estado = int.Parse(datos.Lector["Estado"].ToString());
                     obj.Fecha = DateTime.Parse(datos.Lector["Fecha"].ToString());
                     obj.NombreEspecialidad = datos.Lector["Especialidad"].ToString();
+                    obj.NombrePaciente = datos.Lector["Apellido"].ToString() + " " + datos.Lector["Nombre"].ToString();
 
                     listafiltrada.Add(obj);
                 }
@@ -79,7 +80,7 @@ namespace Negocio
             List<Turno> Lista = new List<Turno>();
             try
             {
-                datos.SetearConsulta("Select t.ID, t.Estado, t.Fecha, e.Nombre as Especialidad from Turnos t INNER JOIN Especialidad e on t.IDEspecialidad=e.ID WHERE YEAR(Fecha)="+anio+" AND MONTH(Fecha)="+mes+" AND DAY(Fecha)="+dia+" AND t.IDMedico="+idmedico+" ORDER BY Fecha asc");
+                datos.SetearConsulta("Select t.ID, t.Estado, t.Fecha, e.Nombre as Especialidad, p.Apellido, p.Nombre from Turnos t INNER JOIN Especialidad e on t.IDEspecialidad=e.ID INNER JOIN Pacientes p ON t.IDPaciente=p.ID WHERE YEAR(Fecha)=" + anio+" AND MONTH(Fecha)="+mes+" AND DAY(Fecha)="+dia+" AND t.IDMedico="+idmedico+" ORDER BY Fecha asc");
                 datos.Ejecutarconsulta();
 
                 while (datos.Lector.Read())
@@ -89,6 +90,7 @@ namespace Negocio
                     obj.Estado = int.Parse(datos.Lector["Estado"].ToString());
                     obj.Fecha = DateTime.Parse(datos.Lector["Fecha"].ToString());
                     obj.NombreEspecialidad = datos.Lector["Especialidad"].ToString();
+                    obj.NombrePaciente = datos.Lector["Apellido"].ToString() + " " + datos.Lector["Nombre"].ToString();
 
                     Lista.Add(obj);
                 }
@@ -195,7 +197,7 @@ namespace Negocio
             List<Turno> lista = new List<Turno>();
             try
             {
-                datos.SetearConsulta("Select T.ID, t.Estado, t.Fecha, e.Nombre as Especialidad from Turnos t INNER JOIN Especialidad e on t.IDEspecialidad=e.ID WHERE t.IDMedico=" +idmedico);
+                datos.SetearConsulta("Select T.ID, t.Estado, t.Fecha, e.Nombre as Especialidad, p.Apellido, p.Nombre from Turnos t INNER JOIN Especialidad e on t.IDEspecialidad=e.ID inner join Pacientes p on t.IDPaciente=p.ID WHERE t.IDMedico=" + idmedico);
                 datos.Ejecutarconsulta();
 
                 while (datos.Lector.Read())
@@ -205,6 +207,7 @@ namespace Negocio
                     obj.Estado = int.Parse(datos.Lector["Estado"].ToString());
                     obj.Fecha = DateTime.Parse(datos.Lector["Fecha"].ToString());
                     obj.NombreEspecialidad = datos.Lector["Especialidad"].ToString();
+                    obj.NombrePaciente = datos.Lector["Apellido"].ToString() + " " + datos.Lector["Nombre"].ToString(); 
 
                     lista.Add(obj);
                 }

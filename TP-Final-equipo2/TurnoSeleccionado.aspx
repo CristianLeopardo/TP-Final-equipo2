@@ -31,6 +31,7 @@
             </div>
         </div>
     </div>
+    <h6>Datos del paciente</h6>
     <div class="container text-center">
         <div class="row align-items-center">
             <div class="col">

@@ -7,6 +7,7 @@
     <div class="container text-center">
         <div class="row align-items-center">
             <div class="col">
+                <asp:Button ID="btntodslosturnos" runat="server" OnClick="btntodslosturnos_Click" Text="Turnos" />
                 <asp:Button ID="btnturnoshoy" runat="server" OnClick="btnturnoshoy_Click" Text="Turnos de Hoy" />
             </div>
             <div class="col">
@@ -26,11 +27,12 @@
     <div class="container text-center">
         <div class="row align-items-center">
             <div class="col">
-                <asp:GridView ID="dgvturnos" AutoGenerateColumns="false" OnSelectedIndexChanged="dgvturnos_SelectedIndexChanged" DataKeyNames="ID" runat="server">
+                <asp:GridView ID="dgvturnos" AutoGenerateColumns="false" CssClass="container table table-info table-striped-columns text-center text-truncate" OnSelectedIndexChanged="dgvturnos_SelectedIndexChanged" DataKeyNames="ID" runat="server">
                     <Columns>
                         <asp:BoundField HeaderText="ID" DataField="ID" Visible="false" />
                         <asp:BoundField HeaderText="Estado" DataField="Estado" />
                         <asp:BoundField HeaderText="Fecha" DataField="Fecha" />
+                        <asp:BoundField HeaderText="Nombre del paciente" DataField="NombrePaciente" />
                         <asp:BoundField HeaderText="Especialidad" DataField="NombreEspecialidad" />
                         <asp:CommandField ShowSelectButton="true" SelectText="0" HeaderText="Seleccionar turno" />
                     </Columns>

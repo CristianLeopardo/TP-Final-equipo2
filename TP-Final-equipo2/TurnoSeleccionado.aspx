@@ -7,7 +7,7 @@
         <div class="row align-items-center">
             <div class="col">
                 <div>
-                    <asp:Label ID="lblfecha" runat="server" Text="Fecha"></asp:Label>
+                    <asp:Label ID="lblfecha" runat="server" Text="Fecha y hora"></asp:Label>
                 </div>
                 <div>
                     <asp:Label ID="lblFechamuestra" runat="server" Text=""></asp:Label>

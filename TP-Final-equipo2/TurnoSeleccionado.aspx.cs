@@ -20,7 +20,7 @@ namespace TP_Final_equipo2
                 TurnoNegocio negocio = new TurnoNegocio();
                 List<Turno> temporal = negocio.ListarTurnos();
                 Turno elegido = temporal.Find(x => x.ID == id);
-                lblFechamuestra.Text = elegido.Fecha.ToString("dd/MM/yyyy");
+                lblFechamuestra.Text = elegido.Fecha.ToString("dd/MM/yyyy HH:mm") + " Hs";
                 lblespecialidadmuestra.Text = elegido.NombreEspecialidad;
                 lbldoctormuestra.Text = elegido.NombreMedico.ToString();
 

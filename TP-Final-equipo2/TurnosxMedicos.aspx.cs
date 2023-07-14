@@ -18,7 +18,7 @@ namespace TP_Final_equipo2
             Usuario actuall = (Usuario)Session["Usuario"];
 
             //Medicoactual = neg.BuscarProfesional(actuall.Email);
-            Medicoactual = 19;
+            Medicoactual = 1;
             if (!IsPostBack)
             {
                 ddlcampo.Items.Add("Apellido");

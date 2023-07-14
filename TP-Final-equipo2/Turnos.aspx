@@ -4,22 +4,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 class="text-center">Turnos!</h1>
+    <asp:UpdatePanel>
     <div class="container text-center">
         <div class="row align-items-center">
             <div class="col">
-                DNI del paciente
-                <asp:TextBox ID="txtDNIpaciente" runat="server"></asp:TextBox>
-                <asp:Button ID="btnbuscardni" runat="server" OnClick="btnbuscardni_Click" Text="Buscar"  CssClass="btn" />
-                <asp:Label ID="lblincorrecto" runat="server" Text="" Visible="false"></asp:Label>
-            </div>
-            <div class="col">
-                Selecionar especialidad
-                <asp:DropDownList ID="ddlEspecialidad" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlEspecialidad_SelectedIndexChanged"></asp:DropDownList>
-            </div>
-            <div class="col">
-                Seleccionar doctor
-                <asp:DropDownList ID="ddldoctores" runat="server" OnSelectedIndexChanged="ddldoctores_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-            </div>
+                Filtrar
+                <asp:TextBox ID="txtFiltro" AutoPostBack="true" OnTextChanged="txtFiltro_TextChanged" runat="server"></asp:TextBox>
+                Presione Enter o Tab para aplicar el filtro
+            </div>    
         </div>
     </div>
     <asp:GridView ID="dgvTurnos" DataKeyNames="ID" runat="server" class="table table-dark table-striped-columns" AutoGenerateColumns="false">
@@ -32,6 +24,7 @@
             <asp:CommandField ShowSelectButton="true" SelectText="Eliminar" HeaderText="Accion" />
         </Columns>
     </asp:GridView>
+    </asp:UpdatePanel>
     <asp:Button ID="btnNuevo" runat="server" Text="Nuevo Turno" OnClick="btnNuevo_Click" CssClass="btn" />
     <asp:Button ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click" CssClass="btn" />
 </asp:Content>

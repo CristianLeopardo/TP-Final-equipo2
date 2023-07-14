@@ -26,49 +26,14 @@ namespace TP_Final_equipo2
             //{
             //    string MensajeError = "Debe iniciar sesion para acceder a la pagina";
             //    EnviarMensajeError("Login.aspx", MensajeError);
-            //}
-            if (!IsPostBack)
-            {
+            //}           
                 EspecialidadNegocio negocio = new EspecialidadNegocio();
-                ddlEspecialidad.DataSource = negocio.ListarEspecialidades();
-                ddlEspecialidad.DataValueField = "ID";
-                ddlEspecialidad.DataTextField = "Nombre";
-                ddlEspecialidad.DataBind();
                 TurnoNegocio turnoNegocio = new TurnoNegocio();
-                dgvTurnos.DataSource = turnoNegocio.ListarTurnos();
-                dgvTurnos.DataBind();
-            }
+                Session.Add("ListaTurnos", turnoNegocio.ListarTurnos());
+                dgvTurnos.DataSource = Session["ListaTurnos"];
+                dgvTurnos.DataBind();           
         }
 
-        protected void btnbuscardni_Click(object sender, EventArgs e)
-        {
-            PacientesNegocio negocio = new PacientesNegocio();
-            int dni = int.Parse(txtDNIpaciente.Text);
-            IdPaciente = negocio.BuscarID(dni);
-            if( IdPaciente < 0)
-            {
-                lblincorrecto.Text = "Cliente no encontrado";
-                lblincorrecto.Visible = true;
-            }
-        }
-
-        protected void ddlEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            IDespecialidad = int.Parse(ddlEspecialidad.SelectedValue);
-            EspecialidadNegocio negocio = new EspecialidadNegocio();
-            ddldoctores.DataSource = negocio.ListaFiltradaEspecialidades(IDespecialidad);
-            ddldoctores.DataValueField = "ID";
-            ddldoctores.DataTextField = "Apellido";
-            ddldoctores.DataBind();
-        }
-
-        protected void ddldoctores_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            HorarioNegocio negocio = new HorarioNegocio();
-            IDmedico = int.Parse(ddldoctores.SelectedValue);
-            //dgvHorarios.DataSource = negocio.listaparaturno(IDmedico);
-            //dgvHorarios.DataBind();
-        }
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
@@ -78,6 +43,14 @@ namespace TP_Final_equipo2
         protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("Home.aspx", false);
+        }
+
+        protected void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<Turno> turnos = (List<Turno>)Session["ListaTurnos"];
+            List<Turno> turnosfiltrada = turnos.FindAll(x => x.NombreMedico.ToUpper().Contains(txtFiltro.Text.ToUpper()) || x.NombrePaciente.ToUpper().Contains(txtFiltro.Text.ToUpper()));
+            dgvTurnos.DataSource = turnosfiltrada;
+            dgvTurnos.DataBind();
         }
     }
 }

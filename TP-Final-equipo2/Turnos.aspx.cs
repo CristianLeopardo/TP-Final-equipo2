@@ -52,5 +52,11 @@ namespace TP_Final_equipo2
             dgvTurnos.DataSource = turnosfiltrada;
             dgvTurnos.DataBind();
         }
+
+        protected void dgvTurnos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int id = int.Parse(dgvTurnos.SelectedDataKey.Value.ToString());
+            Response.Redirect("AgregarTurno.aspx?ID=" + id, false);
+        }
     }
 }

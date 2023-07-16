@@ -109,17 +109,17 @@ namespace Negocio
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("select ID, Fecha from Turnos where ID =" + id);
+                datos.SetearConsulta("select ID, Fecha, IDPaciente, IDMedico, IDEspecialidad, Estado from Turnos where ID =" + id);
                 datos.Ejecutarconsulta();
                 while (datos.Lector.Read())
                 {
 
                     obj.ID = (int)datos.Lector["ID"];
-                    //obj.IDPaciente = (int)datos.Lector["IDPaciente"];
-                    //obj.IDMedico = (int)datos.Lector["IDMedico"];
-                    //obj.IDEspecialidad = (int)datos.Lector["IDEspecialidad"];
+                    obj.IDPaciente = (int)datos.Lector["IDPaciente"];
+                    obj.IDMedico = (int)datos.Lector["IDMedico"];
+                    obj.IDEspecialidad = (int)datos.Lector["IDEspecialidad"];
                     obj.Fecha = (DateTime)datos.Lector["Fecha"];
-                    //obj.Estado = (int)datos.Lector["Estado"];
+                    obj.Estado = (int)datos.Lector["Estado"];
                     //obj.NombrePaciente = (string)datos.Lector["NombreP"] + " " + (string)datos.Lector["ApellidoP"];
                     //obj.NombreMedico = (string)datos.Lector["NombreM"] + " " + (string)datos.Lector["ApellidoM"];
                     //obj.NombreEspecialidad = (string)datos.Lector["NombreE"];
@@ -218,7 +218,7 @@ namespace Negocio
                 throw ex;
             }
         }
-        public void Modificarturno(int iD, int estado=0)
+        public void Modificarturno(int iD, int estado)
         {
             Conexion datos = new Conexion();
             try

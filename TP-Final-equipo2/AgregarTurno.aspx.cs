@@ -27,7 +27,41 @@ namespace TP_Final_equipo2
                 ddlJornada.Items.Add("Mañana");
                 ddlJornada.Items.Add("Tarde");
                 ddlJornada.Items.Add("Noche");
-                Session.Add("IDPaciente", 0 );
+                if (Request.QueryString["ID"] != null)
+                {
+                    TurnoNegocio turnoNegocio = new TurnoNegocio();
+                    Turno este = turnoNegocio.BuscarTurno(int.Parse(Request.QueryString["ID"]));                 
+                    PacientesNegocio neg = new PacientesNegocio();
+                    List<Paciente> pacientes = new List<Paciente>();
+                    pacientes = neg.BuscarPaciente(este.IDPaciente);
+                    Session.Add("IDPaciente", este.IDPaciente);
+                    tbxDNI.Text = pacientes[0].Dni.ToString();
+                    tbxDNI.ReadOnly = true;
+                    lblResultado.Text = pacientes[0].Nombre + " " + pacientes[0].Apellido;
+                    lblResultado.Visible = true;
+                    btnAgregar.Visible = false;
+                    ddlEspecialidades.SelectedValue = este.IDEspecialidad.ToString();
+                    if (este.Fecha.Hour >= 8 && este.Fecha.Hour <= 16) ddlJornada.SelectedValue = ("Mañana");
+                    if (este.Fecha.Hour >= 17 && este.Fecha.Hour <= 24) ddlJornada.SelectedValue = ("Tarde");
+                    if (este.Fecha.Hour >= 1 && este.Fecha.Hour <= 7) ddlJornada.SelectedValue = ("Noche");
+                    ddlMedicos.DataSource = negocio.ListarMedicosTurno(int.Parse(ddlEspecialidades.SelectedValue), ddlJornada.SelectedValue);
+                    ddlMedicos.DataValueField = "IDMedico";
+                    ddlMedicos.DataTextField = "NombreMedico";
+                    ddlMedicos.DataBind();
+                    ddlMedicos.SelectedValue = este.IDMedico.ToString();
+                    ddlEspecialidades.Visible = true;
+                    ddlJornada.Visible = true;
+                    ddlMedicos.Visible = true;
+                    tbxFecha.Text = este.Fecha.ToString("yyyy-MM-dd");
+                    btnNovino.Visible = true;
+                    btnReprogramar.Visible = true;
+                    btnCancelar.Visible = true;
+                }
+                else
+                {
+                    Session.Add("IDPaciente", 0);
+                }
+                
             }
         }
 
@@ -86,14 +120,14 @@ namespace TP_Final_equipo2
         }
         protected void ddlMedicos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            calDia.Visible = true;
+            
         }
 
         protected void calDia_SelectionChanged(object sender, EventArgs e)
         {
             int horaInicial;
             ddlHorarios.Visible = true;
-            string fecha = calDia.SelectedDate.ToString("yyyy-MM-dd");
+            string fecha = tbxFecha.Text.ToString();
             List<Hora> lista = new List<Hora>();
             Hora hora = new Hora();
             TurnoNegocio turnoNeg = new TurnoNegocio();
@@ -107,11 +141,11 @@ namespace TP_Final_equipo2
                 }
                 else if (ddlJornada.SelectedValue == "Tarde")
                 {
-                    horaInicial = 16;
+                    horaInicial = 17;
                 }
                 else
                 {
-                    horaInicial = 24;
+                    horaInicial = 1;
                 }
                 bool encontre = false;
                 for (int i = 0; i <= 8; i++)
@@ -144,10 +178,14 @@ namespace TP_Final_equipo2
 
         protected void ddlMedicos_Load(object sender, EventArgs e)
         {
-            calDia.Visible = true;
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Agregar();   
+        }
+
+        protected void Agregar()
         {
             string asd;
             Turno turno = new Turno();
@@ -156,19 +194,97 @@ namespace TP_Final_equipo2
             {
                 turno.IDMedico = int.Parse(ddlMedicos.SelectedValue);
                 turno.Estado = 1;
-                //lblLeyenda.Text = calDia.SelectedDate.ToString("yyyy-MM-dd") + " " + ddlHorarios.SelectedValue.ToString() + ":00";
-                asd = calDia.SelectedDate.ToString("yyyy-MM-dd") + " " + ddlHorarios.SelectedValue.ToString() + ":00";
+                asd = tbxFecha.Text.ToString() + " " + ddlHorarios.SelectedValue.ToString() + ":00";
                 turno.Fecha = DateTime.Parse(asd);
                 turno.IDEspecialidad = int.Parse(ddlEspecialidades.SelectedValue);
                 TurnoNegocio turnoNegocio = new TurnoNegocio();
                 turnoNegocio.AgregarTurno(turno);
             }
-            else 
+            else
             {
-                //MENSAJE DE ERROR POR NO SELECCIONAR FECHA NI HORARIO
+                //MENSAJE DE ERROR POR NO SELECCIONAR medico
             }
+        }
 
+        protected void btnBuscar2_Click(object sender, EventArgs e)
+        {
+            int horaInicial;
+            ddlHorarios.Visible = true;
+            if (tbxFecha.Text !="")
+            {
+                string fecha = tbxFecha.Text.ToString();
+                List<Hora> lista = new List<Hora>();
+                Hora hora = new Hora();
+                TurnoNegocio turnoNeg = new TurnoNegocio();
+                List<Turno> turnos = new List<Turno>();
+                if (ddlMedicos.SelectedValue != "" && ddlEspecialidades.SelectedValue != "")
+                {
+                    turnos = turnoNeg.BuscarHorario(int.Parse(ddlMedicos.SelectedValue), int.Parse(ddlEspecialidades.SelectedValue), (int)Session["IDPaciente"], fecha);
+                    if (ddlJornada.SelectedValue == "Mañana")
+                    {
+                        horaInicial = 8;
+                    }
+                    else if (ddlJornada.SelectedValue == "Tarde")
+                    {
+                        horaInicial = 16;
+                    }
+                    else
+                    {
+                        horaInicial = 0;
+                    }
+                    bool encontre = false;
+                    for (int i = 0; i <= 8; i++)
+                    {
+                        foreach (var v in turnos)
+                        {
+                            if (int.Parse(v.Fecha.ToString("HH")) == horaInicial)
+                            {
+                                encontre = true;
+                            }
+                        }
+                        if (encontre == false)
+                        {
+                            Hora hora2 = new Hora();
+                            hora2.Horario = horaInicial.ToString() + ":00";
+                            lista.Add(hora2);
+                        }
+                        horaInicial++;
+                        encontre = false;
+                    }
+                    ddlHorarios.DataSource = lista;
+                    ddlHorarios.DataTextField = "Horario";
+                    ddlHorarios.DataBind();
+                }
+                else
+                {
+                    // MENSAJE DE ERROR POR NO  SELECCIONAR  ESPECIALDIADS NI MEDICOS
+                }
+            }
+            else
+            {
+                // MENSAJE  DE  ERROR  POR  NO  SELECCIONAR FECHA
+            }
+            
             
         }
+
+        protected void btnReprogramar_Click(object sender, EventArgs e)
+        {
+            TurnoNegocio turnoNeg = new TurnoNegocio();
+            turnoNeg.Modificarturno(int.Parse(Request.QueryString["ID"]), 3);
+            Agregar();
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            TurnoNegocio turnoNeg = new TurnoNegocio();
+            turnoNeg.Modificarturno(int.Parse(Request.QueryString["ID"]), 2);
+        }
+
+        protected void btnNovino_Click(object sender, EventArgs e)
+        {
+            TurnoNegocio turnoNeg = new TurnoNegocio();
+            turnoNeg.Modificarturno(int.Parse(Request.QueryString["ID"]), 4);
+        }
     }
-}
+    }

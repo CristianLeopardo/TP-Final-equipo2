@@ -205,7 +205,7 @@ namespace TP_Final_equipo2
                 turno.Fecha = DateTime.Parse(asd);
                 turno.IDEspecialidad = int.Parse(ddlEspecialidades.SelectedValue);
                 TurnoNegocio turnoNegocio = new TurnoNegocio();
-                //turnoNegocio.AgregarTurno(turno);
+                turnoNegocio.AgregarTurno(turno);
                 lblNoMedico.Visible = false;
                 Session["AlertaMensaje"] = "Turno asignado";
             }

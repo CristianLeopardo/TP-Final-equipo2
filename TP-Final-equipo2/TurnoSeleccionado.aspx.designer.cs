@@ -24,15 +24,6 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.Label lblfecha;
 
         /// <summary>
-        /// lblFechamuestra control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFechamuestra;
-
-        /// <summary>
         /// lblEspecialidad control.
         /// </summary>
         /// <remarks>
@@ -42,15 +33,6 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.Label lblEspecialidad;
 
         /// <summary>
-        /// lblespecialidadmuestra control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblespecialidadmuestra;
-
-        /// <summary>
         /// lbldoctor control.
         /// </summary>
         /// <remarks>
@@ -58,6 +40,24 @@ namespace TP_Final_equipo2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbldoctor;
+
+        /// <summary>
+        /// lblFechamuestra control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFechamuestra;
+
+        /// <summary>
+        /// lblespecialidadmuestra control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblespecialidadmuestra;
 
         /// <summary>
         /// lbldoctormuestra control.
@@ -78,15 +78,6 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.Label lblApe;
 
         /// <summary>
-        /// lblApellidocliente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblApellidocliente;
-
-        /// <summary>
         /// lblnom control.
         /// </summary>
         /// <remarks>
@@ -94,15 +85,6 @@ namespace TP_Final_equipo2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblnom;
-
-        /// <summary>
-        /// lblNombrePac control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombrePac;
 
         /// <summary>
         /// lbldni control.
@@ -114,15 +96,6 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.Label lbldni;
 
         /// <summary>
-        /// lblDNImuestra control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDNImuestra;
-
-        /// <summary>
         /// lblsex control.
         /// </summary>
         /// <remarks>
@@ -130,6 +103,33 @@ namespace TP_Final_equipo2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblsex;
+
+        /// <summary>
+        /// lblApellidocliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblApellidocliente;
+
+        /// <summary>
+        /// lblNombrePac control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombrePac;
+
+        /// <summary>
+        /// lblDNImuestra control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDNImuestra;
 
         /// <summary>
         /// lblsexpaciente control.

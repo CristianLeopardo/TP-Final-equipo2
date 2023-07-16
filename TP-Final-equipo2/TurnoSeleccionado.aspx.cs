@@ -56,7 +56,7 @@ namespace TP_Final_equipo2
                 TurnoNegocio negocio = new TurnoNegocio();
                 List<Turno> temporal = negocio.ListarTurnos();
                 Turno elegido = temporal.Find(x => x.ID == id);
-                int estado = 0;
+                int estado = 2;
                 negocio.Modificarturno(elegido.ID, estado);
                 //Turno cancelado
                 Response.Redirect("TurnosxMedicos.aspx", false);

@@ -36,7 +36,7 @@
                 <a
                     href="RecuperarClave.aspx"
                     class="text-decoration-none text-info fw-semibold fst-italic"
-                    style="font-size: 0.9rem">Olvidaste tu contraseña?</a>
+                    style="font-size: 0.9rem">¿Olvidaste tu contraseña?</a>
             </div>
             <asp:Button ID="btnIngresar" CssClass="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm" OnClick="btnIngresar_Click" runat="server" Text="Ingresar" />
             <div class="d-flex gap-1 justify-content-center mt-1">

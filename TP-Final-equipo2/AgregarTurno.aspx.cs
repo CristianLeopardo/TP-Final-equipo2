@@ -104,7 +104,8 @@ namespace TP_Final_equipo2
             }
             else
             {
-                ddlJornada.Visible = true;   
+                ddlJornada.Visible = true;
+                lblJornada.Visible = true;
             }
             
         }
@@ -116,6 +117,7 @@ namespace TP_Final_equipo2
             ddlMedicos.DataValueField = "IDMedico";
             ddlMedicos.DataTextField = "NombreMedico";
             ddlMedicos.DataBind();
+            lblMedicos.Visible = true;
             ddlMedicos.Visible = true;
         }
         protected void ddlMedicos_SelectedIndexChanged(object sender, EventArgs e)
@@ -126,13 +128,14 @@ namespace TP_Final_equipo2
         protected void calDia_SelectionChanged(object sender, EventArgs e)
         {
             int horaInicial;
+            lblHorarios.Visible = true;
             ddlHorarios.Visible = true;
             string fecha = tbxFecha.Text.ToString();
             List<Hora> lista = new List<Hora>();
             Hora hora = new Hora();
             TurnoNegocio turnoNeg = new TurnoNegocio();
             List<Turno> turnos = new List<Turno>();
-            if (ddlMedicos.SelectedValue != ""  && ddlEspecialidades.SelectedValue !="")
+            if (ddlMedicos.SelectedValue != ""  && ddlEspecialidades.SelectedValue != "")
             {
                 turnos = turnoNeg.BuscarHorario(int.Parse(ddlMedicos.SelectedValue), int.Parse(ddlEspecialidades.SelectedValue), (int)Session["IDPaciente"], fecha);
                 if (ddlJornada.SelectedValue == "Mañana")
@@ -169,10 +172,14 @@ namespace TP_Final_equipo2
                 ddlHorarios.DataSource = lista;
                 ddlHorarios.DataTextField = "Horario";
                 ddlHorarios.DataBind();
+                lblBuscar.Visible = false;
             }
             else
             {
                 // MENSAJE DE ERROR POR NO  SELECCIONAR  ESPECIALDIADS NI MEDICOS
+                lblBuscar.Visible = true;
+                lblHorarios.Visible = false;
+                ddlHorarios.Visible = false;
             }
         }
 
@@ -198,19 +205,23 @@ namespace TP_Final_equipo2
                 turno.Fecha = DateTime.Parse(asd);
                 turno.IDEspecialidad = int.Parse(ddlEspecialidades.SelectedValue);
                 TurnoNegocio turnoNegocio = new TurnoNegocio();
-                turnoNegocio.AgregarTurno(turno);
+                //turnoNegocio.AgregarTurno(turno);
+                lblNoMedico.Visible = false;
+                Session["AlertaMensaje"] = "Turno asignado";
             }
             else
             {
                 //MENSAJE DE ERROR POR NO SELECCIONAR medico
+                lblNoMedico.Visible = true;
             }
         }
 
         protected void btnBuscar2_Click(object sender, EventArgs e)
         {
             int horaInicial;
+            lblHorarios.Visible = true;
             ddlHorarios.Visible = true;
-            if (tbxFecha.Text !="")
+            if (tbxFecha.Text != "")
             {
                 string fecha = tbxFecha.Text.ToString();
                 List<Hora> lista = new List<Hora>();
@@ -254,15 +265,23 @@ namespace TP_Final_equipo2
                     ddlHorarios.DataSource = lista;
                     ddlHorarios.DataTextField = "Horario";
                     ddlHorarios.DataBind();
+                    lblBuscar.Visible = false;
+                    lblFecha.Visible = false;
                 }
                 else
                 {
                     // MENSAJE DE ERROR POR NO  SELECCIONAR  ESPECIALDIADS NI MEDICOS
+                    lblBuscar.Visible = true;
+                    lblHorarios.Visible = false;
+                    ddlHorarios.Visible = false;
                 }
             }
             else
             {
                 // MENSAJE  DE  ERROR  POR  NO  SELECCIONAR FECHA
+                lblFecha.Visible = true;
+                lblHorarios.Visible = false;
+                ddlHorarios.Visible = false;
             }
             
             
@@ -273,12 +292,14 @@ namespace TP_Final_equipo2
             TurnoNegocio turnoNeg = new TurnoNegocio();
             turnoNeg.Modificarturno(int.Parse(Request.QueryString["ID"]), 3);
             Agregar();
+            Session["AlertaMensaje"] = "Turno reprogramado";
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             TurnoNegocio turnoNeg = new TurnoNegocio();
             turnoNeg.Modificarturno(int.Parse(Request.QueryString["ID"]), 2);
+            Session["AlertaMensaje"] = "Turno cancelado";
         }
 
         protected void btnNovino_Click(object sender, EventArgs e)

@@ -60,6 +60,15 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.DropDownList ddlEspecialidades;
 
         /// <summary>
+        /// lblJornada control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblJornada;
+
+        /// <summary>
         /// ddlJornada control.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace TP_Final_equipo2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlJornada;
+
+        /// <summary>
+        /// lblMedicos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMedicos;
 
         /// <summary>
         /// ddlMedicos control.
@@ -87,6 +105,33 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.TextBox tbxFecha;
 
         /// <summary>
+        /// lblBuscar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBuscar;
+
+        /// <summary>
+        /// lblFecha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFecha;
+
+        /// <summary>
+        /// lblNoMedico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNoMedico;
+
+        /// <summary>
         /// btnBuscar2 control.
         /// </summary>
         /// <remarks>
@@ -94,6 +139,15 @@ namespace TP_Final_equipo2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBuscar2;
+
+        /// <summary>
+        /// lblHorarios control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHorarios;
 
         /// <summary>
         /// ddlHorarios control.

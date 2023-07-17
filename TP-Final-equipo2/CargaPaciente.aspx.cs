@@ -76,8 +76,8 @@ namespace TP_Final_equipo2
             {
                 PacientesNegocio negocio = new PacientesNegocio();
                 Paciente nuevo = new Paciente();
-                if (ValidarVacio() == true)
-                {
+                //if (ValidarVacio() == true)
+                //{
                     nuevo.Apellido = tbxApellido.Text;
                     nuevo.Nombre = tbxNombre.Text;
                     nuevo.Dni = int.Parse(tbxDni.Text);
@@ -111,14 +111,14 @@ namespace TP_Final_equipo2
                         
                     }
                     Session["AlertaMensaje"] = "Paciente cargado";
-                }
-                else
-                {
-                    // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
-                    Session["AlertaMensaje"] = "Complete todos los campos";
-                    //lblmensaje.Visible = true;
-                    //lblmensaje.Text = "Complete todos los campos";
-                }
+                //}
+                //else
+                //{
+                //    // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
+                //    Session["AlertaMensaje"] = "Complete todos los campos";
+                //    //lblmensaje.Visible = true;
+                //    //lblmensaje.Text = "Complete todos los campos";
+                //}
                 //if (!int.TryParse(tbxDni.Text, out int dni))
                 //{
                 //    return;
@@ -172,17 +172,17 @@ namespace TP_Final_equipo2
             { return true; }
         }
 
-        protected bool ValidarVacio()
-        {
-            if (tbxApellido.Text == "" || tbxLocalidad.Text == "" || tbxProvincia.Text == "" || tbxNombre.Text == "" || tbxDni.Text == "" || tbxCelular.Text == "" || tbxTelefono.Text == "" || tbxEmail.Text == "" || tbxDomicilio.Text == "" || FechaNacimiento.Text == "")
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+        //protected bool ValidarVacio()
+        //{
+        //    if (tbxApellido.Text == "" || tbxLocalidad.Text == "" || tbxProvincia.Text == "" || tbxNombre.Text == "" || tbxDni.Text == "" || tbxCelular.Text == "" || tbxTelefono.Text == "" || tbxEmail.Text == "" || tbxDomicilio.Text == "" || FechaNacimiento.Text == "")
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        return true;
+        //    }
+        //}
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {

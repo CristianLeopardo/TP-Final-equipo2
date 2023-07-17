@@ -48,10 +48,12 @@
                     <div class="modal-body">
                         <h4 class="fs-6 text-center text-success">Ingrese el nombre de la especialidad: </h4>
                         <asp:TextBox ID="tbxEspecialidad" CssClass="form-control bg-light bg-success-subtle" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvEspecialidad" ControlToValidate="tbxEspecialidad" ValidationGroup="GrupoEspecialidad" runat="server"></asp:RequiredFieldValidator>
+                        <asp:ValidationSummary runat="server" DisplayMode="BulletList" CssClass="text-danger fs-4 text-decoration-underline" HeaderText="Ingrese una especialidad" ValidationGroup="GrupoEspecialidad" />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <asp:Button ID="btnAgregar" CssClass="btn btn-success" runat="server" OnClick="btnAgregar_Click" Text="Agregar" />
+                        <asp:Button ID="btnAgregar" CssClass="btn btn-success" runat="server" OnClick="btnAgregar_Click" Text="Agregar" CausesValidation="true" ValidationGroup="GrupoEspecialidad"/>
                     </div>
                 </div>
             </div>

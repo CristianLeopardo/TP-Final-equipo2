@@ -59,7 +59,7 @@
                 background-color: #0056b3;
             }
     </style>
-    <script>
+   <%-- <script>
         function validar() {
 
             var apellido = document.getElementById("<% = tbxApellido.ClientID %>").value;
@@ -80,7 +80,9 @@
             return true;
 
         }
-    </script>
+    </script>--%>
+
+    
 
 
 </asp:Content>
@@ -92,8 +94,8 @@
                 <asp:Label ID="lblTitulo" class="welcome" runat="server" Text="Carga del nuevo Paciente..."></asp:Label>
                 <%if (Session["AlertaMensaje"] != null)
                     {%>
-                <div class="alert alert-success alert-dismissible fade show">
-                    <button class="btn-close" data-bs-dismiss="alert"></button>
+                <div class="alert alert-success alert-dismissible fade show" id="alerta">
+                    <asp:button class="btn-close" data-bs-dismiss="alert" autopostback="false" runat="server"></asp:button>
                     <strong>Perfecto !</strong> Paciente cargado exitosamente...
                 </div>
                 <%  }
@@ -101,67 +103,79 @@
                 %>
 
                 <hr />
-
+                <asp:ValidationSummary runat="server" DisplayMode="BulletList" CssClass="text-danger fs-2 text-decoration-underline" HeaderText="Complete los campos obligatorios *" ValidationGroup="GrupoPaciente" />
                 <div class="row align-items-start">
                     <div class="col-4 mb-3">
-                        <asp:Label ID="lblApellido" CssClass="form-label alert-link accordion-button" runat="server" Text="Apellido"></asp:Label>
+                        <asp:Label ID="lblApellido" CssClass="form-label alert-link accordion-button" runat="server">Apellido<span style="color: red;">*</span></asp:Label>
                         <asp:TextBox ID="tbxApellido" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvApellido" ControlToValidate="tbxApellido" ValidationGroup="GrupoPaciente" runat="server"></asp:RequiredFieldValidator>
                     </div>
                     <div class="col-4 mb-3">
-                        <asp:Label ID="lblNombre" CssClass="form-label alert-link accordion-button" runat="server" Text="Nombre"></asp:Label>
+                        <asp:Label ID="lblNombre" CssClass="form-label alert-link accordion-button" runat="server">Nombre<span style="color: red;">*</span></asp:Label>
                         <asp:TextBox ID="tbxNombre" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvNombre" ControlToValidate="tbxNombre" ValidationGroup="GrupoPaciente" runat="server"></asp:RequiredFieldValidator>
                     </div>
                     <div class="col-4 mb-3">
-                        <asp:Label ID="lblDni" CssClass="form-label alert-link accordion-button" runat="server" Text="DNI"></asp:Label>
+                        <asp:Label ID="lblDni" CssClass="form-label alert-link accordion-button" runat="server">DNI<span style="color: red;">*</span></asp:Label>
                         <asp:TextBox ID="tbxDni" TextMode="Number" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvDni" ControlToValidate="tbxDni" ValidationGroup="GrupoPaciente" runat="server"></asp:RequiredFieldValidator>
                     </div>
                 </div>
             </div>
             <div class="container text-center">
                 <div class="row align-items-start">
                     <div class="col-4 mb-3">
-                        <asp:Label ID="lblSexo" CssClass="form-label alert-link accordion-button" runat="server" Text="Sexo"></asp:Label>
+                        <asp:Label ID="lblSexo" CssClass="form-label alert-link accordion-button" runat="server">Sexo<span style="color: red;">*</span></asp:Label>
                         <asp:DropDownList ID="ddlSexo" CssClass="form-control bg-light" runat="server"></asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="rfvSexo" ControlToValidate="ddlSexo" ValidationGroup="GrupoPaciente" runat="server"></asp:RequiredFieldValidator>
                     </div>
                     <div class="col-4 mb-3">
-                        <asp:Label ID="lblEstado" CssClass="form-label alert-link accordion-button" runat="server" Text="Estado:"></asp:Label>
+                        <asp:Label ID="lblEstado" CssClass="form-label alert-link accordion-button" runat="server">Estado<span style="color: red;">*</span></asp:Label>
                         <asp:DropDownList ID="ddlEstado" CssClass="form-control bg-light" runat="server"></asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="rfvEstado" ControlToValidate="ddlEstado" ValidationGroup="GrupoPaciente" runat="server"></asp:RequiredFieldValidator>
                     </div>
                     <div class="col-4 mb-3">
-                        <asp:Label ID="lblFechaNacimiento" CssClass="form-label alert-link accordion-button" runat="server" Text="Fecha de nacimiento"></asp:Label>
+                        <asp:Label ID="lblFechaNacimiento" CssClass="form-label alert-link accordion-button" runat="server">Fecha de nacimiento<span style="color: red;">*</span></asp:Label>
                         <asp:TextBox ID="FechaNacimiento" CssClass="form-control bg-light" type="date" placeholder="Fecha de Nacimiento" runat="server" />
+                        <asp:RequiredFieldValidator ID="rfvFechaNacimiento" ControlToValidate="FechaNacimiento" ValidationGroup="GrupoPaciente" runat="server"></asp:RequiredFieldValidator>
                     </div>
                 </div>
             </div>
             <div class="container text-center">
                 <div class="row align-items-start">
                     <div class="col-4 mb-3">
-                        <asp:Label ID="lblTelefono" CssClass="form-label alert-link accordion-button" runat="server" Text="Teléfono"></asp:Label>
+                        <asp:Label ID="lblTelefono" CssClass="form-label alert-link accordion-button" runat="server">Télefono<span style="color: red;">*</span></asp:Label>
                         <asp:TextBox ID="tbxTelefono" TextMode="Phone" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvTelefono" ControlToValidate="tbxTelefono" ValidationGroup="GrupoPaciente" runat="server"></asp:RequiredFieldValidator>
                     </div>
                     <div class="col-4 mb-3">
-                        <asp:Label ID="lblCelular" CssClass="form-label alert-link accordion-button" runat="server" Text="Celular"></asp:Label>
+                        <asp:Label ID="lblCelular" CssClass="form-label alert-link accordion-button" runat="server">Celular<span style="color: red;">*</span></asp:Label>
                         <asp:TextBox ID="tbxCelular" TextMode="Phone" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvCelular" ControlToValidate="tbxCelular" ValidationGroup="GrupoPaciente" runat="server"></asp:RequiredFieldValidator>
                     </div>
                     <div class="col-4 mb-3">
-                        <asp:Label ID="lblEmail" CssClass="form-label alert-link accordion-button" runat="server" Text="Email"></asp:Label>
+                        <asp:Label ID="lblEmail" CssClass="form-label alert-link accordion-button" runat="server">Email<span style="color: red;">*</span></asp:Label>
                         <asp:TextBox ID="tbxEmail" TextMode="Email" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvEmail" ControlToValidate="tbxEmail" ValidationGroup="GrupoPaciente" runat="server"></asp:RequiredFieldValidator>
                     </div>
                 </div>
             </div>
             <div class="container text-center">
                 <div class="row align-items-start">
                     <div class="col-4 mb-3">
-                        <asp:Label ID="lblDomicilio" CssClass="form-label alert-link accordion-button" runat="server" Text="Domicilio"></asp:Label>
+                        <asp:Label ID="lblDomicilio" CssClass="form-label alert-link accordion-button" runat="server">Domicilio<span style="color: red;">*</span></asp:Label>
                         <asp:TextBox ID="tbxDomicilio" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvDomicilio" ControlToValidate="tbxDomicilio" ValidationGroup="GrupoPaciente" runat="server"></asp:RequiredFieldValidator>
                     </div>
                     <div class="col-4 mb-3">
-                        <asp:Label ID="lblLocalidad" CssClass="form-label alert-link accordion-button" runat="server" Text="Localidad"></asp:Label>
+                        <asp:Label ID="lblLocalidad" CssClass="form-label alert-link accordion-button" runat="server">Localidad<span style="color: red;">*</span></asp:Label>
                         <asp:TextBox ID="tbxLocalidad" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvLocalidad" ControlToValidate="tbxLocalidad" ValidationGroup="GrupoPaciente" runat="server"></asp:RequiredFieldValidator>
                     </div>
                     <div class="col-4 mb-3">
-                        <asp:Label ID="lblProvincia" CssClass="form-label alert-link accordion-button" runat="server" Text="Provincia"></asp:Label>
+                        <asp:Label ID="lblProvincia" CssClass="form-label alert-link accordion-button" runat="server">Provincia<span style="color: red;">*</span></asp:Label>
                         <asp:TextBox ID="tbxProvincia" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvProvincia" ControlToValidate="tbxProvincia" ValidationGroup="GrupoPaciente" runat="server"></asp:RequiredFieldValidator>
                     </div>
                 </div>
             </div>
@@ -171,7 +185,7 @@
                     <div class="col">
                         <div class="mb-3">
                             <div>
-                                <asp:Button type="button" class="btn btn-info text-white w-20 fw-semibold shadow-sm" ID="btnAceptar" Text="Cargar" autopostback="false" OnClientClick="return validar()" OnClick="btnAceptar_Click" runat="server"></asp:Button>
+                                <asp:Button type="button" class="btn btn-info text-white w-20 fw-semibold shadow-sm" ID="btnAceptar" Text="Cargar" autopostback="false" OnClick="btnAceptar_Click" runat="server" CausesValidation="true" ValidationGroup="GrupoPaciente"></asp:Button>
                                 <asp:Button ID="btnVolver" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" OnClick="btnVolver_Click" Text="Volver" />
                                 <asp:Label ID="lblmensaje" Visible="false" runat="server" Text="Label"></asp:Label>
                             </div>

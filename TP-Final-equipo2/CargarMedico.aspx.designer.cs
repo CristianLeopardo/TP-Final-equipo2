@@ -42,6 +42,15 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.TextBox tbxApellido;
 
         /// <summary>
+        /// rfvApellido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvApellido;
+
+        /// <summary>
         /// lblNombre control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace TP_Final_equipo2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbxNombre;
+
+        /// <summary>
+        /// rfvNombre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombre;
 
         /// <summary>
         /// lblDni control.
@@ -78,6 +96,15 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.TextBox tbxDni;
 
         /// <summary>
+        /// rfvDni control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDni;
+
+        /// <summary>
         /// lblSexo control.
         /// </summary>
         /// <remarks>
@@ -94,6 +121,15 @@ namespace TP_Final_equipo2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlSexo;
+
+        /// <summary>
+        /// rfvSexo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvSexo;
 
         /// <summary>
         /// lblEstado control.
@@ -114,6 +150,15 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
 
         /// <summary>
+        /// rfvEstado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEstado;
+
+        /// <summary>
         /// lblJornada control.
         /// </summary>
         /// <remarks>
@@ -130,6 +175,15 @@ namespace TP_Final_equipo2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlJornada;
+
+        /// <summary>
+        /// rfvJornada control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvJornada;
 
         /// <summary>
         /// lblTelefono control.
@@ -150,6 +204,15 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.TextBox tbxTelefono;
 
         /// <summary>
+        /// rfvTelefono control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTelefono;
+
+        /// <summary>
         /// lblCelular control.
         /// </summary>
         /// <remarks>
@@ -166,6 +229,15 @@ namespace TP_Final_equipo2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbxCelular;
+
+        /// <summary>
+        /// rfvCelular control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCelular;
 
         /// <summary>
         /// lblEmail control.
@@ -186,6 +258,15 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.TextBox tbxEmail;
 
         /// <summary>
+        /// rfvEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
+
+        /// <summary>
         /// lblFechaNacimiento control.
         /// </summary>
         /// <remarks>
@@ -204,6 +285,15 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.TextBox FechaNacimiento;
 
         /// <summary>
+        /// rfvFechaNacimiento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFechaNacimiento;
+
+        /// <summary>
         /// lvlFechaIngreso control.
         /// </summary>
         /// <remarks>
@@ -220,6 +310,15 @@ namespace TP_Final_equipo2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox FechaIngreso;
+
+        /// <summary>
+        /// rfvFechaIngreso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFechaIngreso;
 
         /// <summary>
         /// btcontinuar control.

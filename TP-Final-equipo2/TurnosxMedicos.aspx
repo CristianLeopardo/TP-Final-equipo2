@@ -38,7 +38,7 @@
                         <asp:BoundField HeaderText="Fecha" DataField="Fecha" />
                         <asp:BoundField HeaderText="Nombre del paciente" DataField="NombrePaciente" />
                         <asp:BoundField HeaderText="Especialidad" DataField="NombreEspecialidad" />
-                        <asp:CommandField ShowSelectButton="true" SelectText="0" HeaderText="Seleccionar turno" />
+                        <asp:CommandField ShowSelectButton="true" SelectText="Seleccionar" HeaderText="Seleccionar turno" />
                     </Columns>
                 </asp:GridView>
             </div>

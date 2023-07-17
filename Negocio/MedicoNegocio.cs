@@ -205,7 +205,7 @@ namespace Negocio
                 datos.setearParametro("@Sexo", nuevo.Sexo);
                 datos.setearParametro("@Telefono", nuevo.Telefono);
                 datos.setearParametro("@Celular", nuevo.Celular);
-                datos.setearParametro("@Email", nuevo.Email);
+                datos.setearParametro("@Email", nuevo.Email.ToUpper());
                 datos.setearParametro("@FechaNacimiento", nuevo.fechanacimiento);
                 datos.setearParametro("@FechaIngreso", nuevo.fechaingreso);
                 datos.setearParametro("@Jornada", nuevo.JornadaLaboral);
@@ -253,7 +253,7 @@ namespace Negocio
                 datos.setearParametro("@DNI", nuevo.Dni);
                 datos.setearParametro("@Telefono", nuevo.Telefono);
                 datos.setearParametro("@Celular", nuevo.Celular);
-                datos.setearParametro("@Email", nuevo.Email);
+                datos.setearParametro("@Email", nuevo.Email.ToUpper());
                 datos.setearParametro("@FechaIngreso", nuevo.fechaingreso);
                 datos.setearParametro("@FechaNacimiento", nuevo.fechanacimiento);
                 datos.setearParametro("@ID", nuevo.ID);

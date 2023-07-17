@@ -62,7 +62,7 @@ namespace Negocio
                 conexion.SetearConsulta("insert into Usuarios (Usuario, Clave, Email, TipoUsuario) VALUES (@Usuario, @Clave, @Email, @TipoUsuario)");
                 conexion.setearParametro("@Usuario", usuario.User);
                 conexion.setearParametro("@Clave", usuario.Clave);
-                conexion.setearParametro("@Email", usuario.Email);
+                conexion.setearParametro("@Email", usuario.Email.ToUpper());
                 conexion.setearParametro("@TipoUsuario", usuario.TipoUsuario);
                 conexion.ejecutarAccion();
             }
@@ -105,5 +105,20 @@ namespace Negocio
                 conexion.Cerraconexion();
             }
         }
+
+        public string BuscarEmail(string usuario)
+        {
+            string email = "";
+            Conexion conexion = new Conexion();
+            conexion.SetearConsulta("select ID, Email, TipoUsuario from Usuarios where Usuario = @user");
+            conexion.setearParametro("@user", usuario);
+            conexion.Ejecutarconsulta();
+            while (conexion.Lector.Read())
+                {
+                email = (string)conexion.Lector["Email"];
+            }     
+            return email;
+        }
+
     }
 }

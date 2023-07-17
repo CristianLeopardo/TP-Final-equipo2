@@ -65,5 +65,10 @@ namespace TP_Final_equipo2
         {
             Response.Redirect("TurnosxMedicos.aspx",false);
         }
+
+        protected void btnTurnoPaciente_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TurnosxPaciente.aspx", false);
+        }
     }
 }

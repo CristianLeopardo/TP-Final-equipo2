@@ -56,10 +56,21 @@ namespace TP_Final_equipo2
                     btnNovino.Visible = true;
                     btnReprogramar.Visible = true;
                     btnCancelar.Visible = true;
+                } 
+                else if (Request.QueryString["IDPaciente"] != null)
+                {
+                    PacientesNegocio neg = new PacientesNegocio();
+                    List<Paciente> pacientes = new List<Paciente>();
+                    Session.Add("IDPaciente", int.Parse(Request.QueryString["IDPaciente"]));
+                    pacientes = neg.BuscarPaciente(int.Parse(Request.QueryString["IDPaciente"]));
+                    tbxDNI.Text = pacientes[0].Dni.ToString();
+                    tbxDNI.ReadOnly = true;
+                    lblResultado.Text = pacientes[0].Nombre + " " + pacientes[0].Apellido;
+                    lblResultado.Visible = true;
                 }
                 else
                 {
-                    Session.Add("IDPaciente", 0);
+                    Session.Add("IDPaciente", -1);
                 }
                 
             }
@@ -98,7 +109,7 @@ namespace TP_Final_equipo2
 
         protected void ddlEspecialidades_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if ((int)Session["IDPaciente"] == 0)
+            if ((int)Session["IDPaciente"] == -1)
             {
                 lblResultado.Text = "Primero seleccione un paciente";
             }

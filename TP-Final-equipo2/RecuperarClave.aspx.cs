@@ -20,7 +20,7 @@ namespace TP_Final_equipo2
             string aux;
             EmailService emailService = new EmailService();
             UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
-            aux = "Su contraseña es: " + usuarioNegocio.BuscarCorreo(tbxEmail.Text);
+            aux = "Su contraseña es: " + usuarioNegocio.BuscarCorreo(tbxEmail.Text.ToUpper());
 
             if(aux != "")
             {

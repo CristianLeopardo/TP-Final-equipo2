@@ -109,19 +109,18 @@ namespace TP_Final_equipo2
                             negocio.Agregar(nuevo);
                             Session["AlertaMensajeok"] = "Paciente cargado";
                         }
-                    }
-<<<<<<< HEAD
-                }
-                else
-                {
-                    // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
-                    Session["AlertaMensaje"] = "Complete todos los campos";
-                    lblmensaje.Visible = true;
-                    lblmensaje.Text = "Complete todos los campos";
-                }
-=======
+                 
+                        //<<<<<<< HEAD
+                        //}
+                        else
+                        {
+                            // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
+                            Session["AlertaMensaje"] = "Complete todos los campos";
+                            lblmensaje.Visible = true;
+                            lblmensaje.Text = "Complete todos los campos";
+                        }
                     Session["AlertaMensaje"] = "Paciente cargado";
-                //}
+                }
                 //else
                 //{
                 //    // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
@@ -129,7 +128,6 @@ namespace TP_Final_equipo2
                 //    //lblmensaje.Visible = true;
                 //    //lblmensaje.Text = "Complete todos los campos";
                 //}
->>>>>>> 8765709ef85754fc4045c8c74cc66c19edacc596
                 //if (!int.TryParse(tbxDni.Text, out int dni))
                 //{
                 //    return;

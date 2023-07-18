@@ -42,9 +42,7 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.TextBox tbxApellido;
 
         /// <summary>
-<<<<<<< HEAD
         /// Control lblNombre.
-=======
         /// rfvApellido control.
         /// </summary>
         /// <remarks>
@@ -55,7 +53,6 @@ namespace TP_Final_equipo2
 
         /// <summary>
         /// lblNombre control.
->>>>>>> 8765709ef85754fc4045c8c74cc66c19edacc596
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -73,9 +70,7 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.TextBox tbxNombre;
 
         /// <summary>
-<<<<<<< HEAD
         /// Control lblDni.
-=======
         /// rfvNombre control.
         /// </summary>
         /// <remarks>
@@ -86,7 +81,7 @@ namespace TP_Final_equipo2
 
         /// <summary>
         /// lblDni control.
->>>>>>> 8765709ef85754fc4045c8c74cc66c19edacc596
+
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -104,9 +99,8 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.TextBox tbxDni;
 
         /// <summary>
-<<<<<<< HEAD
         /// Control lblSexo.
-=======
+
         /// rfvDni control.
         /// </summary>
         /// <remarks>
@@ -117,7 +111,6 @@ namespace TP_Final_equipo2
 
         /// <summary>
         /// lblSexo control.
->>>>>>> 8765709ef85754fc4045c8c74cc66c19edacc596
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -135,9 +128,8 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.DropDownList ddlSexo;
 
         /// <summary>
-<<<<<<< HEAD
         /// Control lblEstado.
-=======
+
         /// rfvSexo control.
         /// </summary>
         /// <remarks>
@@ -148,7 +140,6 @@ namespace TP_Final_equipo2
 
         /// <summary>
         /// lblEstado control.
->>>>>>> 8765709ef85754fc4045c8c74cc66c19edacc596
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -166,9 +157,7 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
 
         /// <summary>
-<<<<<<< HEAD
         /// Control lblFechaNacimiento.
-=======
         /// rfvEstado control.
         /// </summary>
         /// <remarks>
@@ -179,7 +168,6 @@ namespace TP_Final_equipo2
 
         /// <summary>
         /// lblFechaNacimiento control.
->>>>>>> 8765709ef85754fc4045c8c74cc66c19edacc596
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -197,9 +185,7 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.TextBox FechaNacimiento;
 
         /// <summary>
-<<<<<<< HEAD
         /// Control lblTelefono.
-=======
         /// rfvFechaNacimiento control.
         /// </summary>
         /// <remarks>
@@ -210,7 +196,6 @@ namespace TP_Final_equipo2
 
         /// <summary>
         /// lblTelefono control.
->>>>>>> 8765709ef85754fc4045c8c74cc66c19edacc596
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -228,9 +213,7 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.TextBox tbxTelefono;
 
         /// <summary>
-<<<<<<< HEAD
         /// Control lblCelular.
-=======
         /// rfvTelefono control.
         /// </summary>
         /// <remarks>
@@ -241,7 +224,6 @@ namespace TP_Final_equipo2
 
         /// <summary>
         /// lblCelular control.
->>>>>>> 8765709ef85754fc4045c8c74cc66c19edacc596
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -259,9 +241,7 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.TextBox tbxCelular;
 
         /// <summary>
-<<<<<<< HEAD
         /// Control lblEmail.
-=======
         /// rfvCelular control.
         /// </summary>
         /// <remarks>
@@ -272,7 +252,6 @@ namespace TP_Final_equipo2
 
         /// <summary>
         /// lblEmail control.
->>>>>>> 8765709ef85754fc4045c8c74cc66c19edacc596
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -290,9 +269,8 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.TextBox tbxEmail;
 
         /// <summary>
-<<<<<<< HEAD
         /// Control lblDomicilio.
-=======
+
         /// rfvEmail control.
         /// </summary>
         /// <remarks>
@@ -303,7 +281,6 @@ namespace TP_Final_equipo2
 
         /// <summary>
         /// lblDomicilio control.
->>>>>>> 8765709ef85754fc4045c8c74cc66c19edacc596
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -321,9 +298,7 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.TextBox tbxDomicilio;
 
         /// <summary>
-<<<<<<< HEAD
         /// Control lblLocalidad.
-=======
         /// rfvDomicilio control.
         /// </summary>
         /// <remarks>
@@ -334,7 +309,6 @@ namespace TP_Final_equipo2
 
         /// <summary>
         /// lblLocalidad control.
->>>>>>> 8765709ef85754fc4045c8c74cc66c19edacc596
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -352,9 +326,7 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.TextBox tbxLocalidad;
 
         /// <summary>
-<<<<<<< HEAD
         /// Control lblProvincia.
-=======
         /// rfvLocalidad control.
         /// </summary>
         /// <remarks>
@@ -365,7 +337,6 @@ namespace TP_Final_equipo2
 
         /// <summary>
         /// lblProvincia control.
->>>>>>> 8765709ef85754fc4045c8c74cc66c19edacc596
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -383,9 +354,7 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.TextBox tbxProvincia;
 
         /// <summary>
-<<<<<<< HEAD
         /// Control btnAceptar.
-=======
         /// rfvProvincia control.
         /// </summary>
         /// <remarks>
@@ -396,7 +365,6 @@ namespace TP_Final_equipo2
 
         /// <summary>
         /// btnAceptar control.
->>>>>>> 8765709ef85754fc4045c8c74cc66c19edacc596
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

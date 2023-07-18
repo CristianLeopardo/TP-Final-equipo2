@@ -20,11 +20,7 @@ namespace Negocio
 
         public Conexion()
         {
-<<<<<<< HEAD
             conexion = new SqlConnection("Server=.\\SQLEXPRESS; database=TP_FINAL; integrated security=true");
-=======
-            conexion = new SqlConnection("Server=.\\labo3; database=TP_FINAL; integrated security=true");
->>>>>>> 8765709ef85754fc4045c8c74cc66c19edacc596
             comando = new SqlCommand();
         }
 

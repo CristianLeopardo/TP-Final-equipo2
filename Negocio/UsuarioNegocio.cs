@@ -25,16 +25,16 @@ namespace Negocio
                     int TipoUsuario = (int)conexion.Lector["TipoUsuario"];
                     switch (TipoUsuario)
                     {
-                        case 1:
+                        case 4:
                             usuario.TipoUsuario = Dominio.TipoUsuario.Admin;
                             break;
-                        case 2:
+                        case 3:
                             usuario.TipoUsuario = Dominio.TipoUsuario.Recepcion;
                             break;
-                        case 3:
+                        case 2:
                             usuario.TipoUsuario = Dominio.TipoUsuario.Medico;
                             break;
-                        case 4:
+                        case 1:
                             usuario.TipoUsuario = Dominio.TipoUsuario.Paciente;
                             break;
                         default:

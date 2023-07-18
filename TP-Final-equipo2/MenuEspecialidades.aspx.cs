@@ -20,7 +20,17 @@ namespace TP_Final_equipo2
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (Session["usuario"] == null)
+            {
+                Session.Add("error", "Debe iniciar sesion para acceder a la pagina");
+                Response.Redirect("Error.aspx", false);
+            }
+            if (!(Session["usuario"] != null && ((Dominio.Usuario)Session["usuario"]).TipoUsuario == Dominio.TipoUsuario.Admin))
+            {
+                Session.Add("error", "Debe ser un Administrador para ingresar a esta página");
+                Response.Redirect("Error.aspx", false);
+            }
+            if (!IsPostBack)
             {
                 CargarEspecialidades();
             }           

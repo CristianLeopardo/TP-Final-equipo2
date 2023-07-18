@@ -38,9 +38,34 @@ namespace TP_Final_equipo2
                     nuevo.User = tbxUsuario.Text;
                     nuevo.Clave = tbxClave.Text;
                     nuevo.Email = tbxEmail.Text.ToUpper();
-                    //nuevo.TipoUsuario = ddlTipoUsuario.SelectedValue;
+                    switch (int.Parse(ddlTipoUsuario.SelectedValue))
+                    {
+                        case 4:
+                            nuevo.TipoUsuario = Dominio.TipoUsuario.Admin;
+                            break;
+                        case 3:
+                            nuevo.TipoUsuario = Dominio.TipoUsuario.Recepcion;
+                            break;
+                        case 2:
+                            nuevo.TipoUsuario = Dominio.TipoUsuario.Medico;
+                            usuario.Agregar(nuevo);
+                            Session.Add("usuario", nuevo);
+                            lblOK.Visible = true;
+                            Response.Redirect("CargarMedico.aspx?Nuevo=" + tbxDNI.Text, false);
+                            break;
+                        case 1:
+                            nuevo.TipoUsuario = Dominio.TipoUsuario.Paciente;
+                            usuario.Agregar(nuevo);
+                            Session.Add("usuario", nuevo);
+                            lblOK.Visible = true;
+                            Response.Redirect("CargaPaciente.aspx?Nuevo=" + tbxDNI.Text, false);
+                            break;
+                        default:
+                            break;
+                    }
                     usuario.Agregar(nuevo);
                     lblOK.Visible = true;
+
                 }
                 catch (Exception ex)
                 {

@@ -14,11 +14,20 @@ namespace TP_Final_equipo2
         public int Medicoactual { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["usuario"] == null)
+            {
+                Session.Add("error", "Debe iniciar sesion para acceder a la pagina");
+                Response.Redirect("Error.aspx", false);
+            }
+            if (!(Session["usuario"] != null && ((Dominio.Usuario)Session["usuario"]).TipoUsuario == Dominio.TipoUsuario.Medico))
+            {
+                Session.Add("error", "Debe ser un Médico para ingresar a esta página");
+                Response.Redirect("Error.aspx", false);
+            }
             MedicoNegocio neg = new MedicoNegocio();
             Usuario actuall = (Usuario)Session["Usuario"];
-
-            //Medicoactual = neg.BuscarProfesional(actuall.Email);
-            Medicoactual = 1;
+            Medicoactual = neg.BuscarProfesional(actuall.Email);
+            //Medicoactual = 1;
             if (!IsPostBack)
             {
                 ddlcampo.Items.Add("Apellido");

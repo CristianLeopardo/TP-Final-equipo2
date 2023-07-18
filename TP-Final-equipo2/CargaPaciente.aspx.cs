@@ -21,11 +21,16 @@ namespace TP_Final_equipo2
         //}
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["usuario"] == null)
-            //{
-            //    string MensajeError = "Debe iniciar sesion para acceder a la pagina";
-            //    EnviarMensajeError("Login.aspx", MensajeError);
-            //}
+            if (Session["usuario"] == null)
+            {
+                Session.Add("error", "Debe iniciar sesion para acceder a la pagina");
+                Response.Redirect("Error.aspx", false);
+            }
+            if (!(Session["usuario"] != null && (((Dominio.Usuario)Session["usuario"]).TipoUsuario != Dominio.TipoUsuario.Medico)))
+            {
+                Session.Add("error", "No tiene permisos para ingresar a esta pagina");
+                Response.Redirect("Error.aspx", false);
+            }
 
 
             if (!IsPostBack)
@@ -42,7 +47,14 @@ namespace TP_Final_equipo2
                     ModificarPaciente(int.Parse(Request.QueryString["ID"]));
                     lblTitulo.Text = "Modificando paciente";
                 }
-            }           
+                if (Request.QueryString["Nuevo"] != null)
+                {
+                    tbxEmail.Text = ((Dominio.Usuario)Session["usuario"]).Email;
+                    tbxEmail.Enabled = false;
+                    tbxDni.Text = Request.QueryString["Nuevo"];
+                    tbxDni.Enabled = false;
+                }
+            }
         }
         public void ModificarPaciente(int id)
         {
@@ -78,7 +90,7 @@ namespace TP_Final_equipo2
                 Paciente nuevo = new Paciente();
                 //if (ValidarVacio() == true)
                 //{
-                if (solonumemros()== true)
+                if (solonumemros() == true)
                 {
                     nuevo.Apellido = tbxApellido.Text;
                     nuevo.Nombre = tbxNombre.Text;
@@ -170,6 +182,21 @@ namespace TP_Final_equipo2
             { return true; }
         }
 
+        protected bool ValidarDNI(int dni)
+        {
+            PacientesNegocio PacienteNegocio = new PacientesNegocio();
+            if (PacienteNegocio.ValidarDNI(dni) == true)
+            {
+                // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
+                Session["AlertaMensaje"] = "DNI EXISTENTE";
+                lblmensaje.Visible = true;
+                lblmensaje.Text = "DNI EXISTENTE";
+                return false;
+            }
+            else
+            { return true; }
+        }
+
         protected bool solonumemros()
         {
             string cadena = tbxTelefono.Text;
@@ -184,7 +211,7 @@ namespace TP_Final_equipo2
                 }
             }
             cadena = tbxCelular.Text;
-            foreach (char  caracter in cadena)
+            foreach (char caracter in cadena)
             {
                 if (!(char.IsNumber(caracter)))
                 {
@@ -194,20 +221,6 @@ namespace TP_Final_equipo2
                 }
             }
             return true;
-        }
-        protected bool ValidarDNI(int dni)
-        {
-            PacientesNegocio PacienteNegocio = new PacientesNegocio();
-            if (PacienteNegocio.ValidarDNI(dni) == true)
-            {
-                // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
-                Session["AlertaMensaje"] = "DNI EXISTENTE";
-                lblmensaje.Visible = true;
-                lblmensaje.Text = "DNI EXISTENTE";
-                return false;
-            }
-            else
-            { return true; }
         }
 
         //protected bool ValidarVacio()
@@ -224,7 +237,7 @@ namespace TP_Final_equipo2
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
-            Response.Redirect("MenuPacientes.aspx", false);
+            Response.Redirect("Home.aspx", false);
         }
 
         protected void calFechaNacimiento_SelectionChanged(object sender, EventArgs e)
@@ -234,7 +247,7 @@ namespace TP_Final_equipo2
 
         protected void btnAceptar2_Click(object sender, EventArgs e)
         {
-                Response.Redirect("Home.aspx", false);
+            Response.Redirect("Home.aspx", false);
         }
     }
 }

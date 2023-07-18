@@ -22,11 +22,16 @@ namespace TP_Final_equipo2
         //}
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["usuario"] == null)
-            //{
-            //    string MensajeError = "Debe iniciar sesion para acceder a la pagina";
-            //    EnviarMensajeError("Login.aspx", MensajeError);
-            //}           
+            if (Session["usuario"] == null)
+            {
+                Session.Add("error", "Debe iniciar sesion para acceder a la pagina");
+                Response.Redirect("Error.aspx", false);
+            }
+            if (!(Session["usuario"] != null && (((Dominio.Usuario)Session["usuario"]).TipoUsuario == Dominio.TipoUsuario.Recepcion || ((Dominio.Usuario)Session["usuario"]).TipoUsuario == Dominio.TipoUsuario.Admin)))
+            {
+                Session.Add("error", "No tiene permisos para ingresar a esta pagina");
+                Response.Redirect("Error.aspx", false);
+            }
                 EspecialidadNegocio negocio = new EspecialidadNegocio();
                 TurnoNegocio turnoNegocio = new TurnoNegocio();
                 Session.Add("ListaTurnos", turnoNegocio.ListarTurnos());

@@ -71,6 +71,7 @@
     <Content Include="Css\Estilos.css" />
     <Content Include="DB\DB_TP_FINAL.sql" />
     <Content Include="Default.aspx" />
+    <Content Include="Error.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Imagenes\google-icon.svg" />
@@ -78,7 +79,6 @@
     <Content Include="Imagenes\logo-vt.svg" />
     <Content Include="Imagenes\password-icon.svg" />
     <Content Include="Imagenes\username-icon.svg" />
-    <Content Include="Jornada.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MenuEspecialidades.aspx" />
     <Content Include="MenuMedicos.aspx" />
@@ -127,6 +127,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -136,13 +143,6 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Jornada.aspx.cs">
-      <DependentUpon>Jornada.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Jornada.aspx.designer.cs">
-      <DependentUpon>Jornada.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

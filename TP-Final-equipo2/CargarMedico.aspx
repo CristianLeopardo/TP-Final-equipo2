@@ -151,7 +151,7 @@
             </div>
 
 
-            <div class="container text-center">
+ <div class="container text-center">
                 <div class="row align-items-start">
                     <div class="col">
                         <div class="mb-3">

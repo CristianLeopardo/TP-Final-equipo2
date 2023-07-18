@@ -107,38 +107,38 @@ namespace TP_Final_equipo2
                         if (ValidarDNI(int.Parse(tbxDni.Text)) == true && ValidarEmail(tbxEmail.Text) == true)
                         {
                             negocio.Agregar(nuevo);
+                            Session["AlertaMensajeok"] = "Paciente cargado";
                         }
-                        
                     }
-                    Session["AlertaMensaje"] = "Paciente cargado";
                 }
                 else
                 {
                     // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
                     Session["AlertaMensaje"] = "Complete todos los campos";
-                    //lblmensaje.Visible = true;
-                    //lblmensaje.Text = "Complete todos los campos";
+                    lblmensaje.Visible = true;
+                    lblmensaje.Text = "Complete todos los campos";
                 }
                 //if (!int.TryParse(tbxDni.Text, out int dni))
                 //{
                 //    return;
                 //}
-
-                tbxApellido.Text = "";
-                tbxNombre.Text = "";
-                tbxDni.Text = "";
-                ddlSexo.SelectedIndex = 0;
-                tbxTelefono.Text = "";
-                tbxCelular.Text = "";
-                tbxEmail.Text = "";
-                tbxDomicilio.Text = "";
-                tbxLocalidad.Text = "";
-                tbxProvincia.Text = "";
-                FechaNacimiento.Text = "";
+                if(lblmensaje.Visible != true)
+                {
+                    tbxApellido.Text = "";
+                    tbxNombre.Text = "";
+                    tbxDni.Text = "";
+                    ddlSexo.SelectedIndex = 0;
+                    tbxTelefono.Text = "";
+                    tbxCelular.Text = "";
+                    tbxEmail.Text = "";
+                    tbxDomicilio.Text = "";
+                    tbxLocalidad.Text = "";
+                    tbxProvincia.Text = "";
+                    FechaNacimiento.Text = "";
+                }
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }

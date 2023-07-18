@@ -25,10 +25,28 @@ namespace Negocio
                     obj.IDMedico = (int)datos.Lector["IDMedico"];
                     obj.IDEspecialidad = (int)datos.Lector["IDEspecialidad"];
                     obj.Fecha = (DateTime)datos.Lector["Fecha"];
-                    obj.Estado = (int)datos.Lector["Estado"];
+                    //obj.Estado = (int)datos.Lector["Estado"];
                     obj.NombrePaciente = (string)datos.Lector["NombreP"] + " " + (string)datos.Lector["ApellidoP"];
                     obj.NombreMedico = (string)datos.Lector["NombreM"] + " " + (string)datos.Lector["ApellidoM"];
                     obj.NombreEspecialidad = (string)datos.Lector["NombreE"];
+                    int Estado = (int)datos.Lector["Estado"];
+                    switch (Estado)
+                    {
+                        case 1:
+                            obj.Estado = Dominio.estado.Activo;
+                            break;
+                        case 2:
+                            obj.Estado = Dominio.estado.Cancelado;
+                            break;
+                        case 3:
+                            obj.Estado = Dominio.estado.Reprogramado;
+                            break;
+                        case 4:
+                            obj.Estado = Dominio.estado.Ausente;
+                            break;
+                        default:
+                            break;
+                    }
                     lista.Add(obj);
                 }
                 return lista;
@@ -56,10 +74,28 @@ namespace Negocio
                 {
                     Turno obj = new Turno();
                     obj.ID = int.Parse(datos.Lector["ID"].ToString());
-                    obj.Estado = int.Parse(datos.Lector["Estado"].ToString());
+                    //obj.Estado = int.Parse(datos.Lector["Estado"].ToString());
                     obj.Fecha = DateTime.Parse(datos.Lector["Fecha"].ToString());
                     obj.NombreEspecialidad = datos.Lector["Especialidad"].ToString();
                     obj.NombrePaciente = datos.Lector["Apellido"].ToString() + " " + datos.Lector["Nombre"].ToString();
+                    int Estado = (int)datos.Lector["Estado"];
+                    switch (Estado)
+                    {
+                        case 1:
+                            obj.Estado = Dominio.estado.Activo;
+                            break;
+                        case 2:
+                            obj.Estado = Dominio.estado.Cancelado;
+                            break;
+                        case 3:
+                            obj.Estado = Dominio.estado.Reprogramado;
+                            break;
+                        case 4:
+                            obj.Estado = Dominio.estado.Ausente;
+                            break;
+                        default:
+                            break;
+                    }
 
                     listafiltrada.Add(obj);
                 }
@@ -87,10 +123,28 @@ namespace Negocio
                 {
                     Turno obj = new Turno();
                     obj.ID = int.Parse(datos.Lector["ID"].ToString());
-                    obj.Estado = int.Parse(datos.Lector["Estado"].ToString());
+                    //obj.Estado = int.Parse(datos.Lector["Estado"].ToString());
                     obj.Fecha = DateTime.Parse(datos.Lector["Fecha"].ToString());
                     obj.NombreEspecialidad = datos.Lector["Especialidad"].ToString();
                     obj.NombrePaciente = datos.Lector["Apellido"].ToString() + " " + datos.Lector["Nombre"].ToString();
+                    int Estado = (int)datos.Lector["Estado"];
+                    switch (Estado)
+                    {
+                        case 1:
+                            obj.Estado = Dominio.estado.Activo;
+                            break;
+                        case 2:
+                            obj.Estado = Dominio.estado.Cancelado;
+                            break;
+                        case 3:
+                            obj.Estado = Dominio.estado.Reprogramado;
+                            break;
+                        case 4:
+                            obj.Estado = Dominio.estado.Ausente;
+                            break;
+                        default:
+                            break;
+                    }
 
                     Lista.Add(obj);
                 }
@@ -119,7 +173,25 @@ namespace Negocio
                     obj.IDMedico = (int)datos.Lector["IDMedico"];
                     obj.IDEspecialidad = (int)datos.Lector["IDEspecialidad"];
                     obj.Fecha = (DateTime)datos.Lector["Fecha"];
-                    obj.Estado = (int)datos.Lector["Estado"];
+                    int Estado = (int)datos.Lector["Estado"];
+                    switch (Estado)
+                    {
+                        case 1:
+                            obj.Estado = Dominio.estado.Activo;
+                            break;
+                        case 2:
+                            obj.Estado = Dominio.estado.Cancelado;
+                            break;
+                        case 3:
+                            obj.Estado = Dominio.estado.Reprogramado;
+                            break;
+                        case 4:
+                            obj.Estado = Dominio.estado.Ausente;
+                            break;
+                        default:
+                            break;
+                    }
+                    //obj.Estado = (int)datos.Lector["Estado"];
                     //obj.NombrePaciente = (string)datos.Lector["NombreP"] + " " + (string)datos.Lector["ApellidoP"];
                     //obj.NombreMedico = (string)datos.Lector["NombreM"] + " " + (string)datos.Lector["ApellidoM"];
                     //obj.NombreEspecialidad = (string)datos.Lector["NombreE"];
@@ -204,10 +276,28 @@ namespace Negocio
                 {
                     Turno obj = new Turno();
                     obj.ID = int.Parse(datos.Lector["ID"].ToString());
-                    obj.Estado = int.Parse(datos.Lector["Estado"].ToString());
+                    //obj.Estado = int.Parse(datos.Lector["Estado"].ToString());
                     obj.Fecha = DateTime.Parse(datos.Lector["Fecha"].ToString());
                     obj.NombreEspecialidad = datos.Lector["Especialidad"].ToString();
-                    obj.NombrePaciente = datos.Lector["Apellido"].ToString() + " " + datos.Lector["Nombre"].ToString(); 
+                    obj.NombrePaciente = datos.Lector["Apellido"].ToString() + " " + datos.Lector["Nombre"].ToString();
+                    int Estado = (int)datos.Lector["Estado"];
+                    switch (Estado)
+                    {
+                        case 1:
+                            obj.Estado = Dominio.estado.Activo;
+                            break;
+                        case 2:
+                            obj.Estado = Dominio.estado.Cancelado;
+                            break;
+                        case 3:
+                            obj.Estado = Dominio.estado.Reprogramado;
+                            break;
+                        case 4:
+                            obj.Estado = Dominio.estado.Ausente;
+                            break;
+                        default:
+                            break;
+                    }
 
                     lista.Add(obj);
                 }

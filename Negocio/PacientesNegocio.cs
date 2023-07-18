@@ -1,6 +1,7 @@
 ﻿using Dominio;
 using System;
 using System.Collections.Generic;
+using System.Net;
 
 namespace Negocio
 {
@@ -173,7 +174,7 @@ namespace Negocio
                 datos.setearParametro("@DNI", nuevo.Dni);
                 datos.setearParametro("@Telefono", nuevo.Telefono);
                 datos.setearParametro("@Celular", nuevo.Celular);
-                datos.setearParametro("@Email", nuevo.Email);
+                datos.setearParametro("@Email", nuevo.Email.ToUpper());
                 datos.setearParametro("@Domicilio", nuevo.Domicilio);
                 datos.setearParametro("@Localidad", nuevo.Localidad);
                 datos.setearParametro("@Provincia", nuevo.Provincia);
@@ -205,7 +206,7 @@ namespace Negocio
                 datos.setearParametro("@Sexo", nuevo.Sexo);
                 datos.setearParametro("@Telefono", nuevo.Telefono);
                 datos.setearParametro("@Celular", nuevo.Celular);
-                datos.setearParametro("@Email", nuevo.Email);
+                datos.setearParametro("@Email", nuevo.Email.ToUpper());
                 datos.setearParametro("@Domicilio", nuevo.Domicilio);
                 datos.setearParametro("@Localidad", nuevo.Localidad);
                 datos.setearParametro("@Provincia", nuevo.Provincia);
@@ -329,6 +330,43 @@ namespace Negocio
                     lista.Add(obj);
                 }
                 return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
+
+        public Paciente BuscarIDxEmail(string email)
+        {
+            Conexion datos = new Conexion();
+            Paciente obj = new Paciente();
+            try
+            {
+                datos.SetearConsulta("SELECT ID,Nombre, Apellido, Sexo, DNI, Telefono, Celular, Domicilio, Localidad, Provincia, Email, FechaNacimiento, Estado FROM Pacientes WHERE Email= @Email");
+                datos.setearParametro("@Email", email.ToUpper());
+                datos.Ejecutarconsulta();
+                while (datos.Lector.Read())
+                {
+                    obj.ID = (int)datos.Lector["ID"];
+                    obj.Nombre = (string)datos.Lector["Nombre"];
+                    obj.Apellido = (string)datos.Lector["Apellido"];
+                    obj.Sexo = (string)datos.Lector["Sexo"];
+                    obj.Dni = (int)datos.Lector["DNI"];
+                    obj.Telefono = (int)datos.Lector["Telefono"];
+                    obj.Celular = (int)datos.Lector["Celular"];
+                    obj.Domicilio = (string)datos.Lector["Domicilio"];
+                    obj.Localidad = (string)datos.Lector["Localidad"];
+                    obj.Provincia = (string)datos.Lector["Provincia"];
+                    obj.Email = (string)datos.Lector["Email"];
+                    obj.fechanacimiento = (DateTime)datos.Lector["FechaNacimiento"];
+                    obj.Estado = (bool)datos.Lector["Estado"];                  
+                }
+                return obj;
             }
             catch (Exception ex)
             {

@@ -24,6 +24,15 @@ namespace TP_Final_equipo2
         protected global::System.Web.UI.WebControls.Label lblfecha;
 
         /// <summary>
+        /// lblEstado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEstado;
+
+        /// <summary>
         /// lblEspecialidad control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace TP_Final_equipo2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFechamuestra;
+
+        /// <summary>
+        /// lblEstadoTurno control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEstadoTurno;
 
         /// <summary>
         /// lblespecialidadmuestra control.

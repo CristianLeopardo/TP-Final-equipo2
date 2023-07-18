@@ -14,32 +14,40 @@
                 <img src="Imagenes/login-icon.svg" alt="login-icon" style="height: 4rem" />
             </div>
             <hr />
+            <div class="text-center"><asp:ValidationSummary runat="server" DisplayMode="BulletList" CssClass="text-danger fs-2 text-decoration-underline" HeaderText="Complete los campos obligatorios *" ValidationGroup="GrupoRegistro" /></div>
+            
             <div class="row align-items-start">
                 <div class="col-4 mb-3">
-                    <asp:Label ID="lblUsuario" CssClass="form-label alert-link accordion-button" runat="server" Text="Ingrese el Usuario:"></asp:Label>
+                    <asp:Label ID="lblUsuario" CssClass="form-label alert-link accordion-button" runat="server">Ingrese el Usuario: <span style="color: red;">*</span></asp:Label>
                     <asp:TextBox ID="tbxUsuario" CssClass="form-control bg-light" placeholder="Usuario" runat="server" />
+                    <asp:RequiredFieldValidator ID="rfvUsuario" ControlToValidate="tbxUsuario" ValidationGroup="GrupoRegistro" runat="server"></asp:RequiredFieldValidator>
                 </div>
                 <div class="col-4 mb-3">
-                    <asp:Label ID="lblClave" CssClass="form-label alert-link accordion-button" Text="Contraseña:" runat="server"></asp:Label>
+                    <asp:Label ID="lblClave" CssClass="form-label alert-link accordion-button" runat="server">Contraseña:<span style="color: red;">*</span></asp:Label>
                     <asp:TextBox ID="tbxClave" placeholder="Contraseña" TextMode="Password" CssClass="form-control bg-light" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvClave" ControlToValidate="tbxClave" ValidationGroup="GrupoRegistro" runat="server"></asp:RequiredFieldValidator>
                 </div>
                 <div class="col-4 mb-3">
-                    <asp:Label ID="lblClave2" CssClass="form-label alert-link accordion-button" runat="server" Text="Repita la contraseña:"></asp:Label>
+                    <asp:Label ID="lblClave2" CssClass="form-label alert-link accordion-button" runat="server">Repita la contraseña:<span style="color: red;">*</span></asp:Label>
                     <asp:TextBox ID="tbxClave2" placeholder="Contraseña" CssClass="form-control bg-light" TextMode="Password" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvClave2" ControlToValidate="tbxClave2" ValidationGroup="GrupoRegistro" runat="server"></asp:RequiredFieldValidator>
                 </div>
             </div>
             <div class="row align-items-start">
                 <div class="col-4 mb-3">
-                    <asp:Label ID="lblEmail" CssClass="form-label alert-link accordion-button" runat="server" Text="Ingrese el Email:"></asp:Label>
+                    <asp:Label ID="lblEmail" CssClass="form-label alert-link accordion-button" runat="server">Ingrese el Email:<span style="color: red;">*</span></asp:Label>
                     <asp:TextBox ID="tbxEmail" CssClass="form-control bg-light" placeholder="Email" TextMode="Email" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvEmail" ControlToValidate="tbxEmail" ValidationGroup="GrupoRegistro" runat="server"></asp:RequiredFieldValidator>
                 </div>
                 <div class="col-4 mb-3">
-                    <asp:Label ID="lblEmail2" CssClass="form-label alert-link accordion-button" runat="server" Text="Repita el Email:"></asp:Label>
+                    <asp:Label ID="lblEmail2" CssClass="form-label alert-link accordion-button" runat="server">Repita el Email: <span style="color: red;">*</span></asp:Label>
                     <asp:TextBox ID="tbxEmail2" CssClass="form-control bg-light" placeholder="Email" TextMode="Email" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvEmail2" ControlToValidate="tbxEmail2" ValidationGroup="GrupoRegistro" runat="server"></asp:RequiredFieldValidator>
                 </div>
                 <div class="col-4 mb-3">
-                    <asp:Label ID="lblDNI" CssClass="form-label alert-link accordion-button" runat="server" Text="Ingrese el DNI:"></asp:Label>
+                    <asp:Label ID="lblDNI" CssClass="form-label alert-link accordion-button" runat="server">Ingrese el DNI:<span style="color: red;">*</span></asp:Label>
                     <asp:TextBox ID="tbxDNI" CssClass="form-control bg-light" placeholder="DNI" TextMode="Number" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvDNI" ControlToValidate="tbxDNI" ValidationGroup="GrupoRegistro" runat="server"></asp:RequiredFieldValidator>
                 </div>
             </div>
             <div class="row align-items-start">
@@ -59,7 +67,7 @@
             <asp:Label ID="lblNOK" Visible="false" CssClass="form-label alert-link accordion-button" runat="server" Text="La contraseña o el email no coinciden"></asp:Label>
             <div class="align-items-start text-center">
                 <div class="mb-3">
-                    <asp:Button ID="btnAceptar" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" runat="server" Text="Registrarse" OnClick="btnAceptar_Click" />
+                    <asp:Button ID="btnAceptar" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" runat="server" Text="Registrarse" OnClick="btnAceptar_Click" CausesValidation="true" ValidationGroup="GrupoRegistro"/>
                     <asp:Button ID="btnVolver" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" runat="server" Text="Cancelar" OnClick="btnVolver_Click" />
                 </div>
             </div>

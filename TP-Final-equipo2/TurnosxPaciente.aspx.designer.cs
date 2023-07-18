@@ -11,70 +11,52 @@ namespace TP_Final_equipo2
 {
 
 
-    public partial class Home
+    public partial class TurnosxPaciente
     {
 
         /// <summary>
-        /// msj control.
+        /// btnMenuTurnos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label msj;
+        protected global::System.Web.UI.WebControls.Button btnMenuTurnos;
 
         /// <summary>
-        /// btnnewPaciente control.
+        /// btnSolicitud control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnnewPaciente;
+        protected global::System.Web.UI.WebControls.Button btnSolicitud;
 
         /// <summary>
-        /// btnnewMedico control.
+        /// lblDescripcion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnnewMedico;
+        protected global::System.Web.UI.WebControls.Label lblDescripcion;
 
         /// <summary>
-        /// btnEspecialidades control.
+        /// tbxDescripccion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEspecialidades;
+        protected global::System.Web.UI.WebControls.TextBox tbxDescripccion;
 
         /// <summary>
-        /// btnTurnosxmedicos control.
+        /// btnEnviar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnTurnosxmedicos;
-
-        /// <summary>
-        /// btnTurno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnTurno;
-
-        /// <summary>
-        /// btnTurnoPaciente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnTurnoPaciente;
+        protected global::System.Web.UI.WebControls.Button btnEnviar;
     }
 }

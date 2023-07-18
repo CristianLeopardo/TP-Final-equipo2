@@ -56,10 +56,21 @@ namespace TP_Final_equipo2
                     btnNovino.Visible = true;
                     btnReprogramar.Visible = true;
                     btnCancelar.Visible = true;
+                } 
+                else if (Request.QueryString["IDPaciente"] != null)
+                {
+                    PacientesNegocio neg = new PacientesNegocio();
+                    List<Paciente> pacientes = new List<Paciente>();
+                    Session.Add("IDPaciente", int.Parse(Request.QueryString["IDPaciente"]));
+                    pacientes = neg.BuscarPaciente(int.Parse(Request.QueryString["IDPaciente"]));
+                    tbxDNI.Text = pacientes[0].Dni.ToString();
+                    tbxDNI.ReadOnly = true;
+                    lblResultado.Text = pacientes[0].Nombre + " " + pacientes[0].Apellido;
+                    lblResultado.Visible = true;
                 }
                 else
                 {
-                    Session.Add("IDPaciente", 0);
+                    Session.Add("IDPaciente", -1);
                 }
                 
             }
@@ -98,7 +109,7 @@ namespace TP_Final_equipo2
 
         protected void ddlEspecialidades_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if ((int)Session["IDPaciente"] == 0)
+            if ((int)Session["IDPaciente"] == -1)
             {
                 lblResultado.Text = "Primero seleccione un paciente";
             }
@@ -194,20 +205,28 @@ namespace TP_Final_equipo2
 
         protected void Agregar()
         {
-            string asd;
+            string asd = "";
             Turno turno = new Turno();
             turno.IDPaciente = (int)Session["IDPaciente"];
             if (ddlMedicos.SelectedValue != "")
             {
                 turno.IDMedico = int.Parse(ddlMedicos.SelectedValue);
-                turno.Estado = 1;
+                turno.Estado = estado.Activo;
                 asd = tbxFecha.Text.ToString() + " " + ddlHorarios.SelectedValue.ToString() + ":00";
-                turno.Fecha = DateTime.Parse(asd);
-                turno.IDEspecialidad = int.Parse(ddlEspecialidades.SelectedValue);
-                TurnoNegocio turnoNegocio = new TurnoNegocio();
-                turnoNegocio.AgregarTurno(turno);
-                lblNoMedico.Visible = false;
-                Session["AlertaMensaje"] = "Turno asignado";
+                if (ddlHorarios.SelectedValue.ToString() == "" )
+                {
+                    Session["AlertaMensaje"] = "Seleccione un horario";  // NO SE MUESTRA
+                }
+                else
+                {
+                    turno.Fecha = DateTime.Parse(asd);
+                    turno.IDEspecialidad = int.Parse(ddlEspecialidades.SelectedValue);
+                    TurnoNegocio turnoNegocio = new TurnoNegocio();
+                    turnoNegocio.AgregarTurno(turno);
+                    lblNoMedico.Visible = false;
+                    Session["AlertaMensaje"] = "Turno asignado";
+                }
+               
             }
             else
             {

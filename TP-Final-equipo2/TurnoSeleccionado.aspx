@@ -16,6 +16,11 @@
                     </div>
                     <div class="col">
                         <div>
+                            <asp:Label ID="lblEstado" runat="server" CssClass="form-label alert-link" Text="Estado"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
                             <asp:Label ID="lblEspecialidad" runat="server" CssClass="form-label alert-link" Text="Especialidad"></asp:Label>
                         </div>
                     </div>
@@ -29,6 +34,11 @@
                     <div class="col">
                         <div>
                             <asp:Label ID="lblFechamuestra" runat="server" Text=""></asp:Label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <asp:Label ID="lblEstadoTurno" runat="server" Text=""></asp:Label>
                         </div>
                     </div>
                     <div class="col">

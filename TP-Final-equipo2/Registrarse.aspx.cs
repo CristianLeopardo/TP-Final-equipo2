@@ -37,7 +37,7 @@ namespace TP_Final_equipo2
                     Usuario nuevo = new Usuario();
                     nuevo.User = tbxUsuario.Text;
                     nuevo.Clave = tbxClave.Text;
-                    nuevo.Email = tbxEmail.Text;
+                    nuevo.Email = tbxEmail.Text.ToUpper();
                     //nuevo.TipoUsuario = ddlTipoUsuario.SelectedValue;
                     usuario.Agregar(nuevo);
                     lblOK.Visible = true;

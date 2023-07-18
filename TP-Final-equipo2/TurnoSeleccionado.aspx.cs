@@ -23,6 +23,7 @@ namespace TP_Final_equipo2
                 lblFechamuestra.Text = elegido.Fecha.ToString("dd/MM/yyyy HH:mm") + " Hs";
                 lblespecialidadmuestra.Text = elegido.NombreEspecialidad;
                 lbldoctormuestra.Text = elegido.NombreMedico.ToString();
+                lblEstadoTurno.Text = elegido.Estado.ToString();
 
                 PacientesNegocio negociopaciente = new PacientesNegocio();
                 List<Paciente> lisTemporal = negociopaciente.BuscarPaciente(elegido.IDPaciente);
@@ -33,12 +34,12 @@ namespace TP_Final_equipo2
                 lblsexpaciente.Text = actual.Sexo;
 
                 ObservacionesNegocio tiene = new ObservacionesNegocio();
-                int estado = elegido.Estado;
-                if (estado == 2)
+                string estado = elegido.Estado.ToString();
+                if (estado == "Cancelado")
                 {
                     List<Observaciones> listaobs = tiene.BuscarObs(elegido.ID);
                     Observaciones obj = listaobs.Find(x=> x.IDTurno == elegido.ID);
-                    txtobservaciones.Text = obj.Descripcion;
+                    //txtobservaciones.Text = obj.Descripcion;
                 }
             }
         }

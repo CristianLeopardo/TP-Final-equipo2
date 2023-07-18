@@ -157,11 +157,10 @@
                         <div class="mb-3">
                             
                             <div>
-<<<<<<< HEAD
-                                <asp:Button ID="btcontinuar" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Continuar" OnClientClick="return validar()" OnClick="btcontinuar_Click" />
-=======
-                                <asp:Button ID="btcontinuar" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Continuar" OnClick="btcontinuar_Click" CausesValidation="true" ValidationGroup="GrupoMedico" />
->>>>>>> 8765709ef85754fc4045c8c74cc66c19edacc596
+
+                               <%--<asp:Button ID="btcontinuar" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Continuar" OnClientClick="return validar()" OnClick="btcontinuar_Click" />--%>
+
+                               <asp:Button ID="btcontinuar" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Continuar" OnClick="btcontinuar_Click" CausesValidation="true" ValidationGroup="GrupoMedico" />
                             </div>
                             <div>
                                 <asp:Button ID="btnEspecialidades" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Ver Especialidades" OnClick="btnEspecialidades_Click" Visible="false" />
@@ -178,7 +177,6 @@
             <%if (lblmensaje.Visible == true && lblTitulo.Text != "Modificando Médico")
                 {%>
             <div class="container text-center">
-                <div>
                     <h2>Especialidades</h2>
                 </div>
                 <div>
@@ -213,7 +211,6 @@
                         <div class="mb-3">
                             <div>
                                 <asp:Button ID="btnVolver" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" OnClick="btnVolver_Click" Text="Volver" />
-<<<<<<< HEAD
                                 <%--<asp:Button ID="btnaceptar" runat="server" CssClass="btn btn-primary" Text="Aceptar" OnClick="btnaceptar_Click" Visible="false" />--%>
                                 <asp:Button ID="btnAceptar" type="button" class="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Aceptar" OnClientClick="return validar()" OnClick="btnAceptar_Click" runat="server" />
                                 <%-- MODAL --%>
@@ -237,10 +234,7 @@
                                         </div>
                                     </div>
                                 </div>--%>
-=======
-                                <asp:Button ID="btnAceptar" type="button" class="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Aceptar" OnClick="btnAceptar_Click" runat="server" />
-                                
->>>>>>> 8765709ef85754fc4045c8c74cc66c19edacc596
+                                <%--<asp:Button ID="btnAceptar" type="button" class="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Aceptar" OnClick="btnAceptar_Click" runat="server" />--%>
                             </div>
                         </div>
                     </div>

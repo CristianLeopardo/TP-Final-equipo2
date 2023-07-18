@@ -78,6 +78,8 @@ namespace TP_Final_equipo2
                 Paciente nuevo = new Paciente();
                 //if (ValidarVacio() == true)
                 //{
+                if (solonumemros()== true)
+                {
                     nuevo.Apellido = tbxApellido.Text;
                     nuevo.Nombre = tbxNombre.Text;
                     nuevo.Dni = int.Parse(tbxDni.Text);
@@ -109,7 +111,7 @@ namespace TP_Final_equipo2
                             negocio.Agregar(nuevo);
                             Session["AlertaMensajeok"] = "Paciente cargado";
                         }
-                 
+
                         //<<<<<<< HEAD
                         //}
                         else
@@ -119,32 +121,33 @@ namespace TP_Final_equipo2
                             lblmensaje.Visible = true;
                             lblmensaje.Text = "Complete todos los campos";
                         }
-                    Session["AlertaMensaje"] = "Paciente cargado";
-                }
-                //else
-                //{
-                //    // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
-                //    Session["AlertaMensaje"] = "Complete todos los campos";
-                //    //lblmensaje.Visible = true;
-                //    //lblmensaje.Text = "Complete todos los campos";
-                //}
-                //if (!int.TryParse(tbxDni.Text, out int dni))
-                //{
-                //    return;
-                //}
-                if(lblmensaje.Visible != true)
-                {
-                    tbxApellido.Text = "";
-                    tbxNombre.Text = "";
-                    tbxDni.Text = "";
-                    ddlSexo.SelectedIndex = 0;
-                    tbxTelefono.Text = "";
-                    tbxCelular.Text = "";
-                    tbxEmail.Text = "";
-                    tbxDomicilio.Text = "";
-                    tbxLocalidad.Text = "";
-                    tbxProvincia.Text = "";
-                    FechaNacimiento.Text = "";
+                        Session["AlertaMensaje"] = "Paciente cargado";
+                    }
+                    //else
+                    //{
+                    //    // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
+                    //    Session["AlertaMensaje"] = "Complete todos los campos";
+                    //    //lblmensaje.Visible = true;
+                    //    //lblmensaje.Text = "Complete todos los campos";
+                    //}
+                    //if (!int.TryParse(tbxDni.Text, out int dni))
+                    //{
+                    //    return;
+                    //}
+                    if (lblmensaje.Visible != true)
+                    {
+                        tbxApellido.Text = "";
+                        tbxNombre.Text = "";
+                        tbxDni.Text = "";
+                        ddlSexo.SelectedIndex = 0;
+                        tbxTelefono.Text = "";
+                        tbxCelular.Text = "";
+                        tbxEmail.Text = "";
+                        tbxDomicilio.Text = "";
+                        tbxLocalidad.Text = "";
+                        tbxProvincia.Text = "";
+                        FechaNacimiento.Text = "";
+                    }
                 }
             }
             catch (Exception ex)
@@ -167,6 +170,31 @@ namespace TP_Final_equipo2
             { return true; }
         }
 
+        protected bool solonumemros()
+        {
+            string cadena = tbxTelefono.Text;
+
+            foreach (char caracter in cadena)
+            {
+                if (!(char.IsNumber(caracter)))
+                {
+                    lblmensaje.Visible = true;
+                    lblmensaje.Text = "DEBE INGRESAR UN NUMERO EN EL TELEFONO";
+                    return false;
+                }
+            }
+            cadena = tbxCelular.Text;
+            foreach (char  caracter in cadena)
+            {
+                if (!(char.IsNumber(caracter)))
+                {
+                    lblmensaje.Visible = true;
+                    lblmensaje.Text = "DEBE INGRESAR UN NUMERO EN EL CELULAR";
+                    return false;
+                }
+            }
+            return true;
+        }
         protected bool ValidarDNI(int dni)
         {
             PacientesNegocio PacienteNegocio = new PacientesNegocio();

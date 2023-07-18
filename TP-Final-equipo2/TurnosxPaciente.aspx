@@ -15,7 +15,7 @@
                     <asp:Button ID="btnMenuTurnos" runat="server" OnClick="btnMenuTurnos_Click" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Buscar mi turno" />
                 </div>
                 <div class="col-3">
-                    <asp:Button ID="btnSolicitud" runat="server" OnClick="btnSolicitud_Click" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Que me asignen un turno" />
+                    <asp:Button ID="btnSolicitud"  OnClick="btnSolicitud_Click" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Que me asignen un turno" runat="server" />
                 </div>
             </div>
             <br />

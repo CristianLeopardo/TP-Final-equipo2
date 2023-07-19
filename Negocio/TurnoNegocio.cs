@@ -67,7 +67,7 @@ namespace Negocio
             List<Turno> listafiltrada = new List<Turno>();
             try
             {
-                datos.SetearConsulta("Select t.ID, t.Estado, t.Fecha, e.Nombre as Especialidad, p.Apellido, p.Nombre from Turnos t INNER JOIN Pacientes p on t.IDPaciente=p.ID INNER JOIN Especialidad e on e.ID=t.IDEspecialidad WHERE  p." + campo+" LIKE '"+criterio+"%' and t.IDMedico="+idmedico);
+                datos.SetearConsulta("Select t.ID, t.Estado, t.Fecha, e.Nombre as Especialidad, p.Apellido, p.Nombre from Turnos t INNER JOIN Pacientes p on t.IDPaciente=p.ID INNER JOIN Especialidad e on e.ID=t.IDEspecialidad WHERE  p." + campo + " LIKE '" + criterio + "%' and t.IDMedico=" + idmedico);
                 datos.Ejecutarconsulta();
 
                 while (datos.Lector.Read())
@@ -116,7 +116,7 @@ namespace Negocio
             List<Turno> Lista = new List<Turno>();
             try
             {
-                datos.SetearConsulta("Select t.ID, t.Estado, t.Fecha, e.Nombre as Especialidad, p.Apellido, p.Nombre from Turnos t INNER JOIN Especialidad e on t.IDEspecialidad=e.ID INNER JOIN Pacientes p ON t.IDPaciente=p.ID WHERE YEAR(Fecha)=" + anio+" AND MONTH(Fecha)="+mes+" AND DAY(Fecha)="+dia+" AND t.IDMedico="+idmedico+" ORDER BY Fecha asc");
+                datos.SetearConsulta("Select t.ID, t.Estado, t.Fecha, e.Nombre as Especialidad, p.Apellido, p.Nombre from Turnos t INNER JOIN Especialidad e on t.IDEspecialidad=e.ID INNER JOIN Pacientes p ON t.IDPaciente=p.ID WHERE YEAR(Fecha)=" + anio + " AND MONTH(Fecha)=" + mes + " AND DAY(Fecha)=" + dia + " AND t.IDMedico=" + idmedico + " ORDER BY Fecha asc");
                 datos.Ejecutarconsulta();
 
                 while (datos.Lector.Read())
@@ -237,7 +237,7 @@ namespace Negocio
                 datos.Cerraconexion();
             }
         }
-       
+
 
         public void AgregarTurno(Turno nuevo)
         {
@@ -313,12 +313,63 @@ namespace Negocio
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("UPDATE Turnos set Estado="+ estado +" where ID="+iD);
+                datos.SetearConsulta("UPDATE Turnos set Estado=" + estado + " where ID=" + iD);
                 datos.Ejecutarconsulta();
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+        public List<Turno> ListarTurnos(int idPaciente)
+        {
+            List<Turno> lista = new List<Turno>();
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("select T.ID, T.IDPaciente, T.IDMedico, T.IDEspecialidad, T.Fecha, T.Estado, P.Nombre as NombreP, P.Apellido as ApellidoP, M.Nombre as NombreM, M.Apellido as ApellidoM, E.Nombre as NombreE from Turnos T inner join Pacientes P on P.ID = T.IDPaciente inner join Medicos M on M.ID = T.IDMedico inner join Especialidad E on E.ID = T.IDEspecialidad where P.ID =" + idPaciente);
+                datos.Ejecutarconsulta();
+                while (datos.Lector.Read())
+                {
+                    Turno obj = new Turno();
+                    obj.ID = (int)datos.Lector["ID"];
+                    obj.IDPaciente = (int)datos.Lector["IDPaciente"];
+                    obj.IDMedico = (int)datos.Lector["IDMedico"];
+                    obj.IDEspecialidad = (int)datos.Lector["IDEspecialidad"];
+                    obj.Fecha = (DateTime)datos.Lector["Fecha"];
+                    //obj.Estado = (int)datos.Lector["Estado"];
+                    obj.NombrePaciente = (string)datos.Lector["NombreP"] + " " + (string)datos.Lector["ApellidoP"];
+                    obj.NombreMedico = (string)datos.Lector["NombreM"] + " " + (string)datos.Lector["ApellidoM"];
+                    obj.NombreEspecialidad = (string)datos.Lector["NombreE"];
+                    int Estado = (int)datos.Lector["Estado"];
+                    switch (Estado)
+                    {
+                        case 1:
+                            obj.Estado = Dominio.estado.Activo;
+                            break;
+                        case 2:
+                            obj.Estado = Dominio.estado.Cancelado;
+                            break;
+                        case 3:
+                            obj.Estado = Dominio.estado.Reprogramado;
+                            break;
+                        case 4:
+                            obj.Estado = Dominio.estado.Ausente;
+                            break;
+                        default:
+                            break;
+                    }
+                    lista.Add(obj);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
             }
         }
     }

@@ -13,7 +13,17 @@ namespace TP_Final_equipo2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Add("usuario", "charly168");  // reemplazar  por la sesion  verdadera
+            if (Session["usuario"] == null)
+            {
+                Session.Add("error", "Debe iniciar sesion para acceder a la pagina");
+                Response.Redirect("Error.aspx", false);
+            }
+            if (!(Session["usuario"] != null && ((Dominio.Usuario)Session["usuario"]).TipoUsuario == Dominio.TipoUsuario.Paciente))
+            {
+                Session.Add("error", "Debe ser un Paciente para ingresar a esta página");
+                Response.Redirect("Error.aspx", false);
+            }
+            
         }
 
         protected void btnEnviar_Click(object sender, EventArgs e)
@@ -25,7 +35,8 @@ namespace TP_Final_equipo2
             UsuarioNegocio us  = new UsuarioNegocio();
             if (Session["usuario"] != null)
             {
-                id = pa.BuscarIDxEmail(us.BuscarEmail((string)Session["usuario"])); 
+                Usuario user = (Usuario)Session["usuario"];
+                id = pa.BuscarIDxEmail(us.BuscarEmail(user.User)); 
                 if (tbxDescripccion.Text.Length > 50)
                 {
                     mensaje = "El Paciente: " + id.Apellido + " " + id.Nombre + " DNI: " + id.Dni + " Correo: " + id.Email + " realiza la siguiente solicitud: " + tbxDescripccion.Text;
@@ -55,7 +66,8 @@ namespace TP_Final_equipo2
             Paciente id;
             PacientesNegocio pa = new PacientesNegocio();
             UsuarioNegocio us = new UsuarioNegocio();
-            id = pa.BuscarIDxEmail(us.BuscarEmail((string)Session["usuario"]));
+            Usuario user = (Usuario)Session["usuario"];
+            id = pa.BuscarIDxEmail(us.BuscarEmail(user.User));
             Response.Redirect("AgregarTurno.aspx?IDPaciente=" + id.ID, false);
         }
     }

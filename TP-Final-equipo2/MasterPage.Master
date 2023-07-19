@@ -43,7 +43,15 @@
                     <div class="collapse navbar-collapse" id="navbarS">
                         <ul  class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="login.aspx">Ingresar</a>
+                                <%if (Session["usuario"] != null)
+                                    {%>
+                                    <a class="nav-link" href="Registrarse.aspx">Perfil</a>
+
+                                <%}
+                                    else
+                                    {%>
+                                    <a class="nav-link" href="login.aspx">Ingresar</a>
+                                <%} %>
                             </li>
                         </ul>
 

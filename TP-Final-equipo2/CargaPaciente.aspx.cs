@@ -21,11 +21,16 @@ namespace TP_Final_equipo2
         //}
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["usuario"] == null)
-            //{
-            //    string MensajeError = "Debe iniciar sesion para acceder a la pagina";
-            //    EnviarMensajeError("Login.aspx", MensajeError);
-            //}
+            if (Session["usuario"] == null)
+            {
+                Session.Add("error", "Debe iniciar sesion para acceder a la pagina");
+                Response.Redirect("Error.aspx", false);
+            }
+            if (!(Session["usuario"] != null && (((Dominio.Usuario)Session["usuario"]).TipoUsuario != Dominio.TipoUsuario.Medico)))
+            {
+                Session.Add("error", "No tiene permisos para ingresar a esta pagina");
+                Response.Redirect("Error.aspx", false);
+            }
 
 
             if (!IsPostBack)
@@ -42,7 +47,14 @@ namespace TP_Final_equipo2
                     ModificarPaciente(int.Parse(Request.QueryString["ID"]));
                     lblTitulo.Text = "Modificando paciente";
                 }
-            }           
+                if (Request.QueryString["Nuevo"] != null)
+                {
+                    tbxEmail.Text = ((Dominio.Usuario)Session["usuario"]).Email;
+                    tbxEmail.Enabled = false;
+                    tbxDni.Text = Request.QueryString["Nuevo"];
+                    tbxDni.Enabled = false;
+                }
+            }
         }
         public void ModificarPaciente(int id)
         {
@@ -78,6 +90,8 @@ namespace TP_Final_equipo2
                 Paciente nuevo = new Paciente();
                 //if (ValidarVacio() == true)
                 //{
+                if (solonumemros() == true)
+                {
                     nuevo.Apellido = tbxApellido.Text;
                     nuevo.Nombre = tbxNombre.Text;
                     nuevo.Dni = int.Parse(tbxDni.Text);
@@ -101,44 +115,57 @@ namespace TP_Final_equipo2
                     {
                         nuevo.ID = int.Parse(Request.QueryString["ID"]);
                         negocio.Modificar(nuevo);
+                        lblmensaje.Visible = false;
                     }
                     else
                     {
                         if (ValidarDNI(int.Parse(tbxDni.Text)) == true && ValidarEmail(tbxEmail.Text) == true)
                         {
                             negocio.Agregar(nuevo);
+                            Session["AlertaMensajeok"] = "Paciente cargado";
+                            lblmensaje.Visible = false;
                         }
-                        
-                    }
-                    Session["AlertaMensaje"] = "Paciente cargado";
-                //}
-                //else
-                //{
-                //    // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
-                //    Session["AlertaMensaje"] = "Complete todos los campos";
-                //    //lblmensaje.Visible = true;
-                //    //lblmensaje.Text = "Complete todos los campos";
-                //}
-                //if (!int.TryParse(tbxDni.Text, out int dni))
-                //{
-                //    return;
-                //}
 
-                tbxApellido.Text = "";
-                tbxNombre.Text = "";
-                tbxDni.Text = "";
-                ddlSexo.SelectedIndex = 0;
-                tbxTelefono.Text = "";
-                tbxCelular.Text = "";
-                tbxEmail.Text = "";
-                tbxDomicilio.Text = "";
-                tbxLocalidad.Text = "";
-                tbxProvincia.Text = "";
-                FechaNacimiento.Text = "";
+                        //<<<<<<< HEAD
+                        //}
+                        else
+                        {
+                            // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
+                            Session["AlertaMensaje"] = "Complete todos los campos";
+                            lblmensaje.Visible = true;
+                            lblmensaje.Text = "Complete todos los campos";
+                        }
+                        Session["AlertaMensaje"] = "Paciente cargado";
+                    }
+                    //else
+                    //{
+                    //    // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
+                    //    Session["AlertaMensaje"] = "Complete todos los campos";
+                    //    //lblmensaje.Visible = true;
+                    //    //lblmensaje.Text = "Complete todos los campos";
+                    //}
+                    //if (!int.TryParse(tbxDni.Text, out int dni))
+                    //{
+                    //    return;
+                    //}
+                    if (lblmensaje.Visible != true)
+                    {
+                        tbxApellido.Text = "";
+                        tbxNombre.Text = "";
+                        tbxDni.Text = "";
+                        ddlSexo.SelectedIndex = 0;
+                        tbxTelefono.Text = "";
+                        tbxCelular.Text = "";
+                        tbxEmail.Text = "";
+                        tbxDomicilio.Text = "";
+                        tbxLocalidad.Text = "";
+                        tbxProvincia.Text = "";
+                        FechaNacimiento.Text = "";
+                    }
+                }
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
@@ -172,6 +199,32 @@ namespace TP_Final_equipo2
             { return true; }
         }
 
+        protected bool solonumemros()
+        {
+            string cadena = tbxTelefono.Text;
+
+            foreach (char caracter in cadena)
+            {
+                if (!(char.IsNumber(caracter)))
+                {
+                    lblmensaje.Visible = true;
+                    lblmensaje.Text = "DEBE INGRESAR UN NUMERO EN EL TELEFONO";
+                    return false;
+                }
+            }
+            cadena = tbxCelular.Text;
+            foreach (char caracter in cadena)
+            {
+                if (!(char.IsNumber(caracter)))
+                {
+                    lblmensaje.Visible = true;
+                    lblmensaje.Text = "DEBE INGRESAR UN NUMERO EN EL CELULAR";
+                    return false;
+                }
+            }
+            return true;
+        }
+
         //protected bool ValidarVacio()
         //{
         //    if (tbxApellido.Text == "" || tbxLocalidad.Text == "" || tbxProvincia.Text == "" || tbxNombre.Text == "" || tbxDni.Text == "" || tbxCelular.Text == "" || tbxTelefono.Text == "" || tbxEmail.Text == "" || tbxDomicilio.Text == "" || FechaNacimiento.Text == "")
@@ -186,7 +239,7 @@ namespace TP_Final_equipo2
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
-            Response.Redirect("MenuPacientes.aspx", false);
+            Response.Redirect("Home.aspx", false);
         }
 
         protected void calFechaNacimiento_SelectionChanged(object sender, EventArgs e)
@@ -196,7 +249,7 @@ namespace TP_Final_equipo2
 
         protected void btnAceptar2_Click(object sender, EventArgs e)
         {
-                Response.Redirect("Home.aspx", false);
+            Response.Redirect("Home.aspx", false);
         }
     }
 }

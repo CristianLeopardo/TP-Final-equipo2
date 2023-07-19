@@ -151,13 +151,16 @@
             </div>
 
 
-            <div class="container text-center">
+ <div class="container text-center">
                 <div class="row align-items-start">
                     <div class="col">
                         <div class="mb-3">
                             
                             <div>
-                                <asp:Button ID="btcontinuar" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Continuar" OnClick="btcontinuar_Click" CausesValidation="true" ValidationGroup="GrupoMedico" />
+
+                               <%--<asp:Button ID="btcontinuar" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Continuar" OnClientClick="return validar()" OnClick="btcontinuar_Click" />--%>
+
+                               <asp:Button ID="btcontinuar" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Continuar" OnClick="btcontinuar_Click" CausesValidation="true" ValidationGroup="GrupoMedico" />
                             </div>
                             <div>
                                 <asp:Button ID="btnEspecialidades" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Ver Especialidades" OnClick="btnEspecialidades_Click" Visible="false" />
@@ -174,7 +177,6 @@
             <%if (lblmensaje.Visible == true && lblTitulo.Text != "Modificando Médico")
                 {%>
             <div class="container text-center">
-                <div>
                     <h2>Especialidades</h2>
                 </div>
                 <div>
@@ -209,8 +211,30 @@
                         <div class="mb-3">
                             <div>
                                 <asp:Button ID="btnVolver" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" OnClick="btnVolver_Click" Text="Volver" />
-                                <asp:Button ID="btnAceptar" type="button" class="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Aceptar" OnClick="btnAceptar_Click" runat="server" />
-                                
+                                <%--<asp:Button ID="btnaceptar" runat="server" CssClass="btn btn-primary" Text="Aceptar" OnClick="btnaceptar_Click" Visible="false" />--%>
+                                <asp:Button ID="btnAceptar" type="button" class="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Aceptar" OnClientClick="return validar()" OnClick="btnAceptar_Click" runat="server" />
+                                <%-- MODAL --%>
+                                <%--<button id="btnAceptar" type="button" class="btn btn-info text-white w-20 fw-semibold shadow-sm" text="Aceptar">
+                                    Aceptar
+                                </button>--%>
+                                <% %>
+                                <%--<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel">
+                                    <div class="modal-dialog modal-xl">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h2 class="modal-title" id="staticBackdropLabel">Confirmacion de alta</h2>
+                                                <asp:Button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" runat="server" />
+                                            </div>
+                                            <div class="modal-body">
+                                                <asp:Label ID="lblMensaje1" runat="server" Text="Medico cargado exitosamente..."></asp:Label>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <asp:Button ID="btnAceptar2" type="button" class="btn btn-secondary" Text="Ir a Home" OnClick="btnaceptar_Click" data-bs-dismiss="modal" runat="server" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>--%>
+                                <%--<asp:Button ID="btnAceptar" type="button" class="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Aceptar" OnClick="btnAceptar_Click" runat="server" />--%>
                             </div>
                         </div>
                     </div>

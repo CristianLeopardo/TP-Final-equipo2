@@ -20,12 +20,17 @@ namespace TP_Final_equipo2
         //}
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["usuario"] == null)
-            //{
-            //    string MensajeError = "Debe iniciar sesion para acceder a la pagina";
-            //    EnviarMensajeError("Login.aspx", MensajeError);
-            //}
-            
+            if (Session["usuario"] == null)
+            {
+                Session.Add("error", "Debe iniciar sesion para acceder a la pagina");
+                Response.Redirect("Error.aspx", false);
+            }
+            if (!(Session["usuario"] != null && (((Dominio.Usuario)Session["usuario"]).TipoUsuario != Dominio.TipoUsuario.Paciente)))
+            {
+                Session.Add("error", "No tiene permisos para ingresar a esta pagina");
+                Response.Redirect("Error.aspx", false);
+            }
+
             if (!IsPostBack)
             {
                 ddlSexo.Items.Add("Masculino");
@@ -43,6 +48,13 @@ namespace TP_Final_equipo2
                     ModificarMedico(int.Parse(Request.QueryString["ID"]));
                     lblTitulo.Text = "Modificando Médico";
                     btnEspecialidades.Visible = true;
+                }
+                if (Request.QueryString["Nuevo"] != null)
+                {
+                    tbxEmail.Text = ((Dominio.Usuario)Session["usuario"]).Email;
+                    tbxEmail.Enabled = false;
+                    tbxDni.Text = Request.QueryString["Nuevo"];
+                    tbxDni.Enabled = false;
                 }
                 EspecialidadNegocio negocio = new EspecialidadNegocio();
                 dgvEspcialidades.DataSource = negocio.ListarEspecialidades();
@@ -168,7 +180,7 @@ namespace TP_Final_equipo2
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
-            Response.Redirect("MenuMedicos.aspx", false);
+            Response.Redirect("Home.aspx", false);
         }
 
         protected void gvsespcialidades_SelectedIndexChanged(object sender, EventArgs e)

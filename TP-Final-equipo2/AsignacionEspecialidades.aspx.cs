@@ -12,7 +12,13 @@ namespace TP_Final_equipo2
     public partial class AsignacionEspecialidades : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {          
+        {
+            if (Session["usuario"] == null)
+            {
+                Session.Add("error", "Debe iniciar sesion para acceder a la pagina");
+                Response.Redirect("Error.aspx", false);
+            }
+
             if (!IsPostBack)
             {
                 EspecialidadNegocio especialidadNegocio = new EspecialidadNegocio();

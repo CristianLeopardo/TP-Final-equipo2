@@ -92,7 +92,7 @@
         <div class="bg-white p-3 rounded-5 text-secondary shadow w-100">
             <div class="container text-center">
                 <asp:Label ID="lblTitulo" class="welcome" runat="server" Text="Carga del nuevo Paciente..."></asp:Label>
-                <%if (Session["AlertaMensaje"] != null)
+                <%if (Session["AlertaMensajeok"] != null)
                     {%>
                 <div class="alert alert-success alert-dismissible fade show" id="alerta">
                     <asp:button class="btn-close" data-bs-dismiss="alert" autopostback="false" runat="server"></asp:button>
@@ -187,7 +187,7 @@
                             <div>
                                 <asp:Button type="button" class="btn btn-info text-white w-20 fw-semibold shadow-sm" ID="btnAceptar" Text="Cargar" autopostback="false" OnClick="btnAceptar_Click" runat="server" CausesValidation="true" ValidationGroup="GrupoPaciente"></asp:Button>
                                 <asp:Button ID="btnVolver" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" OnClick="btnVolver_Click" Text="Volver" />
-                                <asp:Label ID="lblmensaje" Visible="false" runat="server" Text="Label"></asp:Label>
+                                <asp:Label ID="lblmensaje" autopostback="true" Visible="false" runat="server" Text="Label"></asp:Label>
                             </div>
                         </div>
                     </div>

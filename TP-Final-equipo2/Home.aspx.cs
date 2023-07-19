@@ -17,12 +17,14 @@ namespace TP_Final_equipo2
         //}
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["usuario"] == null)
-            //{
-            //    string MensajeError = "Debe iniciar sesion para acceder a la pagina";
-            //    EnviarMensajeError("Login.aspx", MensajeError);
-            //}
-            if (Session["msj"] != null)
+            if (Session["usuario"] == null)
+            {
+                Session.Add("error", "Debe iniciar sesion para acceder a la pagina"); 
+                Response.Redirect("Error.aspx", false);
+            }
+              
+                
+                if (Session["msj"] != null)
             {
                 msj.Visible = true;
                 msj.Text = Session["msj"].ToString();

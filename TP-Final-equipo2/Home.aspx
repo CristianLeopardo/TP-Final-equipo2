@@ -59,13 +59,29 @@
         <h1 class="welcome">Bienvenido al HOME...</h1>
         <asp:Label ID="msj" runat="server" Text="" Visible="false"></asp:Label>
         <div class="button-container">
+            <% if (Session["usuario"] != null && (((Dominio.Usuario)Session["usuario"]).TipoUsuario == Dominio.TipoUsuario.Recepcion ||  ((Dominio.Usuario)Session["usuario"]).TipoUsuario == Dominio.TipoUsuario.Admin ))
+                { %>
             <asp:Button runat="server" CssClass="btn" ID="btnnewPaciente" OnClick="btnnewPaciente_Click" Text="Administrar Pacientes" />
+            
             <asp:Button runat="server" CssClass="btn" ID="btnnewMedico" OnClick="btnnewMedico_Click" Text="Administrar Médicos" />
+            <% }%>
+            <% if (Session["usuario"] != null && ((Dominio.Usuario)Session["usuario"]).TipoUsuario == Dominio.TipoUsuario.Admin)
+                { %>
             <asp:Button runat="server" CssClass="btn" ID="btnEspecialidades" OnClick="btnEspecialidades_Click" Text="Administrar Especialidades" />
+            <% }%>
+            <% if (Session["usuario"] != null && ((Dominio.Usuario)Session["usuario"]).TipoUsuario == Dominio.TipoUsuario.Medico)
+                { %>
             <asp:Button runat="server" CssClass="btn" ID="btnTurnosxmedicos" OnClick="btnTurnosxmedicos_Click"  Text="Turnos asignados"/>
             <hr />
+            <% }%>
+                <% if (Session["usuario"] != null && (((Dominio.Usuario)Session["usuario"]).TipoUsuario == Dominio.TipoUsuario.Recepcion ||  ((Dominio.Usuario)Session["usuario"]).TipoUsuario == Dominio.TipoUsuario.Admin ))
+                { %>
             <asp:Button runat="server" CssClass="btn" ID="btnTurno" OnClick="btnnewTurno_Click" Text="Cargar Turno" />
-            <asp:Button runat="server" CssClass="btn" ID="btnTurnoPaciente"  OnClick="btnTurnoPaciente_Click"  Text="Cargar Turno como paciente" />
+            <% }%>
+            <% if (Session["usuario"] != null && ((Dominio.Usuario)Session["usuario"]).TipoUsuario == Dominio.TipoUsuario.Paciente)
+                { %>
+            <asp:Button runat="server" CssClass="btn" ID="btnTurnoPaciente"  OnClick="btnTurnoPaciente_Click"  Text="Nuevo Turno" />
+            <% }%>
         </div>
     </div>
 </asp:Content>

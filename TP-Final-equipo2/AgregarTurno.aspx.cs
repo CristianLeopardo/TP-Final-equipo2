@@ -22,7 +22,7 @@ namespace TP_Final_equipo2
                 Session.Add("error", "Debe iniciar sesion para acceder a la pagina");
                 Response.Redirect("Error.aspx", false);
             }
-            if (!(Session["usuario"] != null && (((Dominio.Usuario)Session["usuario"]).TipoUsuario == Dominio.TipoUsuario.Medico )))
+            if (!(Session["usuario"] != null && (((Dominio.Usuario)Session["usuario"]).TipoUsuario != Dominio.TipoUsuario.Medico )))
             {
                 Session.Add("error", "No tiene permisos para ingresar a esta pagina");
                 Response.Redirect("Error.aspx", false);
@@ -90,7 +90,7 @@ namespace TP_Final_equipo2
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Turnos.aspx", false);
+            Response.Redirect("Home.aspx", false);
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)

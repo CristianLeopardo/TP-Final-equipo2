@@ -83,6 +83,7 @@
     <Content Include="MenuEspecialidades.aspx" />
     <Content Include="MenuMedicos.aspx" />
     <Content Include="MenuPacientes.aspx" />
+    <Content Include="MisTurnos.aspx" />
     <Content Include="RecuperarClave.aspx" />
     <Content Include="Registrarse.aspx" />
     <Content Include="Turnos.aspx" />
@@ -178,6 +179,13 @@
     </Compile>
     <Compile Include="MenuPacientes.aspx.designer.cs">
       <DependentUpon>MenuPacientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MisTurnos.aspx.cs">
+      <DependentUpon>MisTurnos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MisTurnos.aspx.designer.cs">
+      <DependentUpon>MisTurnos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecuperarClave.aspx.cs">

@@ -80,6 +80,7 @@
             <% }%>
             <% if (Session["usuario"] != null && ((Dominio.Usuario)Session["usuario"]).TipoUsuario == Dominio.TipoUsuario.Paciente)
                 { %>
+            <asp:Button ID="btnMisturnos" CssClass="btn" OnClick="btnMisturnos_Click" runat="server" Text="Mis Turnos" />
             <asp:Button runat="server" CssClass="btn" ID="btnTurnoPaciente"  OnClick="btnTurnoPaciente_Click"  Text="Nuevo Turno" />
             <% }%>
         </div>

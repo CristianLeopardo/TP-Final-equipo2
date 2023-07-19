@@ -115,6 +115,7 @@ namespace TP_Final_equipo2
                     {
                         nuevo.ID = int.Parse(Request.QueryString["ID"]);
                         negocio.Modificar(nuevo);
+                        lblmensaje.Visible = false;
                     }
                     else
                     {
@@ -122,6 +123,7 @@ namespace TP_Final_equipo2
                         {
                             negocio.Agregar(nuevo);
                             Session["AlertaMensajeok"] = "Paciente cargado";
+                            lblmensaje.Visible = false;
                         }
 
                         //<<<<<<< HEAD

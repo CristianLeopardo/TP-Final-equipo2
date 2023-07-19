@@ -144,10 +144,10 @@ drop table Medicos
 
 
 insert into Usuarios(Usuario, Clave, TipoUsuario)
-values('admin', 'admin', 1)
+values('admin', 'admin', 4)
 insert into Usuarios(Usuario, Clave, TipoUsuario)
-values('recepcion', 'recepcion', 2)
+values('recepcion', 'recepcion', 3)
 insert into Usuarios(Usuario, Clave, TipoUsuario)
-values('medico', 'medico', 3)
+values('medico', 'medico', 2)
 insert into Usuarios(Usuario, Clave, TipoUsuario)
-values('cliente', 'cliente', 4)
+values('cliente', 'cliente', 1)

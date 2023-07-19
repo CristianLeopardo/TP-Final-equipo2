@@ -63,7 +63,7 @@ namespace TP_Final_equipo2
                         default:
                             break;
                     }
-                    usuario.Agregar(nuevo);
+                    //usuario.Agregar(nuevo);
                     lblOK.Visible = true;
 
                 }

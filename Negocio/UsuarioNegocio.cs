@@ -77,6 +77,28 @@ namespace Negocio
             }
         }
 
+        public void Modificar(Usuario usuario)
+        {
+            Conexion conexion = new Conexion();
+            try
+            {
+                conexion.SetearConsulta("UPDATE Usuarios set Usuario=@Usuario, Clave=@Clave, Email=@Email, TipoUsuario=@TipoUsuario WHERE ID="+usuario.Id);
+                conexion.setearParametro("@Usuario", usuario.User);
+                conexion.setearParametro("@Clave", usuario.Clave);
+                conexion.setearParametro("@Email", usuario.Email.ToUpper());
+                conexion.setearParametro("@TipoUsuario", usuario.TipoUsuario);
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexion.Cerraconexion();
+            }
+        }
+
         public string BuscarCorreo(string email)
         {
             Conexion conexion = new Conexion();

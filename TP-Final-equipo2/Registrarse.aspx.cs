@@ -16,6 +16,17 @@ namespace TP_Final_equipo2
         {
             if (!IsPostBack)
             {
+                if (Session["usuario"]!= null)
+                {
+                    Usuario actual = new Usuario();
+                    actual = (Usuario)Session["usuario"];
+                    tbxUsuario.Text = actual.User;
+                    tbxClave.Text = actual.Clave;
+                    tbxClave2.Text = actual.Clave;
+                    tbxEmail.Text = actual.Email;
+                    tbxEmail2.Text = actual.Email;
+                    btnAceptar.Text = "Modificar";
+                }
                 ListItem Paciente = new ListItem("Paciente", "1");
                 ddlTipoUsuario.Items.Add(Paciente);
                 ListItem Medico = new ListItem("Medico", "2");
@@ -38,6 +49,13 @@ namespace TP_Final_equipo2
                     nuevo.User = tbxUsuario.Text;
                     nuevo.Clave = tbxClave.Text;
                     nuevo.Email = tbxEmail.Text.ToUpper();
+                    if (Session["usuario"]!=null)
+                    {
+                        usuario.Modificar(nuevo);
+                        Session.Add("usuario", nuevo);
+                        lblOK.Visible = true;
+                        Response.Redirect("Home.aspx",false);
+                    }
                     switch (int.Parse(ddlTipoUsuario.SelectedValue))
                     {
                         case 4:

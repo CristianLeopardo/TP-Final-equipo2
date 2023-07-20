@@ -84,6 +84,10 @@ namespace TP_Final_equipo2
                 {
                     Session.Add("IDPaciente", -1);
                 }
+                lblMedicos.Visible = true;
+                ddlMedicos.Visible = true;
+                ddlJornada.Visible = true;
+                lblJornada.Visible = true;
                 
             }
         }
@@ -115,6 +119,7 @@ namespace TP_Final_equipo2
                     lblResultado.Text = paciente.Nombre.ToString() + " " + paciente.Apellido.ToString();
                     lblResultado.Visible = true;
                     Session.Add("IDPaciente", paciente.ID);
+                    cargarMedicos();
                 }
             }            
         }
@@ -135,17 +140,27 @@ namespace TP_Final_equipo2
 
         protected void ddlJornada_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cargarMedicos();
+            //lblMedicos.Visible = true;
+            //ddlMedicos.Visible = true;
+        }
+
+        protected void cargarMedicos()
+        {
             EspecialidadNegocio especialidadNegocio = new EspecialidadNegocio();
             ddlMedicos.DataSource = especialidadNegocio.ListarMedicosTurno(int.Parse(ddlEspecialidades.SelectedValue), ddlJornada.SelectedValue);
             ddlMedicos.DataValueField = "IDMedico";
             ddlMedicos.DataTextField = "NombreMedico";
             ddlMedicos.DataBind();
-            lblMedicos.Visible = true;
-            ddlMedicos.Visible = true;
         }
+
         protected void ddlMedicos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            EspecialidadNegocio especialidadNegocio = new EspecialidadNegocio();
+            ddlMedicos.DataSource = especialidadNegocio.ListarMedicosTurno(int.Parse(ddlEspecialidades.SelectedValue), ddlJornada.SelectedValue);
+            ddlMedicos.DataValueField = "IDMedico";
+            ddlMedicos.DataTextField = "NombreMedico";
+            ddlMedicos.DataBind();
         }
 
         protected void calDia_SelectionChanged(object sender, EventArgs e)

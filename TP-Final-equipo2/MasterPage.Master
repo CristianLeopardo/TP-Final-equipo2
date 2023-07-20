@@ -36,7 +36,18 @@
                     <div class="collapse navbar-collapse" id="navbarS">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="Turnos.aspx">Turnos <i class="bi bi-bag-plus"></i></a>
+                                <%if (Session["usuario"] != null && ((Dominio.Usuario)Session["usuario"]).TipoUsuario == Dominio.TipoUsuario.Medico)
+                                    {%>
+                                <a class="nav-link" href="TurnosxMedicos.aspx">Turnos <i class="bi bi-bag-plus"></i></a> 
+                                <%}
+                                    else  if (Session["usuario"] != null && ((Dominio.Usuario)Session["usuario"]).TipoUsuario == Dominio.TipoUsuario.Paciente)
+                                    {%>
+                                        <a class="nav-link" href="TurnosxPaciente.aspx">Turnos <i class="bi bi-bag-plus"></i></a> 
+                                <%}
+                                    else { 
+                                    %>
+                                <a class="nav-link" href="Turnos.aspx">Turnos <i class="bi bi-bag-plus"></i></a> 
+                                <%}%>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="Home.aspx">Home <i class="bi bi-house"></i></a>

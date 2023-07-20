@@ -85,6 +85,10 @@ namespace TP_Final_equipo2
                     }
                     
                     lblOK.Visible = true;
+                    tbxUsuario.Text = "";
+                    tbxDNI.Text = "";
+                    tbxEmail.Text = "";
+                    tbxEmail2.Text = "";
 
                 }
                 catch (Exception ex)

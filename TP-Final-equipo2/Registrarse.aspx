@@ -14,8 +14,10 @@
                 <img src="Imagenes/login-icon.svg" alt="login-icon" style="height: 4rem" />
             </div>
             <hr />
-            <div class="text-center"><asp:ValidationSummary runat="server" DisplayMode="BulletList" CssClass="text-danger fs-2 text-decoration-underline" HeaderText="Complete los campos obligatorios *" ValidationGroup="GrupoRegistro" /></div>
-            
+            <div class="text-center">
+                <asp:ValidationSummary runat="server" DisplayMode="BulletList" CssClass="text-danger fs-2 text-decoration-underline" HeaderText="Complete los campos obligatorios *" ValidationGroup="GrupoRegistro" />
+            </div>
+
             <div class="row align-items-start">
                 <div class="col-4 mb-3">
                     <asp:Label ID="lblUsuario" CssClass="form-label alert-link accordion-button" runat="server">Ingrese el Usuario: <span style="color: red;">*</span></asp:Label>
@@ -63,11 +65,13 @@
                 </div>
             </div>
             <br />
-            <asp:Label ID="lblOK" Visible="false" CssClass="form-label alert-link accordion-button" runat="server" Text="Usuario agregado correctamente"></asp:Label>
-            <asp:Label ID="lblNOK" Visible="false" CssClass="form-label alert-link accordion-button" runat="server" Text="La contraseña o el email no coinciden"></asp:Label>
+            <div class="container text-center">
+                <asp:Label ID="lblOK" Visible="false" CssClass="form-label alert-link accordion-button" runat="server" Text="Usuario agregado correctamente"></asp:Label>
+                <asp:Label ID="lblNOK" Visible="false" CssClass="form-label alert-link accordion-button" runat="server" Text="La contraseña o el email no coinciden"></asp:Label>
+            </div>
             <div class="align-items-start text-center">
                 <div class="mb-3">
-                    <asp:Button ID="btnAceptar" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" runat="server" Text="Registrarse" OnClick="btnAceptar_Click" CausesValidation="true" ValidationGroup="GrupoRegistro"/>
+                    <asp:Button ID="btnAceptar" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" runat="server" Text="Registrarse" OnClick="btnAceptar_Click" CausesValidation="true" ValidationGroup="GrupoRegistro" />
                     <asp:Button ID="btnVolver" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" runat="server" Text="Cancelar" OnClick="btnVolver_Click" />
                 </div>
             </div>

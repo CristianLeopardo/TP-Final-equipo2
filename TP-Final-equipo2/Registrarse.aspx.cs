@@ -60,9 +60,11 @@ namespace TP_Final_equipo2
                     {
                         case 4:
                             nuevo.TipoUsuario = Dominio.TipoUsuario.Admin;
+                            usuario.Agregar(nuevo);
                             break;
                         case 3:
                             nuevo.TipoUsuario = Dominio.TipoUsuario.Recepcion;
+                            usuario.Agregar(nuevo);
                             break;
                         case 2:
                             nuevo.TipoUsuario = Dominio.TipoUsuario.Medico;
@@ -81,7 +83,7 @@ namespace TP_Final_equipo2
                         default:
                             break;
                     }
-                    //usuario.Agregar(nuevo);
+                    
                     lblOK.Visible = true;
 
                 }

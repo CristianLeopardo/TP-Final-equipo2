@@ -238,6 +238,29 @@ namespace Negocio
             }
         }
 
+        public bool PoseeMismoTurno(int iDEspecialidad, int iDPaciente)
+        {
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("select ID, Fecha, IDPaciente, IDMedico, IDEspecialidad, Estado from Turnos where IDEspecialidad ="+ iDEspecialidad +"  AND IDPaciente= "+iDPaciente+" and Estado=1");
+                datos.Ejecutarconsulta();
+
+                while (datos.Lector.Read())
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
 
         public void AgregarTurno(Turno nuevo)
         {

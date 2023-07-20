@@ -234,6 +234,13 @@ namespace TP_Final_equipo2
                     turno.Fecha = DateTime.Parse(asd);
                     turno.IDEspecialidad = int.Parse(ddlEspecialidades.SelectedValue);
                     TurnoNegocio turnoNegocio = new TurnoNegocio();
+                    bool poseeturno = turnoNegocio.PoseeMismoTurno(turno.IDEspecialidad, turno.IDPaciente);
+                    if(poseeturno == true)
+                    {
+                        Session["AlertaMensaje"] = "Ya posee un turno para la especialidad selecionada.";
+                        lblespecialidad.Visible = true;
+                        return;
+                    }
                     turnoNegocio.AgregarTurno(turno);
                     lblNoMedico.Visible = false;
                     Session["AlertaMensaje"] = "Turno asignado";

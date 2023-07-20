@@ -26,7 +26,7 @@
         <Columns>
             <asp:BoundField HeaderText="Paciente" DataField="NombrePaciente" />
             <asp:BoundField HeaderText="Medico" DataField="NombreMedico" />
-            <asp:BoundField HeaderText="Especialdiad" DataField="NombreEspecialidad" />
+            <asp:BoundField HeaderText="Especialidad" DataField="NombreEspecialidad" />
             <asp:BoundField HeaderText="Fecha" DataField="Fecha" />
             <asp:BoundField HeaderText="Estado" DataField="Estado" />
             <asp:CommandField ShowSelectButton="true" ControlStyle-CssClass="text-decoration-none text-success" SelectText="Modificar <i class='bi bi-info-circle-fill'></i>" HeaderText="Cambiar estado " />

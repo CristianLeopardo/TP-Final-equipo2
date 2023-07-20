@@ -77,6 +77,7 @@
                     <asp:Label Text="¡Seleccione Especialidad y Médico!" CssClass="text-bg-danger" ID="lblBuscar" Visible="false" runat="server" />
                     <asp:Label Text="¡Seleccione una Fecha!" CssClass="text-bg-danger" ID="lblFecha" Visible="false" runat="server" />
                     <asp:Label Text="¡Seleccione un Médico!" CssClass="text-bg-danger" ID="lblNoMedico" Visible="false" runat="server" />
+                    <asp:label Text="¡Ya posee un turno para la especialidad selecionada!" CssClass="text-bg-danger" ID="lblespecialidad" Visible="false" runat="server" />
                 </div>
                 <br />
                 <asp:Button ID="btnBuscar2" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Buscar Horario" OnClick="btnBuscar2_Click" />

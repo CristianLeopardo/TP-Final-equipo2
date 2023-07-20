@@ -18,10 +18,10 @@ namespace TP_Final_equipo2
                 Session.Add("error", "Debe iniciar sesion para acceder a la pagina");
                 Response.Redirect("Error.aspx", false);
             }
-
+            
             if (!IsPostBack)
             {
-                EspecialidadNegocio especialidadNegocio = new EspecialidadNegocio();
+              EspecialidadNegocio especialidadNegocio = new EspecialidadNegocio();
                 dgvEspecialidadesMedico.DataSource = especialidadNegocio.ListarEspecialidadesMedico(int.Parse(Request.QueryString["ID"]));
                 dgvEspecialidadesMedico.DataBind();
                 ddlEspecialidades.DataSource = especialidadNegocio.ListarEspecialidades();
@@ -31,7 +31,16 @@ namespace TP_Final_equipo2
                 List<Especialidad> especialidad = new List<Especialidad>();
                 List<Especialidad> aux = new List<Especialidad>();
                 especialidad = especialidadNegocio.ListarEspecialidades();
-            } 
+            }
+            cargardgv();
+                      
+        }
+
+        private void cargardgv()
+        {
+            EspecialidadNegocio especialidadNegocio = new EspecialidadNegocio();
+            dgvEspecialidadesMedico.DataSource = especialidadNegocio.ListarEspecialidadesMedico(int.Parse(Request.QueryString["ID"]));
+            dgvEspecialidadesMedico.DataBind();
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -55,6 +64,7 @@ namespace TP_Final_equipo2
                 Neg.AsignarEspecialidad(int.Parse(Request.QueryString["ID"]), int.Parse(ddlEspecialidades.SelectedValue));
                 lblMensaje.Text = "Especialidad asignada correctamente";
                 lblMensaje.Visible = true;
+                cargardgv();
                 //Response.Redirect("CargarMedico.aspx?ID=" + int.Parse(Request.QueryString["ID"]), false);
             }
         }
@@ -70,6 +80,7 @@ namespace TP_Final_equipo2
             especialidadNegocio.DesasignarEspecialidad(int.Parse(Request.QueryString["ID"]), id);
             lblMensaje.Text = "Especialidad eliminada correctamente";
             lblMensaje.Visible = true;
+            cargardgv();
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)

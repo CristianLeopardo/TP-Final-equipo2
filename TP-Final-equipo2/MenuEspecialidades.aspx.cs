@@ -30,10 +30,8 @@ namespace TP_Final_equipo2
                 Session.Add("error", "Debe ser un Administrador para ingresar a esta página");
                 Response.Redirect("Error.aspx", false);
             }
-            if (!IsPostBack)
-            {
-                CargarEspecialidades();
-            }           
+                            CargarEspecialidades();
+                       
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)

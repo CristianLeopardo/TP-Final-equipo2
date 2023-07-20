@@ -19,5 +19,10 @@ namespace TP_Final_equipo2
             Session.Clear();
             Response.Redirect("Login.aspx",false);
         }
+
+        protected void btnEditar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Registrarse.aspx", false);
+        }
     }
 }

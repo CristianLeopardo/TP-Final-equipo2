@@ -214,7 +214,7 @@ namespace Negocio
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("select ID,Fecha from Turnos where convert(date, Fecha) = '" + Fecha + "' and  IDMedico = @IDMedico and IDEspecialidad = @IDEspecialidad or (convert(date, Fecha) = '" + Fecha + "' and IDPaciente = @IDPaciente)");
+                datos.SetearConsulta("select ID,Fecha from Turnos where convert(date, Fecha) = '" + Fecha + "' and  IDMedico = @IDMedico and IDEspecialidad = @IDEspecialidad or (convert(date, Fecha) = '" + Fecha + "' and IDPaciente = @IDPaciente) and Estado = 1");
                 datos.setearParametro("@Fecha", Fecha);
                 datos.setearParametro("@IDEspecialidad", IDEspecialidad);
                 datos.setearParametro("@IDMedico", IDMedico);

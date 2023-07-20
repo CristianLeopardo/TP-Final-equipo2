@@ -223,6 +223,7 @@ namespace TP_Final_equipo2
             tbxEmail.Text = "";
             FechaIngreso.Text = "";
             FechaNacimiento.Text = "";
+            lblmensaje.Visible = false;
         }
 
         protected void dgvEspcialidades_SelectedIndexChanged(object sender, EventArgs e)

@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="d-flex justify-content-center align-items-center vh-80" style="margin: 20px">
         <div class="bg-white p-3 rounded-5 text-secondary shadow w-100">
-            <h1 class="text-center">Carga de Turnos</h1>
+            <h1 class="text-center">Carga de Turnos <i class="bi bi-bandaid-fill"></i></h1>
             <hr />
             <div class="container text-center">
                 <div class="row align-items-center">
@@ -29,7 +29,7 @@
             <asp:BoundField HeaderText="Especialdiad" DataField="NombreEspecialidad" />
             <asp:BoundField HeaderText="Fecha" DataField="Fecha" />
             <asp:BoundField HeaderText="Estado" DataField="Estado" />
-            <asp:CommandField ShowSelectButton="true" SelectText="Seleccionar" HeaderText="Cambiar estado" />
+            <asp:CommandField ShowSelectButton="true" ControlStyle-CssClass="text-decoration-none text-success" SelectText="Modificar <i class='bi bi-info-circle-fill'></i>" HeaderText="Cambiar estado " />
         </Columns>
     </asp:GridView>
     <div class="container text-center">

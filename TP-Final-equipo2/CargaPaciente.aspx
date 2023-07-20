@@ -91,7 +91,7 @@
     <div class="d-flex justify-content-center align-items-center vh-80" style="margin: 20px">
         <div class="bg-white p-3 rounded-5 text-secondary shadow w-100">
             <div class="container text-center">
-                <asp:Label ID="lblTitulo" class="welcome" runat="server" Text="Carga del nuevo Paciente..."></asp:Label>
+                <asp:Label ID="lblTitulo" class="welcome" runat="server" Text="Carga del nuevo Paciente... <i class='bi bi-person-fill-add'></i>"></asp:Label>
                 <%if (Session["AlertaMensajeok"] != null)
                     {%>
                 <div class="alert alert-success alert-dismissible fade show" id="alerta">
@@ -103,7 +103,8 @@
                 %>
 
                 <hr />
-                <asp:ValidationSummary runat="server" DisplayMode="BulletList" CssClass="text-danger fs-2 text-decoration-underline" HeaderText="Complete los campos obligatorios *" ValidationGroup="GrupoPaciente" />
+                <asp:ValidationSummary runat="server" DisplayMode="BulletList" CssClass="text-danger fs-2" HeaderText="<i class='bi bi-exclamation-triangle-fill'></i> Complete los campos obligatorios <i class='bi bi-exclamation-triangle-fill'></i>" ValidationGroup="GrupoPaciente" />
+                
                 <div class="row align-items-start">
                     <div class="col-4 mb-3">
                         <asp:Label ID="lblApellido" CssClass="form-label alert-link accordion-button" runat="server">Apellido<span style="color: red;">*</span></asp:Label>

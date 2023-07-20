@@ -65,11 +65,11 @@
         <div class="bg-white p-3 rounded-5 text-secondary shadow w-100">
 
             <div class="container text-center">
-                <asp:Label ID="lblTitulo" class="welcome" runat="server" Text="Carga de nuevo Médico..."></asp:Label>
+                <asp:Label ID="lblTitulo" class="welcome" runat="server" Text="Carga de nuevo Médico... <i class='bi bi-person-fill-add'></i>"></asp:Label>
                 <%if (Session["AlertaMensaje"] != null)
                     {%>
                 <div class="alert alert-success alert-dismissible fade show">
-                    <asp:button class="btn-close" data-bs-dismiss="alert" autopostback="false" runat="server"></asp:button>
+                    <asp:Button class="btn-close" data-bs-dismiss="alert" autopostback="false" runat="server"></asp:Button>
                     <strong>Perfecto !</strong> Medico cargado exitosamente...
                     <a href="MenuMedicos.aspx" class="alert-link">Menú de Médicos</a>
                 </div>
@@ -77,7 +77,7 @@
                     Session["AlertaMensaje"] = null;
                 %>
                 <hr />
-                <asp:ValidationSummary runat="server" DisplayMode="BulletList" CssClass="text-danger fs-2 text-decoration-underline" HeaderText="Complete los campos obligatorios *" ValidationGroup="GrupoMedico" />
+                <asp:ValidationSummary runat="server" DisplayMode="BulletList" CssClass="text-danger fs-2" HeaderText="<i class='bi bi-exclamation-triangle-fill'></i> Complete los campos obligatorios <i class='bi bi-exclamation-triangle-fill'></i>" ValidationGroup="GrupoMedico" />
                 <div class="row align-items-start">
                     <div class="col-4 mb-3">
                         <asp:Label ID="lblApellido" CssClass="form-label alert-link accordion-button" runat="server">Apellido<span style="color: red;">*</span></asp:Label>
@@ -151,16 +151,16 @@
             </div>
 
 
- <div class="container text-center">
+            <div class="container text-center">
                 <div class="row align-items-start">
                     <div class="col">
                         <div class="mb-3">
-                            
+
                             <div>
 
-                               <%--<asp:Button ID="btcontinuar" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Continuar" OnClientClick="return validar()" OnClick="btcontinuar_Click" />--%>
+                                <%--<asp:Button ID="btcontinuar" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Continuar" OnClientClick="return validar()" OnClick="btcontinuar_Click" />--%>
 
-                               <asp:Button ID="btcontinuar" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Continuar" OnClick="btcontinuar_Click" CausesValidation="true" ValidationGroup="GrupoMedico" />
+                                <asp:Button ID="btcontinuar" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Continuar" OnClick="btcontinuar_Click" CausesValidation="true" ValidationGroup="GrupoMedico" />
                             </div>
                             <div>
                                 <asp:Button ID="btnEspecialidades" runat="server" CssClass="btn btn-info text-white w-20 fw-semibold shadow-sm" Text="Ver Especialidades" OnClick="btnEspecialidades_Click" Visible="false" />
@@ -177,31 +177,30 @@
             <%if (lblmensaje.Visible == true && lblTitulo.Text != "Modificando Médico")
                 {%>
             <div class="container text-center">
-                    <h2>Especialidades</h2>
-                </div>
-                <div>
-                    <asp:GridView ID="dgvEspcialidades" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" CssClass="container table table-info w-50 table-striped-columns text-center" OnSelectedIndexChanged="dgvEspcialidades_SelectedIndexChanged">
-                        <Columns>
-                            <asp:BoundField HeaderText="ID" DataField="ID" />
-                            <asp:BoundField HeaderText="Especialidad" DataField="Nombre" />
-                            <asp:TemplateField>
-                                <HeaderTemplate>
-                                    <asp:Label ID="lblSeleccionar" runat="server" Text="Seleccionar"></asp:Label>
-                                </HeaderTemplate>
-                                <ItemTemplate>
-                                    <asp:CheckBox ID="Checked" runat="server" AutoPostBack="false" />
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <%--  
+                <h2>Especialidades</h2>
+            </div>
+            <div>
+                <asp:GridView ID="dgvEspcialidades" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" CssClass="container table table-info w-50 table-striped-columns text-center" OnSelectedIndexChanged="dgvEspcialidades_SelectedIndexChanged">
+                    <Columns>
+                        <asp:BoundField HeaderText="ID" DataField="ID" />
+                        <asp:BoundField HeaderText="Especialidad" DataField="Nombre" />
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <asp:Label ID="lblSeleccionar" runat="server" Text="Seleccionar"></asp:Label>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:CheckBox ID="Checked" runat="server" AutoPostBack="false" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <%--  
                     <asp:CheckBoxField HeaderText="Seleccionar" Visible="true" />
                     <asp:CommandField ShowSelectButton="true" SelectText="✅" HeaderText="Cargar" />
-                            --%>
-                        </Columns>
-                    </asp:GridView>
-                </div>
-                <div>
-                    <asp:Label ID="lblEspecialidad" runat="server" Text="" Visible="false"></asp:Label>
-                </div>
+                        --%>
+                    </Columns>
+                </asp:GridView>
+            </div>
+            <div>
+                <asp:Label ID="lblEspecialidad" runat="server" Text="" Visible="false"></asp:Label>
             </div>
             <%}%>
 

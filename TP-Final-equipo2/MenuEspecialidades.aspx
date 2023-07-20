@@ -4,8 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="d-flex justify-content-center align-items-center vh-80" style="margin: 20px">
-        <div class="bg-white p-3 rounded-5 text-secondary shadow w-50 text-center text-decoration-underline">
-            <h1>Menu Especialidades</h1>
+        <div class="bg-white p-3 rounded-5 text-secondary shadow w-50 text-center">
+            <h1>Menu Especialidades <i class="bi bi-journal-plus"></i></h1>
         </div>
     </div>
     <div class="container text-center w-50">
@@ -29,7 +29,7 @@
         <asp:GridView ID="dgvEspecialidades" DataKeyNames="ID" CssClass="container table table-info w-50 table-striped-columns text-center" AutoGenerateColumns="false" OnSelectedIndexChanged="dgvEspecialidades_SelectedIndexChanged" runat="server">
             <Columns>
                 <asp:BoundField HeaderText="Especialidad" DataField="Nombre" />
-                <asp:CommandField ShowSelectButton="true" ControlStyle-CssClass="text-danger text-decoration-none" SelectText="❌ ELIMINAR ❌" HeaderText="Accion" />
+                <asp:CommandField ShowSelectButton="true" ControlStyle-CssClass="text-danger text-decoration-none" SelectText="<i class='bi bi-exclamation-circle'></i> ELIMINAR <i class='bi bi-exclamation-circle'></i>" HeaderText="Eliminar" />
             </Columns>
         </asp:GridView>
     </div>
@@ -42,7 +42,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header text-center">
-                        <h1 class="modal-title fs-2" id="exampleModalLabel">Agregar Especialidad</h1>
+                        <h1 class="modal-title fs-2" id="exampleModalLabel">Agregar Especialidad <i class="bi bi-prescription2"></i></h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">

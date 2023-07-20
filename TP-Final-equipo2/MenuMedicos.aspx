@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-center align-items-center vh-80" style="margin: 20px">
         <div class="bg-white p-3 rounded-5 text-secondary shadow w-100">
             <div class="container text-center">
-                <h2>Menú de Médicos</h2>
+                <h2>Menú de Médicos <i class="bi bi-file-medical"></i></h2>
                 <hr />
                 <div class="container text-center">
                     <h3>Busqueda de Médicos</h3>
@@ -62,10 +62,10 @@
             <asp:BoundField HeaderText="FechaIngreso" DataField="FechaIngreso" DataFormatString="{0:dd/MM/yyyy}" />
             <asp:BoundField HeaderText="FechaNacimiento" DataField="FechaNacimiento" DataFormatString="{0:dd/MM/yyyy}" />
             <asp:BoundField HeaderText="Estado" DataField="Estado" />
-            <asp:CommandField ShowSelectButton="true" ControlStyle-CssClass="text-decoration-none text-success" SelectText="Modificar" HeaderText="Modificar" />
+            <asp:CommandField ShowSelectButton="true" ControlStyle-CssClass="text-decoration-none text-success" SelectText="Modificar <i class='bi bi-pencil-fill'></i>" HeaderText="Modificar" />
             <asp:TemplateField HeaderText="Eliminar">
                 <ItemTemplate>
-                    <asp:Button ID="btnEliminar" runat="server" Text="❌ ELIMINAR ❌" CommandName="EliminarMedico" CommandArgument='<%# Container.DataItemIndex %>' CssClass="text-danger text-decoration-none" />
+                    <asp:Button ID="btnEliminar" runat="server" Text="❌ ELIMINAR ❌" CommandName="EliminarMedico" CommandArgument='<%# Container.DataItemIndex %>' CssClass="text-danger border-danger-subtle" />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

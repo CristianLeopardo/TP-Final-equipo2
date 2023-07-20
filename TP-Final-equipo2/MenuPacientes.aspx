@@ -43,7 +43,7 @@
             <asp:BoundField HeaderText="Localidad" DataField="Localidad" />
             <asp:BoundField HeaderText="Provincia" DataField="Provincia" />
             <asp:BoundField HeaderText="Estado" DataField="Estado" />
-            <asp:CommandField ShowSelectButton="true" SelectText="Seleccionar" HeaderText="Accion" />
+            <asp:CommandField ShowSelectButton="true" SelectText="<i class='bi bi-pencil-fill'></i>" HeaderText="Modificar" />
         </Columns>
     </asp:GridView>
     <div class="container text-center">

@@ -45,7 +45,7 @@ namespace TP_Final_equipo2
                 if (Request.QueryString["ID"] != null)
                 {
                     ModificarPaciente(int.Parse(Request.QueryString["ID"]));
-                    lblTitulo.Text = "Modificando paciente";
+                    lblTitulo.Text = "Modificando paciente <i class='bi bi-person-gear'></i>";
                 }
                 if (Request.QueryString["Nuevo"] != null)
                 {

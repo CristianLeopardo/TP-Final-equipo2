@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-    
+
     <meta name="viewport" http-equiv="Content-Type" content="width=device-width, initial-scale=1, text/html, charset=utf-8" />
     <title>Tp Final</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -18,41 +18,58 @@
 </head>
 <body>
     <style type="text/css">
-        body{
-            background-color: lightslategray;
+        body {
+            background-color: skyblue;
         }
     </style>
     <form id="form1" runat="server">
         <div>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav class="navbar navbar-expand-lg" style="background-color: azure">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="Home.aspx"><span class="text-primary">Tecno</span>Clinica</a>
+                    <a class="navbar-brand" href="Home.aspx">
+                        <img src="Imagenes/icons8-clínica-color-hand-drawn-96.png" alt="Logo" width="45" height="32" /><span class="text-info">Tecno</span>Clinica
+                    </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarS" aria-controls="navbarS" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    
+
                     <div class="collapse navbar-collapse" id="navbarS">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="Turnos.aspx">Turnos</a>
+                                <a class="nav-link" href="Turnos.aspx">Turnos <i class="bi bi-bag-plus"></i></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="Home.aspx">Home</a>
+                                <a class="nav-link" href="Home.aspx">Home <i class="bi bi-house"></i></a>
                             </li>
                         </ul>
                     </div>
-                    <div class="collapse navbar-collapse" id="navbarS">
-                        <ul  class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
+                    <div class="collapse navbar-collapse btn-group" id="navbarS">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <%-- <li class="nav-item">
                                 <%if (Session["usuario"] != null)
                                     {%>
-                                    <a class="nav-link" href="Registrarse.aspx">Perfil</a>
+                                <a class="nav-link" href="Registrarse.aspx">Perfil <i class="bi bi-person-square"></i></a>
 
                                 <%}
                                     else
                                     {%>
-                                    <a class="nav-link" href="login.aspx">Ingresar</a>
+                                <a class="nav-link" href="login.aspx">Ingresar <i class="bi bi-person-x"></i></a>
                                 <%} %>
+                            </li>--%>
+                            <li class="nav-item dropdown-center">
+                                <%if (Session["usuario"] != null)
+                                    {%>
+                                <a class="btn nav-link" style="margin-right: 45px" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">Perfil <i class="bi bi-person-square"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                                    <li><a class="dropdown-item" href="#">Desloguearse</a></li>
+                                </ul>
+                                <%}
+                                    else
+                                    {%>
+                                <a class="nav-link" href="login.aspx">Ingresar <i class="bi bi-person-x"></i></a>
+                                <%} %>
+                                
                             </li>
                         </ul>
 

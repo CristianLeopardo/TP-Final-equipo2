@@ -75,8 +75,10 @@
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Imagenes\google-icon.svg" />
+    <Content Include="Imagenes\icons8-clínica-color-hand-drawn-96.png" />
     <Content Include="Imagenes\login-icon.svg" />
     <Content Include="Imagenes\logo-vt.svg" />
+    <Content Include="Imagenes\logoclinica.jpg" />
     <Content Include="Imagenes\password-icon.svg" />
     <Content Include="Imagenes\username-icon.svg" />
     <Content Include="Login.aspx" />

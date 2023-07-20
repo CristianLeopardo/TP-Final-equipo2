@@ -62,7 +62,7 @@
                                 <a class="btn nav-link" style="margin-right: 45px" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">Perfil <i class="bi bi-person-square"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
-                                    <li><a class="dropdown-item" href="#">Desloguearse</a></li>
+                                    <asp:Button Text="Desloguearse" CssClass="dropdown-item" ID="btnsalir" OnClick="btnsalir_Click" runat="server" />
                                 </ul>
                                 <%}
                                     else

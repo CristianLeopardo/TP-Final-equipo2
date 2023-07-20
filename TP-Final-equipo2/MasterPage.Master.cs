@@ -13,5 +13,11 @@ namespace TP_Final_equipo2
         {
 
         }
+
+        protected void btnsalir_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Login.aspx",false);
+        }
     }
 }

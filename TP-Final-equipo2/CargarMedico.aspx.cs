@@ -92,13 +92,17 @@ namespace TP_Final_equipo2
         {
             MedicoNegocio medicoNegocio = new MedicoNegocio();
             Medico nuevo = new Medico();
-            //if (ValidarVacio() == true)
-            //{
+            string cel = tbxCelular.Text.ToString();
+            string tel = tbxTelefono.Text.ToString();
+            if (!numerovalidado(cel, tel) == true)
+            {
+                return;
+            }
                 nuevo.Apellido = tbxApellido.Text;
                 nuevo.Nombre = tbxNombre.Text;
                 nuevo.Dni = int.Parse(tbxDni.Text);
-                nuevo.Celular = int.Parse(tbxCelular.Text);
-                nuevo.Telefono = int.Parse(tbxTelefono.Text);
+                nuevo.Celular = int.Parse(cel);
+                nuevo.Telefono = int.Parse(tel);
                 nuevo.Email = tbxEmail.Text;
                 nuevo.Sexo = ddlSexo.SelectedValue.ToString();
                 nuevo.fechaingreso = DateTime.Parse(FechaIngreso.Text);
@@ -122,11 +126,11 @@ namespace TP_Final_equipo2
                     if (ValidarDNI(int.Parse(tbxDni.Text)) == true && ValidarEmail(tbxEmail.Text) == true)
                     {
                     medicoNegocio.Agregar(nuevo);
+                    }
                 }
-                    
-                }
+                lblerror.Visible = false;
                 lblmensaje.Visible = true;
-            //}
+
             //else
             //{
             //    // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
@@ -143,12 +147,37 @@ namespace TP_Final_equipo2
             {
                 // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
                 Session["AlertaMensaje"] = "EMAIL EXISTENTE";
-                lblmensaje.Visible = true;
-                lblmensaje.Text = "EMAIL EXISTENTE";
+                lblerror.Visible = true;
+                lblerror.Text = "EMAIL EXISTENTE";
                 return false;
             }
             else
             { return true; }
+        }
+
+        protected bool numerovalidado(string cel, string tel)
+        {
+            foreach (char caracter in cel)
+            {
+                if (!(char.IsNumber(caracter)))
+                {
+                    Session["AlertaMensaje"] = "SOLO NÚMEROS";
+                    lblerror.Visible = true;
+                    lblerror.Text = "SOLO NÚMEROS";
+                    return false;
+                }
+            }
+            foreach (char caracter in tel)
+            {
+                if (!(char.IsNumber(caracter)))
+                {
+                    Session["AlertaMensaje"] = "SOLO NÚMEROS";
+                    lblerror.Visible = true;
+                    lblerror.Text = "SOLO NÚMEROS";
+                    return false;
+                }
+            }
+            return true;
         }
 
         protected bool ValidarDNI(int dni)
@@ -158,8 +187,8 @@ namespace TP_Final_equipo2
             {
                 // VER PORQUE NO SALE EL MENSAJE EN EL MODAL
                 Session["AlertaMensaje"] = "DNI EXISTENTE";
-                lblmensaje.Visible = true;
-                lblmensaje.Text = "DNI EXISTENTE";
+                lblerror.Visible = true;
+                lblerror.Text = "DNI EXISTENTE";
                 return false;
             }
             else

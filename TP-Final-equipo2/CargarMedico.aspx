@@ -66,12 +66,12 @@
 
             <div class="container text-center">
                 <asp:Label ID="lblTitulo" class="welcome" runat="server" Text="Carga de nuevo Médico... <i class='bi bi-person-fill-add'></i>"></asp:Label>
-                <%if (Session["AlertaMensaje"] != null)
+                <%if (Session["AlertaMensaje"] != null && lblerror.Visible == false)
                     {%>
-                <div class="alert alert-success alert-dismissible fade show">
-                    <asp:Button class="btn-close" data-bs-dismiss="alert" autopostback="false" runat="server"></asp:Button>
-                    <strong>Perfecto !</strong> Medico cargado exitosamente...
-                    <a href="MenuMedicos.aspx" class="alert-link">Menú de Médicos</a>
+                        <div class="alert alert-success alert-dismissible fade show">
+                        <asp:Button class="btn-close" data-bs-dismiss="alert" autopostback="false" runat="server"></asp:Button>
+                        <strong>Perfecto !</strong> Medico cargado exitosamente...
+                        <a href="MenuMedicos.aspx" class="alert-link">Menú de Médicos</a>
                 </div>
                 <%  }
                     Session["AlertaMensaje"] = null;
@@ -167,6 +167,7 @@
                             </div>
                             <div>
                                 <asp:Label ID="lblmensaje" runat="server" Text="" Visible="false"></asp:Label>
+                                <asp:Label ID="lblerror" runat="server" Text="" Visible="false"></asp:Label>
                             </div>
                         </div>
                     </div>
@@ -174,7 +175,7 @@
             </div>
 
 
-            <%if (lblmensaje.Visible == true && lblTitulo.Text != "Modificando Médico")
+            <%if (lblmensaje.Visible == true && lblerror.Visible == false && lblTitulo.Text != "Modificando Médico")
                 {%>
             <div class="container text-center">
                 <h2>Especialidades</h2>
@@ -182,7 +183,7 @@
             <div>
                 <asp:GridView ID="dgvEspcialidades" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" CssClass="container table table-info w-50 table-striped-columns text-center" OnSelectedIndexChanged="dgvEspcialidades_SelectedIndexChanged">
                     <Columns>
-                        <asp:BoundField HeaderText="ID" DataField="ID" />
+                        <asp:BoundField HeaderText="ID" DataField="ID"/>
                         <asp:BoundField HeaderText="Especialidad" DataField="Nombre" />
                         <asp:TemplateField>
                             <HeaderTemplate>

@@ -25,8 +25,9 @@ namespace TP_Final_equipo2
                 Response.Redirect("Error.aspx", false);
             }
             MedicoNegocio neg = new MedicoNegocio();
+            UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
             Usuario actuall = (Usuario)Session["Usuario"];
-            Medicoactual = neg.BuscarProfesional(actuall.Email);
+            Medicoactual = neg.BuscarProfesional(usuarioNegocio.BuscarEmail(actuall.User));
             //Medicoactual = 1;
             if (!IsPostBack)
             {

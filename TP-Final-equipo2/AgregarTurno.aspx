@@ -40,7 +40,7 @@
             </div>
             <div class="row align-items-center">
                 <div class="col text-center">
-                    <asp:Label ID="lblResultado" CssClass="form-label text-capitalize lead" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="lblResultado"  CssClass="form-label text-capitalize lead" runat="server" Text=""></asp:Label>
                 </div>
             </div>
             <br />

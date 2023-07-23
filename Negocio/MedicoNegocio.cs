@@ -132,16 +132,6 @@ namespace Negocio
                 {
                     Medico obj = new Medico();
                     obj.ID = (int)datos.Lector["ID"];
-                    obj.Nombre = (string)datos.Lector["Nombre"];
-                    obj.Apellido = (string)datos.Lector["Apellido"];
-                    obj.Sexo = (string)datos.Lector["Sexo"];
-                    obj.Dni = (int)datos.Lector["DNI"];
-                    obj.Telefono = (int)datos.Lector["Telefono"];
-                    obj.Celular = (int)datos.Lector["Celular"];
-                    obj.Email = (string)datos.Lector["Email"];
-                    obj.fechaingreso = (DateTime)datos.Lector["FechaIngreso"];
-                    obj.fechanacimiento = (DateTime)datos.Lector["FechaNacimiento"];
-                    obj.Estado = (bool)datos.Lector["Estado"];
                     return obj.ID;
                 }
                 return 0;
